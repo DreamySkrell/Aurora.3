@@ -354,6 +354,14 @@
 
 	roof_type = null
 
+/turf/simulated/floor/airless/Initialize(mapload)
+	. = ..()
+	var/list/rgb = list(255,255,255)
+	rgb[1] -= text2num(rustg_noise_get_at_coordinates("[100]", "[x/6]", "[y/6]")) * 100
+	rgb[2] -= text2num(rustg_noise_get_at_coordinates("[241]", "[x/6]", "[y/6]")) * 100
+	rgb[3] -= text2num(rustg_noise_get_at_coordinates("[657]", "[x/6]", "[y/6]")) * 100
+	color = rgb(rgb[1], rgb[2], rgb[3])
+
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
 	initial_gas = null
