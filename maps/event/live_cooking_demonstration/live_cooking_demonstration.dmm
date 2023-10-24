@@ -59,6 +59,9 @@
 /area/space)
 "abl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#101010101010"
 	},
@@ -128,6 +131,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/space)
+"aej" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "aep" = (
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/wood,
@@ -137,10 +149,18 @@
 /turf/simulated/floor/wood,
 /area/space)
 "aeI" = (
+/obj/structure/closet/secure_closet,
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/knife,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/material/hatchet/butch,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aff" = (
@@ -233,6 +253,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
+/area/space)
+"ahm" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
 /area/space)
 "ahF" = (
 /obj/item/material/stool/chair/folding,
@@ -480,6 +509,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"anW" = (
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "anY" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -548,7 +589,25 @@
 /turf/simulated/floor/plating,
 /area/space)
 "aqP" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/storage/box/produce{
+	pixel_y = -4
+	},
+/obj/item/storage/box/produce{
+	pixel_y = -4
+	},
+/obj/item/storage/box/produce{
+	pixel_y = -4
+	},
+/obj/item/storage/box/produce{
+	pixel_y = 3
+	},
+/obj/item/storage/box/produce{
+	pixel_y = 3
+	},
+/obj/item/storage/box/produce{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aqT" = (
@@ -707,6 +766,12 @@
 	icon_state = "blue3"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"auq" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
 /area/space)
 "auw" = (
 /obj/structure/platform{
@@ -939,11 +1004,10 @@
 /turf/simulated/floor/plating,
 /area/space)
 "azJ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10
-	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/plasteel/full,
 /turf/simulated/floor/exoplanet/barren{
-	color = "#FFFFFF"
+	color = "#DDDDDD"
 	},
 /area/space)
 "azR" = (
@@ -951,6 +1015,15 @@
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#FFFFFF"
+	},
+/area/space)
+"aAm" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
 	},
 /area/space)
 "aAN" = (
@@ -1170,14 +1243,14 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
+/obj/structure/closet/crate/internals,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#EEEEEE"
 	},
 /area/space)
 "aGx" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#FFFFFF"
 	},
@@ -1408,6 +1481,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"aNl" = (
+/obj/item/roller,
+/obj/item/roller{
+	pixel_y = 16
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "aNX" = (
 /obj/structure/railing/mapped,
 /obj/machinery/papershredder{
@@ -1434,6 +1515,12 @@
 "aOu" = (
 /obj/structure/lattice,
 /turf/simulated/floor/plating,
+/area/space)
+"aOx" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/turf/simulated/floor/tiled/full,
 /area/space)
 "aOK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1825,6 +1912,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
+/obj/structure/closet/crate/extinguisher_cartridges,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#EEEEEE"
 	},
@@ -1884,8 +1972,38 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/space)
+"bAg" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/structure/closet/crate/security,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"bNg" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#DDDDDD"
+	},
+/area/space)
 "bWz" = (
 /obj/structure/closet/crate/rad,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"caT" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
 	},
@@ -1897,6 +2015,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#DDDDDD"
+	},
+/area/space)
+"cbo" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
 	},
 /area/space)
 "ccc" = (
@@ -1933,6 +2058,21 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
+	},
+/area/space)
+"crN" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
 	},
 /area/space)
 "csw" = (
@@ -1972,6 +2112,14 @@
 	color = "#FFFFFF"
 	},
 /area/space)
+"cwY" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate,
+/obj/item/stack/material/glass/reinforced/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
 "cyr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/exoplanet/dirt_konyang{
@@ -1987,6 +2135,11 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"cyM" = (
+/obj/item/roller,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "cZq" = (
 /turf/simulated/floor/reinforced/phoron/scarce,
 /area/space)
@@ -1994,6 +2147,18 @@
 /obj/structure/lattice,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#DDDDDD"
+	},
+/area/space)
+"dfi" = (
+/obj/structure/closet/crate/security,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
 	},
 /area/space)
 "dgp" = (
@@ -2031,6 +2196,13 @@
 	color = "#EEEEEE"
 	},
 /area/space)
+"dnC" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/cardboard/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
 "drx" = (
 /obj/item/pipewrench{
 	pixel_x = 7;
@@ -2038,10 +2210,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"drP" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
 "dsI" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"dEG" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/turf/simulated/floor/tiled,
 /area/space)
 "dIB" = (
 /obj/item/wrench{
@@ -2052,6 +2236,30 @@
 "dRw" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
+/area/space)
+"dTL" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"ebs" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
 /area/space)
 "eej" = (
 /obj/structure/lattice,
@@ -2080,6 +2288,13 @@
 	color = "#CCCCCC"
 	},
 /area/space)
+"ekh" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
 "ekm" = (
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#BBBBBB"
@@ -2091,6 +2306,12 @@
 	color = "#BBBBBB"
 	},
 /area/space)
+"eom" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled,
+/area/space)
 "epn" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -2098,6 +2319,20 @@
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#DDDDDD"
 	},
+/area/space)
+"ewe" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"eES" = (
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "eJB" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -2147,6 +2382,12 @@
 	color = "#CCCCCC"
 	},
 /area/space)
+"fjG" = (
+/obj/structure/closet/crate/rad,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "fld" = (
 /obj/structure/lattice,
 /turf/simulated/floor/exoplanet/barren{
@@ -2165,12 +2406,54 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"fpX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#DDDDDD"
+	},
+/area/space)
 "fqN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/space)
+"fAa" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fAM" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"fJN" = (
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fMu" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/structure/closet/crate/security,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "fQC" = (
-/obj/structure/closet/crate/miningcart,
+/obj/structure/closet/crate/tool,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#FFFFFF"
 	},
@@ -2179,6 +2462,22 @@
 /obj/structure/lattice,
 /obj/item/wrench,
 /turf/simulated/floor/plating,
+/area/space)
+"fRi" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#101010101010"
+	},
+/area/space)
+"fTM" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
 /area/space)
 "fXx" = (
 /obj/structure/lattice,
@@ -2235,6 +2534,64 @@
 	},
 /turf/simulated/floor/exoplanet/basalt,
 /area/space)
+"gBb" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"gGW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
+"gOW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
+"gPC" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/closet/crate/solar,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"gRs" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"gXx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
 "hhW" = (
 /obj/item/stack/rods{
 	pixel_x = -9;
@@ -2263,6 +2620,12 @@
 	color = "#FFFFFF"
 	},
 /area/space)
+"hur" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
 "hNh" = (
 /obj/structure/lattice,
 /obj/item/pipewrench{
@@ -2278,6 +2641,21 @@
 	color = "#EEEEEE"
 	},
 /area/space)
+"hYc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"ikI" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "imi" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -2286,6 +2664,25 @@
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
 	},
+/area/space)
+"izm" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"iEo" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"iLO" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled,
 /area/space)
 "iPu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2324,6 +2721,24 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"jiM" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
+"jks" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "jkv" = (
 /obj/structure/lattice,
 /turf/simulated/floor/exoplanet/barren{
@@ -2342,6 +2757,12 @@
 	},
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
+	},
+/area/space)
+"jqI" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
 	},
 /area/space)
 "jtq" = (
@@ -2367,6 +2788,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/plating,
 /area/space)
+"jNN" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
 "jWE" = (
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph10"
@@ -2390,6 +2820,15 @@
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#CCCCCC"
+	},
+/area/space)
+"kcM" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
 	},
 /area/space)
 "kdk" = (
@@ -2420,7 +2859,21 @@
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"kkx" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
 /area/space)
 "kpg" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -2441,6 +2894,29 @@
 /obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#EEEEEE"
+	},
+/area/space)
+"kVo" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/security,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"kWy" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
 	},
 /area/space)
 "kYf" = (
@@ -2486,11 +2962,13 @@
 	},
 /area/space)
 "lLc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/structure/reagent_dispensers/cookingoil,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
 /area/space)
 "lMk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2515,6 +2993,26 @@
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"lSB" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"lZt" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mdt" = (
+/obj/structure/reagent_dispensers/cookingoil,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
 /area/space)
 "mqt" = (
 /obj/item/stack/rods,
@@ -2555,9 +3053,36 @@
 	color = "#EEEEEE"
 	},
 /area/space)
+"mMC" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "mPt" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/basalt,
+/area/space)
+"mUp" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"mWx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
 /area/space)
 "njw" = (
 /obj/machinery/power/portgen/basic,
@@ -2577,17 +3102,56 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"nti" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
+"nwU" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#101010101010"
+	},
+/area/space)
 "nxS" = (
 /obj/structure/closet/crate/weld,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#DDDDDD"
 	},
 /area/space)
+"nzh" = (
+/obj/structure/closet/crate/medical,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/roller,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "nNR" = (
 /obj/item/stack/rods{
 	pixel_x = 10;
 	pixel_y = 11
 	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
+"nVt" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate/weld,
 /turf/simulated/floor/exoplanet/dirt_konyang{
 	color = "#EEEEEE"
 	},
@@ -2599,6 +3163,15 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"ogW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
 /area/space)
 "ohi" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2645,8 +3218,55 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"por" = (
+/obj/structure/closet/secure_closet,
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/knife,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/material/hatchet/butch,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"prc" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"pyh" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"pBi" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "pDr" = (
 /obj/structure/closet/crate/elec,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"pMr" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
 	},
@@ -2677,6 +3297,23 @@
 	},
 /turf/simulated/floor/reinforced/phoron/scarce,
 /area/space)
+"qaa" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#DDDDDD"
+	},
+/area/space)
+"qcj" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
 "qkv" = (
 /obj/item/stack/rods{
 	pixel_x = -9;
@@ -2684,10 +3321,27 @@
 	},
 /turf/simulated/floor/exoplanet/basalt,
 /area/space)
+"qnk" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate/security,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
 "qvf" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#DDDDDD"
+	},
+/area/space)
+"qxT" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
 	},
 /area/space)
 "qAy" = (
@@ -2703,17 +3357,77 @@
 /obj/structure/lattice,
 /turf/simulated/floor/plating,
 /area/space)
+"qEV" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled,
+/area/space)
+"qHf" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
 "qOe" = (
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph15"
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"qWB" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/closet/crate/miningcart,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "res" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#BBBBBB"
 	},
+/area/space)
+"roA" = (
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"rpw" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/closet/crate,
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"rvJ" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/trauma,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"rJd" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/extinguisher_cartridges,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"rVW" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "rXr" = (
 /obj/item/stack/rods{
@@ -2722,11 +3436,53 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"rXK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#EEEEEE"
+	},
+/area/space)
 "ssX" = (
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph14"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"suP" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/tool,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"svu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
+"syv" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
 /area/space)
 "sGy" = (
 /obj/structure/lattice,
@@ -2751,9 +3507,65 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"sXG" = (
+/obj/structure/closet/crate,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "tbI" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/plating,
+/area/space)
+"tcL" = (
+/obj/structure/reagent_dispensers/cookingoil,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"tiK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
+"tjM" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"tob" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
 /area/space)
 "tra" = (
 /obj/structure/lattice,
@@ -2775,9 +3587,111 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"tFM" = (
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "tHc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/reinforced/phoron/scarce,
+/area/space)
+"tHg" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
+"tND" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"tNT" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"tWK" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"uaM" = (
+/obj/structure/closet/crate/security,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
+"ucJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
+"ufq" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uly" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
+"uts" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
+"uug" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
 /area/space)
 "uwh" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -2839,10 +3753,33 @@
 	color = "#BBBBBB"
 	},
 /area/space)
+"vpj" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
+"vrg" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/dirt_konyang{
+	color = "#FFFFFF"
+	},
+/area/space)
 "vJc" = (
 /obj/structure/lattice,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"vXu" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/plastic/full,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
 /area/space)
 "waj" = (
 /obj/structure/dispenser,
@@ -2910,6 +3847,15 @@
 	color = "#CCCCCC"
 	},
 /area/space)
+"wCj" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/closet/crate/elec,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#EEEEEE"
+	},
+/area/space)
 "wFn" = (
 /obj/item/stack/rods{
 	pixel_x = 10;
@@ -2932,6 +3878,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"wRY" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"xiz" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
+	},
+/area/space)
+"xjZ" = (
+/obj/machinery/body_scanconsole{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xuS" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 8
@@ -2951,10 +3918,36 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"xGr" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#101010101010"
+	},
+/area/space)
+"xKn" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	color = "#DDDDDD"
+	},
+/area/space)
 "xKU" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/exoplanet/barren{
 	color = "#101010101010"
+	},
+/area/space)
+"xPu" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/closet/crate/solar,
+/turf/simulated/floor/exoplanet/barren{
+	color = "#FFFFFF"
 	},
 /area/space)
 "xQS" = (
@@ -10638,11 +11631,11 @@ aab
 aab
 asE
 asE
+tHg
+tiK
 apb
 apb
-apb
-apb
-aDS
+xPu
 fQC
 bcu
 xKU
@@ -10885,7 +11878,7 @@ alX
 alX
 alX
 alX
-aaa
+alX
 aaa
 aaa
 aaa
@@ -10896,7 +11889,7 @@ aab
 asE
 asE
 aab
-apb
+svu
 aab
 bcu
 aoB
@@ -11139,7 +12132,7 @@ alX
 alX
 alX
 alX
-alX
+atg
 aaa
 aaa
 aaa
@@ -11153,7 +12146,7 @@ aab
 aab
 aab
 aab
-agd
+jiM
 bcu
 bcu
 bcu
@@ -11397,9 +12390,9 @@ alX
 alX
 alX
 atg
-aaa
-aaa
-aaa
+tcL
+tNT
+bej
 bwi
 bwi
 apb
@@ -11410,19 +12403,19 @@ apb
 apb
 agd
 agd
-agd
-agd
-agd
-agd
-agd
-agd
-abw
-abw
-abw
-abw
-abw
-abw
-abw
+uly
+gXx
+gXx
+gXx
+gXx
+gXx
+fRi
+fRi
+fRi
+fRi
+fRi
+fRi
+xGr
 wpn
 wpn
 wpn
@@ -11654,9 +12647,9 @@ alX
 alX
 atg
 atg
-atg
-atg
-atg
+mdt
+qHf
+aQl
 bol
 atg
 aab
@@ -11679,7 +12672,7 @@ wpn
 wpn
 wpn
 wpn
-abw
+nwU
 wpn
 wpn
 wpn
@@ -11936,7 +12929,7 @@ aNc
 aNc
 asE
 aaa
-bwi
+fAM
 wpn
 wpn
 wpn
@@ -12171,17 +13164,17 @@ atg
 asE
 aqP
 aAS
-aae
+qEV
 aAS
 aEy
-aYW
+lZt
 bcu
 bcu
 aRb
 aVK
 alx
 aRQ
-ahF
+aAS
 aVK
 asE
 bcu
@@ -12193,7 +13186,7 @@ aAS
 aVK
 asE
 aaa
-bwi
+fAM
 aaa
 wpn
 wpn
@@ -12426,9 +13419,9 @@ aaa
 aaa
 atg
 asE
-aVK
+por
 aAS
-aae
+iLO
 aAS
 aEy
 aYW
@@ -12438,7 +13431,7 @@ aRb
 aVK
 ahF
 aRQ
-alx
+aAS
 aVK
 asE
 bcu
@@ -12450,7 +13443,7 @@ aAS
 aVK
 asE
 aan
-bwi
+fAM
 aaa
 aaa
 wpn
@@ -12683,7 +13676,7 @@ aaa
 aaa
 aab
 asE
-aVK
+aqP
 aAS
 aRQ
 aAS
@@ -12693,7 +13686,7 @@ bcu
 bcu
 aRb
 aVK
-alx
+aAS
 aRQ
 ahF
 aVK
@@ -12950,7 +13943,7 @@ bcu
 bcu
 aRb
 aVK
-ahF
+aAS
 aRQ
 alx
 aVK
@@ -12967,11 +13960,11 @@ aan
 abl
 aan
 aaa
-aaa
-bcu
-bcu
-bcu
-bcu
+tND
+jks
+vjt
+syv
+ebs
 bcu
 bcu
 aaa
@@ -13209,7 +14202,7 @@ aRb
 aVK
 alx
 aRQ
-ahF
+aAS
 aVK
 asE
 bcu
@@ -13221,20 +14214,20 @@ aAS
 aVK
 asE
 aab
-apb
+svu
 aab
 aab
-bea
+aye
+aaa
+bcu
+bcu
+vkp
+bcu
+kWy
+qWB
 bec
-vjt
-vjt
-azJ
-bcu
-bcu
-aaa
-aaa
-aaa
-atg
+bec
+aLw
 atg
 abf
 abf
@@ -13466,7 +14459,7 @@ aRb
 aVK
 ahF
 aRQ
-alx
+aAS
 aVK
 asE
 bcu
@@ -13478,20 +14471,20 @@ ask
 ask
 asE
 aab
-apb
+svu
 aab
 aab
 akD
 aaa
 bcu
+jqI
+aGx
 bcu
-vkp
-bcu
-bcu
-aaa
-aaa
-aaa
-atg
+aDS
+izm
+auq
+lCp
+qxT
 atg
 atg
 abf
@@ -13711,7 +14704,7 @@ bcu
 agd
 bcu
 asE
-lLc
+ask
 ask
 ask
 ask
@@ -13735,7 +14728,7 @@ aab
 aab
 aab
 aab
-agd
+jiM
 bcu
 aab
 akD
@@ -13744,11 +14737,11 @@ bcu
 bcu
 vkp
 bcu
+aye
 aaa
 aaa
 aaa
-aaa
-aaa
+bgl
 atg
 atg
 abf
@@ -13952,7 +14945,7 @@ alX
 alX
 alX
 alX
-alX
+aaa
 aaa
 bcu
 bcu
@@ -13992,20 +14985,20 @@ asw
 asw
 aVb
 bcu
-agd
+jiM
 bcu
 bcu
-akD
-aab
+vrg
+drP
 bcu
-bcu
-vkp
+jqI
+aGx
 aaa
+pBi
+izm
 aaa
-aaa
-aaa
-aaa
-aaa
+auq
+bgl
 atg
 atg
 atg
@@ -14245,24 +15238,24 @@ aVb
 aVb
 aVb
 aVb
-aVb
-aVb
-aVb
+lSB
+rVW
+ikI
+xiz
+crN
 bcu
-agd
+bcu
+gGW
 bcu
 bcu
-acI
-ahb
-ahb
-ahb
+bcu
 aGx
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aej
+bby
+prc
+bby
+tWK
 aaa
 atg
 atg
@@ -14506,14 +15499,14 @@ atI
 atI
 aVb
 bcu
-agd
+jiM
 bcu
 bcu
-bcu
-bcu
-bcu
-bcu
-aaa
+acI
+uts
+ahb
+ahb
+ahm
 aaa
 aaa
 aaa
@@ -14763,7 +15756,7 @@ bcu
 bcu
 bcu
 bcu
-agd
+jiM
 bcu
 bcu
 bcu
@@ -15008,7 +16001,7 @@ asE
 aVK
 aAS
 aRQ
-aAS
+alx
 aVK
 asE
 aab
@@ -15020,7 +16013,7 @@ aNc
 aNc
 asE
 bcu
-agd
+jiM
 bcu
 bcu
 bcu
@@ -15265,7 +16258,7 @@ asE
 aVK
 aAS
 aRQ
-aAS
+ahF
 aVK
 asE
 aab
@@ -15277,7 +16270,7 @@ aAS
 aVK
 asE
 bcu
-agd
+jiM
 bcu
 bcu
 bcu
@@ -15520,7 +16513,7 @@ aKl
 aab
 asE
 aVK
-aAS
+ahF
 aRQ
 aAS
 aVK
@@ -15534,7 +16527,7 @@ aAS
 aVK
 asE
 aab
-agd
+jiM
 azj
 atI
 anO
@@ -15777,7 +16770,7 @@ aMh
 aab
 asE
 aVK
-aAS
+alx
 aRQ
 aAS
 aVK
@@ -15791,7 +16784,7 @@ aAS
 aVK
 asE
 aab
-agd
+jiM
 aIA
 aab
 aab
@@ -16036,7 +17029,7 @@ asE
 aVK
 aAS
 aRQ
-aAS
+alx
 aVK
 asE
 aab
@@ -16048,7 +17041,7 @@ aAS
 aVK
 asE
 aab
-apb
+svu
 aEA
 aab
 aab
@@ -16293,7 +17286,7 @@ asE
 aVK
 aAS
 aRQ
-aAS
+ahF
 aVK
 asE
 aab
@@ -16305,7 +17298,7 @@ aAS
 aVK
 asE
 aab
-apb
+svu
 aRI
 aab
 aab
@@ -16562,7 +17555,7 @@ ask
 ask
 asE
 aab
-apb
+svu
 aab
 aab
 aab
@@ -16819,7 +17812,7 @@ aab
 aab
 aab
 aab
-apb
+svu
 alu
 atg
 atg
@@ -17044,39 +18037,39 @@ asE
 asE
 aab
 aab
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-bol
-bol
-bol
+ucJ
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+jNN
+jNN
+ogW
 aIA
 atg
 atg
@@ -17291,17 +18284,17 @@ bcu
 bcu
 bcu
 asE
+cyM
+aNl
 aVK
 aVK
-aVK
-aVK
-aVK
-aVK
-aVK
+afu
+afu
+afu
 asE
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -17548,17 +18541,17 @@ asE
 asE
 aab
 asE
+nzh
+aAS
+aAS
+aAS
+alx
+ahF
 aVK
-aAS
-aAS
-aAS
-aAS
-aAS
-aVK
-aYW
+asE
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -17800,7 +18793,7 @@ aaa
 wpn
 wpn
 asE
-aVK
+eES
 aVK
 aYW
 aab
@@ -17815,7 +18808,7 @@ aVK
 aYW
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -18072,7 +19065,7 @@ aVK
 aYW
 apb
 apb
-apb
+svu
 aab
 aab
 aab
@@ -18314,8 +19307,8 @@ bcu
 bcu
 bcu
 asE
-aVK
-aVK
+ufq
+ufq
 aYW
 aab
 aRb
@@ -18323,13 +19316,13 @@ aVK
 aRQ
 aRQ
 aRQ
-aRQ
-aRQ
-aVK
+eom
+dEG
+fAa
 aYW
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -18576,17 +19569,17 @@ asE
 asE
 aab
 asE
-aVK
+xjZ
 aAS
 aAS
 aAS
-aAS
-aAS
-aVK
-aYW
+aOx
+wRY
+rvJ
+asE
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -18833,17 +19826,17 @@ bcu
 aab
 aab
 asE
+fJN
+ewe
 aVK
 aVK
 aVK
-aVK
-aVK
-aVK
-aVK
+afu
+afu
 asE
 aab
 aab
-apb
+svu
 aab
 aab
 aab
@@ -19091,16 +20084,16 @@ aab
 aab
 asE
 asE
-ask
-ask
+asE
 ask
 ask
 ask
 asE
 asE
+asE
 aab
 aab
-apb
+svu
 aab
 aab
 atg
@@ -19357,7 +20350,7 @@ aab
 aab
 aab
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -19614,7 +20607,7 @@ aab
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -19853,8 +20846,8 @@ bcu
 bcu
 bcu
 bcu
-bcu
-bcu
+asE
+asE
 bcu
 aab
 aab
@@ -19871,7 +20864,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -20110,25 +21103,25 @@ bcu
 bcu
 bcu
 bcu
-bcu
-bcu
-aab
-aab
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bcu
-bwi
+asE
+asE
+tHg
+lLc
+gXx
+gXx
+gXx
+gXx
+gXx
+gXx
+gXx
+mMC
 aaa
 aaa
 atg
 atg
 atg
 atg
-bol
+mWx
 bol
 bol
 bol
@@ -20367,8 +21360,8 @@ bcu
 bcu
 bcu
 bcu
-bcu
-aab
+asE
+asE
 aab
 bcu
 bcu
@@ -20378,14 +21371,14 @@ bcu
 bcu
 aaa
 aaa
-bwi
-bwi
-bwi
-bol
-bol
-bol
-bol
-bol
+gBb
+mUp
+mUp
+jNN
+jNN
+jNN
+jNN
+nti
 bol
 bol
 bol
@@ -20642,12 +21635,12 @@ atg
 atg
 atg
 atg
+mWx
 bol
 bol
 bol
 bol
 bol
-bol
 atg
 atg
 atg
@@ -20678,7 +21671,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -20899,7 +21892,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -20935,7 +21928,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 aaa
 atg
@@ -21156,7 +22149,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -21192,7 +22185,7 @@ atg
 alu
 atg
 atg
-bol
+mWx
 atg
 aaa
 aaa
@@ -21399,13 +22392,13 @@ aab
 atg
 bcu
 awp
+gRs
 bec
-bec
-bec
-bej
+iEo
+uug
 aaa
 bea
-bec
+wCj
 bec
 bec
 aLw
@@ -21413,7 +22406,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -21449,7 +22442,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 aaa
 aaa
 aaa
@@ -21655,22 +22648,22 @@ aab
 atg
 atg
 atg
-aye
+tob
+anW
+aaa
+roA
+fTM
+aaa
+suP
 aaa
 aaa
 aaa
-bgl
-aaa
-aye
-aaa
-aaa
-aaa
-bnw
+nVt
 atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -21706,7 +22699,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 aaa
 aaa
 aaa
@@ -21927,7 +22920,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -21963,7 +22956,7 @@ atg
 akv
 aVb
 atg
-bol
+mWx
 bwi
 bwi
 bwi
@@ -22169,22 +23162,22 @@ atg
 aaa
 aaa
 atg
-bgc
+qcj
 atg
+aaa
+tFM
+bgl
+aaa
+rJd
+fjG
 aaa
 aaa
 bgl
-aaa
-aye
-aaa
-aaa
-aaa
-bgl
 atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -22220,7 +23213,7 @@ atg
 avn
 aVb
 atg
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -22427,21 +23420,21 @@ aaa
 aaa
 aaa
 aFY
-aLs
+gOW
 aLs
 bby
-bca
+dTL
 aaa
 bin
 bby
 bby
-bby
+gPC
 bca
 aaa
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -22477,7 +23470,7 @@ atg
 akv
 aVb
 atg
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -22698,7 +23691,7 @@ aaa
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -22734,7 +23727,7 @@ asw
 aOK
 aVb
 atg
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -22940,8 +23933,8 @@ aaa
 aaa
 aaa
 aaa
-bea
-bec
+kWy
+qWB
 bec
 bke
 bej
@@ -22955,7 +23948,7 @@ aaa
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -22991,7 +23984,7 @@ aVb
 aVb
 aVb
 atg
-bwi
+fAM
 aaa
 aaa
 atg
@@ -23197,22 +24190,22 @@ aaa
 aaa
 aaa
 aaa
-aye
+aDS
+izm
+aaa
+lCp
+cbo
+aaa
+kVo
 aaa
 aaa
-aaa
+dfi
 bgl
-aaa
-aye
-aaa
-aaa
-aaa
-bgl
 atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -23248,7 +24241,7 @@ atg
 atg
 atg
 atg
-bwi
+fAM
 aaa
 aaa
 atg
@@ -23469,7 +24462,7 @@ bol
 bol
 bol
 bol
-bol
+mWx
 atg
 atg
 atg
@@ -23505,7 +24498,7 @@ atg
 atg
 atg
 aaa
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -23711,58 +24704,58 @@ aaa
 aaa
 aaa
 aaa
-aye
+pBi
+izm
 aaa
-aaa
-aaa
+auq
 bgl
 aaa
 aye
+uaM
 aaa
-aaa
-aaa
-bnw
+sXG
+qnk
 atg
 atg
 atg
 atg
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-apb
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bol
-bwi
-bwi
-bwi
+rXK
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+lLc
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+jNN
+mUp
+mUp
+aAm
 aaa
 aaa
 aaa
@@ -23968,22 +24961,22 @@ aaa
 aaa
 aaa
 aaa
-bin
+aej
 bby
 bby
 bby
-bca
+tWK
 aaa
-bin
+bAg
 bby
 bby
-bby
+fMu
 aQl
 atg
 atg
 atg
 atg
-bol
+mWx
 atg
 atg
 atg
@@ -24240,7 +25233,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 aYe
 aVb
@@ -24497,7 +25490,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 aQV
 aVb
@@ -24754,7 +25747,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 atg
 aVb
 aVb
@@ -25011,7 +26004,7 @@ atg
 atg
 atg
 atg
-bol
+mWx
 bol
 aVb
 aVb
@@ -25268,7 +26261,7 @@ aaa
 aaa
 aaa
 aaa
-bol
+mWx
 atg
 aVb
 aVb
@@ -25525,7 +26518,7 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 atg
 aYe
 aVb
@@ -25782,7 +26775,7 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 atg
 aQV
 aVb
@@ -26039,7 +27032,7 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -26296,7 +27289,7 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -26553,7 +27546,7 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 aaa
 aaa
 aaa
@@ -26810,32 +27803,32 @@ bwi
 bwi
 bwi
 bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bwi
-bol
-bwi
-bwi
-bol
-bol
-bol
-bol
-bwi
-bwi
-bwi
-bwi
+gBb
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+mUp
+jNN
+mUp
+mUp
+jNN
+jNN
+jNN
+jNN
+mUp
+mUp
+mUp
+mMC
 bwi
 bwi
 bwi
@@ -27083,8 +28076,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 bwi
+aaa
 atg
 atg
 aaa
@@ -27092,12 +28085,12 @@ aaa
 aaa
 aaa
 aaa
-bwi
+fAM
 aaa
 aaa
 kbr
 cpw
-abf
+bNg
 abf
 abf
 abf
@@ -27340,8 +28333,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 bwi
+aaa
 aaa
 atg
 aaa
@@ -27349,7 +28342,7 @@ aaa
 asE
 asE
 kbr
-cpw
+hYc
 kbr
 kbr
 kbr
@@ -27605,8 +28598,8 @@ kbr
 kbr
 asE
 asE
-cpw
-cpw
+caT
+pyh
 kbr
 kbr
 kbr
@@ -28370,10 +29363,10 @@ kbr
 kbr
 kbr
 abf
-kbr
-kbr
-kbr
-kbr
+csw
+csy
+csy
+ctb
 kbr
 csw
 csy
@@ -28627,10 +29620,10 @@ kbr
 abf
 abf
 abf
-kbr
-kbr
-kbr
-kbr
+xKn
+hur
+hur
+ekh
 kbr
 eJB
 njw
@@ -28641,7 +29634,7 @@ kbr
 kbr
 kbr
 kbr
-kbr
+cpw
 abf
 abf
 abf
@@ -28884,10 +29877,10 @@ kbr
 abf
 abf
 kbr
-kbr
-kbr
-kbr
-kbr
+kcM
+hur
+hur
+ekh
 kbr
 imi
 bWz
@@ -28896,11 +29889,11 @@ qvf
 cvs
 kbr
 kbr
-kbr
-kbr
-kbr
-kbr
-kbr
+csw
+csy
+csy
+csy
+ctb
 kbr
 kpg
 abf
@@ -29141,10 +30134,10 @@ abf
 abf
 abf
 kbr
+kcM
+hur
 kbr
-kbr
-kbr
-kbr
+ekh
 kbr
 cyy
 mFE
@@ -29153,11 +30146,11 @@ nxS
 cgb
 abf
 kbr
+tjM
+vpj
 kbr
 kbr
-kbr
-kbr
-kbr
+rpw
 kbr
 kpg
 kpg
@@ -29398,10 +30391,10 @@ abf
 abf
 abf
 kbr
-kbr
-kbr
-kbr
-kbr
+dgp
+dgr
+dgr
+pMr
 kbr
 dgp
 dgr
@@ -29410,11 +30403,11 @@ cgv
 cgw
 abf
 abf
+xKn
+azJ
 kbr
-kbr
-kbr
-kbr
-kbr
+vpj
+kkx
 kbr
 kbr
 kpg
@@ -29667,11 +30660,11 @@ kbr
 abf
 abf
 abf
-abf
+fpX
+vXu
 kbr
-kbr
-kbr
-kbr
+dnC
+cwY
 kbr
 kbr
 kpg
@@ -29924,11 +30917,11 @@ kbr
 kbr
 abf
 abf
-abf
-kbr
-kbr
-kbr
-kbr
+qaa
+dgr
+dgr
+dgr
+pMr
 kbr
 kbr
 kbr
@@ -44570,8 +45563,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+wks
+wks
 aaa
 aaa
 wpn
@@ -44827,7 +45820,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+wks
 aaa
 aaa
 aaa
@@ -46376,8 +47369,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+wks
+wks
 aaa
 wpn
 wpn
@@ -55574,8 +56567,8 @@ uwh
 uwh
 uwh
 uwh
-uwh
-uwh
+jkv
+jkv
 uwh
 uwh
 uwh
