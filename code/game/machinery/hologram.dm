@@ -41,8 +41,6 @@ Possible to do for anyone motivated enough:
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
 
-	var/holopad_id
-
 	var/list/active_holograms
 	var/last_request = 0 //to prevent request spam. ~Carn
 	var/holo_range = 7 // Change to change how far the AI can move away from the holopad before deactivating
@@ -70,8 +68,7 @@ Possible to do for anyone motivated enough:
 	if(current_map.use_overmap)
 		sync_linked()
 
-	get_holopad_id()
-	desc += " Its ID is '[holopad_id]'"
+	desc += " Its ID is '[get_holopad_id()]'"
 
 	SSmachinery.all_holopads += src
 
@@ -79,15 +76,15 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
-	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
+	return "[A.name] ([src.x]-[src.y]-[src.z])"
 
 /obj/machinery/hologram/holopad/examine(mob/user)
 	. = ..()
 	if(connected_pad)
 		if(established_connection)
-			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.get_holopad_id()]"))
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.get_holopad_id()]"))
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -132,7 +129,7 @@ Possible to do for anyone motivated enough:
 	data["holopad_list"] = list()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
-			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]"))
+			data["holopad_list"] += list(list("id" = H.get_holopad_id(), "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]"))
 	data["command_auth"] = has_command_auth(user)
 	data["forcing_call"] = forcing_call
 	data["call_range"] = max_overmap_call_range
@@ -216,21 +213,21 @@ Possible to do for anyone motivated enough:
 	update_icon()
 
 	if(forced_call)
-		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
-		connected_pad.notify_pdas(connected_pad.holopad_id)
-		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
+		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.get_holopad_id()].\"")
+		connected_pad.notify_pdas(connected_pad.get_holopad_id())
+		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.get_holopad_id()]."))
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()
 	else
-		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"")
-		connected_pad.notify_pdas(connected_pad.connected_pad.holopad_id) //what in the everloving fuck is connected_pad.connected_pad?
-		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
+		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.get_holopad_id()].\"")
+		connected_pad.notify_pdas(connected_pad.connected_pad.get_holopad_id()) //what in the everloving fuck is connected_pad.connected_pad?
+		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.get_holopad_id()]... Please await confirmation from recipient."))
 
 /obj/machinery/hologram/holopad/proc/notify_pdas(var/caller)
 	for(var/obj/item/modular_computer/MC in linked_pdas)
 		if(!QDELETED(MC))
-			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[caller]</b> at <b>[holopad_id]</b>!\"</span></i>")
+			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[caller]</b> at <b>[get_holopad_id()]</b>!\"</span></i>")
 			playsound(MC, 'sound/machines/chime.ogg', 25)
 		else
 			linked_pdas -= MC
@@ -470,13 +467,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	max_overmap_call_range = 6
 
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
-	holopad_id = ""
+	var/holopad_id = ""
 
 	if(current_map.use_overmap && linked)
-		holopad_id = "[linked.name] | "
+		holopad_id = "[linked.get_real_name()] | "
 
 	var/area/A = get_area(src)
 	holopad_id += "[A.name]"
+	return holopad_id
 
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)

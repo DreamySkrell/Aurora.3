@@ -204,6 +204,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		update_away_freq(name, get_real_name())
 	name = get_real_name()
 
+/// Returns the name (class/designation) of the object,
+/// as it should be seen by characters in game.
 /obj/effect/overmap/visitable/proc/get_real_name()
 	return class ? "[class] [designation]" : designation
 
