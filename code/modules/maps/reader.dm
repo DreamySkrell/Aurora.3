@@ -48,9 +48,11 @@ var/global/dmm_suite/preloader/_preloader = new
 	Master.StopLoadingMap()
 
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
-	var/tfile = dmm_file//the map file we're creating
-	if(isfile(tfile))
-		tfile = file2text(tfile)
+	var/tfile //the map file we're creating
+	if(isfile(dmm_file))
+		tfile = rustg_mapmanip_load_map("[dmm_file]")
+		if(!tfile)
+			tfile = file2text(dmm_file)
 
 	if(!x_offset)
 		x_offset = 1
