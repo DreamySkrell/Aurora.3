@@ -147,7 +147,7 @@
 		rank = GetAssignment(H, TRUE)
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
-		sex = H.gender
+		sex = H.species.get_species_record_sex(H)
 		species = H.get_species(FALSE, TRUE)
 		citizenship = H.citizenship
 		employer = H.employer_faction
@@ -217,11 +217,12 @@
 
 // Digital warrant
 /datum/record/warrant
-	var/authorization = "Unauthorized"
-	var/wtype = "Unknown"
 	name = "Unknown"
 	notes = "No charges present"
 	cmp_field = "name"
+
+	var/authorization = "Unauthorized"
+	var/wtype = "Unknown"
 
 var/warrant_uid = 0
 /datum/record/warrant/New()

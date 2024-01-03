@@ -3,7 +3,7 @@
 	icon_state = "Off"
 	layer = 2.99
 	anchored = TRUE
-	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
+	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
@@ -34,7 +34,7 @@
 		var/singleton/sign/double/B = GET_SINGLETON(sign)
 		sign_index["[B.name]"] = B
 
-	var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
+	var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
 	if(!sign_choice)
 		return
 	var/singleton/sign/double/signselect = sign_index[sign_choice]
@@ -48,7 +48,7 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
-	req_access = list(access_kitchen)
+	req_access = list(ACCESS_KITCHEN)
 	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.

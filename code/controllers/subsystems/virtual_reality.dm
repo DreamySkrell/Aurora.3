@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(virtualreality)
 
 	if(old_mob)
 		ckey_transfer(old_mob)
-		languages = list(all_languages[LANGUAGE_TCB])
+		languages = list(GLOB.all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(virtualreality)
 
 	if(old_mob)
 		ckey_transfer(old_mob)
-		speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		speech_synthesizer_langs = list(GLOB.all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -87,11 +87,8 @@ SUBSYSTEM_DEF(virtualreality)
 
 	if(old_mob)
 		ckey_transfer(old_mob)
-		languages = list(all_languages[LANGUAGE_TCB])
+		languages = list(GLOB.all_languages[LANGUAGE_TCB])
 		internal_id.access = list()
-		if(ismech(loc))
-			var/mob/living/heavy_vehicle/HV = loc
-			HV.access_card.access = list()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -104,7 +101,7 @@ SUBSYSTEM_DEF(virtualreality)
 
 	if(old_mob)
 		ckey_transfer(old_mob)
-		languages = list(all_languages[LANGUAGE_TCB])
+		languages = list(GLOB.all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 		qdel(src)
@@ -113,11 +110,11 @@ SUBSYSTEM_DEF(virtualreality)
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
 /mob/living/proc/vr_mob_exit_languages()
-	languages = list(all_languages[LANGUAGE_TCB])
+	languages = list(GLOB.all_languages[LANGUAGE_TCB])
 
 /mob/living/silicon/vr_mob_exit_languages()
 	..()
-	speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+	speech_synthesizer_langs = list(GLOB.all_languages[LANGUAGE_TCB])
 
 // Handles saving of the original mob and assigning the new mob
 /datum/controller/subsystem/virtualreality/proc/mind_transfer(var/mob/living/M, var/mob/living/target)
@@ -194,14 +191,13 @@ SUBSYSTEM_DEF(virtualreality)
 		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
 
-	var/choice = input("Please select a remote control compatible mech to take over.", "Remote Mech Selection") as null|anything in mech
+	var/choice = tgui_input_list(usr, "Please select a remote control compatible mech to take over.", "Remote Mech Selection", mech)
 	if(!choice)
 		return
 
 	var/mob/living/heavy_vehicle/chosen_mech = mech[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
-	chosen_mech.sync_access()
 
 /datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
 	var/list/robot = list()
@@ -222,7 +218,7 @@ SUBSYSTEM_DEF(virtualreality)
 		to_chat(user, SPAN_WARNING("No active remote robots are available."))
 		return
 
-	var/choice = input("Please select a remote control robot to take over.", "Remote Robot Selection") as null|anything in robot
+	var/choice = tgui_input_list(usr, "Please select a remote control robot to take over.", "Remote Robot Selection", robot)
 	if(!choice)
 		return
 
@@ -247,15 +243,15 @@ SUBSYSTEM_DEF(virtualreality)
 		to_chat(user, SPAN_WARNING("No active remote units are available."))
 		return
 
-	var/choice = input("Please select a remote control unit to take over.", "Remote Unit Selection") as null|anything in bound
+	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", bound)
 	if(!choice)
 		return
 
 	mind_transfer(user, bound[choice])
 
 /datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
-	if(virtual_reality_spawn.len)
-		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(virtual_reality_spawn))
+	if(GLOB.virtual_reality_spawn.len)
+		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(GLOB.virtual_reality_spawn))
 		H.set_species(user.species.name, 1)
 
 		H.gender = user.gender

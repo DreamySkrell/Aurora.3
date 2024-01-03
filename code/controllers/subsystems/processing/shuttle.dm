@@ -8,6 +8,8 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/ships = list()                      //List of all ships.
 	var/list/shuttles = list()                   //maps shuttle tags to shuttle datums, so that they can be looked up.
 	var/list/process_shuttles = list()           //simple list of shuttles, for processing
+
+	/// Map of shuttle landmark `landmark_tag` to the actual landmark object.
 	var/list/registered_shuttle_landmarks = list()
 	var/last_landmark_registration_time
 	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
@@ -99,7 +101,7 @@ SUBSYSTEM_DEF(shuttle)
 			try_add_landmark_tag(shuttle_landmark_tag, O)
 			landmarks_still_needed -= shuttle_landmark_tag
 		else if(istype(shuttle_landmark, /obj/effect/shuttle_landmark/automatic)) //These find their sector automatically
-			O = map_sectors["[shuttle_landmark.z]"]
+			O = GLOB.map_sectors["[shuttle_landmark.z]"]
 			if(O)
 				O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted)
 			else

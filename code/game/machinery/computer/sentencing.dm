@@ -5,7 +5,7 @@
 	icon_state = "computerw"
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list( access_brig, access_heads )
+	req_one_access = list( ACCESS_BRIG, ACCESS_HEADS )
 	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 
@@ -506,7 +506,7 @@
 		if( "change_brig" )
 			if( !incident )
 				return
-			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
+			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes.", "Brig Sentence", 0, incident.getMaxBrigSentence(), incident.getMinBrigSentence())
 			if( number < incident.getMinBrigSentence() )
 				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxBrigSentence() )
@@ -517,7 +517,7 @@
 		if( "change_fine" )
 			if( !incident )
 				return
-			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
+			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits.", "Fine", 0, incident.getMaxFine(), incident.getMinFine())
 			if( number < incident.getMinFine() )
 				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxFine() )

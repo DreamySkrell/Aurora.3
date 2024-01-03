@@ -9,12 +9,14 @@ var/list/department_radio_keys = list(
 		":n" = "Science",		".n" = "Science",
 		":m" = "Medical",		".m" = "Medical",
 		":e" = "Engineering", ".e" = "Engineering",
+		":f" = "Coalition Navy", ".f" = "Coalition Navy",
 		":s" = "Security",	".s" = "Security",
 		":q" = "Penal",		".q" = "Penal",
 		":w" = "whisper",		".w" = "whisper",
 		":t" = "Mercenary",	".t" = "Mercenary",
 		":x" = "Raider",		".x" = "Raider",
 		":b" = "Burglar",		".b" = "Burglar",
+		":k" = "Jockey",			".k" = "Jockey",
 		":j" = "Bluespace",	".j" = "Bluespace",
 		":y" = "Hailing",		".y" = "Hailing",
 		":q" = "Ninja",		".q" = "Ninja",
@@ -32,12 +34,14 @@ var/list/department_radio_keys = list(
 		":N" = "Science",		".N" = "Science",
 		":M" = "Medical",		".M" = "Medical",
 		":E" = "Engineering",	".E" = "Engineering",
+		":F" = "Coalition Navy", ".F" = "Coalition Navy",
 		":S" = "Security",	".S" = "Security",
 		":Q" = "Penal",		".Q" = "Penal",
 		":W" = "whisper",		".W" = "whisper",
 		":T" = "Mercenary",	".T" = "Mercenary",
 		":X" = "Raider",		".X" = "Raider",
 		":B" = "Burglar",		".B" = "Burglar",
+		":K" = "Jockey",			".K" = "Jockey",
 		":J" = "Bluespace",	".J" = "Bluespace",
 		":Y" = "Hailing",		".Y" = "Hailing",
 		":Q" = "Ninja",		".Q" = "Ninja",
@@ -98,7 +102,7 @@ var/list/channel_to_radio_key = new
 
 	if(HAS_FLAG(mutations, HULK))
 		var/ending = copytext(message, length(message), length(message) + 1)
-		if(ending && correct_punctuation[ending])
+		if(ending && GLOB.correct_punctuation[ending])
 			message = copytext(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
 		say_verb = pick("yells", "roars", "hollers")
@@ -318,7 +322,7 @@ var/list/channel_to_radio_key = new
 		listening = get_hearers_in_view(message_range, src)
 
 	if(client)
-		for (var/mob/player_mob in player_list)
+		for (var/mob/player_mob in GLOB.player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers

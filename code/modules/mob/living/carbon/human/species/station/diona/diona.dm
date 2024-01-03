@@ -10,7 +10,7 @@
 	total_health = 240
 	age_min = 30
 	age_max = 1000
-	default_genders = list(NEUTER)
+	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
@@ -71,9 +71,9 @@
 	has_organ = list(BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),
@@ -165,7 +165,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 

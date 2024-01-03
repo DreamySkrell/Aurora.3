@@ -9,6 +9,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
 	sectors = list(SECTOR_HANEUNIM, ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/golden_deep
 	map = "Golden Deep Merchant Vessel"
 	descriptor = "A mercantile transport vessel, registered to the Golden Deep."
@@ -99,7 +101,7 @@
 /obj/machinery/computer/shuttle_control/explore/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
-	req_access = list(access_golden_deep)
+	req_access = list(ACCESS_GOLDEN_DEEP)
 
 /datum/shuttle/autodock/overmap/golden_deep
 	name = "Golden Deep Shuttle"
