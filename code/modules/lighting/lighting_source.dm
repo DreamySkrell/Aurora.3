@@ -64,7 +64,8 @@
 	light_uv    = source_atom.uv_intensity
 	light_angle = source_atom.light_wedge
 
-	parse_light_color()
+	//parse_light_color()
+	call_ext("aurorastation_byondapi_dreamy.dll", "byond:light_source__parse_light_color")(src)
 
 	update()
 
@@ -141,19 +142,23 @@
 
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
-	if (light_color)
-		lum_r = GetRedPart   (light_color) / 255
-		lum_g = GetGreenPart (light_color) / 255
-		lum_b = GetBluePart  (light_color) / 255
-	else
-		lum_r = 1
-		lum_g = 1
-		lum_b = 1
+	// if (light_color)
+	// 	lum_r = GetRedPart   (light_color) / 255
+	// 	lum_g = GetGreenPart (light_color) / 255
+	// 	lum_b = GetBluePart  (light_color) / 255
+	// 	// lum_r = call_ext("aurorastation_byondapi_dreamy.dll", "byond:get_r_part")(light_color) / 255
+	// 	// lum_g = call_ext("aurorastation_byondapi_dreamy.dll", "byond:get_g_part")(light_color) / 255
+	// 	// lum_b = call_ext("aurorastation_byondapi_dreamy.dll", "byond:get_b_part")(light_color) / 255
+	// else
+	// 	lum_r = 1
+	// 	lum_g = 1
+	// 	lum_b = 1
 
-	if (light_uv)
-		lum_u = light_uv / 255
-	else
-		lum_u = 0
+	// if (light_uv)
+	// 	lum_u = light_uv / 255
+	// else
+	// 	lum_u = 0
+	call_ext("aurorastation_byondapi_dreamy.dll", "byond:light_source__parse_light_color")(src)
 
 #define POLAR_TO_CART_X(R,T) ((R) * cos(T))
 #define POLAR_TO_CART_Y(R,T) ((R) * sin(T))
@@ -292,7 +297,8 @@
 
 	if (source_atom.light_color != light_color)
 		light_color = source_atom.light_color
-		parse_light_color()
+		//parse_light_color()
+		call_ext("aurorastation_byondapi_dreamy.dll", "byond:light_source__parse_light_color")(src)
 		update = TRUE
 
 	else if (applied_lum_r != lum_r || applied_lum_g != lum_g || applied_lum_b != lum_b)

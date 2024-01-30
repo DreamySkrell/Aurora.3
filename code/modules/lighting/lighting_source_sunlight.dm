@@ -46,7 +46,8 @@
 
 	if (source_atom.light_color != light_color)
 		light_color = source_atom.light_color
-		parse_light_color()
+		//parse_light_color()
+		call_ext("aurorastation_byondapi_dreamy.dll", "byond:light_source__parse_light_color")(src)
 		update = TRUE
 
 	else if (applied_lum_r != lum_r || applied_lum_g != lum_g || applied_lum_b != lum_b)
