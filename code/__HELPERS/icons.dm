@@ -1007,14 +1007,15 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 /proc/icon2base64(icon/icon)
 	if (!isicon(icon))
 		return FALSE
-	var/savefile/dummySave = new("tmp/dummySave.sav")
-	to_file(dummySave["dummy"], icon)
-	var/iconData = dummySave.ExportText("dummy")
-	var/list/partial = splittext(iconData, "{")
-	. = replacetext(copytext_char(partial[2], 3, -5), "\n", "") //if cleanup fails we want to still return the correct base64
-	dummySave.Unlock()
-	dummySave = null
-	fdel("tmp/dummySave.sav") //if you get the idea to try and make this more optimized, make sure to still call unlock on the savefile after every write to unlock it.
+	return call_ext("aurorastation_byondapi_dreamy.dll", "byond:icon2base64")(icon)
+	// var/savefile/dummySave = new("tmp/dummySave.sav")
+	// to_file(dummySave["dummy"], icon)
+	// var/iconData = dummySave.ExportText("dummy")
+	// var/list/partial = splittext(iconData, "{")
+	// . = replacetext(copytext_char(partial[2], 3, -5), "\n", "") //if cleanup fails we want to still return the correct base64
+	// dummySave.Unlock()
+	// dummySave = null
+	// fdel("tmp/dummySave.sav") //if you get the idea to try and make this more optimized, make sure to still call unlock on the savefile after every write to unlock it.
 
 /// generates a filename for a given asset.
 /// like generate_asset_name(), except returns the rsc reference and the rsc file hash as well as the asset name (sans extension)
