@@ -11,10 +11,18 @@ SUBSYSTEM_DEF(codex)
 	var/list/chemistry_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
+	/// List of overmap objects (ships, away sites, ruins, planets, etc), and their names, sectors, and the like.
+	var/list/overmap_object_data = list()
+
 /datum/controller/subsystem/codex/Initialize()
 	generate_cooking_codex()
 	generate_chemistry_codex()
-	log_subsystem_codex("SScodex: [cooking_codex_data.len] cooking recipes; [chemistry_codex_data.len] chemistry recipes.")
+	generate_overmap_codex()
+	log_subsystem_codex("SScodex: \
+		[cooking_codex_data.len] cooking recipes; \
+		[chemistry_codex_data.len] chemistry recipes; \
+		[2137] overmap objects; \
+	")
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/codex/proc/generate_cooking_codex()
@@ -71,7 +79,6 @@ SUBSYSTEM_DEF(codex)
 		cooking_codex_data += list(recipe_data)
 
 /datum/controller/subsystem/codex/proc/generate_chemistry_codex()
-	chemistry_codex_data = list()
 	for(var/chem_path in SSchemistry.chemical_reactions_clean)
 		if(chemistry_codex_ignored_reaction_path && is_path_in_list(chem_path, chemistry_codex_ignored_reaction_path))
 			continue
@@ -118,3 +125,68 @@ SUBSYSTEM_DEF(codex)
 		reactionData["temp_max"] = CR.required_temperature_max
 
 		chemistry_codex_data += list(reactionData)
+
+/datum/controller/subsystem/codex/proc/generate_overmap_codex()
+	if(!SSatlas.current_map.use_overmap)
+		return
+
+	// var/datum/space_sector/current_sector = SSatlas.current_sector
+
+	// ships and away sites
+	for(var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
+		overmap_object_data += list(list(
+			"kind"=(site.ship_cost ? "ship" : "site"),
+			"path"="[site.type]",
+			"name"=site.name,
+			"desc"=site.description,
+			"ship_cost"=site.ship_cost,
+			"spawn_cost"=site.spawn_cost,
+			"spawn_weight"=site.spawn_weight,
+			"sectors"=site.sectors,
+			"guaranteed"=(site.template_flags&TEMPLATE_FLAG_SPAWN_GUARANTEED),
+		))
+
+	// planets
+	// sites and ruins have defined `sectors` var to decide where they spawn
+	// but planets instead are the other way around - sectors define their planets
+	// so have to iterate over sectors to get planets
+	var/list/planets = list()
+	for(var/sector_id in SSatlas.possible_sectors)
+		var/datum/space_sector/sector = SSatlas.possible_sectors[sector_id]
+		var/list/planet_paths = sector.possible_exoplanets// + sector.guaranteed_exoplanets
+		for(var/planet_path in planet_paths)
+			var/obj/effect/overmap/visitable/sector/exoplanet/planet = planet_path
+			if(planets["[planet_path]"])
+				planets["[planet_path]"]["sectors"]+=sector.name
+			else
+				planets += list("[planet_path]"=list(
+					"kind"="planet",
+					"path"="[initial(planet.type)]",
+					"name"=initial(planet.name),
+					"desc"=initial(planet.desc),
+					"sectors"=list(sector.name),
+				))
+	for(var/planet_path in planets)
+		overmap_object_data += list(planets[planet_path])
+
+	// planet/asteroid ruins
+	for(var/ruin_id in SSmapping.exoplanet_ruins_templates)
+		var/datum/map_template/ruin/exoplanet/ruin = SSmapping.exoplanet_ruins_templates[ruin_id]
+		overmap_object_data += list(list(
+			"kind"="ruin",
+			"path"="[ruin.type]",
+			"name"=ruin.name,
+			"desc"=ruin.description,
+			"ship_cost"=ruin.ship_cost,
+			"spawn_cost"=ruin.spawn_cost,
+			"spawn_weight"=ruin.spawn_weight,
+			"sectors"=ruin.sectors,
+			"guaranteed"=(ruin.template_flags&TEMPLATE_FLAG_SPAWN_GUARANTEED),
+		))
+
+
+
+	overmap_object_data = overmap_object_data
+	overmap_object_data = overmap_object_data
+	overmap_object_data = overmap_object_data
