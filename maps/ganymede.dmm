@@ -387,6 +387,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "abf" = (
@@ -660,8 +663,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "abS" = (
@@ -740,8 +747,14 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "ace" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -801,15 +814,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
-"acm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -908,8 +912,12 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "acw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "acx" = (
@@ -1075,6 +1083,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"ade" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "adf" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -1088,6 +1105,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"adh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"adi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"adj" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "adk" = (
 /obj/structure/sink{
@@ -1152,6 +1194,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"adr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "adt" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1161,6 +1212,24 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/reinforced,
+/area/space)
+"adv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"adw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "adx" = (
 /obj/structure/closet/secure_closet/operations_manager,
@@ -1416,6 +1485,21 @@
 "aee" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/trashcart,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"aef" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aeg" = (
@@ -1440,6 +1524,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"aej" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "ael" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -1461,6 +1554,15 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/reinforced,
+/area/space)
+"aeo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "aep" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
@@ -1517,6 +1619,24 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"aex" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"aey" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "aez" = (
 /obj/structure/table/wood,
@@ -1712,6 +1832,18 @@
 /obj/item/hullbeacon/green,
 /turf/template_noop,
 /area/space)
+"afa" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "afb" = (
 /obj/effect/floor_decal/corner/brown,
 /obj/machinery/mineral/processing_unit_console{
@@ -1720,6 +1852,15 @@
 	pixel_x = 32
 	},
 /obj/structure/ore_box,
+/turf/simulated/floor/tiled,
+/area/space)
+"afc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "afd" = (
@@ -1740,11 +1881,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"afg" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "afh" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
 /obj/machinery/door/window/eastright,
+/turf/simulated/floor/tiled,
+/area/space)
+"afi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "afj" = (
@@ -1759,6 +1918,18 @@
 	},
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded,
+/turf/simulated/floor/tiled,
+/area/space)
+"afl" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "afm" = (
@@ -1789,6 +1960,15 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/space)
+"afq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "afr" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -1803,6 +1983,18 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/space)
+"aft" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "afu" = (
@@ -2025,6 +2217,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"agh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "agi" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -2082,6 +2283,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"agq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "agr" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
@@ -2126,6 +2339,15 @@
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"agy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "agz" = (
 /obj/effect/floor_decal/corner/orange{
@@ -2310,8 +2532,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"aha" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/security,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ahb" = (
 /turf/simulated/wall/shuttle/scc,
+/area/space)
+"ahc" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "ahd" = (
 /obj/effect/floor_decal/corner/green/full{
@@ -2331,6 +2575,15 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"ahg" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "ahh" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -2386,12 +2639,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"ahp" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "ahq" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/suspension_gen{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
+/area/space)
+"ahr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "ahs" = (
 /obj/structure/tank_wall/oxygen{
@@ -2634,6 +2906,15 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"aik" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "ail" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -2647,6 +2928,18 @@
 	},
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"ain" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "aip" = (
 /obj/machinery/seed_storage/garden,
@@ -2894,6 +3187,29 @@
 /obj/structure/table/glass,
 /turf/simulated/floor/wood,
 /area/space)
+"aja" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"ajb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"ajc" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/space)
 "aje" = (
 /obj/machinery/door/airlock{
 	dir = 4
@@ -2901,10 +3217,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ajf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2941,6 +3260,15 @@
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"ajn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "ajp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3186,6 +3514,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"akf" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"akh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "aki" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -3211,6 +3560,15 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"akk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "akl" = (
 /obj/machinery/papershredder,
@@ -3480,6 +3838,15 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
+/area/space)
+"ala" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "alb" = (
 /obj/structure/window/reinforced{
@@ -4195,6 +4562,12 @@
 "aob" = (
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -4955,7 +5328,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aqw" = (
@@ -5492,8 +5867,12 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "asy" = (
@@ -5637,8 +6016,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "asW" = (
@@ -10697,6 +11080,9 @@
 /obj/item/modular_computer/laptop/preset/security{
 	pixel_y = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aKK" = (
@@ -15063,6 +15449,28 @@
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/tiled,
 /area/space)
+"buJ" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"cbm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "cgh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -15073,29 +15481,57 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/space)
+"cvZ" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/security{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "djj" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "erz" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "eGu" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "eTX" = (
 /obj/effect/floor_decal/corner/brown,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "fvb" = (
@@ -15108,10 +15544,23 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
+"gFx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "gHz" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "hQZ" = (
@@ -15124,8 +15573,12 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "lHa" = (
@@ -15151,15 +15604,21 @@
 /obj/machinery/door/airlock/mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mKN" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/mining,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mYp" = (
@@ -15167,7 +15626,9 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "nka" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "odA" = (
@@ -15179,40 +15640,133 @@
 "oqA" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"pcm" = (
+"oxX" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"oJk" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/security,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pcd" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"pcm" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "phn" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
+/area/space)
+"pjo" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"pFb" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"qkV" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"qsY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "qGy" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "rgT" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "rpu" = (
@@ -15223,8 +15777,12 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "sWo" = (
@@ -15235,8 +15793,12 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "uuB" = (
@@ -15249,16 +15811,24 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "uyk" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/mining,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "uzJ" = (
@@ -15269,23 +15839,33 @@
 /obj/machinery/door/airlock/mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "vTE" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "xan" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 
@@ -42613,7 +43193,7 @@ aVR
 aVR
 axt
 aZX
-acw
+aik
 ahf
 azp
 azp
@@ -43641,10 +44221,10 @@ axN
 ame
 are
 aZX
-acw
+ade
 mKN
 eGu
-eGu
+adh
 aXo
 are
 aVz
@@ -43893,15 +44473,15 @@ aQv
 api
 aJp
 cpj
-acw
-acw
-acw
+adi
+aja
+aja
 uyk
-acw
-hSh
+aja
+afa
 are
 amL
-eGu
+adw
 aXo
 are
 aks
@@ -44184,8 +44764,8 @@ aAl
 aVy
 are
 aDy
-azp
-anq
+uuB
+pjo
 acA
 are
 aAf
@@ -44437,16 +45017,16 @@ acA
 acA
 acA
 are
-aAl
-aVy
+cgh
+uuB
 are
 atq
-azp
+abe
 aKJ
 aGc
 are
 aAl
-azp
+uuB
 acA
 are
 apq
@@ -44694,17 +45274,17 @@ afs
 avt
 asK
 are
+aeo
+gFx
+are
+are
+cvZ
+are
+are
+are
 aAl
-aVy
-are
-are
-aWl
-are
-are
-are
-aAl
-aUj
-azp
+cbm
+fxX
 aBH
 apq
 aEd
@@ -44937,7 +45517,7 @@ azp
 aXo
 are
 rpu
-acw
+aef
 odA
 aFj
 aJi
@@ -44951,16 +45531,16 @@ azY
 aUj
 aoV
 aDc
-ayx
-aoV
-avt
-avt
-azp
-avt
-avt
-aDc
-ayx
-aUj
+pFb
+ace
+pcm
+pcm
+ajc
+pcm
+pcm
+aha
+pcd
+ahr
 aYI
 are
 apq
@@ -45177,24 +45757,24 @@ afD
 aeX
 axt
 adx
-acw
-acw
+aej
+aja
 uyk
-acw
-acw
-acw
-hSh
+aja
+aex
+aey
+afa
 are
 are
 uzJ
 are
 are
 mYp
-acw
+afc
 fxX
 are
 rpu
-acw
+afg
 odA
 azp
 azp
@@ -45208,11 +45788,11 @@ anW
 aUj
 aKB
 aDc
-aFI
+oxX
 aKB
 azP
 azP
-azp
+aik
 azP
 azP
 aDc
@@ -45443,15 +46023,15 @@ hQZ
 sut
 oqA
 uuR
-acw
+afi
 uuR
-uuR
+afl
 vTE
-acw
-sut
+afq
+aft
 oqA
 vTE
-acw
+agh
 aBf
 axN
 axN
@@ -45465,11 +46045,11 @@ aIK
 aWx
 aBN
 are
-aAl
+adv
 aVy
 are
 are
-aWl
+cvZ
 are
 are
 are
@@ -45702,7 +46282,7 @@ aGn
 agZ
 agZ
 agZ
-acw
+aik
 agZ
 agZ
 agZ
@@ -45722,11 +46302,11 @@ are
 are
 are
 are
-aAl
+adv
 aVy
 are
 aKg
-azp
+aik
 ajg
 aom
 are
@@ -45979,12 +46559,12 @@ azp
 azp
 azp
 aDc
-azp
+aik
 aVy
 are
 aUA
-aih
-azp
+adj
+fxX
 atV
 are
 app
@@ -46043,7 +46623,7 @@ aJi
 are
 aYg
 azp
-ajf
+aik
 aYg
 axt
 aVR
@@ -46210,13 +46790,13 @@ aXG
 are
 acG
 amz
-sut
+agq
 ame
 aUI
 aCs
 afj
 phn
-acw
+agy
 aWY
 are
 ahJ
@@ -46236,11 +46816,11 @@ azp
 azp
 azp
 are
-aAl
+adv
 aVy
 are
 abt
-anq
+ahg
 aih
 azp
 aDc
@@ -46464,10 +47044,10 @@ axt
 aAO
 aXp
 asV
-pcm
-acw
+afH
+aja
 gHz
-gHz
+ahc
 aXo
 aUV
 aGG
@@ -46493,8 +47073,8 @@ azp
 azp
 azp
 are
-aAl
-aVy
+ain
+odA
 are
 apJ
 ays
@@ -46750,7 +47330,7 @@ azp
 azp
 azp
 are
-aAl
+adv
 aVy
 are
 are
@@ -47007,16 +47587,16 @@ azp
 azp
 azp
 aDc
-azp
-azp
-azp
-aDc
-azp
-azp
+ahp
+aja
+aja
+aha
+ajb
+cgh
 auu
 auu
 afp
-azp
+uuB
 aJI
 are
 aeD
@@ -47264,17 +47844,17 @@ are
 are
 are
 are
-aAl
+ajf
 aVy
 aqX
 are
 aee
-azp
-azp
-azp
-azp
-azp
-azp
+acw
+aja
+aja
+aja
+ajn
+ajb
 are
 apq
 aEd
@@ -47521,8 +48101,8 @@ aDy
 azp
 aDy
 are
-aAl
-aVy
+akf
+fxX
 are
 are
 are
@@ -47531,7 +48111,7 @@ are
 aKQ
 aKQ
 auu
-azp
+aik
 are
 apq
 aEd
@@ -47775,10 +48355,10 @@ aLj
 aPl
 are
 aDy
-azp
-azp
+aKD
+aSv
 are
-aAl
+ajf
 aVy
 are
 akV
@@ -47788,7 +48368,7 @@ are
 are
 are
 are
-avL
+acr
 are
 apq
 aEd
@@ -48032,20 +48612,20 @@ aLj
 aPl
 are
 ash
-anq
-azp
-aDc
-azp
-azp
-aDc
-azp
-arZ
-aoV
+qkV
+akh
+aha
+adr
+akk
+oJk
+akk
+buJ
+ala
 avt
 ajY
 are
 akt
-aEd
+qsY
 are
 apq
 aEd
@@ -48296,8 +48876,8 @@ aAl
 aVy
 are
 aAl
-azp
-azp
+lHa
+hQZ
 ajg
 ash
 are
@@ -50586,11 +51166,11 @@ xan
 oqA
 xan
 xan
-acw
+aja
 xan
 xan
 xan
-acw
+aja
 avg
 aEQ
 aDu
@@ -51902,7 +52482,7 @@ aWl
 aWl
 are
 aJi
-ajf
+aik
 are
 axt
 aVR
@@ -52115,10 +52695,10 @@ aDj
 aYL
 alR
 aho
-abe
+nka
 azp
 azp
-ace
+adw
 alR
 are
 awZ
@@ -52372,7 +52952,7 @@ aDj
 aHz
 aUK
 aPH
-abe
+nka
 azp
 azp
 ayD
@@ -52632,7 +53212,7 @@ aPr
 aCU
 aTG
 ajA
-ace
+adw
 adE
 awZ
 aXQ
@@ -53659,7 +54239,7 @@ ahL
 ach
 aal
 aap
-acm
+akk
 acp
 acp
 abo
