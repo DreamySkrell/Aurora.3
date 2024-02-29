@@ -18,6 +18,12 @@ SUBSYSTEM_DEF(atlas)
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
+
+	///
+	var/starmap_current_position = list(-5,15)
+	///
+	var/datum/starmap/starmap
+
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
 	var/list/naval_to_dir = list(
@@ -211,6 +217,9 @@ SUBSYSTEM_DEF(atlas)
 		current_sector = selected_sector
 
 	current_sector.setup_current_sector()
+
+	starmap = new /datum/starmap
+	starmap.setup()
 
 	return SS_INIT_SUCCESS
 
