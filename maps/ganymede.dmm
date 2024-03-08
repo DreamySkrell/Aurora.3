@@ -7421,6 +7421,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/plating,
 /area/space)
 "auB" = (
@@ -8109,11 +8110,11 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -9189,7 +9190,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/closet/crate/trashcart,
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/plating,
 /area/space)
 "aAo" = (
@@ -9419,12 +9423,12 @@
 /area/space)
 "aAX" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/hullbeacon/green{
-	pixel_y = -8;
-	pixel_x = 9
-	},
 /obj/machinery/iff_beacon/name_change{
 	pixel_y = 12
+	},
+/obj/item/hullbeacon/green{
+	pixel_y = -8;
+	pixel_x = 8
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -9928,9 +9932,6 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "aCK" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -13861,10 +13862,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump/supply/on,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "aQJ" = (
@@ -14623,9 +14626,6 @@
 /area/space)
 "aTo" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/blast/regular{
-	dir = 2
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -14634,6 +14634,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -16663,6 +16669,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"bwW" = (
+/obj/structure/bed/stool/chair/sofa/right/orange,
+/turf/simulated/floor/carpet/lightblue,
+/area/space)
 "bAP" = (
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -10;
@@ -17078,6 +17088,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"fio" = (
+/obj/structure/bed/stool/chair/sofa/orange{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/space)
 "fjU" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -17092,6 +17108,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"foN" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red{
+	pixel_y = -8;
+	pixel_x = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "fsg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -17582,6 +17606,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"jGV" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/orange,
+/turf/simulated/floor/carpet/lightblue,
+/area/space)
 "jPK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -17598,6 +17626,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"jWQ" = (
+/obj/structure/bed/stool/chair/sofa/left/orange{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/space)
 "jYN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -17606,6 +17640,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"kch" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/lightblue,
 /area/space)
 "kjr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -17678,12 +17716,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"kyx" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 1
+"kxK" = (
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
 	},
-/obj/structure/bed/stool/chair/folding,
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/space)
+"kyx" = (
+/turf/simulated/floor/carpet/lightblue,
 /area/space)
 "kzo" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
@@ -17744,11 +17785,10 @@
 /turf/simulated/floor/wood,
 /area/space)
 "lhY" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 8
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/space)
 "lku" = (
 /obj/structure/cable{
@@ -17808,6 +17848,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
+/area/space)
+"lNA" = (
+/obj/machinery/atmospherics/binary/pump/supply/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump/scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "lNI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17931,6 +17987,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"mGG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "mKN" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -18018,11 +18081,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "nxp" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -18882,6 +18945,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/airless,
 /area/space)
+"udx" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/wood,
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "ufZ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
@@ -19117,11 +19193,11 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "vFo" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -19409,6 +19485,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"xQw" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/green{
+	pixel_y = -8;
+	pixel_x = -8
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "xTU" = (
 /obj/machinery/door/airlock/glass,
@@ -44455,7 +44539,7 @@ uPC
 ahb
 ahb
 ahb
-aVR
+foN
 aVR
 aVR
 aVR
@@ -46768,7 +46852,7 @@ ahb
 ahb
 ahb
 ahb
-aVR
+xQw
 aVR
 aVR
 axt
@@ -53705,9 +53789,9 @@ aVR
 aVR
 aVR
 axt
-are
-arv
-are
+lhY
+lNA
+kxK
 are
 akP
 akP
@@ -54563,7 +54647,7 @@ rpu
 ams
 odA
 are
-mYp
+mGG
 kxE
 fxX
 are
@@ -56101,7 +56185,7 @@ are
 rpu
 apd
 are
-rpu
+udx
 vFo
 nxp
 odA
@@ -56358,10 +56442,10 @@ are
 mYp
 apg
 are
-azp
+bwW
 kyx
-lhY
-aHs
+kyx
+kch
 are
 atb
 aiP
@@ -56615,10 +56699,10 @@ are
 awK
 akm
 are
-aqX
-abv
-abK
-abK
+jGV
+fio
+jWQ
+kch
 are
 aqX
 aiP
