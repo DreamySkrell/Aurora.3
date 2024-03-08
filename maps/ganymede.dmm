@@ -1853,9 +1853,6 @@
 /turf/template_noop,
 /area/space)
 "afa" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
 	},
@@ -1865,7 +1862,8 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/space)
 "afb" = (
 /obj/effect/floor_decal/corner/brown,
@@ -10210,6 +10208,18 @@
 	pixel_y = 12
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -12
+	},
+/obj/item/pen{
+	pixel_x = -12;
+	pixel_y = 8
+	},
+/obj/item/pen{
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aDF" = (
@@ -13722,6 +13732,14 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/pen{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "aQi" = (
@@ -16724,6 +16742,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/space)
+"cpH" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/structure/closet/secure_closet,
+/turf/simulated/floor/tiled,
+/area/space)
 "cuG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -16755,6 +16778,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/space)
+"cyn" = (
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/space)
 "czg" = (
@@ -18209,6 +18236,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"oQB" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/paper_bin{
+	pixel_y = -8
+	},
+/obj/item/pen{
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "pcd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -18341,6 +18378,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/wall/shuttle/scc,
+/area/space)
+"qfH" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/pen{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "qhm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -18750,6 +18799,18 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"thC" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/pen/fountain/captain{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "tiz" = (
 /obj/effect/floor_decal/corner/grey{
@@ -19294,6 +19355,18 @@
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled,
+/area/space)
+"xBB" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/pen/fountain/black{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "xCk" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
@@ -45754,9 +45827,9 @@ axt
 are
 are
 are
+cpH
 aYs
-aYs
-azp
+cpH
 axt
 aVR
 aVR
@@ -46012,7 +46085,7 @@ are
 are
 are
 are
-anh
+aDh
 are
 axt
 aVR
@@ -46270,7 +46343,7 @@ akx
 akx
 akx
 azp
-azp
+alY
 axt
 aVR
 aVR
@@ -46780,14 +46853,14 @@ ayf
 aSW
 amv
 are
-azp
+ajW
 ajW
 aDY
 awK
 azp
-aWG
-azp
-azp
+aDc
+aYs
+aGy
 axt
 aVR
 aVR
@@ -48327,7 +48400,7 @@ agC
 agC
 aiP
 aUB
-azp
+alY
 are
 aiP
 aUB
@@ -49098,7 +49171,7 @@ aUk
 aUk
 aiP
 aUB
-azp
+alY
 are
 aYg
 aiP
@@ -50377,12 +50450,12 @@ anw
 aRd
 aZA
 are
-azp
+ajW
 ajW
 aDY
 awK
-aRX
-amO
+azp
+aUB
 aqX
 are
 are
@@ -50638,8 +50711,8 @@ aYs
 aYs
 aRX
 aRP
-aUB
 azp
+aUB
 aFj
 are
 aYM
@@ -50895,8 +50968,8 @@ aUk
 aUk
 aUk
 aiP
-aUB
-azp
+aRX
+amO
 aJi
 are
 aeb
@@ -51706,7 +51779,7 @@ are
 aNj
 irY
 aNj
-azp
+cyn
 aqX
 aDj
 aDj
@@ -52734,7 +52807,7 @@ are
 aed
 tDb
 aed
-azp
+cyn
 aqX
 aDj
 aDj
@@ -53644,13 +53717,13 @@ aDh
 are
 are
 afQ
-aKL
+qfH
 pjo
 aYk
 are
 aZz
 pjo
-aKL
+qfH
 afQ
 are
 apq
@@ -53749,9 +53822,9 @@ azp
 are
 aqX
 utf
-aVn
+cyn
 are
-aSA
+cyn
 aUj
 aqX
 are
@@ -55702,7 +55775,7 @@ aDE
 lnt
 ayu
 aSR
-aSR
+oQB
 aSR
 aSR
 apu
@@ -56474,7 +56547,7 @@ dPj
 avg
 aBX
 are
-aKL
+qfH
 axB
 aKL
 fFJ
@@ -56985,7 +57058,7 @@ agW
 are
 anb
 aKL
-aKL
+xBB
 auY
 are
 auY
@@ -58769,17 +58842,17 @@ aVR
 aDj
 aII
 aKL
-aKL
+thC
 ack
 hQZ
 are
+qfH
 aYW
-aKL
 auY
 are
 auY
 aZD
-aKL
+qfH
 are
 are
 axt
