@@ -1,4 +1,6 @@
 
+// --------------------- core
+
 /obj/machinery/power/nuclear
 	name = "nuclear reactor"
 	desc = "You aren't supposed to see this."
@@ -11,10 +13,11 @@
 	var/internal_heat_max_gain = 1 MEGAWATTS
 	/// Stored thermal energy in the reactor, to transfer to the air.
 	var/internal_heat = 0 KILOWATTS
+	///
+	var/melting_point = 2 MEGAWATTS
 	/// Control rod height, 0.0 being lowest, 1.0 being highest.
-	/// Lower means less reactivity and heat, higher means more.
+	/// Lower height means less reactivity and heat, higher means more.
 	var/control_rod_height = 0.0
-
 
 /obj/machinery/power/nuclear/process()
 	// adjust internal heat
