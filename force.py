@@ -26,9 +26,20 @@ for root, dirs, files in os.walk("D:/Git/Aurora.3"):
                     n = get_trailing_number(res.group(0))
                     print("####", n)
 
+                    n_old = n
+                    n_new = n
+                    if n in range(5, 10):
+                        n_new = n*2.25
+                    elif n in range(10, 20):
+                        n_new = n*2.25
+                    elif n in range(20, 30):
+                        n_new = n*2.25
+                    elif n in range(30, 40):
+                        n_new = n*2.25
+
                     with open(file_full_path, 'r') as file:
                         filedata = file.read()
-                    filedata = filedata.replace(res.group(0), '\tforce = '+(n*2))
+                    filedata = filedata.replace(res.group(0), '\tforce = '+str(n_new))
                     with open(file_full_path, 'w') as file:
                         file.write(filedata)
         except Exception as e:
