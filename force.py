@@ -31,11 +31,13 @@ for root, dirs, files in os.walk("D:/Git/Aurora.3"):
                     if n in range(5, 10):
                         n_new = n*2.25
                     elif n in range(10, 20):
-                        n_new = n*2.25
+                        n_new = n*1.5
                     elif n in range(20, 30):
-                        n_new = n*2.25
+                        n_new = n*1.25
                     elif n in range(30, 40):
-                        n_new = n*2.25
+                        n_new = n*1.1
+
+                    print(n_old, ' -> ', n_new)
 
                     with open(file_full_path, 'r') as file:
                         filedata = file.read()
