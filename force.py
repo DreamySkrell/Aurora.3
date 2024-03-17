@@ -23,11 +23,12 @@ for root, dirs, files in os.walk("D:/Git/Aurora.3"):
             for res in re.finditer(rx, file_str):
                 if res.group(0):
                     print("--",filename,'\t\t',res.group(0))
-                    print("####", get_trailing_number(res.group(0)))
+                    n = get_trailing_number(res.group(0))
+                    print("####", n)
 
                     with open(file_full_path, 'r') as file:
                         filedata = file.read()
-                    filedata = filedata.replace(res.group(0), '\tforce = '+get_trailing_number(res.group(0)*2))
+                    filedata = filedata.replace(res.group(0), '\tforce = '+(n*2))
                     with open(file_full_path, 'w') as file:
                         file.write(filedata)
         except Exception as e:
