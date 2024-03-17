@@ -44,3 +44,5 @@ for root, dirs, files in os.walk("D:/Git/Aurora.3"):
                         file.write(filedata)
         except Exception as e:
             continue
+
+# @@(force = (([0-9]*[.])?[0-9]+))@@
