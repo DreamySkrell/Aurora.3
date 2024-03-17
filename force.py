@@ -39,7 +39,7 @@ for root, dirs, files in os.walk("D:/Git/Aurora.3"):
 
                     with open(file_full_path, 'r') as file:
                         filedata = file.read()
-                    filedata = filedata.replace(res.group(0)+'$', '\tforce = '+str(n_new))
+                    filedata = filedata.replace(res.group(0), '\t@@force = '+str(n_new)+'@@')
                     with open(file_full_path, 'w') as file:
                         file.write(filedata)
         except Exception as e:
