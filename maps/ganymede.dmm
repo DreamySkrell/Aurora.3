@@ -1225,7 +1225,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/shipsensors,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/airless,
 /area/space)
 "adt" = (
@@ -1626,9 +1625,6 @@
 "aet" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/space)
 "aeu" = (
@@ -7080,12 +7076,10 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "atn" = (
-/obj/effect/floor_decal/corner/grey/full{
-	dir = 4
-	},
-/obj/structure/closet/crate/bin/filled,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
 /area/space)
 "ato" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -17157,9 +17151,6 @@
 /area/space)
 "dUW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
@@ -17370,11 +17361,12 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "fyx" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/ore_box,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/space)
 "fzh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -18370,20 +18362,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "msD" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/space)
 "mwA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/scc,
+/turf/simulated/floor/tiled,
 /area/space)
 "mxv" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -18481,6 +18472,12 @@
 	},
 /obj/structure/bed/stool/padded/blue,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"mPt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/scc,
 /area/space)
 "mTd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19494,10 +19491,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "tnT" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "trz" = (
@@ -19556,9 +19552,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "udi" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/turf/simulated/floor/airless,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "udx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -19728,10 +19728,13 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "uPC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = -4
 	},
-/turf/simulated/wall/shuttle/scc,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
 /area/space)
 "uQT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -19942,13 +19945,10 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "vUG" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/machinery/door/window/northleft{
+	pixel_y = -4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/space)
 "wad" = (
 /obj/structure/table/steel,
@@ -19972,9 +19972,6 @@
 "wfD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20155,7 +20152,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -20213,6 +20210,9 @@
 /obj/item/hullbeacon/green{
 	pixel_y = -8;
 	pixel_x = -8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -45250,14 +45250,14 @@ aVR
 aVR
 aVR
 ajy
-udi
+aHp
 ads
-amy
-amy
-amy
-amy
-amy
-uPC
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
 ahb
 ahb
 ahb
@@ -45771,7 +45771,7 @@ azq
 azq
 ahb
 aCl
-tnT
+aCl
 aCl
 tab
 aXD
@@ -46028,7 +46028,7 @@ aev
 aQc
 ahf
 axN
-msD
+axN
 aqx
 sDb
 qbS
@@ -46542,7 +46542,7 @@ aMv
 aMv
 ahb
 ank
-vUG
+agZ
 vjm
 agZ
 aYd
@@ -46799,10 +46799,10 @@ ahb
 ahb
 ahb
 ucX
-fyx
+aCl
 wfD
 xCo
-mwA
+qbS
 kjr
 mCF
 ahb
@@ -47058,7 +47058,7 @@ kzo
 bSw
 tVN
 pLa
-auc
+msD
 aup
 aUe
 aTn
@@ -47315,7 +47315,7 @@ fAh
 auc
 fzh
 fgc
-api
+fyx
 ahb
 ahb
 ahb
@@ -47572,8 +47572,8 @@ ahb
 ahb
 ahb
 ahb
-ahb
-ahb
+mPt
+amy
 xQw
 aVR
 aVR
@@ -48623,7 +48623,7 @@ ahW
 are
 amX
 aYs
-aGn
+atP
 aGy
 aLj
 aoV
@@ -48880,7 +48880,7 @@ aVz
 are
 aqQ
 azp
-aGn
+tnT
 azp
 aLj
 aKB
@@ -49137,7 +49137,7 @@ aKV
 are
 amX
 aZe
-aGn
+atP
 ajW
 agL
 aVy
@@ -49393,7 +49393,7 @@ apt
 are
 are
 ajI
-atn
+aUs
 are
 alK
 aLj
@@ -49650,7 +49650,7 @@ azp
 aXo
 are
 are
-are
+ajU
 are
 aso
 aYZ
@@ -49905,8 +49905,8 @@ are
 aZX
 azp
 aXo
-aFj
 aJi
+are
 are
 are
 alK
@@ -50162,8 +50162,8 @@ are
 rpu
 ams
 odA
-azp
-azp
+aFj
+aJi
 are
 are
 aZX
@@ -64549,10 +64549,10 @@ ahb
 aHd
 aEd
 aEd
-aEd
+atn
 azp
 azp
-aEd
+uPC
 aEd
 aEd
 aEd
@@ -64806,10 +64806,10 @@ ahb
 akt
 aEd
 aEd
-aEd
+aua
 azp
 azp
-aEd
+vUG
 aEd
 aEd
 aEd
@@ -65062,12 +65062,12 @@ adS
 ahb
 ahb
 ahb
-aAN
-aAN
+udi
+udi
 azp
 azp
-aAN
-aAN
+udi
+udi
 ahb
 ahb
 ahb
@@ -65578,8 +65578,8 @@ aEd
 aYd
 azp
 azp
-azp
-azp
+mwA
+mwA
 azp
 azp
 aYd
