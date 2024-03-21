@@ -8110,7 +8110,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "awg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "awh" = (
@@ -11124,7 +11126,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "aGp" = (
@@ -11315,6 +11318,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/space)
 "aHd" = (
@@ -16905,6 +16909,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/space)
+"buw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "buJ" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -17203,6 +17213,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"dkM" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = -4
+	},
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/plating,
+/area/space)
 "dqg" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -17346,6 +17365,14 @@
 /area/space)
 "dWG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"edH" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "efR" = (
@@ -17500,6 +17527,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"fiH" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "fjE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18008,6 +18040,13 @@
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"hXB" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
+/area/space)
 "hZU" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -18261,6 +18300,14 @@
 "jGV" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /turf/simulated/floor/carpet/lightblue,
+/area/space)
+"jMU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "jPK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -19553,6 +19600,15 @@
 "qBd" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"qBv" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "qGy" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
@@ -19763,6 +19819,15 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"rLh" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "rMJ" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -19995,6 +20060,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"tbZ" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "tdr" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 2
@@ -20168,6 +20238,11 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"uqi" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "uqN" = (
 /obj/effect/floor_decal/corner/beige{
@@ -48613,7 +48688,7 @@ ahb
 ahb
 ahb
 aGo
-aXd
+tbZ
 ahb
 ahb
 ahb
@@ -48867,8 +48942,8 @@ apY
 axt
 aAs
 agY
-aUP
-aXd
+fiH
+aIf
 aKq
 aUP
 ahb
@@ -49124,10 +49199,10 @@ aZe
 aDj
 aAs
 aDD
-aUP
+uqi
 aXd
 aKq
-aUP
+aXd
 ahb
 aXd
 aPC
@@ -49642,7 +49717,7 @@ adg
 aYd
 apF
 aiw
-aTt
+aGn
 aak
 aGy
 agW
@@ -49899,7 +49974,7 @@ auI
 aYd
 afh
 amG
-aTt
+aGn
 aui
 anY
 aSV
@@ -50412,7 +50487,7 @@ aDD
 akt
 aBW
 aiL
-awg
+apr
 ahb
 aaK
 atx
@@ -56836,7 +56911,7 @@ aVR
 aAs
 agY
 asd
-aUT
+jMU
 aNI
 ahb
 auV
@@ -57606,10 +57681,10 @@ aYd
 aYd
 aWX
 aMb
-aaY
-asR
-aiw
-aTt
+hXB
+qBv
+aak
+aGn
 avg
 avg
 avg
@@ -57866,7 +57941,7 @@ aMb
 aoD
 aZp
 amG
-aTt
+aGn
 aGz
 aGz
 aGz
@@ -64706,13 +64781,13 @@ ahb
 ahb
 ahb
 ahb
-aEd
-aEd
+auI
+auI
 ahb
 ahb
 ahb
 ahb
-aHp
+awJ
 adS
 aPO
 aAQ
@@ -64966,7 +65041,7 @@ ahb
 apY
 apY
 ahb
-aEd
+awg
 aEd
 ahb
 ahb
@@ -65219,10 +65294,10 @@ ahb
 aHd
 aEd
 aEd
-atn
+aBs
 azp
 azp
-uPC
+dkM
 aEd
 aEd
 aEd
@@ -65731,15 +65806,15 @@ aAQ
 adS
 ahb
 ahb
-ahb
+edH
 udi
 udi
 azp
 azp
 udi
 udi
-ahb
-ahb
+rLh
+aEd
 ahb
 adS
 aPO
@@ -65986,18 +66061,18 @@ axt
 aPO
 aAQ
 amF
-aYd
-aEd
-aYd
+ahb
+ahb
+ahb
 azp
 azp
 azp
 azp
 azp
 azp
-aYd
-aEd
-aYd
+ahb
+apY
+ahb
 amF
 aPO
 aAQ
@@ -66246,13 +66321,13 @@ adS
 aYd
 aEd
 aYd
-azp
-azp
-mwA
-mwA
-azp
-azp
-aYd
+aco
+aco
+azq
+aaj
+azq
+azq
+ahb
 aEd
 aYd
 adS
@@ -67276,10 +67351,10 @@ ahb
 aoc
 azp
 azp
-aco
+aLs
 ahb
 aAN
-aaj
+aAN
 aaj
 ahb
 aAQ
@@ -67533,7 +67608,7 @@ ahb
 ahb
 azq
 azq
-azq
+aaj
 ahb
 ako
 ako
@@ -69841,7 +69916,7 @@ agG
 amy
 amy
 aga
-awJ
+buw
 aVR
 aVR
 aVR
@@ -70366,18 +70441,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aAQ
+aAQ
+ahb
+aTz
+ahb
+apY
+apY
+ahb
+aTz
+ahb
+aAQ
+aAQ
 aVR
 aVR
 aVR
@@ -70623,18 +70698,18 @@ ahb
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aHp
+ahb
+ahb
+ahb
+ahb
+aEd
+aEd
+ahb
+ahb
+ahb
+ahb
+aHp
 aVR
 aVR
 aVR
@@ -70880,18 +70955,18 @@ ahb
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+ahb
+ahb
+aBW
+cVc
+ahb
+apY
+apY
+ahb
+aEd
+aEd
+ahb
+ahb
 aVR
 aVR
 aVR
@@ -71137,18 +71212,18 @@ ahb
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+ahb
+aHd
+aEd
+aEd
+atn
+azp
+azp
+uPC
+aEd
+aEd
+aEd
+ahb
 aVR
 aVR
 aVR
@@ -71394,18 +71469,18 @@ ahb
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+ahb
+akt
+aEd
+aEd
+aua
+azp
+azp
+vUG
+aEd
+aEd
+aEd
+ahb
 aVR
 aVR
 aVR
@@ -71651,18 +71726,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+ahb
+ahb
+ahb
+udi
+udi
+azp
+azp
+udi
+udi
+ahb
+ahb
+ahb
 aVR
 aVR
 aVR
@@ -71908,18 +71983,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aYd
+aEd
+aYd
+azp
+azp
+azp
+azp
+azp
+azp
+aYd
+aEd
+aYd
 aVR
 aVR
 aVR
@@ -72165,18 +72240,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aYd
+aEd
+aYd
+azp
+azp
+mwA
+mwA
+azp
+azp
+aYd
+aEd
+aYd
 aVR
 aVR
 aVR
@@ -72422,18 +72497,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+ahb
+ahb
+ahb
+ahb
+aiH
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
 aVR
 aVR
 aVR
@@ -72679,18 +72754,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aHp
+ahb
+aaj
+aAN
+aco
+aAN
+ahb
+aco
+aoc
+aZM
+ahb
+aHp
 aVR
 aVR
 aVR
@@ -72936,18 +73011,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aHp
+ahb
+aoc
+azp
+azp
+aco
+auB
+aco
+aoc
+aZM
+ahb
+aHp
 aVR
 aVR
 aVR
@@ -73193,18 +73268,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aAQ
+ahb
+aoc
+azp
+azp
+aco
+ahb
+aAN
+aaj
+aaj
+ahb
+aAQ
 aVR
 aVR
 aVR
@@ -73450,18 +73525,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+aYX
+ahb
+ahb
+azq
+azq
+azq
+ahb
+ako
+ako
+ahb
+ahb
+aAQ
 aVR
 aVR
 aVR
@@ -73707,18 +73782,18 @@ aVR
 aVR
 aVR
 aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
-aVR
+axp
+aYX
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
+ahb
+aAQ
+aAQ
 aVR
 aVR
 aVR
