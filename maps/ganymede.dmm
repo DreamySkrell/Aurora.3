@@ -3619,9 +3619,6 @@
 /obj/item/gun/projectile/sec{
 	pixel_y = 6
 	},
-/obj/item/gun/projectile/sec{
-	pixel_y = 6
-	},
 /obj/item/ammo_magazine/c45m{
 	pixel_y = -2;
 	pixel_x = -1
@@ -3645,22 +3642,6 @@
 /obj/item/ammo_magazine/c45m{
 	pixel_y = -2;
 	pixel_x = -1
-	},
-/obj/item/ammo_magazine/c45m{
-	pixel_y = -2;
-	pixel_x = -1
-	},
-/obj/item/ammo_magazine/c45m{
-	pixel_y = -2;
-	pixel_x = -1
-	},
-/obj/item/ammo_magazine/c45m/rubber{
-	pixel_y = -2;
-	pixel_x = 5
-	},
-/obj/item/ammo_magazine/c45m/rubber{
-	pixel_y = -2;
-	pixel_x = 5
 	},
 /obj/item/ammo_magazine/c45m/rubber{
 	pixel_y = -2;
@@ -16340,14 +16321,6 @@
 	pixel_x = 4;
 	pixel_y = 0
 	},
-/obj/item/clothing/suit/armor/carrier/heavy/sec{
-	pixel_x = -4;
-	pixel_y = 0
-	},
-/obj/item/clothing/head/helmet/security/heavy{
-	pixel_x = 4;
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -18393,6 +18366,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"eqk" = (
+/obj/random/pottedplant,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "eqp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -18773,9 +18753,6 @@
 /obj/item/gun/projectile/automatic/wt550{
 	pixel_y = 6
 	},
-/obj/item/gun/projectile/automatic/wt550{
-	pixel_y = 6
-	},
 /obj/item/ammo_magazine/mc9mmt{
 	pixel_y = -4
 	},
@@ -18793,18 +18770,6 @@
 	},
 /obj/item/ammo_magazine/mc9mmt{
 	pixel_y = -4
-	},
-/obj/item/ammo_magazine/mc9mmt{
-	pixel_y = -4
-	},
-/obj/item/ammo_magazine/mc9mmt{
-	pixel_y = -4
-	},
-/obj/item/ammo_magazine/mc9mmt/rubber{
-	pixel_y = -9
-	},
-/obj/item/ammo_magazine/mc9mmt/rubber{
-	pixel_y = -9
 	},
 /obj/item/ammo_magazine/mc9mmt/rubber{
 	pixel_y = -9
@@ -22039,6 +22004,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"vgh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/space)
 "vjm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -22451,7 +22420,11 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "xzR" = (
-/turf/simulated/floor/tiled/cargo/full,
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "xBx" = (
 /obj/structure/table/wood,
@@ -47616,12 +47589,12 @@ ajy
 aHp
 ads
 ahb
+xzR
+xzR
 ahb
 ahb
-ahb
-ahb
-ahb
-ahb
+xzR
+xzR
 ahb
 ahb
 foN
@@ -48384,7 +48357,7 @@ aVR
 aVR
 aVR
 aVR
-ahb
+xzR
 ajs
 aLs
 aev
@@ -48641,7 +48614,7 @@ aVR
 aVR
 aVR
 aVR
-ahb
+xzR
 ajs
 aLs
 aNY
@@ -48898,7 +48871,7 @@ aVR
 aVR
 aVR
 aVR
-ahb
+xzR
 ajs
 aaj
 aMv
@@ -49933,8 +49906,8 @@ aKK
 qyc
 ahb
 ahb
-ahb
-ahb
+xzR
+xzR
 mPt
 amy
 xQw
@@ -50303,13 +50276,13 @@ aTm
 axt
 ahb
 ahb
-ahb
+xzR
 ahb
 aGo
 tbZ
 ahb
 ahb
-ahb
+xzR
 ahb
 ahb
 aVR
@@ -50569,8 +50542,8 @@ aIf
 aXd
 aIf
 ahb
-ahb
-ahb
+xzR
+xzR
 ahb
 aAX
 aVR
@@ -50828,7 +50801,7 @@ aSG
 aFZ
 aHZ
 alD
-ahb
+xzR
 aHp
 aVR
 aVR
@@ -51085,7 +51058,7 @@ adN
 aGz
 azp
 anF
-ahb
+xzR
 aCk
 aVR
 aVR
@@ -51343,7 +51316,7 @@ ahb
 aOb
 ahb
 ahb
-ahb
+xzR
 ahb
 aVR
 aDj
@@ -51601,7 +51574,7 @@ aco
 aCe
 akj
 aZM
-ahb
+xzR
 aVR
 aDj
 acf
@@ -51858,7 +51831,7 @@ ags
 aFN
 aql
 aZM
-ahb
+xzR
 aVR
 aDj
 arA
@@ -52115,7 +52088,7 @@ ako
 ako
 aaj
 aZM
-ahb
+xzR
 aVR
 axt
 avq
@@ -52369,9 +52342,9 @@ aTA
 aYU
 ahb
 ahb
-ahb
-ahb
-ahb
+xzR
+xzR
+xzR
 ahb
 aVR
 axt
@@ -52616,13 +52589,13 @@ aPl
 axt
 ahb
 ahb
-ahb
+xzR
 akd
 asY
 aoB
 ahb
 ahb
-ahb
+xzR
 ahb
 ahb
 apG
@@ -53554,9 +53527,9 @@ ame
 are
 bNB
 gdY
-xzR
 hCi
 are
+pIN
 alK
 aLj
 aPl
@@ -53811,10 +53784,10 @@ aXo
 are
 cpr
 vEA
-vEA
 axU
 are
-alK
+azp
+azp
 aLj
 aPl
 are
@@ -54067,10 +54040,10 @@ azp
 aXo
 are
 hCi
-xzR
 gdY
 bNB
 are
+vgh
 alK
 agL
 aPl
@@ -58443,7 +58416,7 @@ are
 aZU
 azp
 aPl
-aqX
+eqk
 are
 aJi
 aFj
@@ -58699,8 +58672,8 @@ aEd
 are
 alK
 azp
-aPl
 azp
+ajU
 are
 are
 are
@@ -58790,11 +58763,11 @@ aKq
 aIs
 ahb
 ahb
+xzR
 ahb
 ahb
-ahb
-ahb
-ahb
+xzR
+xzR
 ahb
 bnl
 aVR
@@ -58957,7 +58930,7 @@ are
 alK
 azp
 aPl
-ajU
+hLW
 are
 aJi
 aFj
@@ -59053,7 +59026,7 @@ ahb
 ang
 ang
 ahb
-ahb
+xzR
 ahb
 aVR
 aDj
@@ -59311,7 +59284,7 @@ aCe
 aEs
 aoc
 aZM
-ahb
+xzR
 aVR
 aDj
 aWt
@@ -59568,7 +59541,7 @@ aaS
 adb
 aaj
 aZM
-ahb
+xzR
 aVR
 aDj
 dAS
@@ -59824,7 +59797,7 @@ ahb
 aaj
 ako
 ahb
-ahb
+xzR
 ahb
 aVR
 aDj
@@ -60078,8 +60051,8 @@ aIH
 aco
 aQl
 ahb
-ahb
-ahb
+xzR
+xzR
 ahb
 aNf
 aVR
@@ -60332,7 +60305,7 @@ bco
 aVJ
 ahb
 ahb
-ahb
+xzR
 ahb
 ahb
 aVR
@@ -67165,7 +67138,7 @@ axt
 aPO
 aAQ
 amF
-ahb
+xzR
 akt
 aEd
 aEd
@@ -67176,7 +67149,7 @@ vUG
 aKz
 ayl
 atn
-ahb
+xzR
 amF
 aPO
 aAQ
@@ -68460,7 +68433,7 @@ ahb
 aco
 aoc
 aZM
-ahb
+xzR
 aHp
 adS
 aPO
@@ -68708,7 +68681,7 @@ aVR
 aPO
 amF
 aHp
-ahb
+xzR
 aoc
 azp
 azp
@@ -68717,7 +68690,7 @@ auB
 aco
 aoc
 aZM
-ahb
+xzR
 aHp
 amF
 aPO
@@ -68965,7 +68938,7 @@ aVR
 axp
 aDp
 aAQ
-ahb
+xzR
 aoc
 azp
 azp
@@ -68974,7 +68947,7 @@ ahb
 aAN
 aAN
 aaj
-ahb
+xzR
 aAQ
 adS
 aPO
@@ -69481,12 +69454,12 @@ atY
 axp
 aYX
 ahb
+xzR
+xzR
+xzR
 ahb
-ahb
-ahb
-ahb
-ahb
-ahb
+xzR
+xzR
 ahb
 aAQ
 aAQ
