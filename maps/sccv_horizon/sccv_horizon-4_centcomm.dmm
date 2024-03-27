@@ -149,7 +149,6 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	frequency = 1337;
-	icon_state = "door_locked";
 	id_tag = "distress_shuttle_hatch_aft";
 	locked = 1;
 	name = "Aft Shuttle Hatch";
@@ -5675,7 +5674,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "amB" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -22676,7 +22675,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bep" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/structure/sign/poster{
@@ -23889,7 +23888,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bgX" = (
@@ -27833,7 +27832,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood-broken6"
+	dir = 8;
+	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
 "bqk" = (
@@ -32271,7 +32271,6 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	frequency = 1337;
-	icon_state = "door_locked";
 	id_tag = "distress_shuttle_hatch_fore";
 	locked = 1;
 	name = "Port Shuttle Hatch";
