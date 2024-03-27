@@ -1258,7 +1258,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/space)
 "ads" = (
 /obj/item/hullbeacon/red{
@@ -2195,10 +2195,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "afO" = (
-/obj/structure/tank_wall/carbon_dioxide{
-	icon_state = "co2-7"
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/ridged,
 /area/space)
 "afP" = (
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -3834,7 +3831,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-10"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/ridged,
 /area/space)
 "akg" = (
 /obj/effect/floor_decal/corner/grey/full{
@@ -4662,6 +4659,10 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 5;
+	pixel_x = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "amr" = (
@@ -7896,7 +7897,7 @@
 /area/space)
 "avl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -9310,7 +9311,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "azu" = (
 /obj/effect/floor_decal/corner/beige{
@@ -9486,9 +9487,8 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "aAh" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "aAj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -11150,7 +11150,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "aFM" = (
 /obj/effect/floor_decal/corner/grey{
@@ -12441,10 +12441,25 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "aKh" = (
-/obj/structure/tank_wall/carbon_dioxide{
-	icon_state = "co2-13"
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full{
+	pixel_x = -3;
+	pixel_y = 3
 	},
-/turf/simulated/floor/airless,
+/obj/item/stack/material/plasteel/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/plasteel/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 "aKi" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
@@ -12558,7 +12573,7 @@
 	name = "Arrivals Processing Desk";
 	req_access = list(1)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "aKB" = (
 /obj/effect/floor_decal/corner/red,
@@ -13784,7 +13799,7 @@
 /area/space)
 "aOM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /turf/simulated/floor/plating,
 /area/space)
 "aON" = (
@@ -14872,9 +14887,22 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "aSJ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/circuitboard/ship/sensors{
+	pixel_y = -4
+	},
+/obj/item/circuitboard/ship/engines,
+/obj/item/circuitboard/ship/helm{
+	pixel_y = 4
+	},
+/obj/item/circuitboard/ship/targeting{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "aSK" = (
 /obj/machinery/optable{
@@ -18282,6 +18310,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"dIp" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "dIU" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/cabinet,
@@ -18536,6 +18570,19 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"fje" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/turf/simulated/floor/reinforced,
+/area/space)
 "fjE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -18693,6 +18740,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"gjt" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "gkS" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -18840,6 +18897,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"gMa" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "gQh" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -19174,11 +19238,32 @@
 	},
 /turf/template_noop,
 /area/space)
+"iwN" = (
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/air,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/clothing/mask/breath,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ixS" = (
 /obj/random/pottedplant,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/turf/simulated/floor/tiled,
+/area/space)
+"iAk" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/wardrobe/engineering_yellow,
 /turf/simulated/floor/tiled,
 /area/space)
 "iCN" = (
@@ -19195,8 +19280,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = 8;
-	pixel_y = -8
+	pixel_x = -8;
+	pixel_y = 8;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -19259,6 +19345,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"jdZ" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-9"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "jeL" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -19289,6 +19381,11 @@
 	icon_state = "m-9"
 	},
 /turf/template_noop,
+/area/space)
+"jmY" = (
+/obj/structure/closet/crate/software_backup,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/space)
 "jnj" = (
 /obj/effect/floor_decal/corner/brown{
@@ -19371,6 +19468,28 @@
 "jGV" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /turf/simulated/floor/carpet/lightblue,
+/area/space)
+"jLX" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/micro_laser,
+/turf/simulated/floor/reinforced,
 /area/space)
 "jMU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19504,6 +19623,34 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"kuM" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/scanning_module{
+	pixel_y = -8
+	},
+/obj/item/stock_parts/scanning_module{
+	pixel_y = -8
+	},
+/obj/item/stock_parts/capacitor{
+	pixel_y = -4
+	},
+/obj/item/stock_parts/capacitor{
+	pixel_y = -4
+	},
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/matter_bin{
+	pixel_y = 8
+	},
+/obj/item/stock_parts/matter_bin{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "kuP" = (
 /obj/effect/floor_decal/corner/grey/full{
@@ -20036,6 +20183,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"mTY" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "mVm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2
@@ -20179,6 +20334,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"nCT" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-13"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "nGv" = (
 /obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20244,6 +20405,27 @@
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
+/area/space)
+"nPz" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/circuitboard/unary_atmos/cooler{
+	pixel_y = -4
+	},
+/obj/item/circuitboard/rdserver{
+	pixel_y = -4
+	},
+/obj/item/circuitboard/rdconsole,
+/obj/item/circuitboard/unary_atmos/heater{
+	pixel_y = 4
+	},
+/obj/item/circuitboard/rdtechprocessor{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "nRY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -21044,9 +21226,8 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow{
-	pixel_x = -8;
-	pixel_y = 8;
-	dir = 1
+	pixel_x = 8;
+	pixel_y = -8
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -21392,6 +21573,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"tkz" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/aicard,
+/obj/item/circuitboard/autolathe{
+	pixel_y = -1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "tma" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -21535,6 +21728,27 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"ugI" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/material/plastic/full{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 "uia" = (
 /obj/effect/floor_decal/corner/brown{
@@ -21718,6 +21932,11 @@
 "uJd" = (
 /obj/structure/automobile/crawler/crate,
 /turf/simulated/floor/reinforced,
+/area/space)
+"uNa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/software_backup,
+/turf/simulated/floor/plating,
 /area/space)
 "uNl" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -22224,7 +22443,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-4"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/space)
 "xuq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -22376,6 +22595,27 @@
 	icon_state = "co2-7"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"yhY" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/material/glass/phoronrglass/full{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/glass/reinforced/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/glass/phoronrglass/full{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/stack/material/glass/reinforced/full{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 
 (1,1,1) = {"
@@ -49659,9 +49899,9 @@ aVR
 aVR
 aVR
 axt
-aqh
-kei
-arx
+axt
+axt
+axt
 axt
 aOt
 axt
@@ -49915,11 +50155,11 @@ aVR
 aVR
 aVR
 aVR
-amS
-agf
-aJh
-aWm
-aKd
+axt
+tkz
+aEd
+aSJ
+are
 aiL
 abA
 agf
@@ -50172,11 +50412,11 @@ aVR
 aVR
 aVR
 aVR
-lKd
-aJh
-aJh
-aJh
-aVa
+axt
+jmY
+aEd
+uNa
+are
 aiL
 aNk
 aJh
@@ -50429,11 +50669,11 @@ aVR
 aVR
 aVR
 aVR
-atw
-arl
-aJh
-aHy
-aDa
+axt
+kuM
+aEd
+nPz
+are
 aiL
 agb
 arl
@@ -50687,14 +50927,14 @@ aao
 axt
 axt
 axt
-afO
-arw
-aKh
+are
+gjt
+are
 are
 arM
 are
-afO
-arw
+yfd
+peI
 aRw
 are
 nJG
@@ -50951,7 +51191,7 @@ avy
 aEL
 agi
 agi
-agi
+mTY
 abm
 ayT
 aew
@@ -51208,7 +51448,7 @@ aEd
 aWR
 aEd
 aEd
-aEd
+aGn
 aFt
 aKM
 aKM
@@ -51992,7 +52232,7 @@ avk
 abs
 aZS
 aZS
-lPS
+uvs
 aZS
 aKw
 asr
@@ -52249,7 +52489,7 @@ aOF
 aFP
 aFP
 aFP
-uvs
+lPS
 aFP
 aKw
 asr
@@ -52601,7 +52841,7 @@ aGC
 aGC
 aGC
 aGC
-aWG
+are
 aGC
 aGC
 aGC
@@ -52903,9 +53143,9 @@ axt
 axt
 axt
 axt
+aHV
 ayn
-ayn
-aZw
+aCD
 avq
 aPl
 axt
@@ -53260,7 +53500,7 @@ aCo
 aco
 are
 aCN
-aCN
+iAk
 aCN
 are
 aIP
@@ -53515,7 +53755,7 @@ aDa
 adO
 aCo
 aco
-aBH
+aeN
 azp
 azp
 azp
@@ -53657,7 +53897,7 @@ are
 are
 are
 are
-avL
+aLy
 are
 atP
 are
@@ -53766,8 +54006,8 @@ are
 are
 are
 yfd
-peI
-axx
+jdZ
+nCT
 are
 alp
 aUx
@@ -53929,7 +54169,7 @@ xGL
 mdo
 aXB
 are
-aAh
+aCy
 alo
 aZe
 hQZ
@@ -54023,12 +54263,12 @@ aRe
 aYn
 avZ
 aco
-aTO
-aTO
+aKh
+ugI
 are
 adO
 aCo
-aby
+aFj
 are
 aYD
 aNz
@@ -54186,7 +54426,7 @@ amr
 are
 are
 are
-aSJ
+xea
 ana
 fxX
 azp
@@ -54273,15 +54513,15 @@ axt
 axt
 axt
 axt
-aGW
-aKz
+ayl
+amc
 abH
 aRe
 aYn
 avZ
 aco
-axV
-axV
+aKh
+yhY
 are
 adO
 aCo
@@ -54413,7 +54653,7 @@ are
 agX
 agX
 are
-are
+abv
 jRe
 aHs
 are
@@ -54531,7 +54771,7 @@ apl
 aAC
 aJt
 avl
-eqp
+gMa
 aco
 aco
 aco
@@ -54539,7 +54779,7 @@ aco
 eqp
 aco
 aco
-aBH
+aeN
 aoP
 aCo
 are
@@ -54670,9 +54910,9 @@ are
 aiP
 aUB
 are
-are
-abv
+jRB
 aco
+wxB
 are
 aRx
 are
@@ -54927,8 +55167,8 @@ apU
 awK
 aUg
 apU
-aak
-aak
+dIp
+afp
 aak
 aak
 aLj
@@ -55058,7 +55298,7 @@ adO
 uuA
 are
 aiz
-aco
+aAh
 xea
 afx
 asX
@@ -55301,21 +55541,21 @@ aVR
 aVR
 aVR
 axt
-azp
-azp
-azp
-azp
-azp
-azp
-azp
-azp
-azp
+afO
+afO
+afO
+afO
+afO
+afO
+afO
+afO
+afO
 are
 adO
 uuA
 are
-aiz
-aco
+iwN
+aAh
 aCy
 azp
 ajA
@@ -55816,14 +56056,14 @@ aVR
 aVR
 axt
 ahk
-abH
-azp
+fje
+afO
 axV
 axV
-azp
-aRe
+afO
+jLX
 aTO
-azp
+afO
 are
 aCx
 aCo
@@ -55970,8 +56210,8 @@ aPf
 aMD
 are
 aHV
-aPa
-alk
+ayn
+ayn
 aHV
 are
 efR
@@ -56074,13 +56314,13 @@ aVR
 axt
 aZd
 aZd
-azp
+afO
 ajp
 aGS
-azp
+afO
 aqf
 aTO
-azp
+afO
 are
 aCx
 aCo
@@ -56233,7 +56473,7 @@ aEd
 acy
 efR
 aPl
-aqX
+csu
 are
 aSA
 jrX
@@ -56490,7 +56730,7 @@ rTB
 aBE
 xoM
 fxX
-azp
+aCy
 are
 aSA
 utf
@@ -56747,7 +56987,7 @@ aJE
 anV
 uXn
 odA
-azp
+xea
 are
 aqX
 utf
@@ -57004,7 +57244,7 @@ azp
 aak
 asm
 aPl
-aqX
+csu
 are
 aSA
 utf
