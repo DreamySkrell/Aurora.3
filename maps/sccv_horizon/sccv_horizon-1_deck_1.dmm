@@ -1232,6 +1232,10 @@
 	dir = 1
 	},
 /obj/machinery/alarm/south,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint)
 "aLc" = (
@@ -2467,10 +2471,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Central Stairwell";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "buI" = (
@@ -3608,6 +3608,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
 "bZn" = (
@@ -4174,12 +4178,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 2
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
@@ -4255,6 +4253,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -9524,10 +9526,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
@@ -10638,19 +10636,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/engineering/auxillary)
-"fMM" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/full,
-/area/hangar/intrepid/interstitial)
 "fNt" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "12,26";
@@ -11034,10 +11019,6 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter";
-	dir = 1
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -12194,6 +12175,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
@@ -14581,12 +14565,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
@@ -15444,6 +15422,10 @@
 "ivF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow{
 	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 1 Central Stairwell";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
@@ -16530,6 +16512,10 @@
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
 	name = "Hangar Lockdown";
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -19053,10 +19039,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -22947,10 +22929,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/engineering/auxillary)
 "mBx" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
@@ -24621,6 +24599,10 @@
 	pixel_x = -32;
 	pixel_y = -8;
 	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -29677,10 +29659,6 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
-	},
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_hangardeskcpstarboard";
 	name = "Security Checkpoint Shutter";
@@ -30157,10 +30135,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "qwK" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
@@ -30505,6 +30479,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8";
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -33862,7 +33840,7 @@
 "sDN" = (
 /obj/machinery/shipsensors/weak/scc_shuttle{
 	density = 1;
-	pixel_y = 15;
+	pixel_y = -32;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -34915,6 +34893,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
+	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -36855,6 +36837,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 2
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
@@ -40366,10 +40354,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/research_port)
 "wif" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
@@ -41332,6 +41316,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hangar";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -42970,7 +42958,7 @@
 "xwo" = (
 /obj/machinery/iff_beacon/horizon/shuttle{
 	density = 1;
-	pixel_y = 15;
+	pixel_y = -32;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -42990,10 +42978,6 @@
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
-	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -44364,6 +44348,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
@@ -64714,7 +64704,7 @@ ftn
 erk
 ftn
 nPK
-fMM
+qwK
 bDv
 waN
 nMJ
