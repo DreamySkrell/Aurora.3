@@ -541,27 +541,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
 "ans" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /obj/structure/cable/green{
-	icon_state = "4-8";
-	dir = 1
+	icon_state = "2-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 2
 	},
-/obj/structure/platform_stairs/full{
-	dir = 8
-	},
-/obj/structure/platform/cutout{
-	dir = 1
-	},
+/obj/machinery/power/apc/hyper/north,
 /turf/simulated/floor,
-/area/bridge/upperdeck)
+/area/maintenance/substation/command)
 "anz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -3786,11 +3777,21 @@
 /turf/simulated/floor/tiled,
 /area/bridge/cciaroom/lounge)
 "crr" = (
-/obj/machinery/door/firedoor{
+/obj/structure/table/wood{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/obj/machinery/photocopier/faxmachine{
+	anchored = 0;
+	department = "Representative's Office A";
+	pixel_y = -4;
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/wood,
+/area/lawoffice/representative)
 "cru" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -3986,8 +3987,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "czo" = (
-/turf/space,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/door/firedoor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "cAF" = (
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -4319,21 +4332,17 @@
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
 "cMa" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
-/obj/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Representative's Office A";
-	pixel_y = -4;
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood/cee{
+/obj/machinery/door/firedoor/multi_tile{
 	dir = 4
 	},
-/obj/machinery/alarm/east,
-/turf/simulated/floor/wood,
-/area/lawoffice/representative)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/stairwell/central)
 "cMi" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7464,20 +7473,6 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Port Stairwell";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "eDf" = (
@@ -8037,20 +8032,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
 "eQY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 8
-	},
-/obj/structure/table/reinforced/steel{
-	dir = 1
-	},
+/obj/structure/platform_deco,
 /obj/structure/platform_deco{
 	icon_state = "ledge_deco";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "eRc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8573,11 +8563,25 @@
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "fgF" = (
-/obj/machinery/door/firedoor{
+/obj/structure/table/standard{
 	dir = 1
 	},
+/obj/item/storage/box/fancy/donut{
+	dir = 1
+	},
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = -15;
+	pixel_x = -6;
+	dir = 1
+	},
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = -15;
+	pixel_x = 9;
+	dir = 1
+	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/port/docks)
+/area/bridge/cciaroom)
 "fhd" = (
 /obj/structure/table/standard{
 	dir = 1
@@ -12543,16 +12547,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "hfm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/platform_deco,
-/obj/structure/platform_deco{
-	icon_state = "ledge_deco";
+/obj/machinery/alarm/south,
+/obj/structure/closet/secure_closet/xo2{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/bridge/controlroom)
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop/xo)
 "hfA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13171,25 +13174,18 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge)
 "hrY" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
+	icon_state = "0-2"
 	},
-/obj/machinery/alarm/west,
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom)
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/wood,
+/area/lawoffice/representative_two)
 "hse" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille{
@@ -15879,9 +15875,6 @@
 	name = "Deck 3 Port Stairwell";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "iQF" = (
@@ -16427,18 +16420,21 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "jgG" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "1-2";
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 2
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
 	},
-/obj/machinery/power/apc/hyper/north,
-/turf/simulated/floor,
-/area/maintenance/substation/command)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/port)
 "jid" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -19371,18 +19367,23 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "kSl" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow{
+/obj/random/pottedplant{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Human Resources Lounge";
-	dir = 1
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/cciaroom/lounge)
+/area/bridge)
 "kSF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -20130,17 +20131,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "lkQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/door/firedoor{
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 3 Starboard Docks";
@@ -20609,25 +20601,38 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "lvV" = (
-/obj/structure/table/standard{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/table/wood{
 	dir = 1
 	},
-/obj/item/storage/box/fancy/donut{
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 4;
+	dir = 2
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = -13;
 	dir = 1
 	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = -15;
-	pixel_x = -6;
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = -13;
+	pixel_x = -9;
 	dir = 1
 	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = -15;
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = -13;
 	pixel_x = 9;
 	dir = 1
 	},
-/obj/machinery/alarm/west,
-/turf/simulated/floor/tiled/full,
-/area/bridge/cciaroom)
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice/representative_two)
 "lwe" = (
 /obj/machinery/light/floor{
 	dir = 8
@@ -20893,29 +20898,27 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "lEE" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 2
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/obj/structure/flora/ausbushes/lavendergrass{
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/table/wood{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	pixel_y = 14;
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	pixel_y = 10;
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	pixel_y = 10;
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = -3;
 	dir = 4
 	},
-/turf/simulated/floor/grass,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = 13;
+	pixel_y = -7;
+	dir = 1
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/wood,
+/area/lawoffice/consular)
 "lEP" = (
 /obj/structure/lattice{
 	dir = 1
@@ -21525,17 +21528,42 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "mbb" = (
-/obj/structure/platform{
-	dir = 2
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/platform_stairs/full/east_west_cap{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
-/area/bridge/upperdeck)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 2
+	},
+/obj/item/folder/blue{
+	pixel_y = -7;
+	pixel_x = -5;
+	dir = 1
+	},
+/obj/item/folder/blue{
+	pixel_y = -7;
+	pixel_x = -5;
+	dir = 1
+	},
+/obj/item/pen/red{
+	pixel_x = -7;
+	pixel_y = -3;
+	dir = 1
+	},
+/obj/item/pen/blue{
+	pixel_x = -5;
+	dir = 1
+	},
+/obj/item/clipboard{
+	pixel_x = 8;
+	pixel_y = -5;
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel{
+	dir = 1
+	},
+/obj/structure/platform_deco,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
 "mbm" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -21932,16 +21960,26 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "mhs" = (
-/obj/structure/platform_stairs/full{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/platform{
-	dir = 2
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/obj/structure/railing/mapped{
+/obj/structure/cable/green{
+	icon_state = "4-8";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/full,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/structure/platform/cutout{
+	dir = 1
+	},
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/bridge/upperdeck)
 "mhu" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -23196,17 +23234,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "mTq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 3 Port Stairwell"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/stairwell/central)
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/port)
 "mTy" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -23234,24 +23266,20 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "mUv" = (
-/obj/effect/floor_decal/industrial/hatch/yellow{
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = -32;
 	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled,
-/area/bridge/cciaroom/lounge)
+/obj/machinery/power/apc/south,
+/turf/simulated/floor/wood,
+/area/bridge/meeting_room)
 "mUY" = (
 /turf/simulated/wall/r_wall,
 /area/bridge/cciaroom)
@@ -23295,16 +23323,21 @@
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
 "mVB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/alarm/south,
-/obj/structure/cable/green{
-	icon_state = "0-1"
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
 	},
-/obj/machinery/power/apc/west,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/obj/structure/table/reinforced/steel{
+	dir = 1
+	},
+/obj/structure/platform_deco{
+	icon_state = "ledge_deco";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/controlroom)
 "mVT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 2
@@ -24793,27 +24826,8 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "nLN" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/table/wood{
-	dir = 1
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_x = -3;
-	dir = 4
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_x = 13;
-	pixel_y = -7;
-	dir = 1
-	},
-/obj/machinery/alarm/west,
-/turf/simulated/floor/wood,
-/area/lawoffice/consular)
+/turf/space,
+/area/space)
 "nLY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -25640,36 +25654,18 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "ogm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/structure/table/wood{
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -8;
 	dir = 1
 	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 4;
-	dir = 2
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = -13;
+/obj/structure/filingcabinet{
+	pixel_x = 8;
 	dir = 1
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = -13;
-	pixel_x = -9;
-	dir = 1
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = -13;
-	pixel_x = 9;
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative_two)
 "ogp" = (
@@ -27958,18 +27954,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "pAc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/machinery/door/firedoor{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/power/apc/north,
-/turf/simulated/floor/wood,
-/area/lawoffice/representative_two)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "pAs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -28383,29 +28381,33 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/firing_range)
 "pRV" = (
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/port)
-"pSe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+	dir = 6
 	},
-/obj/structure/platform/cutout{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/light{
-	dir = 2
+/obj/effect/floor_decal/industrial/hatch/yellow{
+	dir = 1
 	},
-/obj/structure/platform_stairs/full{
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 3 Central Stairwell";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/horizon/stairwell/central)
+"pSe" = (
+/obj/structure/platform{
+	dir = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/bridge/upperdeck)
 "pSk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1
@@ -29643,38 +29645,22 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/platform/cutout{
+	dir = 4
+	},
+/obj/machinery/light{
 	dir = 2
 	},
-/obj/item/folder/blue{
-	pixel_y = -7;
-	pixel_x = -5;
-	dir = 1
+/obj/structure/platform_stairs/full{
+	dir = 4
 	},
-/obj/item/folder/blue{
-	pixel_y = -7;
-	pixel_x = -5;
-	dir = 1
-	},
-/obj/item/pen/red{
-	pixel_x = -7;
-	pixel_y = -3;
-	dir = 1
-	},
-/obj/item/pen/blue{
-	pixel_x = -5;
-	dir = 1
-	},
-/obj/item/clipboard{
-	pixel_x = 8;
-	pixel_y = -5;
-	dir = 1
-	},
-/obj/structure/table/reinforced/steel{
-	dir = 1
-	},
-/obj/structure/platform_deco,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/controlroom)
+/turf/simulated/floor/tiled,
+/area/bridge)
 "qGX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -31434,15 +31420,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "rFk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/door/firedoor{
 	dir = 1
 	},
@@ -31505,16 +31482,28 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rIE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/platform_deco,
-/obj/structure/platform_deco{
-	icon_state = "ledge_deco";
+/obj/effect/floor_decal/industrial/hatch/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/bridge/controlroom)
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2";
+	dir = 1
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Human Resources Lounge";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/cciaroom/lounge)
 "rIP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -35366,20 +35355,26 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "tKU" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 2
 	},
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = -32;
+/obj/structure/flora/ausbushes/lavendergrass{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/machinery/door/firedoor{
+	dir = 1
 	},
-/obj/machinery/power/apc/south,
-/turf/simulated/floor/wood,
-/area/bridge/meeting_room)
+/obj/structure/window/reinforced{
+	pixel_y = 10;
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	pixel_y = 10;
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/grass,
+/area/horizon/hallway/deck_three/primary/starboard)
 "tLh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -36453,20 +36448,13 @@
 /area/horizon/security/evidence_storage)
 "uri" = (
 /obj/machinery/door/firedoor/multi_tile{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Central Stairwell";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
-/area/horizon/stairwell/central)
+/area/bridge/cciaroom/lounge)
 "urM" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -37821,24 +37809,16 @@
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "vfv" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 2
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/obj/structure/flora/ausbushes/lavendergrass{
-	dir = 1
+/obj/machinery/alarm/south,
+/obj/structure/cable/green{
+	icon_state = "0-1"
 	},
-/obj/structure/flora/ausbushes/palebush{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	pixel_y = 14;
-	dir = 2
-	},
-/turf/simulated/floor/grass,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/machinery/power/apc/west,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "vgn" = (
 /obj/machinery/door/firedoor{
 	dir = 1
@@ -40326,20 +40306,16 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "wAB" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = -8;
+/obj/structure/platform_deco,
+/obj/structure/platform_deco{
+	icon_state = "ledge_deco";
 	dir = 1
 	},
-/obj/structure/filingcabinet{
-	pixel_x = 8;
-	dir = 1
-	},
-/obj/machinery/alarm/east,
-/turf/simulated/floor/wood,
-/area/lawoffice/representative_two)
+/turf/simulated/floor/carpet/rubber,
+/area/bridge/controlroom)
 "wAO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
@@ -40766,15 +40742,21 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "wOZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 2
 	},
-/obj/machinery/alarm/south,
-/obj/structure/closet/secure_closet/xo2{
+/obj/structure/flora/ausbushes/lavendergrass{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop/xo)
+/obj/structure/flora/ausbushes/palebush{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/grass,
+/area/horizon/hallway/deck_three/primary/starboard)
 "wPW" = (
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/port)
@@ -41515,19 +41497,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
 "xii" = (
-/obj/structure/platform_deco{
-	dir = 2
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 2
+/obj/structure/disposalpipe/segment{
+	dir = 1
 	},
-/obj/machinery/disposal/small/south,
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2";
+	dir = 1
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
-/area/bridge/cciaroom/lounge)
+/area/bridge/controlroom)
 "xiC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -42747,23 +42735,19 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular_two)
 "yah" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal{
-	dir = 1
-	},
-/obj/random/pottedplant{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/platform{
+/obj/structure/platform_deco{
 	dir = 2
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
+/obj/machinery/disposal/small/south,
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/bridge/cciaroom/lounge)
 "ycA" = (
 /obj/structure/table/reinforced/wood{
 	dir = 1
@@ -43185,7 +43169,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (2,1,1) = {"
 dSF
@@ -43387,7 +43371,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (3,1,1) = {"
 dSF
@@ -43589,7 +43573,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (4,1,1) = {"
 dSF
@@ -43791,7 +43775,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (5,1,1) = {"
 dSF
@@ -43993,7 +43977,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (6,1,1) = {"
 dSF
@@ -44195,7 +44179,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (7,1,1) = {"
 dSF
@@ -44397,7 +44381,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (8,1,1) = {"
 dSF
@@ -44599,7 +44583,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (9,1,1) = {"
 dSF
@@ -44801,7 +44785,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (10,1,1) = {"
 dSF
@@ -45003,7 +44987,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (11,1,1) = {"
 dSF
@@ -45205,7 +45189,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (12,1,1) = {"
 dSF
@@ -45407,7 +45391,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (13,1,1) = {"
 dSF
@@ -45609,7 +45593,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (14,1,1) = {"
 dSF
@@ -45811,7 +45795,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (15,1,1) = {"
 dSF
@@ -46013,7 +45997,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (16,1,1) = {"
 dSF
@@ -46215,7 +46199,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (17,1,1) = {"
 dSF
@@ -46417,7 +46401,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (18,1,1) = {"
 dSF
@@ -46619,7 +46603,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (19,1,1) = {"
 dSF
@@ -46821,7 +46805,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (20,1,1) = {"
 dSF
@@ -47023,7 +47007,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (21,1,1) = {"
 dSF
@@ -47225,7 +47209,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (22,1,1) = {"
 dSF
@@ -47427,7 +47411,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (23,1,1) = {"
 dSF
@@ -47629,7 +47613,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (24,1,1) = {"
 dSF
@@ -47831,7 +47815,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (25,1,1) = {"
 dSF
@@ -48033,7 +48017,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (26,1,1) = {"
 dSF
@@ -48235,7 +48219,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (27,1,1) = {"
 dSF
@@ -48437,7 +48421,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (28,1,1) = {"
 dSF
@@ -48639,7 +48623,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (29,1,1) = {"
 dSF
@@ -48841,7 +48825,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (30,1,1) = {"
 dSF
@@ -49043,7 +49027,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (31,1,1) = {"
 dSF
@@ -49245,7 +49229,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (32,1,1) = {"
 dSF
@@ -49447,7 +49431,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (33,1,1) = {"
 dSF
@@ -49649,7 +49633,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (34,1,1) = {"
 dSF
@@ -49851,7 +49835,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (35,1,1) = {"
 dSF
@@ -50053,7 +50037,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (36,1,1) = {"
 dSF
@@ -50255,7 +50239,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (37,1,1) = {"
 dSF
@@ -50457,7 +50441,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (38,1,1) = {"
 dSF
@@ -50659,7 +50643,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (39,1,1) = {"
 dSF
@@ -50861,7 +50845,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (40,1,1) = {"
 dSF
@@ -51063,7 +51047,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (41,1,1) = {"
 dSF
@@ -51265,7 +51249,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (42,1,1) = {"
 dSF
@@ -51467,7 +51451,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (43,1,1) = {"
 dSF
@@ -51669,7 +51653,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (44,1,1) = {"
 dSF
@@ -51871,7 +51855,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (45,1,1) = {"
 dSF
@@ -52073,7 +52057,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (46,1,1) = {"
 dSF
@@ -52275,7 +52259,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (47,1,1) = {"
 dSF
@@ -52477,7 +52461,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (48,1,1) = {"
 dSF
@@ -52679,7 +52663,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (49,1,1) = {"
 dSF
@@ -52881,7 +52865,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (50,1,1) = {"
 dSF
@@ -53083,7 +53067,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (51,1,1) = {"
 dSF
@@ -53285,7 +53269,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (52,1,1) = {"
 dSF
@@ -53487,7 +53471,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (53,1,1) = {"
 dSF
@@ -53689,7 +53673,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (54,1,1) = {"
 dSF
@@ -53891,7 +53875,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (55,1,1) = {"
 dSF
@@ -54093,7 +54077,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (56,1,1) = {"
 dSF
@@ -54295,7 +54279,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (57,1,1) = {"
 dSF
@@ -54381,8 +54365,8 @@ wGH
 wGH
 wGH
 tcM
+czo
 rFk
-fgF
 tcM
 wGH
 wGH
@@ -54497,7 +54481,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (58,1,1) = {"
 dSF
@@ -54699,7 +54683,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (59,1,1) = {"
 dSF
@@ -54901,7 +54885,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (60,1,1) = {"
 dSF
@@ -55103,7 +55087,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (61,1,1) = {"
 dSF
@@ -55305,7 +55289,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (62,1,1) = {"
 dSF
@@ -55507,7 +55491,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (63,1,1) = {"
 dSF
@@ -55709,7 +55693,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (64,1,1) = {"
 dSF
@@ -55911,7 +55895,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (65,1,1) = {"
 dSF
@@ -56113,7 +56097,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (66,1,1) = {"
 dSF
@@ -56315,7 +56299,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (67,1,1) = {"
 dSF
@@ -56517,7 +56501,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (68,1,1) = {"
 dSF
@@ -56719,7 +56703,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (69,1,1) = {"
 dSF
@@ -56921,7 +56905,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (70,1,1) = {"
 dSF
@@ -57123,7 +57107,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (71,1,1) = {"
 dSF
@@ -57325,7 +57309,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (72,1,1) = {"
 dSF
@@ -57527,7 +57511,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (73,1,1) = {"
 dSF
@@ -57729,7 +57713,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (74,1,1) = {"
 dSF
@@ -57931,7 +57915,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (75,1,1) = {"
 dSF
@@ -58133,7 +58117,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (76,1,1) = {"
 dSF
@@ -58335,7 +58319,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (77,1,1) = {"
 dSF
@@ -58537,7 +58521,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (78,1,1) = {"
 dSF
@@ -58620,10 +58604,10 @@ cPq
 moN
 nPr
 swd
-lvV
+fgF
 fru
 mUY
-xii
+yah
 vRH
 viN
 sHU
@@ -58739,7 +58723,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (79,1,1) = {"
 dSF
@@ -58827,11 +58811,11 @@ puR
 jzL
 ctO
 tPj
-mUv
+rIE
 gZo
 gxt
 rIg
-pRV
+mTq
 oWu
 udi
 wPW
@@ -58941,7 +58925,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (80,1,1) = {"
 dSF
@@ -59029,11 +59013,11 @@ ach
 lnT
 gax
 iue
-kSl
+uri
 seF
 sVV
 eIH
-eCV
+jgG
 rTt
 kyE
 fWT
@@ -59143,7 +59127,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (81,1,1) = {"
 dSF
@@ -59345,7 +59329,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (82,1,1) = {"
 dSF
@@ -59547,7 +59531,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (83,1,1) = {"
 dSF
@@ -59640,8 +59624,8 @@ qFg
 ghD
 dUf
 qzF
+eCV
 iQy
-pRV
 qzF
 qzF
 qzF
@@ -59749,7 +59733,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (84,1,1) = {"
 dSF
@@ -59951,7 +59935,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (85,1,1) = {"
 dSF
@@ -60153,7 +60137,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (86,1,1) = {"
 dSF
@@ -60355,7 +60339,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (87,1,1) = {"
 dSF
@@ -60557,7 +60541,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (88,1,1) = {"
 dSF
@@ -60759,7 +60743,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (89,1,1) = {"
 dSF
@@ -60961,7 +60945,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (90,1,1) = {"
 dSF
@@ -61163,7 +61147,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (91,1,1) = {"
 dSF
@@ -61365,7 +61349,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (92,1,1) = {"
 dSF
@@ -61447,7 +61431,7 @@ qYc
 bgM
 dqv
 shX
-pSe
+qGP
 hij
 vdC
 qOa
@@ -61567,7 +61551,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (93,1,1) = {"
 dSF
@@ -61769,7 +61753,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (94,1,1) = {"
 dSF
@@ -61834,7 +61818,7 @@ qIw
 oxv
 cYs
 wmE
-hrY
+xii
 qEj
 whG
 asO
@@ -61971,7 +61955,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (95,1,1) = {"
 dSF
@@ -62173,7 +62157,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (96,1,1) = {"
 dSF
@@ -62375,7 +62359,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (97,1,1) = {"
 dSF
@@ -62577,7 +62561,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (98,1,1) = {"
 dSF
@@ -62636,7 +62620,7 @@ vkb
 mrU
 grs
 fis
-hfm
+eQY
 vyU
 cGh
 mKb
@@ -62658,13 +62642,13 @@ mhh
 tNx
 llH
 jCG
-mbb
+pSe
 kqe
 nYD
 krt
 kqb
 jJH
-nLN
+lEE
 gkT
 seF
 kLR
@@ -62699,7 +62683,7 @@ fpr
 mOm
 qLy
 dEE
-mVB
+vfv
 xJx
 mZm
 guz
@@ -62779,7 +62763,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (99,1,1) = {"
 dSF
@@ -62842,7 +62826,7 @@ eFH
 smr
 ldK
 lqw
-eQY
+mVB
 wRl
 gyt
 kSF
@@ -62981,7 +62965,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (100,1,1) = {"
 dSF
@@ -63050,7 +63034,7 @@ cTN
 ksn
 qMd
 asO
-yah
+kSl
 wAO
 wGR
 lbL
@@ -63183,7 +63167,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (101,1,1) = {"
 dSF
@@ -63246,7 +63230,7 @@ eFH
 xnC
 xfx
 ltM
-qGP
+mbb
 avY
 dOh
 wVS
@@ -63385,7 +63369,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (102,1,1) = {"
 dSF
@@ -63444,7 +63428,7 @@ vkb
 mrU
 amy
 lIB
-rIE
+wAB
 vyU
 cGh
 sFf
@@ -63587,7 +63571,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (103,1,1) = {"
 dSF
@@ -63663,8 +63647,8 @@ gJz
 qKG
 aVm
 fiZ
+pSe
 mhs
-ans
 vup
 tDF
 kQK
@@ -63789,7 +63773,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (104,1,1) = {"
 dSF
@@ -63991,7 +63975,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (105,1,1) = {"
 dSF
@@ -64193,7 +64177,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (106,1,1) = {"
 dSF
@@ -64395,7 +64379,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (107,1,1) = {"
 dSF
@@ -64479,7 +64463,7 @@ qkd
 qkd
 qkd
 slo
-jgG
+ans
 rsW
 pxf
 sfS
@@ -64597,7 +64581,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (108,1,1) = {"
 dSF
@@ -64664,7 +64648,7 @@ nDe
 hxF
 kwf
 wTu
-tKU
+mUv
 hcg
 jiq
 lIT
@@ -64799,7 +64783,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (109,1,1) = {"
 dSF
@@ -64871,9 +64855,9 @@ hcg
 wMV
 nCs
 kNB
-wOZ
+hfm
 vIv
-pAc
+hrY
 wDN
 qaI
 vFR
@@ -65001,7 +64985,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (110,1,1) = {"
 dSF
@@ -65075,7 +65059,7 @@ rNS
 aci
 rlN
 vIv
-ogm
+lvV
 aPq
 jGo
 ovT
@@ -65203,7 +65187,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (111,1,1) = {"
 dSF
@@ -65405,7 +65389,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (112,1,1) = {"
 dSF
@@ -65607,7 +65591,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (113,1,1) = {"
 dSF
@@ -65684,9 +65668,9 @@ vIv
 vIy
 eGU
 wmP
-wAB
+ogm
 ggl
-cMa
+crr
 gbo
 rQO
 ppg
@@ -65809,7 +65793,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (114,1,1) = {"
 dSF
@@ -65897,7 +65881,7 @@ kjE
 kjE
 mRd
 nhw
-mTq
+pRV
 oLk
 ceU
 ldg
@@ -66011,7 +65995,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (115,1,1) = {"
 dSF
@@ -66099,7 +66083,7 @@ kjE
 kjE
 oTL
 awy
-uri
+cMa
 mqJ
 mgS
 nCx
@@ -66213,7 +66197,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (116,1,1) = {"
 dSF
@@ -66415,7 +66399,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (117,1,1) = {"
 dSF
@@ -66617,7 +66601,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (118,1,1) = {"
 dSF
@@ -66819,7 +66803,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (119,1,1) = {"
 dSF
@@ -67021,7 +67005,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (120,1,1) = {"
 dSF
@@ -67223,7 +67207,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (121,1,1) = {"
 dSF
@@ -67425,7 +67409,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (122,1,1) = {"
 dSF
@@ -67627,7 +67611,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (123,1,1) = {"
 dSF
@@ -67829,7 +67813,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (124,1,1) = {"
 dSF
@@ -68031,7 +68015,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (125,1,1) = {"
 dSF
@@ -68119,7 +68103,7 @@ bWU
 cHl
 ccQ
 nmD
-vfv
+wOZ
 kRs
 nty
 wUS
@@ -68233,7 +68217,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (126,1,1) = {"
 dSF
@@ -68435,7 +68419,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (127,1,1) = {"
 dSF
@@ -68637,7 +68621,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (128,1,1) = {"
 dSF
@@ -68839,7 +68823,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (129,1,1) = {"
 dSF
@@ -69041,7 +69025,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (130,1,1) = {"
 dSF
@@ -69129,7 +69113,7 @@ piX
 mCp
 ubX
 iyP
-lEE
+tKU
 ePx
 oMC
 rFu
@@ -69243,7 +69227,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (131,1,1) = {"
 dSF
@@ -69445,7 +69429,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (132,1,1) = {"
 dSF
@@ -69647,7 +69631,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (133,1,1) = {"
 dSF
@@ -69849,7 +69833,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (134,1,1) = {"
 dSF
@@ -70051,7 +70035,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (135,1,1) = {"
 dSF
@@ -70253,7 +70237,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (136,1,1) = {"
 dSF
@@ -70455,7 +70439,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (137,1,1) = {"
 dSF
@@ -70657,7 +70641,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (138,1,1) = {"
 dSF
@@ -70859,7 +70843,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (139,1,1) = {"
 dSF
@@ -71061,7 +71045,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (140,1,1) = {"
 dSF
@@ -71263,7 +71247,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (141,1,1) = {"
 dSF
@@ -71465,7 +71449,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (142,1,1) = {"
 dSF
@@ -71667,7 +71651,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (143,1,1) = {"
 dSF
@@ -71753,8 +71737,8 @@ wGH
 wGH
 wGH
 ebZ
+pAc
 lkQ
-crr
 ebZ
 wGH
 wGH
@@ -71869,7 +71853,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (144,1,1) = {"
 dSF
@@ -72071,7 +72055,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (145,1,1) = {"
 dSF
@@ -72273,7 +72257,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (146,1,1) = {"
 dSF
@@ -72475,7 +72459,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (147,1,1) = {"
 dSF
@@ -72677,7 +72661,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (148,1,1) = {"
 dSF
@@ -72879,7 +72863,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (149,1,1) = {"
 dSF
@@ -73081,7 +73065,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (150,1,1) = {"
 dSF
@@ -73283,7 +73267,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (151,1,1) = {"
 dSF
@@ -73485,7 +73469,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (152,1,1) = {"
 dSF
@@ -73687,7 +73671,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (153,1,1) = {"
 dSF
@@ -73889,7 +73873,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (154,1,1) = {"
 dSF
@@ -74091,7 +74075,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (155,1,1) = {"
 dSF
@@ -74293,7 +74277,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (156,1,1) = {"
 dSF
@@ -74495,7 +74479,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (157,1,1) = {"
 dSF
@@ -74697,7 +74681,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (158,1,1) = {"
 dSF
@@ -74899,7 +74883,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (159,1,1) = {"
 dSF
@@ -75101,7 +75085,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (160,1,1) = {"
 dSF
@@ -75303,7 +75287,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (161,1,1) = {"
 dSF
@@ -75505,7 +75489,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (162,1,1) = {"
 dSF
@@ -75707,7 +75691,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (163,1,1) = {"
 dSF
@@ -75909,7 +75893,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (164,1,1) = {"
 dSF
@@ -76111,7 +76095,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (165,1,1) = {"
 dSF
@@ -76313,7 +76297,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (166,1,1) = {"
 dSF
@@ -76515,7 +76499,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (167,1,1) = {"
 dSF
@@ -76717,7 +76701,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (168,1,1) = {"
 dSF
@@ -76919,7 +76903,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (169,1,1) = {"
 dSF
@@ -77121,7 +77105,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (170,1,1) = {"
 dSF
@@ -77323,7 +77307,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (171,1,1) = {"
 dSF
@@ -77525,7 +77509,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (172,1,1) = {"
 dSF
@@ -77727,7 +77711,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (173,1,1) = {"
 dSF
@@ -77929,7 +77913,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (174,1,1) = {"
 dSF
@@ -78131,7 +78115,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (175,1,1) = {"
 dSF
@@ -78333,7 +78317,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (176,1,1) = {"
 dSF
@@ -78535,7 +78519,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (177,1,1) = {"
 dSF
@@ -78737,7 +78721,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (178,1,1) = {"
 dSF
@@ -78939,7 +78923,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (179,1,1) = {"
 dSF
@@ -79141,7 +79125,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (180,1,1) = {"
 dSF
@@ -79343,7 +79327,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (181,1,1) = {"
 dSF
@@ -79545,7 +79529,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (182,1,1) = {"
 dSF
@@ -79747,7 +79731,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (183,1,1) = {"
 dSF
@@ -79949,7 +79933,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (184,1,1) = {"
 dSF
@@ -80151,7 +80135,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (185,1,1) = {"
 dSF
@@ -80353,7 +80337,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (186,1,1) = {"
 dSF
@@ -80555,7 +80539,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (187,1,1) = {"
 dSF
@@ -80757,7 +80741,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (188,1,1) = {"
 dSF
@@ -80959,7 +80943,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (189,1,1) = {"
 dSF
@@ -81161,7 +81145,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (190,1,1) = {"
 dSF
@@ -81363,7 +81347,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (191,1,1) = {"
 dSF
@@ -81565,7 +81549,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (192,1,1) = {"
 dSF
@@ -81767,7 +81751,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (193,1,1) = {"
 dSF
@@ -81969,7 +81953,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (194,1,1) = {"
 dSF
@@ -82171,7 +82155,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (195,1,1) = {"
 dSF
@@ -82373,7 +82357,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (196,1,1) = {"
 dSF
@@ -82575,7 +82559,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (197,1,1) = {"
 dSF
@@ -82777,7 +82761,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (198,1,1) = {"
 dSF
@@ -82979,7 +82963,7 @@ dSF
 dSF
 dSF
 dSF
-czo
+nLN
 "}
 (199,1,1) = {"
 gAQ

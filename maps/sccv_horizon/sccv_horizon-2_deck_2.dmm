@@ -1964,6 +1964,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 2
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67);
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "aHj" = (
@@ -15928,6 +15934,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67);
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "fRH" = (
@@ -22668,12 +22680,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 2
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -47126,12 +47132,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
