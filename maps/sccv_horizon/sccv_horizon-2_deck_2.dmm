@@ -5733,6 +5733,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
+"bTR" = (
+/obj/structure/sign/double/barsign,
+/turf/simulated/wall,
+/area/horizon/crew_quarters/lounge/bar)
 "bTX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -7233,10 +7237,6 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Service Entrance";
 	dir = 2
-	},
-/obj/structure/sign/double/barsign/kitchensign/mirrored{
-	pixel_y = 32;
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
@@ -35834,6 +35834,10 @@
 	pixel_y = 32;
 	dir = 1
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 2 Port Stairwell Auxiliary Hangar Elevator";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "nfz" = (
@@ -36531,10 +36535,6 @@
 	d2 = 2;
 	icon_state = "1-2";
 	dir = 1
-	},
-/obj/structure/sign/double/barsign{
-	pixel_x = 64;
-	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
@@ -37574,7 +37574,7 @@
 	dir = 4
 	},
 /obj/structure/platform_deco{
-	dir = 2
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -43002,6 +43002,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_room/rust)
+"pVZ" = (
+/obj/structure/sign/double/barsign/kitchensign/mirrored,
+/turf/simulated/wall,
+/area/horizon/crew_quarters/lounge/bar)
 "pWb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible{
 	dir = 1
@@ -54413,7 +54417,7 @@
 	dir = 8
 	},
 /obj/structure/platform_deco{
-	dir = 8
+	dir = 2
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -65203,10 +65207,6 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Port Stairwell Auxiliary Hangar Elevator";
 	dir = 1
 	},
 /obj/machinery/door/firedoor/multi_tile{
@@ -86094,7 +86094,7 @@ izV
 bGg
 mvi
 jPj
-sKJ
+pVZ
 xDz
 kvN
 rSD
@@ -87104,7 +87104,7 @@ uTY
 ugp
 uTY
 gHV
-sKJ
+bTR
 vUm
 exU
 bKX
