@@ -11,7 +11,7 @@
 	destination_tags = list(
 		"nav_burglar_start",
 		"nav_burglar_hangar",
-		"nav_horizon_dock_deck_3_starboard_1",
+		"nav_horizon_dock_deck_3_port_5",
 		NAV_HORIZON_EXTERIOR_ALL_DECKS,
 		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
 		)
@@ -49,7 +49,7 @@
 	shuttle_area = /area/shuttle/skipjack
 	destination_tags = list(
 		"nav_skipjack_start",
-		"nav_horizon_dock_deck_3_starboard_3",
+		"nav_horizon_dock_deck_3_port_2",
 		NAV_HORIZON_EXTERIOR_ALL_DECKS,
 		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
 		)
@@ -82,7 +82,7 @@
 	shuttle_area = /area/shuttle/mercenary
 	destination_tags = list(
 		"nav_merc_start",
-		"nav_horizon_dock_deck_3_starboard_1",
+		"nav_horizon_dock_deck_3_port_5",
 		NAV_HORIZON_EXTERIOR_ALL_DECKS,
 		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
 		)
