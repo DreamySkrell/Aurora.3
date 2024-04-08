@@ -255,8 +255,10 @@
 			speaker_encryption_key = speaker_socket.encryption_key
 
 	for(var/mob/player in GLOB.player_list)
-		if(istype(player, /mob/abstract/observer) || player == speaker)
+		if(player == speaker)
 			to_chat(player, msg)
+		else if(isobserver(player))
+			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
 				var/mob/living/carbon/human/listener_human = player
@@ -287,7 +289,9 @@
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
-		return 1
+		var/mob/living/silicon/S = other
+		if(S.can_hear_hivenet)
+			return TRUE
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))

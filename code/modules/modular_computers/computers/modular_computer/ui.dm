@@ -78,7 +78,7 @@
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
 		if(P.program_hidden())
 			continue
-		if(!istype(P, /datum/computer_file/program/scanner))
+		if(!istype(P, /datum/computer_file/program/scanner) && !isnull(P.tgui_id))
 			data["programs"] += list(list(
 				"filename" = P.filename,
 				"desc" = P.filedesc,
@@ -180,10 +180,13 @@
 			register_account()
 		. = TRUE
 	if(action == "PC_toggleservice")
-		toggle_service(params["service_to_toggle"], usr)
-		. = TRUE
+		if(params["service_to_toggle"] == "pai_access_lock" && istype(usr, /mob/living/silicon/pai))
+			to_chat(usr, SPAN_WARNING("Access denied."))
+		else
+			toggle_service(params["service_to_toggle"], usr)
+			. = TRUE
 
-	playsound(src, click_sound)
+	playsound(src, click_sound, 50)
 	update_icon()
 
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)

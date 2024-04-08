@@ -9,6 +9,7 @@
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 GLOBAL_DATUM(config, /datum/configuration)
+GLOBAL_VAR(motd)
 GLOBAL_PROTECT(config)
 
 /**
@@ -50,23 +51,22 @@ GLOBAL_PROTECT(config)
 	..()
 	return 3	// QDEL_HINT_HARDDEL ain't defined here, so magic number it is.
 
-/var/game_id = null
 /proc/generate_gameid()
-	if(game_id != null)
+	if(GLOB.round_id != null)
 		return
-	game_id = ""
+	GLOB.round_id = ""
 
 	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	var/l = c.len
 
 	var/t = world.timeofday
 	for(var/_ = 1 to 4)
-		game_id = "[c[(t % l) + 1]][game_id]"
+		GLOB.round_id = "[c[(t % l) + 1]][GLOB.round_id]"
 		t = round(t / l)
-	game_id = "-[game_id]"
+	GLOB.round_id = "-[GLOB.round_id]"
 	t = round(world.realtime / (10 * 60 * 60 * 24))
 	for(var/_ = 1 to 3)
-		game_id = "[c[(t % l) + 1]][game_id]"
+		GLOB.round_id = "[c[(t % l) + 1]][GLOB.round_id]"
 		t = round(t / l)
 
 /world
@@ -82,14 +82,16 @@ GLOBAL_PROTECT(config)
 	loop_checks = FALSE
 #endif
 
-#define RECOMMENDED_VERSION 510
+#define RECOMMENDED_VERSION 515
 /world/New()
 	//logs
 	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
 	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
-	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[game_id].log"
+	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[GLOB.round_id].log"
 	log_startup()
-	GLOB.changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+	// Used for telling if the changelog has changed recently.
+	GLOB.changelog_hash = md5('html/changelog.html')
+	load_motd()
 
 	if(GLOB.config.logsettings["log_runtime"])
 		GLOB.diary_runtime = file("data/logs/_runtime/[GLOB.diary_date_string]-runtime.log")
@@ -509,14 +511,17 @@ var/list/world_api_rate_limit = list()
 		else
 			CRASH("Unsupported platform: [system_type]")
 
-	var/init_result = LIBCALL(library, "init")("block")
+	var/init_result = call_ext(library, "init")("block")
 	if (init_result != "0")
 		CRASH("Error initializing byond-tracy: [init_result]")
 
 /world/proc/init_debugger()
 	var/dll = GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (dll)
-		LIBCALL(dll, "auxtools_init")()
+		call_ext(dll, "auxtools_init")()
 		enable_debugging()
+
+/world/proc/load_motd()
+	GLOB.motd = file2text("config/motd.txt")
 
 #undef FAILED_DB_CONNECTION_CUTOFF

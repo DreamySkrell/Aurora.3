@@ -2,9 +2,6 @@
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
-#define hex2num(hex) text2num(hex, 16)
-#define num2hex(num, pad) num2text(num, pad, 16)
-#define text_ref(datum) (isdatum(datum) ? (datum:cached_ref ||= "\ref[datum]") : ("\ref[datum]"))
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -32,6 +29,13 @@
 #define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
 
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+
+/// Adds a generic or coloured box around a chat message.
+#define EXAMINE_BLOCK(str) ("<div class='examine_block'>" + str + "</div>")
+#define EXAMINE_BLOCK_GREY(str) ("<div class='examine_block--grey'>" + str + "</div>")
+#define EXAMINE_BLOCK_BLUE(str) ("<div class='examine_block--blue'>" + str + "</div>")
+#define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
+#define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
 
 #define FONT_SIZE_SMALL "10px"
 #define FONT_SIZE_NORMAL "13px"
@@ -127,11 +131,13 @@
 #define from_target(target, receiver)                       target >> (receiver)
 #define to_file(file_entry, file_content)                   file_entry << file_content
 
+#define place_meta_charset(content) (istext(content) ? "<meta charset=\"utf-8\">" + (content) : (content))
+
 #define legacy_chat(target, message)                        to_target(target, message)
 #define to_world(message)                                   to_chat(world, message)
 #define sound_to(target, sound)                             to_target(target, sound)
 #define to_save(handle, value)                              to_target(handle, value) //semantics postport: what did they mean by this
-#define show_browser(target, browser_content, browser_name) to_target(target, browse(browser_content, browser_name))
+#define show_browser(target, browser_content, browser_name) to_target(target, browse(place_meta_charset(browser_content), browser_name))
 #define send_rsc(target, content, title)                    to_target(target, browse_rsc(content, title))
 #define send_output(target, msg, control)                   to_target(target, output(msg, control))
 #define send_link(target, url)                              to_target(target, link(url))

@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 513
-#error Your version of BYOND is too old to compile the code. At least BYOND 513 is required.
+#if DM_VERSION < 515 && !defined(OPENDREAM)
+#error Your version of BYOND is too old to compile the code. At least BYOND 515 is required.
 #endif
 
 
@@ -65,6 +65,8 @@ GLOBAL_LIST_EMPTY(reg_dna)
 
 GLOBAL_DATUM(newplayer_start, /turf)
 
+GLOBAL_DATUM(lobby_mobs_location, /turf)
+
 //Spawnpoints.
 GLOBAL_LIST_EMPTY(latejoin)
 GLOBAL_LIST_EMPTY(latejoin_gateway)
@@ -91,6 +93,7 @@ GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
 	41, 43, 36, 38, 37, 39, 44, 46, 45, 47, 16, 18, 17, 19, 24, 26, 25, 27, 20, 22, 21,
 	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
 ))
+GLOBAL_LIST_INIT(all_days, list("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 GLOBAL_LIST_EMPTY(combatlog)
 GLOBAL_PROTECT(lawchanges)

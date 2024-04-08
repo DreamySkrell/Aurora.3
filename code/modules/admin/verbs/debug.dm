@@ -324,30 +324,30 @@
 		if("Cancel")
 			return
 		if("ERT")
-			outfit_catagories["SCC-ERT"] = typesof(/datum/outfit/admin/ert/scc)
-			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
-			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
-			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
-			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
-			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
-			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/datum/outfit/admin/ert/fsf)
-			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
-			outfit_catagories["Eridani"] = typesof(/datum/outfit/admin/ert/ap_eridani)
-			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
-			outfit_catagories["Kosmostrelki"] = typesof(/datum/outfit/admin/ert/pra_cosmonaut)
-			outfit_catagories["Elyran Navy"] = typesof(/datum/outfit/admin/ert/elyran_trooper)
+			outfit_catagories["SCC-ERT"] = typesof(/obj/outfit/admin/ert/scc)
+			outfit_catagories["NT-ERT"] = typesof(/obj/outfit/admin/ert/nanotrasen)
+			outfit_catagories["Deathsquad"] = typesof(/obj/outfit/admin/deathsquad)
+			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/ert/legion)
+			outfit_catagories["Syndicate"] = typesof(/obj/outfit/admin/deathsquad/syndicate)
+			outfit_catagories["Freelance Mercenaries"] = typesof(/obj/outfit/admin/ert/mercenary)
+			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/obj/outfit/admin/ert/fsf)
+			outfit_catagories["Kataphracts"] = typesof(/obj/outfit/admin/ert/kataphract)
+			outfit_catagories["Eridani"] = typesof(/obj/outfit/admin/ert/ap_eridani)
+			outfit_catagories["IAC"] = typesof(/obj/outfit/admin/ert/iac)
+			outfit_catagories["Kosmostrelki"] = typesof(/obj/outfit/admin/ert/pra_cosmonaut)
+			outfit_catagories["Elyran Navy"] = typesof(/obj/outfit/admin/ert/elyran_trooper)
 		if("Admin")
-			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/datum/outfit/admin/scc)
-			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
-			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
-			outfit_catagories["Event"] = typesof(/datum/outfit/admin/event)
-			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
-			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
-			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
-			outfit_catagories["Megacorps"] = subtypesof(/datum/outfit/admin/megacorp)
-			outfit_catagories["Pod Survivors"] = subtypesof(/datum/outfit/admin/pod)
-			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
-			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
+			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/obj/outfit/admin/scc)
+			outfit_catagories["NanoTrasen"] = typesof(/obj/outfit/admin/nt)
+			outfit_catagories["Antagonist"] = typesof(/obj/outfit/admin/syndicate)
+			outfit_catagories["Event"] = typesof(/obj/outfit/admin/event)
+			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/tcfl)
+			outfit_catagories["Killers"] = typesof(/obj/outfit/admin/killer)
+			outfit_catagories["Job"] = subtypesof(/obj/outfit/job)
+			outfit_catagories["Megacorps"] = subtypesof(/obj/outfit/admin/megacorp)
+			outfit_catagories["Pod Survivors"] = subtypesof(/obj/outfit/admin/pod)
+			outfit_catagories["Miscellaneous"] = typesof(/obj/outfit/admin/random)
+			outfit_catagories["Miscellaneous"] += /obj/outfit/admin/random_employee
 
 	var/chosen_catagory = input("Select an outfit catagory.", "Robust Quick-dress Shop") as null|anything in outfit_catagories
 	if(isnull(chosen_catagory))
@@ -355,7 +355,7 @@
 
 	var/list/outfit_types = list()
 	for(var/outfit in outfit_catagories[chosen_catagory])
-		var/datum/outfit/admin/A = new outfit
+		var/obj/outfit/admin/A = new outfit
 		outfit_types[A.name] = A
 
 	var/chosen_outfit = input("Select an outfit.", "Robust Quick-dress Shop") as null|anything in outfit_types
@@ -364,7 +364,7 @@
 
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
-	var/datum/outfit/O = outfit_types[chosen_outfit]
+	var/obj/outfit/O = outfit_types[chosen_outfit]
 	if(O)
 		for(var/obj/item/I in M)
 			if(istype(I, /obj/item/implant))
@@ -421,21 +421,80 @@
 /client/proc/cmd_display_del_log()
 	set category = "Debug"
 	set name = "Display del() Log"
-	set desc = "Displays a list of things that have failed to GC this round"
+	set desc = "Display del's log of everything that's passed through it."
 
-	var/dat = "<B>List of things that failed to GC this round</B><BR><BR>"
-	for(var/path in SSgarbage.didntgc)
-		dat += "[path] - [SSgarbage.didntgc[path]] times<BR>"
+	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		dellog += "<li><u>[path]</u><ul>"
+		if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+			dellog += "<li>SUSPENDED FOR LAG</li>"
+		if (I.failures)
+			dellog += "<li>Failures: [I.failures]</li>"
+		dellog += "<li>qdel() Count: [I.qdels]</li>"
+		dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+		if (I.hard_deletes)
+			dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+			dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+			dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+			if (I.hard_deletes_over_threshold)
+				dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+		if (I.slept_destroy)
+			dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+		if (I.no_respect_force)
+			dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+		if (I.no_hint)
+			dellog += "<li>No hint: [I.no_hint]</li>"
+		if(LAZYLEN(I.extra_details))
+			var/details = I.extra_details.Join("</li><li>")
+			dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+		dellog += "</ul></li>"
 
-	dat += "<B>List of paths that did not return a qdel hint in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.noqdelhint)
-		dat += "[path]<BR>"
+	dellog += "</ol>"
 
-	dat += "<B>List of paths that slept in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.sleptDestroy)
-		dat += "[path]<BR>"
+	usr << browse(dellog.Join(), "window=dellog")
 
-	usr << browse(dat, "window=dellog")
+/**
+ * Same as `cmd_display_del_log`, but only shows harddels
+ */
+/client/proc/cmd_display_harddel_log()
+	set category = "Debug"
+	set name = "Display harddel() Log"
+	set desc = "Display harddel's log."
+
+	var/list/dellog = list("<B>List of things that have harddel'd this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		if(I.hard_deletes)
+			dellog += "<li><u>[path]</u><ul>"
+			if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+				dellog += "<li>SUSPENDED FOR LAG</li>"
+			if (I.failures)
+				dellog += "<li>Failures: [I.failures]</li>"
+			dellog += "<li>qdel() Count: [I.qdels]</li>"
+			dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+			if (I.hard_deletes)
+				dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+				dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+				dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+				if (I.hard_deletes_over_threshold)
+					dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+			if (I.slept_destroy)
+				dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+			if (I.no_respect_force)
+				dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+			if (I.no_hint)
+				dellog += "<li>No hint: [I.no_hint]</li>"
+			if(LAZYLEN(I.extra_details))
+				var/details = I.extra_details.Join("</li><li>")
+				dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+			dellog += "</ul></li>"
+
+	dellog += "</ol>"
+
+	usr << browse(dellog.Join(), "window=harddellog")
 
 /client/proc/cmd_display_init_log()
 	set category = "Debug"
@@ -458,3 +517,25 @@
 
 	// Clear the user's cache so they get resent.
 	usr.client.sent_assets = list()
+
+/**
+ * Used to generate lag and load the MC to test how things work under live server stress
+ */
+/client/proc/cmd_generate_lag()
+	set name = "Generate Lag"
+	set category = "Debug"
+	set desc = "Generate lag, to be used for LOCAL TESTS ONLY"
+
+	var/mollyguard = tgui_alert(src, "This is to be used only on local instances, DO NOT USE IT ON LIVE, YOU CANNOT UNDO THIS, do you understand?", "Molly Guard", list("No", "Yes"))
+
+	if(mollyguard != "Yes")
+		return
+
+	var/tick_offenses = tgui_input_number(src, "Tick usage offset from 100?", "Tick Offset", 0, min_value = -100, round_value=TRUE)
+	var/jitter = tgui_input_number(src, "What jitter should be applied?", "Jitter", 0, min_value = 0, round_value=TRUE)
+
+	while(TRUE)
+		var/jitter_this_run = rand(0, jitter)
+		for(var/atom/an_atom in world)
+			if(world.tick_usage > (100+(tick_offenses+jitter_this_run)))
+				stoplag()
