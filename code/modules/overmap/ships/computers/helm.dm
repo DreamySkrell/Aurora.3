@@ -362,6 +362,8 @@
 		data["ETAnext"] = get_eta()
 		data["viewing"] = viewing_overmap(user)
 
+	data["starmap"] = SSstarmap.starmap_data
+
 	return data
 
 /obj/machinery/computer/ship/navigation/proc/get_eta()

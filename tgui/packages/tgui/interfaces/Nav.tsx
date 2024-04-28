@@ -14,6 +14,13 @@ export type NavData = {
   speed: number;
   ETAnext: number;
   viewing: BooleanLike;
+  starmap: StarmapData;
+};
+
+type StarmapData = {
+  x: number;
+  y: number;
+  systems: { name: string; x: number; y: number };
 };
 
 const bearing_unbounded = function (x, y) {
@@ -87,12 +94,80 @@ const NavSection = function (act, data) {
     </Section>
   );
 };
+
+const StarmapSection = function (act, data) {
+  const map_size = 100;
+  const zoom_mod = 0.1;
+  const center_point_x = 0.0;
+  const center_point_y = 0.0;
+
+  return (
+    <Section title="Starmap">
+      <Table>
+        <Table.Row>
+          <Table.Cell>Coordinates:</Table.Cell>
+          <Table.Cell>
+            {data.starmap.x} : {data.starmap.y}
+          </Table.Cell>
+        </Table.Row>
+      </Table>
+      <Section>
+        <svg
+          height={'250px'}
+          width={'100%'}
+          viewBox={`0 0 ${map_size} ${map_size}`}
+          overflow={'hidden'}>
+          <g>
+            <polygon
+              points="3,0 0,3 -3,0 0,-3"
+              fill="#FF0000"
+              stroke="#FFFF00"
+              stroke-width="0.5"
+              transform={`translate(
+                ${center_point_x * zoom_mod}
+                ${(map_size - center_point_y) * zoom_mod}
+              )`}
+            />
+            <circle
+              r={16}
+              cx={0}
+              cy={0}
+              fill="none"
+              stroke="#FF0000"
+              stroke-width="1"
+              transform={`translate(
+                ${center_point_x * zoom_mod}
+                ${(map_size - center_point_y) * zoom_mod}
+              )`}
+            />
+            <rect
+              x={-24}
+              y={-24}
+              width={48}
+              height={48}
+              stroke="red"
+              stroke-width="1"
+              fill="none"
+              transform={`translate(
+              ${center_point_x * zoom_mod}
+              ${(map_size - center_point_y) * zoom_mod}
+            )`}
+            />
+          </g>
+        </svg>
+      </Section>
+      {data.starmap.systems.map((system) => system.name)}
+    </Section>
+  );
+};
+
 export const Nav = (props, context) => {
   const { act, data } = useBackend<NavData>(context);
 
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
+        {StarmapSection(act, data)}
         {FlightSection(act, data)}
         {NavSection(act, data)}
       </NtosWindow.Content>

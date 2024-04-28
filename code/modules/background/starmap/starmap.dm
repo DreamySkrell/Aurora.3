@@ -15,7 +15,7 @@
 	var/desc = null
 
 	///
-	var/port_name = "Unspecified Spaceport"
+	var/port_name = null
 	///
 	var/port_desc = null
 
