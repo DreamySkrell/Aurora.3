@@ -3,13 +3,23 @@
 	desc = "This item type is used to spawn random objects at round-start"
 	icon = 'icons/misc/mark.dmi'
 	icon_state = "rup"
-	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
+
+	/// This variable determines the likelyhood that this random object will not spawn anything.
+	/// Percentage value. Always spawns if 0, never spawns if 100.
+	var/spawn_nothing_percentage = 0
+
+	/// Object list, in the form of `list(a, b, c)`.
+	/// If the list is nested, like `list(a, list(b, c)),
+	/// then it is either flattened, or .
 	var/list/spawnlist
+
+	/// Object list, in the form of `list(/obj/a = 3, /obj/b = 2, /obj/c = 1)`.
 	var/list/problist
-	var/has_postspawn
 
-// creates a new object and deletes itself
+	/// If set to TRUE, `post_spawn` porc is called with the spawned object.
+	var/has_postspawn = FALSE
 
+// Creates a new object and deletes itself.
 /obj/random/Initialize()
 	. = ..()
 	if (!prob(spawn_nothing_percentage))
