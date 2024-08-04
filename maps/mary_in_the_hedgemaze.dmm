@@ -73,12 +73,29 @@
 /turf/template_noop,
 /area/space)
 "bb" = (
-/obj/effect/floor_decal/corner/brown,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bd" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bn" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"bo" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/brown/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "by" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -93,6 +110,13 @@
 "bD" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"bE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
 /area/space)
 "bH" = (
 /obj/effect/floor_decal/corner/green{
@@ -113,6 +137,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"cf" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/mob/living/heavy_vehicle/premade/random/boring,
+/turf/simulated/floor/plating,
+/area/space)
+"cq" = (
+/obj/machinery/r_n_d/circuit_imprinter,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "cx" = (
 /obj/structure/table/steel,
@@ -164,6 +197,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"cU" = (
+/obj/machinery/computer/shuttle_control/multi/lift{
+	pixel_x = 8;
+	pixel_y = 16;
+	layer = 3.1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "de" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -223,6 +264,15 @@
 	dir = 1
 	},
 /turf/template_noop,
+/area/space)
+"ej" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
+/area/space)
+"ek" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "es" = (
 /obj/structure/table/steel,
@@ -316,10 +366,33 @@
 "gg" = (
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"gt" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/space)
 "gu" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/light,
+/area/space)
+"gC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/computer/shuttle_control/multi/lift{
+	pixel_x = 8;
+	pixel_y = 16;
+	layer = 3.1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"gG" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "gJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -343,6 +416,12 @@
 	dir = 1
 	},
 /turf/template_noop,
+/area/space)
+"gY" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "ha" = (
 /obj/machinery/door/firedoor/noid{
@@ -416,6 +495,11 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled,
 /area/space)
+"ip" = (
+/obj/machinery/stasis_cage,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ir" = (
 /obj/structure/closet/secure_closet/medical_para,
 /obj/effect/floor_decal/corner/green{
@@ -447,6 +531,12 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/space_ship,
 /area/space)
+"iP" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/research,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "iZ" = (
 /obj/effect/floor_decal/corner/teal{
 	dir = 1
@@ -462,6 +552,11 @@
 	},
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"jz" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "jE" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
@@ -512,6 +607,13 @@
 "kd" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"kg" = (
+/obj/machinery/vending/robotics,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -619,6 +721,10 @@
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"lV" = (
+/obj/machinery/mecha_part_fabricator,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "lW" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -634,6 +740,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"mq" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "mz" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -716,6 +826,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"oq" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "oz" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -766,6 +881,12 @@
 "oZ" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/grass,
+/area/space)
+"pd" = (
+/obj/effect/floor_decal/corner/brown/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "pe" = (
 /obj/structure/stairs_railing{
@@ -841,6 +962,16 @@
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"qf" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "qn" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -864,6 +995,10 @@
 /obj/structure/ladder/up,
 /turf/template_noop,
 /area/space)
+"qD" = (
+/obj/machinery/weapons_analyzer,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "rc" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/brown/full,
@@ -871,6 +1006,19 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"rk" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "rm" = (
 /obj/structure/table/steel,
@@ -935,6 +1083,12 @@
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"sv" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "sw" = (
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
@@ -959,9 +1113,26 @@
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"sP" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "sW" = (
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"td" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "th" = (
 /obj/machinery/computer/operating/terminal,
@@ -994,6 +1165,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"tS" = (
+/obj/machinery/r_n_d/protolathe,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "tW" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/brown{
@@ -1003,6 +1178,12 @@
 /area/space)
 "tY" = (
 /obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ud" = (
+/obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1044,6 +1225,21 @@
 	},
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"uH" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
+/area/space)
+"uK" = (
+/obj/machinery/r_n_d/destructive_analyzer,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "uL" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -1149,6 +1345,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"wC" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"wF" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/mob/living/heavy_vehicle/premade/random/extra,
+/turf/simulated/floor/plating,
+/area/space)
 "xo" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -1177,6 +1385,17 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"xw" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "xB" = (
 /obj/structure/stairs_lower/stairs_upper{
@@ -1252,9 +1471,30 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/space)
+"yq" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"yC" = (
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "yM" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yU" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1284,6 +1524,15 @@
 	},
 /obj/random/loot,
 /turf/simulated/floor/tiled,
+/area/space)
+"zo" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "zr" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -1429,6 +1678,10 @@
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Cl" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/space)
 "Cr" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 1
@@ -1465,6 +1718,12 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/space)
+"Dw" = (
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Dy" = (
 /obj/structure/stairs/east,
 /turf/template_noop,
@@ -1487,6 +1746,10 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/space)
+"DU" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "Ec" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -1499,6 +1762,13 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Eq" = (
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 32;
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "EA" = (
 /obj/structure/lattice/catwalk,
@@ -1531,12 +1801,41 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Fk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Fo" = (
+/obj/item/storage/firstaid/surgery,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "Fv" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"FC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/space)
+"FG" = (
+/obj/machinery/suspension_gen{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "FJ" = (
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1549,6 +1848,15 @@
 "FR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"FS" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1570,6 +1878,12 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/space)
+"Gw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "GA" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -1581,6 +1895,10 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"GF" = (
+/obj/machinery/computer/rdconsole/core,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "GG" = (
 /obj/machinery/stasis_cage,
@@ -1671,9 +1989,23 @@
 	},
 /turf/simulated/floor/reinforced/large/airless,
 /area/space)
+"HH" = (
+/obj/machinery/computer/rdconsole/robotics{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
 "HP" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Ic" = (
+/obj/machinery/computer/shuttle_control/multi/lift{
+	pixel_x = -8;
+	pixel_y = 16;
+	layer = 3.1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "If" = (
 /obj/effect/floor_decal/corner/mauve,
@@ -1685,6 +2017,15 @@
 	},
 /obj/effect/floor_decal/corner/teal,
 /turf/simulated/floor/reinforced/large/airless,
+/area/space)
+"Ix" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "IA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1969,6 +2310,10 @@
 	color = "#665d73"
 	},
 /area/space)
+"Np" = (
+/obj/structure/table/glass,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "Nr" = (
 /obj/machinery/vending/boozeomat{
 	opacity = 1
@@ -1987,6 +2332,15 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"NQ" = (
+/obj/machinery/computer/operating/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "NR" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
@@ -2026,6 +2380,11 @@
 "Op" = (
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Oz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/random/boring,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "OE" = (
 /obj/structure/table/glass{
@@ -2191,6 +2550,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Rm" = (
+/obj/machinery/mecha_part_fabricator{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Rr" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -2221,6 +2586,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"RO" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "RW" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -2273,6 +2642,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"TO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "TT" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/railing/fence{
@@ -2293,6 +2668,33 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Uc" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"Uk" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Un" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Ux" = (
 /obj/structure/stairs/west,
 /obj/structure/stairs_lower{
@@ -2310,6 +2712,13 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Uz" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
 /area/space)
 "UL" = (
 /obj/structure/bed/stool/chair/office/light,
@@ -2354,6 +2763,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"VS" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
+/area/space)
 "Wa" = (
 /obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/tiled/dark,
@@ -2371,6 +2790,15 @@
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
+/area/space)
+"Wh" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/mob/living/heavy_vehicle/premade/random/boring,
+/turf/simulated/floor/plating,
+/area/space)
+"Wj" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled,
 /area/space)
 "Wy" = (
 /obj/machinery/door/firedoor/noid,
@@ -2435,6 +2863,19 @@
 /obj/machinery/door/airlock/service,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"XE" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"XL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "XQ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
@@ -2449,6 +2890,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"XT" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass_science,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Ya" = (
 /obj/effect/floor_decal/corner/mauve/diagonal{
@@ -2508,6 +2955,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/large/airless,
+/area/space)
+"YX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 "Zc" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -47438,14 +47891,14 @@ Rs
 Rs
 Rs
 Rs
+Di
 Rs
 Rs
 Rs
 Rs
 Rs
 Rs
-Rs
-Rs
+Di
 Rs
 Rs
 Rs
@@ -47695,14 +48148,14 @@ Rs
 Rs
 Rs
 Rs
+ul
 Rs
 Rs
 Rs
 Rs
 Rs
 Rs
-Rs
-Rs
+ul
 Rs
 Rs
 Rs
@@ -47952,14 +48405,14 @@ Rs
 Rs
 Rs
 Rs
+Di
 Rs
 Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
+Di
+Di
+Di
+Di
+Di
 Rs
 Rs
 Di
@@ -48200,23 +48653,23 @@ IN
 IN
 IN
 IN
+Di
+UT
+Di
+Di
+Di
+Di
+UT
+Di
+Di
+Di
 Rs
 Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
+Di
+gt
+Wd
+wF
+Di
 Rs
 Rs
 Di
@@ -48455,25 +48908,25 @@ zO
 zO
 zO
 zO
-zO
 Di
 Rs
 Rs
 Rs
 Rs
-zO
-zO
-zO
-zO
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
-Rs
+Di
+Dw
+Rm
+gg
+lV
+Dw
+Di
+Di
+Di
+Di
+FC
+cf
+Wd
+Di
 Rs
 Rs
 Di
@@ -48700,6 +49153,7 @@ Rs
 Di
 Rs
 Rs
+Rs
 Di
 zO
 zO
@@ -48711,26 +49165,25 @@ zO
 zO
 zO
 zO
-zO
-zO
 Di
 Rs
 Rs
 Rs
 Rs
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-Rs
-Rs
-Rs
-Rs
-Rs
+Di
+Dw
+Rm
+gg
+lV
+Dw
+Di
+HH
+RO
+zo
+Cl
+Wd
+gt
+Di
 Rs
 Rs
 Di
@@ -48957,6 +49410,7 @@ Di
 Di
 Rs
 Rs
+Rs
 Di
 zO
 zO
@@ -48968,30 +49422,29 @@ zO
 zO
 zO
 zO
-zO
-zO
 Di
-Rs
-Rs
-Rs
-Rs
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-Rs
-Rs
-Rs
-Rs
-Rs
 Rs
 Rs
 Di
-HP
+Di
+Di
+Dw
+gg
+gg
+gg
+Dw
+Di
+Eq
+yC
+IQ
+gg
+Ix
+Ix
+Di
+Rs
+Rs
+ul
+gg
 gg
 gg
 gg
@@ -49214,22 +49667,6 @@ Rs
 Rs
 Rs
 Rs
-Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-Di
-Rs
-Rs
 Rs
 Di
 zO
@@ -49242,9 +49679,25 @@ zO
 zO
 zO
 zO
-zO
-zO
+Di
 Rs
+Rs
+Di
+XL
+PL
+bd
+gg
+gg
+gg
+bd
+Di
+cq
+tS
+IQ
+gg
+gg
+gg
+ul
 Rs
 Rs
 Di
@@ -49265,8 +49718,8 @@ NE
 NE
 Di
 Di
-Di
-Di
+oz
+gg
 gg
 gg
 Di
@@ -49471,22 +49924,6 @@ Rs
 Rs
 Rs
 Rs
-Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-Di
-Rs
-Rs
 Rs
 Di
 zO
@@ -49499,15 +49936,31 @@ zO
 zO
 zO
 zO
-zO
-zO
+Di
 Rs
+Rs
+Di
+gg
+gg
+VS
+Uz
+Uz
+Uz
+Uz
+Uz
+lJ
+lJ
+lJ
+Un
+gg
+gg
+Di
 Rs
 Rs
 Di
 hq
+gg
 fp
-mj
 Di
 vs
 vs
@@ -49521,9 +49974,9 @@ Di
 po
 po
 Di
-vs
-vs
 Di
+bn
+gg
 hi
 Ux
 Di
@@ -49727,22 +50180,6 @@ Di
 Di
 Di
 Di
-Di
-Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-Di
-Rs
 Rs
 Rs
 Di
@@ -49756,14 +50193,30 @@ zO
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Di
+gg
+gg
+FS
+bE
+bE
+bE
+bE
+Uc
+ej
+po
+po
+ge
+Di
+pq
 Di
 Di
 Di
+Di
+Di
+UT
 Di
 Di
 vs
@@ -49778,9 +50231,9 @@ Di
 po
 po
 Di
-vs
-vs
 Di
+iI
+gg
 gg
 gg
 Di
@@ -49983,23 +50436,7 @@ Di
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
 Di
-Rs
 Rs
 Rs
 Di
@@ -50013,15 +50450,31 @@ zO
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Di
+Oz
+PL
+PL
+sv
+cU
+gg
+Di
+kg
+po
+ej
+Wj
+tD
+Di
+Ku
+Gw
+yU
+rk
+Di
+Rs
+Rs
+Rs
 Di
 vs
 vs
@@ -50035,8 +50488,8 @@ Di
 po
 po
 Di
-vs
-vs
+Di
+Di
 Di
 Di
 Di
@@ -50240,23 +50693,7 @@ Di
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
 Di
-Rs
 Rs
 Rs
 Di
@@ -50270,15 +50707,31 @@ zO
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Di
+Di
+Di
+oq
+jz
+YX
+TO
+Di
+xw
+po
+po
+ej
+tD
+Di
+Ku
+Ku
+pd
+NQ
+Di
+Rs
+Rs
+Rs
 Di
 Di
 Di
@@ -50497,11 +50950,10 @@ Di
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Di
 zO
 zO
 zO
@@ -50516,26 +50968,27 @@ Di
 Rs
 Rs
 Rs
+Rs
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+ek
+jz
+Fk
+gC
+Di
+qf
+XE
+po
+gG
+uH
+Di
+mq
+bo
+Ku
+td
+Di
+Rs
+Rs
+Rs
 Di
 vs
 vs
@@ -50754,45 +51207,45 @@ Di
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
 Di
-Rs
-Rs
-Rs
+Di
+Di
 Di
 zO
 zO
 zO
 zO
 zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Rs
+Rs
+Rs
+Di
+Di
+Di
+Di
+Di
+Di
+zv
+zv
+Zn
+zv
+zv
+Di
+Fo
+wC
+wC
+sP
+Di
+Rs
+Rs
+Rs
 Di
 vs
 vs
@@ -51008,48 +51461,48 @@ Di
 UT
 Di
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Di
+Di
+Di
+oz
+iI
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+gg
+gg
+gg
+gg
+gg
 Di
 Di
 UT
 Di
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+Di
+gg
+gg
+po
+gg
+gg
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Rs
+Rs
 Di
 vs
 vs
@@ -51268,6 +51721,16 @@ po
 po
 po
 po
+lD
+po
+po
+po
+po
+po
+po
+po
+po
+lD
 po
 po
 po
@@ -51277,36 +51740,26 @@ po
 po
 po
 po
+lD
 po
 po
 po
 po
+lJ
+lJ
+lJ
 po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+lJ
+lJ
+Un
+Di
+Rs
+Rs
+Rs
+Rs
+Di
+Rs
+Rs
 Di
 Di
 Di
@@ -51525,7 +51978,7 @@ po
 po
 po
 po
-po
+lD
 Hh
 Hh
 Hh
@@ -51534,6 +51987,17 @@ fI
 WB
 Hh
 Hh
+lD
+po
+po
+po
+po
+po
+po
+po
+po
+po
+lD
 po
 po
 po
@@ -51545,26 +52009,15 @@ po
 po
 po
 po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
 Di
+Rs
+Rs
+Rs
+Rs
+Di
+Rs
+Rs
+ul
 po
 po
 po
@@ -51777,11 +52230,11 @@ zO
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+gg
 Di
 zv
 zv
@@ -51813,14 +52266,14 @@ gg
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Rs
+Rs
+ul
+Rs
+Rs
 Di
 po
 po
@@ -52034,11 +52487,11 @@ zO
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+gg
 Di
 iB
 Rj
@@ -52070,14 +52523,14 @@ Ux
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+ul
+Rs
+Rs
+Rs
+Rs
+Di
+Rs
+Rs
 Di
 Di
 Di
@@ -52291,11 +52744,11 @@ zO
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+gg
 Di
 Xu
 Gd
@@ -52327,14 +52780,14 @@ gg
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Di
+Rs
+Rs
+Rs
+Rs
+Di
+Rs
+Rs
 Di
 vs
 vs
@@ -52582,16 +53035,16 @@ Di
 Di
 Di
 Di
-po
-po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+NE
+NE
+Di
+Di
+Di
+Di
+Di
+Di
+Rs
+Rs
 Di
 vs
 vs
@@ -52841,14 +53294,14 @@ Rs
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+Di
+Rs
+Rs
+Rs
 Di
 vs
 vs
@@ -53080,7 +53533,7 @@ Di
 Di
 Di
 Di
-Di
+sJ
 Di
 Di
 gg
@@ -53098,14 +53551,14 @@ Rs
 Di
 po
 po
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+gg
+gg
+gg
+gg
+Di
+Di
+UT
+Di
 Di
 Di
 Di
@@ -53337,7 +53790,7 @@ Ku
 Ku
 Di
 RW
-TZ
+Ku
 TZ
 TZ
 TZ
@@ -53581,7 +54034,7 @@ Ku
 Ku
 Ku
 Ku
-Di
+iP
 Ku
 Ku
 Ku
@@ -53842,15 +54295,15 @@ Di
 Ku
 Ku
 Ku
-zv
+XT
 Xu
 om
-zv
+XT
 Ku
 Ku
 Ku
-zv
-Xu
+XT
+Ku
 om
 eD
 eD
@@ -54117,8 +54570,8 @@ Xu
 om
 Di
 Di
-UT
 Di
+UT
 Di
 Di
 Di
@@ -54373,11 +54826,11 @@ eD
 Xu
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
-gg
+FG
+FG
 Di
 Rs
 Rs
@@ -54604,7 +55057,7 @@ FJ
 Di
 po
 po
-bn
+gg
 Di
 qc
 qc
@@ -54630,11 +55083,11 @@ eD
 Xu
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
-gg
+FG
+FG
 Di
 Rs
 Rs
@@ -54870,14 +55323,14 @@ Ku
 Ku
 Ku
 Ku
+lD
 Ku
 Ku
 Ku
 Ku
 Ku
 Ku
-Ku
-Ku
+lD
 Ku
 XQ
 TZ
@@ -54885,8 +55338,8 @@ TZ
 TZ
 TZ
 Zc
-om
-Di
+Ku
+iP
 gg
 gg
 gg
@@ -55127,28 +55580,28 @@ Oc
 Oc
 Oc
 Oc
+lD
 Oc
 Oc
 Oc
 Oc
 Oc
 Oc
+lD
 Oc
 Oc
-Oc
-Oc
-Oc
+Ku
 Oc
 Oc
 Oc
 mz
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
-gg
+ip
+ip
 Di
 Rs
 Rs
@@ -55393,19 +55846,19 @@ IN
 IN
 IN
 IN
-Di
-Di
-Di
-Di
+qc
+Ku
+qc
+qc
 Di
 Xu
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
-gg
+ip
+ip
 Di
 Rs
 Rs
@@ -55650,21 +56103,21 @@ KF
 KF
 eM
 IN
-Ku
-Ku
-Ku
-Ku
+zv
+pS
+zv
+zv
 Di
-Xu
-om
-Di
-Di
+NE
+NE
 Di
 Di
 Di
 Di
 Di
-Rs
+Di
+Di
+Di
 Rs
 Rs
 Rs
@@ -55907,22 +56360,22 @@ Qe
 Qe
 pm
 IN
+mq
 Ku
 Ku
-Ku
-Ku
-Di
+zv
+qc
 Xu
 om
+qc
+zv
+mq
+mq
+Ku
+ya
+Ku
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
-Di
-Di
-Di
+UT
 Di
 Di
 Di
@@ -56164,24 +56617,24 @@ Bf
 Qe
 pm
 IN
+mq
 Ku
 Ku
-Ku
-Ku
-Di
+zv
+qc
 Xu
 om
+qc
+zv
+mq
+Ku
+SW
+Np
+bb
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
+Rs
+Rs
 Di
-zO
-zO
-zO
-zO
 zO
 zO
 zO
@@ -56421,24 +56874,24 @@ up
 Qe
 pm
 IN
+mq
 Ku
 Ku
+XT
 Ku
 Ku
-Di
-Xu
 om
+qc
+zv
+mq
+Ku
+SW
+Np
+bb
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
+Rs
+Rs
 Di
-zO
-zO
-zO
-zO
 zO
 zO
 zO
@@ -56678,24 +57131,24 @@ up
 up
 pm
 IN
-Ku
-Ku
-Ku
-Ku
-Di
+cq
+yC
+qD
+zv
+qc
 Xu
-om
+Ku
+Ku
+XT
+Ku
+Ku
+SW
+Np
+bb
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
+Rs
+Rs
 Di
-zO
-zO
-zO
-zO
 zO
 zO
 zO
@@ -56935,24 +57388,24 @@ lm
 up
 pm
 Hs
-Ku
-Ku
-Ku
-Ku
-Di
+GF
+gY
+uK
+zv
+qc
 Xu
 om
+qc
+zv
+Ku
+Ku
+SW
+Np
+bb
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
+Rs
+Rs
 Di
-zO
-zO
-zO
-zO
 zO
 zO
 zO
@@ -57192,24 +57645,24 @@ ZB
 up
 pm
 Hs
-Ku
-Ku
-Ku
-Ku
-Di
+tS
+yC
+RO
+zv
+qc
 Xu
 om
+qc
+zv
+Ku
+Ku
+Ku
+Gd
+Ku
 Di
-Ku
-Ku
-Ku
-Ku
-Ku
+Rs
+Rs
 Di
-zO
-zO
-zO
-zO
 zO
 zO
 zO
@@ -57443,9 +57896,9 @@ gg
 gg
 gg
 gg
-cJ
-cJ
-cJ
+yq
+yq
+yq
 Bf
 pm
 IN
@@ -57454,8 +57907,8 @@ Di
 Di
 Di
 Di
-Xu
-om
+NE
+NE
 Di
 Di
 Di
@@ -57463,10 +57916,10 @@ Di
 Di
 Di
 Di
-zO
-zO
-zO
-zO
+Di
+UT
+Di
+Di
 zO
 zO
 zO
@@ -57714,16 +58167,16 @@ Di
 Xu
 om
 Di
-Ku
-Ku
-Ku
-Ku
+DU
+DU
+DU
+DU
 Di
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Di
 zO
 zO
 zO
@@ -57956,8 +58409,8 @@ Bf
 Wd
 eQ
 Wd
+zr
 gg
-oL
 ZB
 oL
 up
@@ -57971,16 +58424,16 @@ Di
 Xu
 om
 Di
-Ku
-Ku
-Ku
-Ku
+DU
+DU
+DU
+DU
 Di
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Di
 zO
 zO
 zO
@@ -58213,7 +58666,7 @@ Bf
 eQ
 Wd
 eQ
-gg
+zr
 gg
 gg
 Bf
@@ -58224,20 +58677,20 @@ Ku
 Ku
 Ku
 Ku
-Di
-Xu
-om
-Di
+iP
+Ku
+Ku
+iP
 Ku
 Ku
 Ku
 Ku
 Di
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Di
 zO
 zO
 zO
@@ -58470,7 +58923,7 @@ Bf
 up
 up
 Bf
-oL
+ZB
 oL
 oL
 up
@@ -58490,11 +58943,11 @@ Ku
 Ku
 Ku
 Di
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Di
 zO
 zO
 zO
@@ -58747,11 +59200,11 @@ Di
 Di
 Di
 Di
-zO
-zO
-zO
-zO
-zO
+Di
+UT
+Di
+Di
+Di
 zO
 zO
 zO
@@ -58999,22 +59452,22 @@ Di
 Xu
 om
 Di
-gg
-gg
-gg
-gg
+FJ
+FJ
+FJ
+FJ
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Di
+Di
+Di
+Di
+Di
+Di
+Di
 zO
 zO
 zO
@@ -59254,23 +59707,23 @@ Hs
 qc
 qc
 Xu
-om
+Ku
+iP
+gg
+gg
+gg
+gg
+ul
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
 Di
-gg
-gg
-gg
-gg
-Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
 Di
 Di
 Di
@@ -59513,21 +59966,21 @@ qc
 Xu
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
+FJ
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+ul
+Rs
+Rs
+Rs
 Qp
 Rs
 Rs
@@ -59770,21 +60223,21 @@ qc
 Xu
 om
 Di
+FJ
+FJ
 gg
-gg
-gg
-gg
+FJ
 Di
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Di
+Rs
+Rs
+Rs
 Qp
 Rs
 Rs
@@ -60032,12 +60485,12 @@ IN
 IN
 IN
 IN
-zO
-zO
-zO
-zO
-zO
-zO
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
 IN
 IN
 IN
@@ -113696,8 +114149,8 @@ eQ
 eQ
 pD
 Di
-gg
-gg
+oz
+iI
 Di
 eQ
 pD
@@ -114543,8 +114996,8 @@ Di
 zO
 zO
 zO
-zO
-zO
+Di
+Di
 Di
 Di
 Di
@@ -114800,9 +115253,9 @@ Di
 zO
 zO
 zO
-zO
-zO
 Di
+zO
+zO
 zO
 zO
 Di
@@ -115057,9 +115510,9 @@ Di
 zO
 zO
 zO
-zO
-zO
 Di
+zO
+zO
 zO
 zO
 Di
@@ -115314,9 +115767,9 @@ Di
 zO
 zO
 zO
-zO
-zO
 Di
+zO
+zO
 zO
 zO
 Di
@@ -115539,7 +115992,7 @@ IN
 PL
 gg
 TE
-Rs
+iI
 IN
 IN
 IN
@@ -115572,8 +116025,8 @@ Di
 Di
 Di
 Di
-Di
-Di
+gg
+gg
 gg
 gg
 Di
@@ -115796,10 +116249,10 @@ IN
 Sv
 gg
 TE
-Rs
+oz
 Di
-PH
-PH
+zO
+zO
 Di
 AS
 wi
@@ -115828,7 +116281,7 @@ Di
 gg
 po
 po
-po
+lD
 po
 po
 po
@@ -116055,8 +116508,8 @@ gg
 TE
 Di
 Di
-yh
-PH
+zO
+zO
 Di
 Di
 Di
@@ -116085,7 +116538,7 @@ gg
 gg
 po
 po
-po
+lD
 po
 po
 po
@@ -116311,8 +116764,8 @@ Sv
 gg
 TE
 Di
-yh
-Rs
+pD
+Ic
 Rs
 yh
 Di
@@ -116555,8 +117008,8 @@ IN
 IN
 IN
 Rs
+IQ
 gg
-TE
 Rs
 IN
 IN
@@ -116812,14 +117265,14 @@ Rs
 PH
 Di
 Rs
+IQ
 gg
-TE
-Rs
-Rs
-Rs
-Rs
-Rs
-Di
+gg
+gg
+gg
+gg
+gg
+lD
 gg
 gg
 gg
@@ -117069,21 +117522,21 @@ Rs
 PH
 Di
 Rs
+Uk
+Hf
+Hf
+Hf
+ud
 gg
-gg
-gg
-gg
-gg
-gg
-gg
+Hf
 lD
-gg
-gg
-gg
-TE
+Hf
+Hf
+Hf
+jY
 Di
 yh
-KN
+Wh
 pD
 yh
 Di
@@ -117326,18 +117779,18 @@ Rs
 yh
 Di
 Rs
+Rs
+Rs
+Rs
+Rs
+IQ
 gg
-bb
-Hf
-Hf
-Hf
-Hf
-Hf
-lD
-Hf
-Hf
-Hf
-jY
+Rs
+Di
+Rs
+Rs
+Rs
+Rs
 Di
 Di
 Di
@@ -117583,12 +118036,12 @@ Rs
 PH
 Di
 Rs
+Rs
+Rs
+Rs
+Rs
+IQ
 gg
-TE
-Rs
-Rs
-Rs
-Rs
 Rs
 Di
 Rs
@@ -117840,12 +118293,12 @@ Rs
 eQ
 Di
 Rs
+Rs
+Rs
+Rs
+Rs
+IQ
 gg
-TE
-Rs
-Rs
-Rs
-Rs
 Rs
 Di
 Di
@@ -118097,12 +118550,12 @@ Rs
 yh
 Di
 Di
+Di
+Di
+Di
+Di
 NE
 NE
-Di
-Di
-Di
-Di
 Di
 Di
 aK
@@ -118354,12 +118807,12 @@ Rs
 yh
 Di
 Nz
+lJ
+lJ
+lJ
+lJ
 po
 po
-lJ
-lJ
-lJ
-lJ
 lJ
 KZ
 lJ
@@ -119884,8 +120337,8 @@ Di
 Di
 Di
 Di
-Rs
-Rs
+oz
+iI
 gg
 TE
 Rs
@@ -120136,7 +120589,7 @@ Rs
 IQ
 gg
 Rs
-Rs
+oz
 Di
 Rs
 Rs
@@ -120393,7 +120846,7 @@ Rs
 IQ
 gg
 Rs
-Rs
+iI
 Di
 Rs
 Rs
@@ -120933,7 +121386,7 @@ Di
 Di
 Di
 Di
-Rs
+oz
 gg
 TE
 Di
@@ -121447,7 +121900,7 @@ Rs
 Rs
 Rs
 Di
-Rs
+iI
 gg
 TE
 Di
