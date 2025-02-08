@@ -78,13 +78,8 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aP" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 8
-	},
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/turf/unsimulated/marker/gray,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "aV" = (
 /obj/effect/floor_decal/corner/grey{
@@ -476,7 +471,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "fh" = (
 /obj/machinery/stasis_bed,
@@ -743,6 +738,16 @@
 /obj/item/spacecash/c1000,
 /turf/template_noop,
 /area/template_noop)
+"iJ" = (
+/obj/machinery/iff_beacon/name_change{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "iK" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1;
@@ -751,10 +756,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "iL" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/turf/unsimulated/marker/gray,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "ja" = (
 /obj/machinery/sleeper{
@@ -1139,7 +1145,10 @@
 /area/template_noop)
 "ob" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "od" = (
 /obj/machinery/vending/dinnerware/metal,
@@ -1570,7 +1579,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "sZ" = (
 /obj/effect/floor_decal/corner/black{
@@ -1642,6 +1651,10 @@
 /obj/item/tank/oxygen/brown,
 /obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"um" = (
+/obj/item/toy/plushie/qill,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/template_noop)
 "uo" = (
 /obj/random/mre{
@@ -1873,7 +1886,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "yh" = (
 /obj/structure/bed/stool/chair/folding{
@@ -2235,7 +2248,7 @@
 "Ca" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Cc" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -2552,7 +2565,7 @@
 	dir = 4
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "FK" = (
 /obj/structure/bed/stool/chair{
@@ -3007,6 +3020,12 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/unsimulated/marker/purple,
 /area/template_noop)
+"Lf" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Lk" = (
 /obj/machinery/ship_weapon/autocannon{
 	weapon_id = "tcaf_autocannon"
@@ -3018,7 +3037,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Lq" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -3325,7 +3344,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "PJ" = (
 /obj/structure/table/rack,
@@ -4084,7 +4103,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "WN" = (
 /obj/structure/table/standard,
@@ -4135,7 +4154,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Xu" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
@@ -4193,6 +4212,13 @@
 "Yq" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Yr" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Ys" = (
 /obj/structure/closet/crate/medical,
@@ -62921,7 +62947,7 @@ Ua
 wy
 wy
 wy
-wy
+um
 wy
 wy
 wy
@@ -63643,7 +63669,7 @@ za
 za
 mg
 za
-ob
+iL
 mF
 fx
 Rv
@@ -63654,7 +63680,7 @@ Rv
 Rv
 Rv
 zs
-za
+iJ
 za
 za
 UQ
@@ -63878,7 +63904,7 @@ Rv
 Sh
 iK
 zs
-za
+aP
 za
 za
 UQ
@@ -64091,7 +64117,7 @@ za
 za
 mg
 za
-ob
+Yr
 mF
 fx
 fx
@@ -64102,7 +64128,7 @@ Rv
 Sh
 Zh
 zs
-za
+xJ
 za
 za
 UQ
@@ -64321,7 +64347,7 @@ mF
 fx
 fx
 fx
-fx
+Lf
 VB
 Rv
 lo
@@ -64545,7 +64571,7 @@ zs
 fx
 fx
 fx
-fx
+He
 dE
 Rv
 Rv
@@ -68980,7 +69006,7 @@ jO
 jO
 jO
 Yv
-aP
+ox
 jO
 jO
 jO
@@ -68990,7 +69016,7 @@ jO
 jO
 jO
 jO
-iL
+jO
 jO
 jO
 jO
@@ -69206,13 +69232,13 @@ za
 za
 mb
 za
+WJ
 za
 za
 za
 za
 za
-za
-za
+WJ
 za
 za
 za
@@ -69430,13 +69456,13 @@ za
 za
 za
 za
-WJ
 za
 za
 za
 za
 za
-WJ
+za
+za
 za
 za
 za
@@ -69878,13 +69904,13 @@ za
 za
 UQ
 za
+WJ
 za
 za
 za
 za
 za
-za
-za
+WJ
 za
 za
 za
@@ -70102,13 +70128,13 @@ za
 za
 UQ
 za
-WJ
-za
-za
-za
-za
-za
-WJ
+ek
+ek
+ek
+ek
+ek
+ek
+ek
 za
 za
 za
@@ -70326,13 +70352,13 @@ za
 za
 UQ
 za
-za
-za
-za
-za
-za
-za
-za
+gz
+fx
+fx
+ek
+fx
+fx
+gz
 za
 za
 za
@@ -70550,13 +70576,13 @@ za
 za
 UQ
 za
-za
-za
-za
-za
-za
-za
-za
+gz
+fx
+fx
+ek
+fx
+fx
+gz
 za
 za
 za
@@ -70774,13 +70800,13 @@ za
 za
 UQ
 za
-WJ
-za
-za
-za
-za
-za
-WJ
+ek
+Hd
+Hd
+ek
+Hd
+Hd
+ek
 za
 za
 za
@@ -70998,13 +71024,13 @@ za
 za
 za
 za
-ek
-ek
-ek
-ek
-ek
-ek
-ek
+DU
+Rv
+Rv
+Rv
+Rv
+Rv
+DU
 za
 za
 za
@@ -71222,13 +71248,13 @@ za
 za
 za
 za
-gz
-fx
-fx
 ek
-fx
-fx
-gz
+Rv
+Rv
+Rv
+Rv
+Rv
+ek
 za
 za
 za
@@ -71446,13 +71472,13 @@ za
 za
 za
 za
-gz
-fx
-fx
+ek
 ek
 fx
+Rv
+Rv
 fx
-gz
+ek
 za
 za
 za
@@ -71670,13 +71696,13 @@ za
 za
 za
 za
+WJ
 ek
-Hd
-Hd
-ek
-Hd
-Hd
-ek
+fx
+Rv
+Rv
+fx
+DU
 za
 za
 za
@@ -71894,13 +71920,13 @@ za
 za
 za
 za
-DU
+za
+ek
+fx
 Rv
 Rv
-Rv
-Rv
-Rv
-DU
+ek
+ek
 za
 za
 za
@@ -72118,13 +72144,13 @@ za
 za
 za
 za
+za
 ek
-Rv
-Rv
-Rv
+yJ
 Rv
 Rv
 ek
+za
 za
 za
 za
@@ -72342,13 +72368,13 @@ za
 za
 za
 za
+WJ
 ek
-ek
-fx
+TD
 Rv
 Rv
-fx
 ek
+WJ
 za
 za
 za
@@ -72566,13 +72592,13 @@ za
 za
 za
 za
-WJ
+za
 ek
-fx
+yJ
 Rv
 Rv
-fx
-DU
+ek
+za
 za
 za
 za
@@ -72788,17 +72814,17 @@ za
 za
 za
 za
-za
+MZ
 za
 za
 ek
-fx
+ek
 Rv
 Rv
-fx
 ek
 za
 za
+MZ
 za
 UQ
 jO
@@ -73015,12 +73041,12 @@ za
 za
 za
 za
+za
 ek
 Rv
 Rv
-Rv
-Rv
 ek
+za
 za
 za
 za
@@ -73238,13 +73264,13 @@ za
 za
 za
 za
-WJ
+za
+za
 ek
 Rv
 Rv
-Rv
-Rv
-DU
+ek
+za
 za
 za
 za
@@ -73464,10 +73490,10 @@ za
 za
 za
 ek
+ek
 Rv
 Rv
-Rv
-Rv
+ek
 ek
 za
 za
@@ -73684,7 +73710,7 @@ za
 za
 za
 za
-MZ
+za
 za
 za
 ek
@@ -73694,7 +73720,7 @@ Rv
 Rv
 ek
 za
-MZ
+za
 za
 UQ
 jO
