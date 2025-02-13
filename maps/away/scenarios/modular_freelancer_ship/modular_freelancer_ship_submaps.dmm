@@ -822,6 +822,9 @@
 	pixel_x = -3;
 	pixel_y = 1
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/template_noop)
 "adg" = (
@@ -1600,6 +1603,26 @@
 	pixel_x = -5;
 	pixel_y = -1
 	},
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/clothing/head/helmet/dominia{
+	pixel_x = 5;
+	pixel_y = 2
+	},
 /obj/item/clothing/head/helmet/dominia{
 	pixel_x = 5;
 	pixel_y = 2
@@ -1608,7 +1631,7 @@
 	pixel_x = 5;
 	pixel_y = 2
 	},
-/obj/item/clothing/head/helmet/dominia{
+/obj/item/clothing/head/helmet/dominia/nco{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -3740,6 +3763,9 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
+/obj/structure/sign/painting_frame/goddess/artisan{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/template_noop)
 "asI" = (
@@ -4509,6 +4535,9 @@
 /area/template_noop)
 "ayk" = (
 /obj/structure/table/rack,
+/obj/structure/sign/flag/galatea_government{
+	pixel_y = 32
+	},
 /obj/item/clothing/suit/space/void/golden_deep,
 /obj/item/clothing/head/helmet/space/void/golden_deep,
 /turf/simulated/floor/gold,
@@ -4979,16 +5008,19 @@
 /area/template_noop)
 "aBr" = (
 /obj/structure/table/rack,
+/obj/item/rig/light/offworlder/frontier,
+/obj/item/clothing/under/offworlder/drab,
+/obj/item/rig/light/offworlder,
+/obj/item/clothing/mask/offworlder{
+	color = "#495681";
+	pixel_y = 6;
+	pixel_x = -7
+	},
 /obj/item/clothing/accessory/badge/passcard/scarab{
 	pixel_x = -2;
 	pixel_y = -2
 	},
-/obj/item/rig/light/offworlder,
-/obj/item/clothing/mask/offworlder{
-	color = "#495681";
-	pixel_y = 8;
-	pixel_x = -7
-	},
+/obj/item/clothing/accessory/badge/passcard/scarab/gold,
 /turf/simulated/floor/tiled/gunmetal,
 /area/template_noop)
 "aBt" = (
@@ -6205,8 +6237,16 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/random/syrup{
-	pixel_x = -6;
-	pixel_y = 10
+	pixel_x = -12;
+	pixel_y = 12
+	},
+/obj/item/material/knife{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/material/knife/bayonet/silver{
+	pixel_x = 3;
+	pixel_y = 1
 	},
 /turf/simulated/floor/marble,
 /area/template_noop)
@@ -8501,7 +8541,10 @@
 "aXw" = (
 /obj/structure/closet/crate/security,
 /obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/storage/box/haywireshells,
+/obj/item/storage/box/incendiaryshells,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/gridded,
 /area/template_noop)
 "aXx" = (
@@ -8848,6 +8891,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -9654,6 +9700,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"npM" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/item/reagent_containers/bowl/plate{
+	pixel_x = 1;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "nyS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -37793,7 +37850,7 @@ apn
 aza
 aCx
 aBG
-aBG
+aWU
 aYc
 aeT
 aSB
@@ -38451,7 +38508,7 @@ afF
 aXG
 aXG
 arF
-azI
+npM
 atW
 aCA
 aza
