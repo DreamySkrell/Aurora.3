@@ -200,6 +200,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
+/obj/random/tool{
+	pixel_x = 2;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aaV" = (
@@ -255,6 +259,10 @@
 /area/template_noop)
 "abe" = (
 /obj/structure/table/steel,
+/obj/random/toolbox{
+	pixel_x = 8;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/template_noop)
 "abg" = (
@@ -1892,6 +1900,8 @@
 /turf/simulated/wall,
 /area/template_noop)
 "agJ" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
@@ -2340,6 +2350,8 @@
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "ajM" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
@@ -3557,6 +3569,8 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "arK" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -8310,6 +8324,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/random/tool{
+	pixel_x = 2;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aWg" = (
@@ -8958,6 +8976,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"bzT" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/toolbox,
+/obj/random/toolbox,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "bAh" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -9182,6 +9218,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"fIl" = (
+/obj/structure/table/steel,
+/obj/item/storage/belt/utility/full,
+/turf/simulated/floor/tiled/techfloor,
 /area/template_noop)
 "fWS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9576,6 +9617,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"mlk" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/item/reagent_containers/bowl/plate{
+	pixel_x = 1;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "mnF" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -9700,17 +9752,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
-"npM" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/item/reagent_containers/bowl/plate{
-	pixel_x = 1;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "nyS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -9972,6 +10013,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"rro" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/item/storage/belt/utility/full{
+	pixel_x = -2;
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "rwC" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -10232,6 +10284,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"wFN" = (
+/obj/structure/table/steel,
+/obj/random/tool{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/template_noop)
 "wIM" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -10243,6 +10303,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"xQr" = (
+/obj/structure/table/steel,
+/obj/random/toolbox{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/template_noop)
 "xYm" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -38508,7 +38576,7 @@ afF
 aXG
 aXG
 arF
-npM
+mlk
 atW
 aCA
 aza
@@ -49650,7 +49718,7 @@ tJL
 aeE
 aii
 aii
-aRv
+aVh
 aoP
 aKF
 ady
@@ -59198,7 +59266,7 @@ afx
 afx
 aRv
 aKd
-aRv
+bzT
 aek
 aek
 amg
@@ -59351,7 +59419,7 @@ aek
 aek
 aek
 aek
-abe
+fIl
 aXr
 aKF
 afi
@@ -59980,7 +60048,7 @@ aza
 aek
 aek
 avi
-aXr
+wFN
 aii
 lAW
 aRv
@@ -61730,7 +61798,7 @@ afx
 aii
 aBx
 aaS
-aaS
+rro
 aRv
 mnF
 aRv
@@ -61891,7 +61959,7 @@ alg
 alg
 aog
 aVR
-aVR
+bzT
 atX
 aHO
 vAs
@@ -62048,7 +62116,7 @@ aoE
 aVR
 mZf
 aVR
-aoE
+arK
 atX
 aKF
 gyN
@@ -62205,7 +62273,7 @@ aoE
 nXT
 agr
 dzN
-aoE
+agJ
 atX
 aTR
 ags
@@ -62362,7 +62430,7 @@ aek
 aVR
 aoE
 aVR
-aoE
+ajM
 atX
 aTk
 aYC
@@ -62516,10 +62584,10 @@ amg
 aza
 aza
 aXu
-aXr
+xQr
 aVR
 aVR
-aVR
+bzT
 aii
 aHO
 ako
@@ -62966,7 +63034,7 @@ aRv
 aRv
 aRv
 wiA
-aRv
+bzT
 aek
 aek
 amg
