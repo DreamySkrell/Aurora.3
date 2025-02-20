@@ -321,12 +321,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "abq" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "abs" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -440,6 +441,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "abV" = (
@@ -734,6 +736,9 @@
 	pixel_x = -3;
 	pixel_y = 10
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "acN" = (
@@ -934,6 +939,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "ads" = (
@@ -979,6 +985,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "adw" = (
@@ -1201,6 +1208,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aet" = (
@@ -1250,6 +1258,9 @@
 /area/template_noop)
 "aeD" = (
 /obj/structure/table/wood/maple,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aeE" = (
@@ -1361,6 +1372,9 @@
 	pixel_y = 12;
 	pixel_x = -4
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aeZ" = (
@@ -1380,30 +1394,30 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "afa" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/access_button{
+	pixel_x = -28
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "afb" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "afc" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -1425,20 +1439,15 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "afg" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	icon_state = "1-4"
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/grey,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "afh" = (
 /obj/machinery/stasis_bed,
@@ -1754,12 +1763,12 @@
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
 "agh" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 28;
+	pixel_x = -6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "agi" = (
 /turf/simulated/floor/reinforced,
@@ -2439,6 +2448,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "ake" = (
@@ -2461,6 +2471,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
+/obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "ako" = (
@@ -3126,6 +3137,9 @@
 /obj/random/suit,
 /obj/item/clothing/under/suit_jacket/really_black,
 /obj/outfit/admin/generic/business,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aoK" = (
@@ -3170,9 +3184,8 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aoV" = (
-/obj/random/pottedplant,
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -3216,15 +3229,15 @@
 /turf/unsimulated/marker/teal,
 /area/template_noop)
 "apo" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "apr" = (
@@ -3631,6 +3644,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "arU" = (
@@ -3703,6 +3717,11 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"ask" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "asp" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/shuttles,
@@ -3777,6 +3796,9 @@
 "asE" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
@@ -3975,6 +3997,12 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "atQ" = (
@@ -4026,11 +4054,11 @@
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
 "atX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "atY" = (
 /obj/machinery/air_sensor,
@@ -4537,17 +4565,17 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "axQ" = (
-/obj/effect/floor_decal/corner/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "axT" = (
 /obj/effect/floor_decal/corner/red{
@@ -5449,6 +5477,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aEk" = (
@@ -5809,6 +5838,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aGu" = (
@@ -6158,13 +6188,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aIP" = (
@@ -6259,6 +6289,17 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/light,
+/area/template_noop)
+"aJe" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "aJg" = (
 /obj/item/device/binoculars{
@@ -6357,6 +6398,9 @@
 	pixel_y = 11;
 	pixel_x = -2
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aJF" = (
@@ -6365,6 +6409,9 @@
 /area/template_noop)
 "aJH" = (
 /obj/random/pottedplant,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aJI" = (
@@ -6787,6 +6834,9 @@
 	pixel_y = 11;
 	pixel_x = -20
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "aMg" = (
@@ -7064,6 +7114,15 @@
 "aOj" = (
 /obj/structure/cable{
 	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -8131,9 +8190,10 @@
 /area/template_noop)
 "aUL" = (
 /obj/structure/table/wood/maple,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black{
-	pixel_x = 6;
-	pixel_y = -2
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
+	pixel_x = 4;
+	pixel_y = -1
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
@@ -8262,6 +8322,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aVv" = (
@@ -9014,11 +9075,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"bbP" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bkw" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bqW" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "bvb" = (
@@ -9076,6 +9159,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"bGT" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bIt" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/random/pottedplant,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bSX" = (
 /obj/structure/lattice/catwalk/indoor/grate/gridded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9127,6 +9227,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"cIh" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
 "cJR" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -9156,6 +9265,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"cXJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "cZR" = (
 /obj/effect/floor_decal/corner/grey{
@@ -9199,6 +9317,25 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"dkG" = (
+/obj/random/canister,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"dlf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "doC" = (
 /obj/structure/window/borosilicate/reinforced,
@@ -9257,6 +9394,24 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"dPh" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "dPA" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -9307,6 +9462,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"dZi" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/space/dynamic,
 /area/template_noop)
 "ebu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9433,17 +9595,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "fdu" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -9481,6 +9634,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ftL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "fAW" = (
 /obj/structure/window/borosilicate/reinforced,
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos,
@@ -9500,13 +9659,46 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"fHO" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "fIl" = (
 /obj/structure/table/steel,
 /obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled/techfloor,
 /area/template_noop)
+"fKO" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fLG" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fUk" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "fWS" = (
@@ -9519,6 +9711,19 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fYw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "gjY" = (
@@ -9674,6 +9879,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"gVl" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/wood,
+/area/template_noop)
 "hbJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -9774,6 +9983,22 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"hFT" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hFZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -9806,6 +10031,18 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/template_noop)
+"icS" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "iea" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -9822,6 +10059,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ikH" = (
+/obj/effect/floor_decal/corner/grey,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "ioC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable{
@@ -9833,6 +10075,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"irc" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "isY" = (
@@ -9852,6 +10106,22 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"izo" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "izK" = (
 /obj/machinery/door/airlock/external{
@@ -9874,6 +10144,20 @@
 	pixel_x = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"iFH" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "iGS" = (
@@ -9918,6 +10202,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"iVJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jdb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -9939,12 +10231,39 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"jgz" = (
+/obj/structure/table/wood/maple,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
 "jkT" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"jlE" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"jpA" = (
+/obj/structure/table/wood/maple,
+/turf/simulated/floor/wood,
 /area/template_noop)
 "jpC" = (
 /obj/structure/cable{
@@ -9961,6 +10280,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"jru" = (
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jsy" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
@@ -9970,6 +10296,15 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"jxs" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -9997,6 +10332,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"jIs" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jPg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -10005,6 +10354,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"jWf" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "jZx" = (
@@ -10107,6 +10463,20 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"kNN" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "kTo" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -10156,6 +10526,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"lop" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "lsN" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10246,11 +10628,29 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
+"miq" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -26;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "miT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"mjA" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "mlk" = (
 /obj/structure/table/steel,
@@ -10297,6 +10697,25 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"mpo" = (
+/obj/structure/table/wood/maple,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"mpD" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -26;
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "muC" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -10317,6 +10736,7 @@
 /area/template_noop)
 "mvl" = (
 /obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "mvY" = (
@@ -10345,12 +10765,19 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "mAz" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "mBC" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -10387,6 +10814,34 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"mLt" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"mMj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "mOu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -10399,6 +10854,18 @@
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"mSR" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
@@ -10420,6 +10887,13 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"mXi" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "mZf" = (
@@ -10527,13 +11001,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "nKv" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/glass_engineering,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "nKO" = (
@@ -10545,6 +11014,29 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"nMA" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"nSi" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "nUh" = (
 /obj/machinery/power/apc/north{
@@ -10633,6 +11125,18 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"oxe" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oAV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -10675,6 +11179,14 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"oSv" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oSQ" = (
 /obj/structure/window/borosilicate/reinforced,
 /obj/machinery/air_sensor,
@@ -10715,6 +11227,15 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"pug" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 20;
+	pixel_y = -28;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pvo" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -10751,6 +11272,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"qdr" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 26;
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qja" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10772,6 +11307,10 @@
 	name = "mod_free_ship_co2_thruster_tank"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
+/area/template_noop)
+"qno" = (
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qtX" = (
 /obj/structure/cable{
@@ -10896,6 +11435,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"rnr" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rro" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/brown{
@@ -10944,6 +11498,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"rDO" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rIl" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
@@ -10955,6 +11514,13 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"rPs" = (
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 1
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "rSm" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10992,10 +11558,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"sgy" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "slK" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "soh" = (
@@ -11014,6 +11587,22 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"sxm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "sCm" = (
@@ -11057,6 +11646,16 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"sRe" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "sTY" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -11067,11 +11666,13 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "sVj" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 1
+/obj/item/material/stool/chair/folding,
+/obj/item/material/stool/chair/folding{
+	pixel_y = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/material/stool/chair/folding{
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "sZH" = (
@@ -11082,6 +11683,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"tjX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "tkB" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -11115,16 +11731,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "tlr" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11160,6 +11779,28 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"tGU" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"tHT" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "tJw" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -11197,6 +11838,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"tRM" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "tSc" = (
 /obj/structure/lattice/catwalk/indoor/grate/gridded,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11219,6 +11872,13 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
+/area/template_noop)
+"tWn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "tXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -11243,6 +11903,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ufC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "upO" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 1
@@ -11265,6 +11932,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "uyd" = (
@@ -11305,6 +11973,21 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"uEl" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"uFb" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "vac" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11326,6 +12009,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"vkv" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "vuE" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -11355,6 +12047,15 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"vxX" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "vyW" = (
@@ -11390,6 +12091,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"vHK" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "vLO" = (
 /obj/structure/shuttle/engine/heater{
@@ -11460,6 +12168,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "wBM" = (
@@ -11483,6 +12192,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"wCu" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "wFN" = (
 /obj/structure/table/steel,
 /obj/random/tool{
@@ -11502,6 +12223,21 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"wHy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "wIM" = (
@@ -11546,6 +12282,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"xcS" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xtp" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
@@ -11557,10 +12307,36 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"xvG" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xyO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"xCZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "xEy" = (
@@ -18565,7 +19341,7 @@ amg
 aek
 aoP
 qRN
-aYC
+jru
 aii
 aii
 aii
@@ -18604,8 +19380,8 @@ afx
 afx
 aii
 aJH
-aIq
-asC
+cIh
+aWW
 asM
 aii
 alj
@@ -18722,11 +19498,11 @@ aek
 aek
 aoP
 qRN
-aYC
+uFb
 aii
 aVh
-asC
-asC
+aRh
+vHK
 atO
 akj
 aXu
@@ -18762,7 +19538,7 @@ afx
 aii
 aeY
 acK
-asC
+aCZ
 aYW
 aii
 aii
@@ -18883,7 +19659,7 @@ aRv
 pvo
 aRv
 aeD
-asC
+aRc
 aJo
 aJo
 aXu
@@ -19036,7 +19812,7 @@ aoD
 agS
 aoP
 qRN
-aYC
+uFb
 aii
 akp
 aMe
@@ -19193,7 +19969,7 @@ anh
 anh
 aHO
 qRN
-aYC
+afg
 aii
 aii
 aii
@@ -19230,11 +20006,11 @@ aaV
 aaV
 ljW
 aaV
-aaV
-aaV
+nMA
+mjA
 aRv
-aaV
-aHO
+jxs
+fdu
 aCm
 ako
 aHO
@@ -19759,9 +20535,9 @@ aTj
 aii
 aVe
 aQe
-asC
+aRh
 aoJ
-aeD
+mpo
 aXu
 aza
 aza
@@ -19916,7 +20692,7 @@ aYC
 aii
 aJo
 aJo
-asC
+azK
 aIq
 aUL
 aXu
@@ -20073,9 +20849,9 @@ art
 aii
 aYW
 aJo
-asC
+agP
 aJA
-aeD
+jgz
 aXu
 aza
 aza
@@ -20541,12 +21317,12 @@ abp
 pAX
 abp
 abp
-abp
+iVJ
 abq
-aWj
+mjA
 aRv
-aRv
-aRv
+mjA
+fdu
 aqA
 abG
 aXu
@@ -20698,8 +21474,8 @@ aYC
 amp
 aRv
 aRv
-aRv
 ayd
+hst
 aRv
 aRv
 aRv
@@ -21326,7 +22102,7 @@ ako
 aii
 aRN
 azC
-azC
+gVl
 aii
 aRN
 azC
@@ -21639,7 +22415,7 @@ tFs
 aTj
 aii
 aRN
-azC
+jpA
 aRN
 aXu
 aza
@@ -22262,7 +23038,7 @@ aza
 aza
 aza
 aek
-aAx
+rPs
 aat
 aRv
 kjJ
@@ -32728,8 +33504,8 @@ aza
 aza
 aek
 afx
-afx
-afx
+mvl
+xWM
 aii
 aUC
 aex
@@ -33042,8 +33818,8 @@ aza
 aza
 amg
 amg
-agz
-afx
+uEl
+hFT
 aek
 aex
 aSF
@@ -49726,8 +50502,8 @@ aza
 aza
 aek
 aek
-akU
-aHd
+xcS
+qBv
 aek
 aza
 aza
@@ -49860,7 +50636,7 @@ aza
 aza
 amg
 aek
-aHd
+qBv
 aek
 aek
 aXu
@@ -49882,9 +50658,9 @@ aza
 aza
 aek
 aek
-afx
-aBj
-afx
+nKO
+fUk
+xEy
 aek
 aek
 aek
@@ -49907,8 +50683,8 @@ amg
 amg
 amg
 aek
-akU
-aHd
+xcS
+qBv
 aek
 aek
 aza
@@ -50017,8 +50793,8 @@ act
 amg
 amg
 aek
-afx
-afx
+oSv
+xWM
 aii
 afx
 afx
@@ -50039,9 +50815,9 @@ amg
 amg
 aek
 aii
-afx
-aBj
-afx
+lop
+fUk
+xEy
 aii
 ahB
 aeU
@@ -50062,11 +50838,11 @@ aek
 aXu
 aXu
 aek
-aHd
+hjR
 aek
-aBj
-afx
-afx
+mXi
+xWM
+xEy
 aek
 amg
 amg
@@ -50174,8 +50950,8 @@ aza
 aza
 aza
 aek
-afx
-afx
+agh
+xWM
 aii
 afx
 afx
@@ -50197,8 +50973,8 @@ aza
 aek
 aek
 aii
-akU
-aHd
+rnr
+aJe
 aii
 aBh
 ajD
@@ -50216,14 +50992,14 @@ aza
 aza
 aza
 aXu
-afx
-afx
+mvl
+xWM
 aii
-afx
+iFH
 aii
-aBj
-afx
-afx
+tjX
+xWM
+xEy
 aek
 aza
 aza
@@ -50331,8 +51107,8 @@ aza
 aza
 aek
 aek
-aHd
-aHd
+rsh
+bkw
 aii
 afx
 afx
@@ -50353,8 +51129,8 @@ amg
 aza
 aza
 aek
-afx
-aEF
+mvl
+ufC
 aTj
 aii
 arY
@@ -50373,13 +51149,13 @@ aza
 aza
 aza
 aXu
-afx
-afx
+mvl
+xWM
 aii
-aHd
+mpD
 aii
-akU
-aHd
+qdr
+mSR
 aii
 aek
 aek
@@ -50487,9 +51263,9 @@ aza
 aza
 aza
 aek
-afx
-afx
-afx
+mvl
+xWM
+xWM
 aii
 afx
 afx
@@ -50510,8 +51286,8 @@ aek
 aXu
 aek
 aek
-afx
-aEF
+mvl
+ufC
 aYC
 aii
 ahw
@@ -50531,12 +51307,12 @@ aza
 aza
 aek
 aZU
+bvb
 aaV
+gIU
 aaV
-aRv
-aaV
-aEF
-aRv
+ufC
+gIU
 aHO
 asf
 ako
@@ -50668,7 +51444,7 @@ afx
 afx
 aii
 asG
-aEF
+ufC
 aYC
 aii
 aii
@@ -50688,10 +51464,10 @@ aek
 aek
 aek
 aoP
-aRv
-aRv
-aRv
-aTR
+ask
+gIU
+gIU
+nKv
 adr
 aWj
 aRv
@@ -51139,7 +51915,7 @@ aaV
 aaV
 aaV
 aHO
-wiA
+mLt
 aTj
 aTk
 asf
@@ -51296,7 +52072,7 @@ aRv
 aRv
 aRv
 aTR
-aam
+tGU
 aWB
 afE
 aii
@@ -51453,7 +52229,7 @@ anh
 anh
 aiq
 aiq
-wiA
+mLt
 aWB
 aLN
 aii
@@ -51591,7 +52367,7 @@ ajD
 ajD
 aOi
 aii
-aRv
+afx
 afx
 afx
 aek
@@ -51748,8 +52524,8 @@ aYt
 aAu
 amS
 aii
-aRv
-afx
+xWM
+usT
 aek
 aek
 aza
@@ -51766,16 +52542,16 @@ aek
 aXu
 aek
 aek
-afx
-aEF
+mvl
+ufC
 ako
 aii
 aii
 afx
 afx
 afx
-afx
-afx
+xWM
+usT
 aek
 amg
 aUQ
@@ -51905,7 +52681,7 @@ aAu
 aYt
 aWp
 aii
-aHd
+izK
 aek
 aek
 aza
@@ -51924,14 +52700,14 @@ aza
 aza
 aek
 aii
-akU
-aHd
+mAz
+fKO
 aii
 afx
 afx
 afx
 aii
-aHd
+irc
 aii
 aek
 amg
@@ -52062,7 +52838,7 @@ aYt
 aAu
 amS
 aii
-afx
+xWM
 aek
 aza
 aza
@@ -52080,17 +52856,17 @@ aza
 aza
 aek
 aek
-afx
-aBj
-afx
+nKO
+fUk
+xEy
 aii
 afx
 afx
 afx
 aii
-afx
-afx
-agz
+wCu
+xEy
+lSs
 amg
 aUQ
 aOs
@@ -52219,7 +52995,7 @@ aqC
 aTF
 aWp
 aii
-afx
+qDq
 aek
 amg
 amg
@@ -52237,15 +53013,15 @@ amg
 amg
 aek
 aii
-afx
-aBj
-afx
+xCZ
+fUk
+xEy
 aii
 afx
 afx
 afx
 aii
-afx
+pGV
 aek
 aek
 amg
@@ -52376,7 +53152,7 @@ aXu
 aXu
 aek
 aek
-aHd
+rsh
 aek
 amg
 aza
@@ -52395,8 +53171,8 @@ aza
 aek
 aek
 aek
-akU
-aHd
+bqW
+kvv
 aek
 aek
 aXu
@@ -52727,7 +53503,7 @@ aOs
 aza
 aza
 aXu
-afx
+mvl
 aer
 aWj
 aXu
@@ -52884,9 +53660,9 @@ aOs
 aza
 aza
 aek
-afx
-aEF
-aRv
+mvl
+ufC
+gIU
 aek
 amg
 aMs
@@ -53042,8 +53818,8 @@ amg
 amg
 aek
 aek
-akU
-aHd
+xcS
+tRM
 aek
 aek
 aMs
@@ -53200,9 +53976,9 @@ aza
 amg
 aek
 aOj
-aSb
-aSb
-afv
+jWf
+vxX
+afa
 afv
 aSb
 aSb
@@ -53356,9 +54132,9 @@ aza
 aza
 amg
 aek
-afx
-afx
-afx
+nKO
+xWM
+xEy
 aek
 aMs
 afx
@@ -59641,8 +60417,8 @@ amg
 aza
 aMZ
 aek
-aHd
-aHd
+hjR
+qBv
 aek
 aMZ
 aza
@@ -59798,8 +60574,8 @@ amg
 aza
 aza
 aek
-afx
-afx
+nKO
+xWM
 aek
 aza
 aza
@@ -59955,8 +60731,8 @@ amg
 aza
 aza
 aek
-afx
-afx
+oxe
+xWM
 aek
 aza
 aza
@@ -60112,8 +60888,8 @@ aek
 aXu
 aXu
 aek
-aHd
-aHd
+rsh
+bGT
 aek
 aza
 aza
@@ -60270,7 +61046,7 @@ aUC
 aUC
 aSJ
 aRv
-aTj
+ikH
 aek
 aek
 aza
@@ -60427,8 +61203,8 @@ ajg
 aSF
 aex
 aRv
-aYC
-afx
+vyW
+usT
 aXu
 amg
 amg
@@ -60584,10 +61360,10 @@ ajg
 aSF
 aex
 aRv
-ako
+kkw
 aDv
 aXu
-aza
+amg
 aza
 aza
 aza
@@ -60717,7 +61493,7 @@ aKF
 dvX
 arK
 aek
-aza
+amg
 aza
 aUQ
 aMv
@@ -60741,10 +61517,10 @@ aUC
 aUC
 aUC
 aRv
-aRv
+dUZ
 aYC
 aXu
-aza
+amg
 aza
 aza
 aza
@@ -60874,7 +61650,7 @@ aQz
 aGv
 agJ
 aXu
-aza
+amg
 aza
 aUQ
 aMv
@@ -60897,11 +61673,11 @@ aii
 aii
 aii
 aii
-aii
-aRv
+mvl
+gIU
 ako
 aek
-aza
+amg
 aza
 aza
 aza
@@ -61031,7 +61807,7 @@ aTR
 aev
 ajM
 aek
-aza
+amg
 aza
 aUQ
 aMv
@@ -61053,12 +61829,12 @@ aek
 aKJ
 aKJ
 aKJ
-aKJ
+aii
 aii
 aeE
 aeE
 aek
-aza
+amg
 aza
 aza
 aza
@@ -61212,7 +61988,7 @@ amx
 adI
 avI
 aii
-aRv
+ftL
 aTj
 aek
 aek
@@ -61220,8 +61996,8 @@ aza
 aza
 aza
 amg
-aza
-aza
+amg
+amg
 aza
 aUQ
 aMv
@@ -61277,7 +62053,7 @@ aek
 aii
 aTk
 aEF
-afx
+slK
 aek
 aek
 amg
@@ -61344,7 +62120,7 @@ wFN
 aii
 lAW
 aRv
-afx
+dkG
 aek
 aek
 aBg
@@ -61369,9 +62145,9 @@ aQd
 aLD
 aQd
 aii
-aRv
+sgy
 aYC
-afx
+liH
 aek
 aek
 aXu
@@ -61429,12 +62205,12 @@ aza
 aza
 aza
 amg
-agz
-afx
-agz
-aRv
+efN
+jIs
+bbP
+gIU
 aVu
-aQz
+atX
 agp
 aek
 aza
@@ -61501,8 +62277,8 @@ aii
 aii
 muC
 aRv
-afx
-afx
+rDO
+usT
 aek
 aUQ
 aMv
@@ -61526,14 +62302,14 @@ tkL
 aey
 aMY
 ant
-aMY
-ctl
-aGp
-afa
+ogO
 afb
-aGp
-aGp
-afg
+aii
+aii
+afx
+afx
+afx
+afx
 aek
 aza
 aza
@@ -61658,8 +62434,8 @@ aSi
 agk
 muC
 aHg
-afx
-afx
+bIt
+usT
 aXu
 aUQ
 aMv
@@ -61683,14 +62459,14 @@ aRv
 ayd
 aRv
 aii
-aTj
-aat
-aat
-hst
-ayd
-aat
-aTk
-fdu
+sgy
+fHO
+aii
+afx
+afx
+afx
+afx
+afx
 aek
 aza
 aza
@@ -61805,11 +62581,11 @@ aza
 aza
 aza
 aza
-agz
-afx
-agz
-ako
-aaV
+sTY
+xWM
+scI
+kkw
+bvb
 aEg
 aGp
 aGp
@@ -61840,14 +62616,14 @@ amY
 aht
 aRv
 aii
+aTR
+sxm
+kNN
+arI
+arI
+mMj
 afx
 afx
-aii
-aii
-aii
-aii
-aHO
-tlr
 aek
 aza
 aza
@@ -61962,14 +62738,14 @@ aza
 aza
 aza
 aza
-agz
-afx
-agz
-aTj
-aat
+efN
+jlE
+pug
+qno
+aoV
 wiA
-aat
-aat
+aoV
+tWn
 aat
 aTk
 gJO
@@ -61997,14 +62773,14 @@ arZ
 akv
 aaw
 aii
-aii
+aKF
+izo
 aii
 aii
 afx
+wHy
 afx
-aii
-aeE
-heY
+afx
 aek
 aek
 aek
@@ -62128,7 +62904,7 @@ ahT
 aii
 aii
 aii
-aoV
+aoP
 kMW
 aay
 aVG
@@ -62154,13 +62930,13 @@ aii
 aii
 aii
 aii
+sgy
+dPh
+sVj
+aii
 afx
-afx
-afx
-nZo
-aeg
-aby
-aay
+dlf
+arI
 axQ
 aeg
 aeg
@@ -62311,16 +63087,16 @@ afn
 afo
 aeg
 aby
-aeg
-aeg
-aeg
-aoO
-afx
+cXJ
+fYw
+aVh
 aii
-aoP
-vAs
-afx
-afx
+aii
+aii
+aii
+tlr
+aii
+aii
 aii
 aGS
 aMv
@@ -62468,14 +63244,14 @@ pCg
 ucQ
 afx
 aii
-aii
-aii
-aii
-aii
-aii
-aii
-aoP
-hkp
+vkv
+icS
+aHO
+asf
+ako
+aaV
+aaV
+ljW
 aaV
 aaV
 aHO
@@ -62622,15 +63398,15 @@ apz
 apr
 aDV
 aIO
-mAz
-sVj
-nKv
-agh
-agj
-aHO
+aDV
+ayV
+auF
+aRv
+sRe
+aRv
 asf
-ako
-aaV
+aRv
+aRv
 aKF
 abv
 aXV
@@ -63252,7 +64028,7 @@ alg
 aog
 aVR
 bzT
-atX
+amp
 aHO
 vAs
 agk
@@ -63409,7 +64185,7 @@ aVR
 mZf
 aVR
 arK
-atX
+amp
 aKF
 gyN
 afE
@@ -63566,7 +64342,7 @@ nXT
 agr
 dzN
 agJ
-atX
+amp
 aTR
 ags
 aLN
@@ -63723,17 +64499,17 @@ qwm
 aoE
 aVR
 ajM
-atX
+amp
 aTk
 aYC
 aek
 aek
-aza
-aza
-aza
 amg
-aza
-aza
+amg
+amg
+amg
+amg
+amg
 aza
 aUQ
 aMv
@@ -63976,9 +64752,9 @@ aza
 aza
 aza
 aXu
-afx
-afx
-afx
+xWM
+xWM
+xWM
 aXu
 amg
 aza
@@ -64133,9 +64909,9 @@ aza
 aza
 aza
 aek
-afx
-afx
-afx
+xWM
+fYm
+xWM
 aek
 amg
 amg
@@ -64290,9 +65066,9 @@ amg
 amg
 aek
 aek
-aHd
+miq
 aii
-aHd
+gBC
 aek
 aek
 amg
@@ -64347,8 +65123,8 @@ amg
 aza
 aza
 aXu
-afx
-aRv
+mvl
+gIU
 aRv
 aRv
 aRv
@@ -64445,13 +65221,13 @@ aza
 aza
 aza
 aza
-agz
-afx
-afx
+sTY
+nKO
+xvG
 aii
-afx
-afx
-agz
+nSi
+xEy
+lSs
 aza
 aza
 aUQ
@@ -64504,9 +65280,9 @@ amg
 amg
 amg
 aXu
-afx
-aRv
-aTj
+mvl
+ask
+ikH
 aat
 aat
 aat
@@ -64659,11 +65435,11 @@ aza
 aza
 aza
 aza
-aza
+amg
 aek
 aek
 aRv
-ako
+kkw
 afx
 afx
 afx
@@ -64816,11 +65592,11 @@ aza
 aza
 aza
 aza
-aza
-aza
+amg
+amg
 aek
-aHd
-aHd
+tHT
+irc
 aek
 aXu
 aXu
@@ -64974,10 +65750,10 @@ aza
 aza
 aza
 aza
-aza
+amg
 aek
-afx
-afx
+oxe
+xWM
 aek
 aza
 aza
@@ -65131,10 +65907,10 @@ aza
 aza
 aza
 aza
-aza
+amg
 aek
-afx
-afx
+nKO
+xWM
 aek
 aza
 aza
@@ -65288,10 +66064,10 @@ aza
 aMZ
 aza
 aza
-aMZ
+dZi
 aek
-aHd
-aHd
+rsh
+kvv
 aek
 aMZ
 aza
