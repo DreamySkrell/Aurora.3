@@ -9,6 +9,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = "#ff00f2"
 	color = "#ff00f2"
 
 // ------------------------- main modules
@@ -16,6 +17,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ----------- fore
 
 /area/modular_freelancer_ship/fore
+	holomap_color = "#8f2d2d"
 	color = "#8f2d2d"
 
 /area/modular_freelancer_ship/fore/crew
@@ -23,10 +25,12 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 
 /area/modular_freelancer_ship/fore/guns
 	name = "Fore, Ship Guns"
+	holomap_color = "#a31414"
 	color = "#a31414"
 
 /area/modular_freelancer_ship/fore/hallway
 	name = "Fore, Hallway"
+	holomap_color = "#884e4e"
 	color = "#884e4e"
 
 /area/modular_freelancer_ship/fore/port
@@ -38,6 +42,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ----------- mid
 
 /area/modular_freelancer_ship/mid
+	holomap_color = "#3d8f24"
 	color = "#3d8f24"
 
 /area/modular_freelancer_ship/mid/hallway
@@ -49,6 +54,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ----------- shuttles
 
 /area/modular_freelancer_ship/shuttles
+	holomap_color = "#92882b"
 	color = "#92882b"
 
 /area/modular_freelancer_ship/shuttles/hallway
@@ -57,6 +63,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ----------- aux
 
 /area/modular_freelancer_ship/aux
+	holomap_color = "#7b2794"
 	color = "#7b2794"
 
 /area/modular_freelancer_ship/aux/hallway
@@ -65,14 +72,17 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ----------- aft
 
 /area/modular_freelancer_ship/aft
+	holomap_color = "#2d4697"
 	color = "#2d4697"
 
 /area/modular_freelancer_ship/aft/hallway
 	name = "Aft, Hallway"
+	holomap_color = "#404f83"
 	color = "#404f83"
 
 /area/modular_freelancer_ship/aft/cic
 	name = "Aft, CIC"
+	holomap_color = "#1134a5"
 	color = "#1134a5"
 
 /area/modular_freelancer_ship/aft/engineering
@@ -84,6 +94,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ------------------------- containers
 
 /area/modular_freelancer_ship/container
+	holomap_color = "#2c8f92"
 	color = "#2c8f92"
 
 /area/modular_freelancer_ship/container/c01
@@ -113,6 +124,7 @@ ABSTRACT_TYPE(/area/modular_freelancer_ship)
 // ------------------------- misc
 
 /area/modular_freelancer_ship/misc/maint
+	holomap_color = "#353535"
 	color = "#353535"
 
 /area/modular_freelancer_ship/misc/maint/fore

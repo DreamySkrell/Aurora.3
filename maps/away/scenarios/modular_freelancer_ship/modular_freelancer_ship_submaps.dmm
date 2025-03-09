@@ -6822,11 +6822,10 @@
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
 "aLk" = (
-/obj/machinery/ship_weapon/autocannon{
-	weapon_id = "tcaf_autocannon"
-	},
-/turf/template_noop,
-/area/template_noop)
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/modular_freelancer_ship,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/aft/cic)
 "aLl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -11405,11 +11404,13 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "hmZ" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Fore"
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "tcaf_autocannon";
+	pixel_y = -64
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/simulated/floor/airless,
+/area/modular_freelancer_ship/fore/guns)
 "hpt" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
@@ -15378,6 +15379,14 @@
 "rYg" = (
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
+"saR" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/modular_freelancer_ship,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/aft/cic)
 "scI" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
@@ -23339,9 +23348,9 @@ lGS
 aOd
 avG
 all
-azw
+hmZ
 aeu
-aLk
+aza
 aza
 aza
 aza
@@ -30626,7 +30635,7 @@ aza
 aza
 aza
 aza
-hmZ
+aza
 aza
 aza
 aza
@@ -67611,7 +67620,7 @@ cba
 hbJ
 aqJ
 aWb
-fKC
+aLk
 jLl
 fKC
 hbJ
@@ -68526,7 +68535,7 @@ sdj
 aqJ
 aPn
 cmK
-cmK
+saR
 agd
 eVf
 uIm

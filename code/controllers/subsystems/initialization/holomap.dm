@@ -114,11 +114,8 @@ SUBSYSTEM_DEF(holomap)
 
 		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
 			continue
-		if (A.holomap_color || A.color)
-			var/color = A.color
-			if(A.holomap_color)
-				color = A.holomap_color
-			canvas.DrawBox(color + "99", T.x, T.y)
+		if (A.holomap_color)
+			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 
 	var/icon/map_base = icon(minimaps[zlevel])
 
