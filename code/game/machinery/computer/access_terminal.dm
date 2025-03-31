@@ -2,8 +2,7 @@
 /// Simple access terminal.
 /// Can put an ID in it, and set or unset some accesses.
 /// Intended to be used in ooc/admin spaces, like antag/actor prep areas.
-/// This base type should not be used, but instead there should be subtypes that provide the available accesses.
-/obj/machinery/computer/access_terminal
+ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 	name = "self-service access terminal"
 	desc = "A simple access terminal. It allows changing one's ID accesses."
 	icon = 'icons/obj/computer.dmi'
@@ -14,6 +13,7 @@
 	density = FALSE
 	appearance_flags = TILE_BOUND
 
+	/// The ID card inserted into the terminal.
 	var/obj/item/card/id/held_card
 
 /obj/machinery/computer/access_terminal/Destroy()
@@ -22,14 +22,14 @@
 		held_card = null
 	return ..()
 
-/// Should return a list of datums.
+/// Should return a list of `/datum/access`.
 /obj/machinery/computer/access_terminal/proc/get_available_accesses()
 	. = list()
 
 /obj/machinery/computer/access_terminal/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/idcard = attacking_item
 	if(!held_card && istype(idcard))
-		usr.drop_from_inventory(idcard, src)
+		usr.drop_from_inventory(idcard, user)
 		held_card = idcard
 		update_icon()
 
@@ -51,8 +51,7 @@
 
 	var/list/available_access_datums = get_available_accesses()
 	var/list/available_accesses = list()
-	for(var/access in available_access_datums)
-		var/datum/access/access_datum = access
+	for(var/datum/access/access_datum as anything in available_access_datums)
 		available_accesses += list(list("desc"=access_datum::desc, "id"=access_datum::id))
 
 	data["is_card_in"] = TRUE
@@ -76,15 +75,15 @@
 				held_card.access ^= list(text2num(params["toggle_access"]))
 		if("insert_id")
 			if(!held_card)
-				var/obj/item/I = usr.get_active_hand()
+				var/obj/item/I = ui.user.get_active_hand()
 				if (istype(I, /obj/item/card/id))
-					usr.drop_from_inventory(I,src)
+					ui.user.drop_from_inventory(I,src)
 					held_card = I
 		if("eject_id")
 			if(held_card)
 				held_card.forceMove(src.loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(held_card)
+				if(!ui.user.get_active_hand())
+					ui.user.put_in_hands(held_card)
 				held_card = null
 
 // ------------------------- subtypes

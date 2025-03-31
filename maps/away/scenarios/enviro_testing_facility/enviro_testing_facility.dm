@@ -35,7 +35,7 @@
 		Barren planet, covered in loose rocks, mountains, craters, with a expansive cave system deep underground. \
 		The planet, however, holds a standard breathable atmosphere, and there are some traces of carbon-based life. \
 		Landing site is in a valley, near some facility carved into the mountain.\
-		"
+	"
 	icon_state = "globe2"
 	color = "#e6a66a"
 	comms_support = TRUE
@@ -93,13 +93,11 @@
 
 // --------------------------------------------------- misc
 
-#define NETWORK_ENVIRO_TESTING_FACILITY "Env-Test Facility Zoya"
+/obj/machinery/computer/security/terminal/enviro_testing_facility
+	network = list("Env-Test Facility Zoya")
 
 /obj/machinery/camera/network/enviro_testing_facility
-	network = list(NETWORK_ENVIRO_TESTING_FACILITY)
-
-/obj/machinery/computer/security/terminal/enviro_testing_facility
-	network = list(NETWORK_ENVIRO_TESTING_FACILITY)
+	network = list("Env-Test Facility Zoya")
 
 /obj/item/research_slip/enviro_testing_facility
 	icon_state = "slip_generic"
