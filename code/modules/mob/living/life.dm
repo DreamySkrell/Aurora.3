@@ -10,10 +10,10 @@
 	if(!loc)
 		return FALSE
 
-	var/datum/gas_mixture/gas_environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
-	if(gas_environment)
-		handle_environment(gas_environment)
+	if(environment)
+		handle_environment(environment, seconds_per_tick)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -21,13 +21,14 @@
 		handle_status_effects()
 
 	if(stat != DEAD)
-		aura_check(AURA_TYPE_LIFE)
+		if(LAZYLEN(auras))
+			aura_check(AURA_TYPE_LIFE)
 		if(!InStasis())
 			//Mutations and radiation
-			handle_mutations_and_radiation()
+			handle_mutations_and_radiation(seconds_per_tick)
 
 	//Check if we're on fire
-	handle_fire()
+	handle_fire(seconds_per_tick, environment)
 
 	update_pulling()
 
@@ -51,10 +52,10 @@
 /mob/living/proc/handle_breathing()
 	return
 
-/mob/living/proc/handle_mutations_and_radiation()
+/mob/living/proc/handle_chemicals_in_body()
 	return
 
-/mob/living/proc/handle_chemicals_in_body()
+/mob/living/proc/handle_mutations_and_radiation(seconds_per_tick)
 	return
 
 /mob/living/proc/handle_random_events()
@@ -131,13 +132,13 @@
 		return
 
 	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 	else
 		clear_fullscreen("blind")
-		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+		set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
-	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	set_fullscreen(stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(machine)
 		var/viewflags = machine.check_eye(src)
@@ -172,6 +173,7 @@
 	var/list/vision = get_accumulated_vision_handlers()
 	set_sight(sight | vision[1])
 	set_see_invisible(max(vision[2], see_invisible))
+	sync_lighting_plane_alpha()
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -181,7 +183,7 @@
 		set_sight_flags &= ~BLIND
 
 	set_sight(set_sight_flags)
-	set_see_invisible(initial(see_invisible))
+	set_see_invisible(see_invisible)
 
 /mob/living/proc/update_dead_sight()
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -193,9 +195,6 @@
 
 /mob/living/proc/handle_hud_icons_health()
 	return
-
-/mob/living
-	var/datum/weakref/last_weather
 
 /mob/living/proc/is_outside()
 	var/turf/T = loc
@@ -211,14 +210,15 @@
 	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
 		. = SSweather.weather_by_z["[my_turf.z]"]
 
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+/mob/living/proc/handle_environment(var/datum/gas_mixture/environment, seconds_per_tick)
 
 	SHOULD_CALL_PARENT(TRUE)
 
 	// Handle physical effects of weather.
 	var/singleton/state/weather/weather_state
 	var/obj/abstract/weather_system/weather = get_affecting_weather()
-	if(weather)
+	if(weather_cooldown_time <= world.time && weather)
+		weather_cooldown_time = world.time + WEATHER_COOLDOWN_TIME
 		weather_state = weather.weather_system.current_state
 		if(istype(weather_state))
 			weather_state.handle_exposure(src, get_weather_exposure(weather), weather)
@@ -243,7 +243,7 @@
 			return
 
 		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
-			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
 

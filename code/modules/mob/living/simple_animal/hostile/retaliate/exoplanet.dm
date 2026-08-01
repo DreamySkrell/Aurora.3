@@ -17,17 +17,17 @@
 	icon_state = "royalcrab"
 	icon_living = "royalcrab"
 	icon_dead = "royalcrab_dead"
-	move_to_delay = 3
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
-	speed = 1
+	speed = 3
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	natural_armor = list(
-		melee = ARMOR_MELEE_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT
 		)
 
 	emote_see = list("skitters","oozes liquid from its mouth", "scratches at the ground", "clicks its claws")
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby
 	name = "charbaby"
@@ -37,7 +37,7 @@
 	icon_dead = "char_dead"
 	mob_size = MOB_LARGE
 	health = 45
-	maxHealth = 45
+	maxhealth = 45
 	speed = 2
 	response_help = "pats briefly"
 	response_disarm = "gently pushes"
@@ -47,7 +47,7 @@
 	melee_damage_upper = 10
 	blood_color = COLOR_RED
 	natural_armor = list(
-		laser = ARMOR_LASER_PISTOL
+		LASER = ARMOR_LASER_PISTOL
 	)
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby/on_attack_mob(var/mob/hit_mob)
@@ -67,5 +67,6 @@
 	icon_state = "lavadog"
 	icon_living = "lavadog"
 	icon_dead = "lavadog_dead"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 
 	speak = list("Karuph!", "Karump!")

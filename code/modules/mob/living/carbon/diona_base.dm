@@ -1,8 +1,11 @@
 //This function is for code that is shared by diona nymphs and gestalt
 
-#define TEMP_REGEN_STOP 223 //Regen rate scales down linearly from normal to this temperature, stops completely below this value
-#define TEMP_REGEN_NORMAL 288 //normal body temperature
-#define TEMP_INCREASE_REGEN_DOUBLE 700 //Health regen is increased by 100% (additive) for every increment of this value we are above normal
+/// Regen rate scales down linearly from normal to this temperature, stops completely below this value.
+#define TEMP_REGEN_STOP 223
+/// This represents a normal body temperature.
+#define TEMP_REGEN_NORMAL 288
+// Health regen is increased by 100% (additive) for every increment of this value we are above normal.
+#define TEMP_INCREASE_REGEN_DOUBLE 700
 #define LIFETICK_INTERVAL_LESS	5
 
 #define NYMPH_ABSORB_NUTRITION	650
@@ -13,7 +16,7 @@
 #define LIMB_REGROW_REQUIREMENT 2500
 
 #define LANGUAGE_POINTS_TO_LEARN	1 //The number of samples of a language required to learn it
-var/list/diona_banned_languages = list(
+GLOBAL_LIST_INIT(diona_banned_languages, list(
 	/datum/language/cult,
 	/datum/language/cultcommon,
 	/datum/language/corticalborer,
@@ -22,7 +25,8 @@ var/list/diona_banned_languages = list(
 	/datum/language/bug,
 	/datum/language/ling,
 	/datum/language/revenant,
-	/datum/language/machine)
+	/datum/language/machine,
+	))
 
 #define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
@@ -92,7 +96,7 @@ var/list/diona_banned_languages = list(
 
 	return plus*7 //The return value is the number of moles to remove from the local environment
 
-//This proc handles when diona take damage from being in darkness
+/// This proc handles when diona take damage from being in darkness.
 /mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
 	adjustBruteLoss(severity * DS.trauma_factor)
 	adjustHalLoss((severity * species.pain_mod) * DS.pain_factor) // pain mod here is to give a bit of padding to the amount of pain diona get, to make it less overbearing
@@ -108,16 +112,18 @@ var/list/diona_banned_languages = list(
 
 
 
-//This is a loooong function.
-//Broken up into a few segments:
-//Things that run every process: Healing trauma, burns and halloss. TODO: Reducing stun/weaken durations
-//Things that run less often: Healing toxins, genetic damage, and (TODO) damage to internal organs
-//Things that run even less often: Regrowing removed/destroyed limbs and internal organs.
+/**
+This is a loooong function.
+Broken up into a few segments:
+Things that run every process: Healing trauma, burns and halloss. TODO: Reducing stun/weaken durations
+Things that run less often: Healing toxins, genetic damage, and (TODO) damage to internal organs
+Things that run even less often: Regrowing removed/destroyed limbs and internal organs.
 
-//As long as a gestalt survives, and has either energy or radiation, it can regrow any part of itself,
-//and will eventually become whole again without medical intervention, although medical can help.
-//Most medicines don't work on diona, but physical treatment for external wounds helps a little,
-//and some alternative things that are toxic to other life, such as radium and mutagen, will benefit diona
+As long as a gestalt survives, and has either energy or radiation, it can regrow any part of itself,
+and will eventually become whole again without medical intervention, although medical can help.
+Most medicines don't work on diona, but physical treatment for external wounds helps a little,
+and some alternative things that are toxic to other life, such as radium and mutagen, will benefit diona
+*/
 /mob/living/carbon/proc/diona_handle_regeneration(var/datum/dionastats/DS)
 	if ((DS.stored_energy < 1 && !total_radiation)) //we need energy or total_radiation to heal
 		return FALSE
@@ -227,7 +233,7 @@ var/list/diona_banned_languages = list(
 		updatehealth()
 		return FALSE
 
-// Continuation of the Diona regen proc, but for human specific actions.
+/// Continuation of the Diona regen proc, but for human specific actions.
 /mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS, var/bypass = FALSE)
 	..()
 
@@ -250,16 +256,16 @@ var/list/diona_banned_languages = list(
 	if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 		if (bad_internal_organs.len)
 			for (var/obj/item/organ/O in bad_internal_organs)
-				var/CL = O.damage
+				var/CL = O.get_damage()
 				var/value
 				if(total_radiation > 0)
 					value = min(CL, total_radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-					O.damage += value/-1.5
+					O.add_damage(value/-1.5)
 					total_radiation -= value
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-				O.damage += value/-3
+				O.add_damage(value/-3)
 				DS.stored_energy -= value
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
@@ -364,15 +370,14 @@ var/list/diona_banned_languages = list(
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/diona_regen_progress(var/datum/dionastats/DS)
+/mob/living/carbon/human/proc/diona_regen_progress(datum/dionastats/DS)
 	if(!DS)
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
-		DS.regen_limb.Invoke()
+		DS.regen_limb?.Invoke()
 		DS.regen_limb = null
-		if(DS.regen_extra)
-			DS.regen_extra.Invoke()
-			DS.regen_extra = null
+		DS.regen_extra?.Invoke()
+		DS.regen_extra = null
 	var/progress = nutrition * 0.45
 	adjustNutritionLoss(nutrition * 0.15)
 	progress += DS.stored_energy * 0.3
@@ -424,16 +429,17 @@ var/list/diona_banned_languages = list(
 	DS.regen_limb_progress = 0
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
-//MESSAGE FUNCTIONS
+/**
+This function handles the RP messages that inform the diona player about their light/withering state.
+Lightstates:
+1: Full. Go down from this state below 80%.
+2. average: Go up a state at 100%, go down a state at 50%.
+3. Subsisting: Go down from this state at 0.% light, go up from it at 40%.
+4: Pain: Go up to this state when light is negative and damage < 40. Go down from when damage >60.
+5: Critical:Go up to this state when damage < 100 and not paralysed. Go down from it when halloss hits 100 and you're paralysed.
+6: Dying: You've collapsed from pain and are dying. theres nothing below this but death.
+*/
 /mob/living/carbon/proc/diona_handle_lightmessages(var/datum/dionastats/DS)
-	//This function handles the RP messages that inform the diona player about their light/withering state
-	//Lightstates:
-	//1: Full. Go down from this state below 80%
-	//2. average: Go up a state at 100%, go down a state at 50%
-	//3. Subsisting: Go down from this state at 0.% light, go up from it at 40%
-	//4: Pain: Go up to this state when light is negative and damage < 40. Go down from when damage >60
-	//5: Critical:Go up to this state when damage < 100 and not paralysed. Go down from it when halloss hits 100 and you're paralysed
-	//6: Dying: You've collapsed from pain and are dying. theres nothing below this but death
 	DS.EP = DS.stored_energy / DS.max_energy
 
 	if (DS.LMS == 1) //If we're full
@@ -475,8 +481,7 @@ var/list/diona_banned_languages = list(
 			else if (DS.LMS == 6)
 				return
 
-//GETTER FUNCTIONS
-
+/// Getter for the current lightlevel.
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
 	var/light_factor = 1.15
 	var/turf/T = get_turf(src)
@@ -487,14 +492,15 @@ var/list/diona_banned_languages = list(
 		light_factor = 1
 
 	if (T)
-		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
+		var/raw = min(T.get_lumcount(0, 1) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
+/// Getter for health.
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)
 	if (DS.dionatype == 0)
 		return health
 	else
-		return health+(maxHealth*0.5)
+		return health+(maxhealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
 	return
@@ -505,9 +511,9 @@ var/list/diona_banned_languages = list(
 /mob/living/carbon/human/get_dionastats()
 	return DS
 
-//Called on a nymph when it merges with a gestalt
-//The nymph and gestalt get the combined total of both of their languages
-//Note that the nymphs only have all languages while they're inside the gestalt.
+/** Called on a nymph when it merges with a gestalt.
+The nymph and gestalt get the combined total of both of their languages.
+Note that the nymphs only have all languages while they're inside the gestalt. */
 /mob/living/carbon/proc/sync_languages(var/mob/living/carbon/host)
 	for (var/datum/language/L in languages)
 		if (!(L in host.languages))
@@ -517,9 +523,9 @@ var/list/diona_banned_languages = list(
 	languages = host.languages.Copy()
 
 
-//Called on a nymph when it splits off from a gestalt.
-//Or on all of them if the gestalt splits into a swarm of nymphs
-//The nymph has a chance to inherit each language
+/** Called on a nymph when it splits off from a gestalt.
+Or on all of them if the gestalt splits into a swarm of nymphs!
+The nymph has a chance to inherit each language. */
 /mob/living/carbon/alien/diona/proc/split_languages(var/mob/living/carbon/host)
 	languages.Cut()
 
@@ -592,9 +598,9 @@ var/list/diona_banned_languages = list(
 
 //DIONASTATS DEFINES
 
-//Dionastats is an instanced object that diona will each create and hold a reference to.
-//It's used to store information which are relevant to both types of diona, to save on adding variables to carbon
-//Most of these values are calculated from information configured at authortime in either diona_nymph.dm or diona_gestalt.dm
+/* Dionastats is an instanced object that diona will each create and hold a reference to.
+It's used to store information which are relevant to both types of diona, to save on adding variables to carbon
+Most of these values are calculated from information configured at authortime in either diona_nymph.dm or diona_gestalt.dm */
 /datum/dionastats
 	var/max_energy //how much energy the diona can store. will determine how long its energy lasts in darkness
 	var/stored_energy //how much is currently stored
@@ -630,7 +636,8 @@ var/list/diona_banned_languages = list(
 	last_location = null
 	regen_limb = null
 	regen_extra = null
-	. = ..()
+	nym = null
+	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))
@@ -644,7 +651,7 @@ var/list/diona_banned_languages = list(
 		var/newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-			newDNA = md5("\ref[H]")
+			newDNA = md5("[REF(H)]")
 
 		H.adjustBruteLoss(4)
 		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))
@@ -667,7 +674,7 @@ var/list/diona_banned_languages = list(
 			//Now we sample their languages!
 			for(var/datum/language/L in H.languages)
 				learned = max(learned, 1)
-				if (!(L in user.languages) && !(L in diona_banned_languages))
+				if (!(L in user.languages) && !(L in GLOB.diona_banned_languages))
 					//We don't know this language, and we can learn it!
 					var/current_progress = language_progress[L.name]
 					current_progress += 1

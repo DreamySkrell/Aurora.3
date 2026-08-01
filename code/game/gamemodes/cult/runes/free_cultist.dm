@@ -5,7 +5,7 @@
 
 /datum/rune/freedom/do_rune_action(mob/living/user, atom/movable/A)
 	var/list/mob/living/carbon/human/cultists = list()
-	for(var/datum/mind/H in cult.current_antagonists)
+	for(var/datum/mind/H in GLOB.cult.current_antagonists)
 		if(ishuman(H.current))
 			cultists += H.current
 
@@ -49,7 +49,7 @@
 			if(C.locked)
 				cultist_free = FALSE
 				C.locked = FALSE
-		for(var/obj/machinery/door/airlock/door in range(2, get_turf(cultist)))
+		for(var/obj/structure/machinery/door/airlock/door in range(2, get_turf(cultist)))
 			if(door.locked)
 				cultist_free = FALSE
 				door.unlock()

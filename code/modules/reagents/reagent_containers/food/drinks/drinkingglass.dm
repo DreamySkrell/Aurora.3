@@ -3,7 +3,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	name = "glass"
 	desc = "Your standard drinking glass."
-	desc_info = "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 	icon_state = "glass_empty"
 	item_state = "glass_empty"
 	amount_per_transfer_from_this = 5
@@ -14,6 +13,11 @@
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	matter = list(MATERIAL_GLASS = 300)
 	fragile = 2
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
+	. += "Characters with high bartending skill can click on a drink with a spoon to stir it, improving the quality of the drink and the morale boost it provides."
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/on_reagent_change()
 	var/singleton/reagent/R = reagents.get_primary_reagent_decl()
@@ -28,6 +32,17 @@
 		name = "glass"
 		desc = "Your standard drinking glass."
 		center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/spoon))
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			var/drink_moodlet_value = 5 * bar_skill.skill_level
+			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+			if (!isnull(drink_moodlet_value))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
+				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
+	return ..()
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
 	if(ishuman(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
@@ -55,7 +70,7 @@
 			return
 	..()
 
-// for /obj/machinery/vending/sovietsoda
+// for /obj/structure/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
 	reagents_to_add = list(/singleton/reagent/drink/sodawater = 50)
 

@@ -45,7 +45,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/toilet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(attacking_item.use_tool(src, user, 30, volume = 0))
@@ -126,7 +126,7 @@
 
 
 
-/obj/machinery/shower
+/obj/structure/machinery/shower
 	name = "shower"
 	desc = "The HS-451. Installed in the 2450s by the Hygiene Division."
 	icon = 'icons/obj/watercloset.dmi'
@@ -144,7 +144,12 @@
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
 	var/datum/looping_sound/showering/soundloop
 
-/obj/machinery/shower/Initialize()
+/obj/structure/shower/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click \the [src] to toggle it on and off."
+	. += "Use a wrench on \the [src] to adjust the temperature."
+
+/obj/structure/machinery/shower/Initialize()
 	. = ..()
 	create_reagents(2)
 	soundloop = new(src, FALSE)
@@ -156,7 +161,7 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/machinery/shower/Destroy()
+/obj/structure/machinery/shower/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
 
@@ -170,7 +175,7 @@
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/obj/machinery/shower/attack_hand(mob/M as mob)
+/obj/structure/machinery/shower/attack_hand(mob/M as mob)
 	on = !on
 	update_icon()
 	if(on)
@@ -180,10 +185,10 @@
 		for (var/atom/movable/G in src.loc)
 			G.clean_blood()
 
-/obj/machinery/shower/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.type == /obj/item/device/analyzer)
+/obj/structure/machinery/shower/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.type == /obj/item/analyzer)
 		to_chat(user, SPAN_NOTICE("The water temperature seems to be [watertemp]."))
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user, SPAN_NOTICE("You begin to adjust the temperature valve with \the [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -191,7 +196,7 @@
 			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [attacking_item]."), SPAN_NOTICE("You adjust the shower with \the [attacking_item]."))
 			add_fingerprint(user)
 
-/obj/machinery/shower/update_icon()	//this is terribly unreadable, but basically it makes the shower mist up
+/obj/structure/machinery/shower/update_icon()	//this is terribly unreadable, but basically it makes the shower mist up
 	ClearOverlays()					//once it's been on for a while, in addition to handling the water overlay.
 	if(mymist)
 		qdel(mymist)
@@ -216,27 +221,33 @@
 			mymist = new /obj/effect/mist(loc)
 			addtimer(CALLBACK(src, PROC_REF(clear_mist)), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
 
-/obj/machinery/shower/proc/clear_mist()
+/obj/structure/machinery/shower/proc/clear_mist()
 	if (!on)
 		QDEL_NULL(mymist)
 		ismist = FALSE
 
-/obj/machinery/shower/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/structure/machinery/shower/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
+
+	if(QDELETED(arrived))
+		return
 
 	INVOKE_ASYNC(src, PROC_REF(wash), arrived)
 	if(ismob(arrived))
 		mobpresent += 1
 		process_heat(arrived)
 
-/obj/machinery/shower/proc/on_exit(atom/movable/gone, direction)
+/obj/structure/machinery/shower/proc/on_exit(atom/movable/gone, direction)
 	SIGNAL_HANDLER
+
+	if(QDELETED(gone))
+		return
 
 	if(ismob(gone))
 		mobpresent -= 1
 
 //Yes, showers are super powerful as far as washing goes.
-/obj/machinery/shower/proc/wash(atom/movable/O)
+/obj/structure/machinery/shower/proc/wash(atom/movable/O)
 	if(!on)
 		return
 
@@ -258,7 +269,7 @@
 		tile.clean_blood()
 		tile.remove_cleanables()
 
-/obj/machinery/shower/process()
+/obj/structure/machinery/shower/process()
 	if(!on)
 		return
 	wash_floor()
@@ -268,7 +279,7 @@
 		wash(L) // Why was it not here before?
 		process_heat(L)
 
-/obj/machinery/shower/proc/wash_floor()
+/obj/structure/machinery/shower/proc/wash_floor()
 	if(!ismist && is_washing)
 		return
 	is_washing = 1
@@ -278,7 +289,7 @@
 	spawn(100)
 		is_washing = 0
 
-/obj/machinery/shower/proc/process_heat(mob/living/M)
+/obj/structure/machinery/shower/proc/process_heat(mob/living/M)
 	if(!on || !istype(M))
 		return
 
@@ -305,12 +316,15 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
-	You can right-click this and change the amount transferred per use."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
 	var/amount_per_transfer_from_this = 300
 	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+
+/obj/structure/sink/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
+	. += "Right-click \the [src] to change the amount transferred per use."
 
 /obj/structure/sink/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -382,6 +396,20 @@
 			RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 			playsound(loc, 'sound/effects/sink.ogg', 75, 1)
+			return
+		if(user.a_intent == I_DISARM)
+			if(!RG.reagents.total_volume)
+				busy = TRUE
+				user.visible_message(SPAN_NOTICE("[user] starts washing \a [RG] in \the [src]."))
+				if(!do_after(user, 25, src))
+					playsound(loc, 'sound/effects/sink.ogg', 75, TRUE)
+					busy = FALSE
+					return TRUE
+				busy = FALSE
+				user.visible_message(SPAN_NOTICE("[user] finishes washing \a [RG] in \the [src]."))
+			else
+				to_chat(user, SPAN_WARNING("\The [RG] still has something in it."))
+				return
 		else
 			if(!RG.reagents.total_volume)
 				to_chat(usr, SPAN_WARNING("\The [RG] is already empty."))
@@ -390,7 +418,7 @@
 			var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 			var/max_reagents = RG.reagents.maximum_volume
 			user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-			playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			playsound(src.loc, SFX_POUR, 10, 1)
 		return
 
 	// Filling/empying Syringes

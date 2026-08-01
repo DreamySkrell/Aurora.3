@@ -13,7 +13,6 @@
 	name = "Freewater Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -30,7 +29,7 @@
 	max_count = 4
 
 	spawnpoints = list("ouerea_freewater")
-	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/freewater
 
@@ -60,7 +59,8 @@
 	l_pocket = /obj/item/storage/wallet/random
 	l_ear = null
 	species_shoes = list(
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 
 /obj/outfit/admin/freewater/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

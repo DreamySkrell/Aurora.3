@@ -1,5 +1,3 @@
-/var/global/account_hack_attempted = 0
-
 /datum/event/money_hacker
 	var/datum/money_account/affected_account
 	endWhen = 100
@@ -9,8 +7,6 @@
 	end_time = world.time + 6000
 	if(SSeconomy.all_money_accounts.len)
 		affected_account = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))
-
-		account_hack_attempted = 1
 	else
 		kill(TRUE)
 
@@ -20,10 +16,10 @@
 	Notifications will be sent as updates occur.<br>"
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power || !(MS.z in affecting_z))
 			continue
-		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
+		MS.send_rc_message("Executive Officer's Office", my_department, message, "", "", 2)
 
 
 /datum/event/money_hacker/tick()
@@ -64,7 +60,7 @@
 
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power || !(MS.z in affecting_z))
 			continue
-		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
+		MS.send_rc_message("Executive Officer's Office", my_department, message, "", "", 2)

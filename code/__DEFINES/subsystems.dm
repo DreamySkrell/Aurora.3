@@ -1,6 +1,6 @@
 /// START specific to SSmachinery
 #define START_PROCESSING_MACHINE(machine, flag)\
-	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	if(!istype(machine, /obj/structure/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
 	machine.processing_flags |= flag;\
 	START_PROCESSING(SSmachinery, machine)
 
@@ -90,6 +90,12 @@
  * The item will be added to the late_loaders list, this is iterated over after
  * initalization of subsystems is complete and calls LateInitalize on the atom
  * see [this file for the LateIntialize proc](atom.html#proc/LateInitialize)
+ *
+ * It's worth noting that LateInitialize will allow the persistence subsystem to apply content,
+ * which might be needed during the objects init process supplied via Init arguments,
+ * as the init by the persistence subsystems doesn't provide init arguments.
+ * Persistence subsystem instanciates object -> LateInit is returned
+ * -> Persistence subsystem applies content -> LateInit is called to finish the whole init process.
  */
 #define INITIALIZE_HINT_LATELOAD 1
 
@@ -113,8 +119,8 @@
 // Effect helpers.
 #define QUEUE_EFFECT(effect) if (!(effect.datum_flags & DF_ISPROCESSING)) {effect.datum_flags |= DF_ISPROCESSING; SSeffects.effect_systems += effect;}
 #define QUEUE_VISUAL(visual) if (!(visual.datum_flags & DF_ISPROCESSING)) {visual.datum_flags |= DF_ISPROCESSING; SSeffects.visuals += visual;}
-#define STOP_EFFECT(effect) effect.datum_flags &= ~DF_ISPROCESSING; SSeffects.effect_systems -= effect;
-#define STOP_VISUAL(visual)	visual.datum_flags &= ~DF_ISPROCESSING; SSeffects.visuals -= visual;
+#define STOP_EFFECT(effect) SSeffects.effect_systems -= effect;
+#define STOP_VISUAL(visual)	SSeffects.visuals -= visual;
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
@@ -138,16 +144,18 @@
 
 
 // - SSrecords --
-#define RECORD_GENERAL 1
-#define RECORD_MEDICAL 2
-#define RECORD_SECURITY 4
-#define RECORD_LOCKED 8
-#define RECORD_WARRANT 16
-#define RECORD_VIRUS 32
+#define RECORD_GENERAL BITFLAG(0)
+#define RECORD_MEDICAL BITFLAG(1)
+#define RECORD_SECURITY BITFLAG(2)
+#define RECORD_LOCKED BITFLAG(3)
+#define RECORD_WARRANT BITFLAG(4)
+#define RECORD_VIRUS BITFLAG(5)
+#define RECORD_SHUTTLE_MANIFEST BITFLAG(6)
 
 
 // - SSjobs --
 // departments
+// If we rename any of these, also change them in ship_locations.dm define.
 #define DEPARTMENT_COMMAND "Command"
 #define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
@@ -159,6 +167,7 @@
 #define DEPARTMENT_CIVILIAN "Civilian"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
+#define DEPARTMENT_OFFSHIP "Off-ship"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
 	DEPARTMENT_COMMAND_SUPPORT = list(),\
@@ -171,6 +180,7 @@
 	DEPARTMENT_CIVILIAN = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
+	DEPARTMENT_OFFSHIP = list(),\
 )
 
 // job roles within departments
@@ -209,10 +219,13 @@
 // Subsystems shutdown in the reverse of the order they initialize in
 // The numbers just define the ordering, they are meaningless otherwise.
 
-#define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake conflg handling
+#define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake config handling
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
+#define INIT_ORDER_DBCORE 95
+#define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
 #define INIT_ORDER_SOUNDS 83
+#define INIT_ORDER_SENTRY 79
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref
@@ -224,7 +237,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0
@@ -241,6 +255,7 @@
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_WEATHER    -9
+#define INIT_ORDER_ODYSSEY	-15
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50
@@ -252,6 +267,7 @@
 
 #define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_GARBAGE 15
+#define FIRE_PRIORITY_DATABASE 16
 #define FIRE_PRIORITY_ASSETS 20
 #define FIRE_PRIORITY_NPC_MOVEMENT 21
 #define FIRE_PRIORITY_NPC_ACTIONS 22
@@ -261,11 +277,13 @@
 #define FIRE_PRIORITY_SPACEDRIFT 30
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_MOBS 100
+#define FIRE_PRIORITY_TGUI 110
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
-#define FIRE_PRIORITY_RUNECHAT 410
 #define FIRE_PRIORITY_TIMER 700
 #define FIRE_PRIORITY_SOUND_LOOPS 800
+#define FIRE_PRIORITY_SPEECH_CONTROLLER 900
+#define FIRE_PRIORITY_DELAYED_VERBS 950
 
 /**
 	Create a new timer and add it to the queue.

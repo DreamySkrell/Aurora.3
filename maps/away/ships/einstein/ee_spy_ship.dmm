@@ -1,25 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aab" = (
-/obj/machinery/computer/shuttle_control/explore/ee_shuttle{
-	dir = 4;
-	req_access = list(205)
+/obj/structure/machinery/computer/shuttle_control/explore/ee_shuttle{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "aaI" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aaJ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 1
 	},
@@ -27,11 +26,11 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "ajL" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
 "aou" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor,
@@ -41,7 +40,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "atj" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "awG" = (
@@ -53,7 +52,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "aBD" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_spy_ship_out";
@@ -65,14 +64,14 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aCd" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "aEq" = (
 /obj/structure/table/rack,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /obj/item/clothing/shoes/magboots,
@@ -89,7 +88,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "aHs" = (
@@ -99,33 +98,33 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aHt" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/meter,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aHv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aHw" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aJd" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aMB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "aMY" = (
@@ -135,26 +134,26 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "aOU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aSi" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aSm" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	name = "Toilet";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "aSJ" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -163,19 +162,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "bcf" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "bci" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
-"bgV" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/ee_shuttle)
 "bkQ" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
@@ -187,14 +183,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "buK" = (
-/obj/machinery/computer/ship/navigation,
+/obj/structure/machinery/computer/ship/navigation,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "buM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_spy_ship_in";
@@ -225,11 +221,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "cMo" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "cQs" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -249,13 +245,13 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "dfe" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "dqJ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "dHA" = (
@@ -263,22 +259,22 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "dQZ" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small,
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
 /area/ship/ee_spy_ship)
 "dTw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "eiL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
@@ -287,7 +283,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "eiR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -306,8 +302,8 @@
 /turf/space/transit/north,
 /area/space)
 "euz" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "ewW" = (
@@ -317,12 +313,12 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "exg" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -336,20 +332,20 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "eCV" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "eIb" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(205)
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "eMT" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "eTH" = (
@@ -359,7 +355,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "eYX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -381,7 +377,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "frC" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
@@ -393,7 +389,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "fws" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "ee_spy_ship_port";
 	pixel_y = 28;
@@ -411,14 +407,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "fNZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "fQq" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Head";
 	req_access = list(205);
 	dir = 4
@@ -453,7 +449,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "fZq" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
 	req_access = list(205);
 	dir = 4
@@ -475,14 +471,14 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "gxW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "gyl" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "gHC" = (
@@ -498,14 +494,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "hdb" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
+/obj/structure/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "heP" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_shuttle_out";
@@ -520,14 +516,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "hiw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "huE" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "hBd" = (
@@ -537,13 +533,13 @@
 /area/ship/ee_spy_ship)
 "hBs" = (
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "hFX" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "hQA" = (
@@ -556,7 +552,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "hZq" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Dock";
 	req_access = list(205);
 	dir = 4
@@ -565,13 +561,13 @@
 /area/ship/ee_spy_ship)
 "iaK" = (
 /obj/structure/toilet,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "iiZ" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "ee_shuttle";
 	name = "Port docking controller";
@@ -579,7 +575,7 @@
 	pixel_y = 28;
 	tag_door = "ee_shuttle_out"
 	},
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -588,7 +584,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "irX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "ive" = (
@@ -598,11 +594,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "iGK" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -611,7 +607,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "iOV" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -637,7 +633,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "kpR" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "kqx" = (
@@ -649,7 +645,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "krH" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
 	req_access = list(205);
 	dir = 4
@@ -661,7 +657,7 @@
 /area/ship/ee_spy_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
@@ -691,7 +687,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "lhC" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Operations";
 	req_access = list(205);
 	dir = 4
@@ -705,12 +701,12 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
 "lpe" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "lri" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -719,7 +715,7 @@
 /area/ship/ee_spy_ship)
 "lwj" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue,
+/obj/item/flashlight/lamp/lava/blue,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "lFg" = (
@@ -732,7 +728,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -743,11 +739,12 @@
 /area/ship/ee_spy_ship)
 "mwP" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "mEc" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "orion_express_shuttle_dock";
 	pixel_y = 24
@@ -755,7 +752,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "mET" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
@@ -765,14 +762,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "mJE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "mLa" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -784,7 +781,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "ncB" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_spy_ship_out";
@@ -806,12 +803,12 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
 /area/shuttle/fsf_shuttle)
 "nty" = (
 /obj/structure/table/steel,
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "nzr" = (
@@ -819,17 +816,17 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/ship/ee_spy_ship)
 "nDn" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "nVi" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -842,9 +839,8 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "ofY" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "ogz" = (
@@ -857,7 +853,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "opS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "ee_spy_ship_pump"
@@ -865,7 +861,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "oBX" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engines"
@@ -873,7 +869,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "oNi" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -890,11 +886,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "pwR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -910,12 +906,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "pCa" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "ee_spy_ship_pump"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "ee_spy_ship_sensor";
 	pixel_y = 26
@@ -923,20 +919,20 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "pDZ" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "pJZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -946,8 +942,8 @@
 /turf/template_noop,
 /area/space)
 "pRO" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_spy_ship_in";
@@ -957,7 +953,7 @@
 /area/ship/ee_spy_ship)
 "pXP" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/lava/green,
+/obj/item/flashlight/lamp/lava/green,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "pYB" = (
@@ -981,7 +977,7 @@
 /turf/space/transit/north,
 /area/space)
 "rdB" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1005,8 +1001,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "spX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
 	master_tag = "ee_spy_ship_port";
@@ -1017,7 +1013,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "szY" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -1037,7 +1033,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "sGi" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(205);
 	dir = 1
@@ -1050,7 +1046,7 @@
 /turf/space/transit/north,
 /area/space)
 "tpL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1070,7 +1066,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "uaE" = (
@@ -1080,16 +1076,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "ufp" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "upC" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "uwT" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
 	master_tag = "ee_spy_ship_port";
@@ -1111,10 +1107,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "uCl" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = 30
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1135,7 +1131,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "uYP" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -1154,7 +1150,7 @@
 /turf/template_noop,
 /area/space)
 "vlF" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engines"
@@ -1162,7 +1158,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "vmX" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "ee_shuttle_out";
@@ -1199,27 +1195,27 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "vTv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "vUu" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "wji" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Crew Quarters";
 	req_access = list(205);
 	dir = 4
@@ -1238,15 +1234,15 @@
 /area/ship/ee_spy_ship)
 "wCo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "wLs" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "wUJ" = (
@@ -1260,7 +1256,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "wZf" = (
@@ -1278,7 +1274,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
 "xPN" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(205)
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1290,7 +1286,7 @@
 /turf/template_noop,
 /area/space)
 "xUv" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
@@ -1298,9 +1294,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/ee_shuttle)
-"yjk" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/ee_spy_ship)
 
 (1,1,1) = {"
 xRX
@@ -30936,12 +30929,12 @@ xRX
 xRX
 xRX
 xRX
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -31198,19 +31191,19 @@ aou
 aHw
 eCV
 mkb
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
 nWf
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 iXb
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -31455,33 +31448,33 @@ aHt
 aJd
 aHv
 mkb
-yjk
+kwe
 sBA
 xQS
 xQS
 sBA
 sBA
-yjk
+kwe
 epw
 xQS
 aaJ
 cVA
 dQZ
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 uyM
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
 aMY
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -31712,25 +31705,25 @@ aHv
 aOU
 mkb
 mkb
-yjk
+kwe
 vUu
 xQS
 sBA
 xQS
 cMo
-yjk
+kwe
 hhf
 pJZ
-yjk
+kwe
 cVA
 cVA
-yjk
-yjk
+kwe
+kwe
 iaK
 aSm
 aSN
 iGK
-yjk
+kwe
 piw
 uaE
 xbK
@@ -31738,7 +31731,7 @@ xbK
 xbK
 xbK
 fVv
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -31964,30 +31957,30 @@ xRX
 xRX
 xRX
 xRX
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 hiw
-yjk
+kwe
 xQS
 sBA
 xQS
 xQS
 sBA
-yjk
+kwe
 xQS
 xQS
 kwe
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
+kwe
 aSN
 huE
-yjk
+kwe
 nVi
 xbK
 xbK
@@ -31995,7 +31988,7 @@ nty
 cLC
 xbK
 aMB
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -32223,28 +32216,28 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 eIb
 kpR
-yjk
+kwe
 vUu
 xQS
 xQS
 sBA
 ufp
-yjk
+kwe
 xQS
 xQS
 wXi
 xQS
 xQS
 atj
-yjk
+kwe
 lFg
 aSN
 aSN
 bcf
-yjk
+kwe
 buK
 uaE
 xbK
@@ -32252,8 +32245,8 @@ pXP
 gLO
 xbK
 xbK
-yjk
-yjk
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -32480,28 +32473,28 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 eTH
 mkb
-yjk
+kwe
 sBA
 xQS
 xQS
 xQS
 xQS
-yjk
+kwe
 xQS
 xQS
 wXi
 xQS
 xQS
 awG
-yjk
+kwe
 ogz
 aSN
 aSN
 hBd
-yjk
+kwe
 xbK
 xbK
 xbK
@@ -32510,7 +32503,7 @@ xbK
 xbK
 xbK
 pBl
-yjk
+kwe
 nzr
 xRX
 xRX
@@ -32737,28 +32730,28 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 fnY
 mkb
-yjk
+kwe
 sBA
 sBA
 sBA
 fBb
 xQS
-yjk
+kwe
 xQS
 xQS
 wXi
 xQS
 xQS
 aEq
-yjk
+kwe
 ogz
 mLa
 aSN
 buA
-yjk
+kwe
 xbK
 xbK
 xbK
@@ -32767,10 +32760,10 @@ xbK
 xbK
 dHA
 aCd
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -32994,14 +32987,14 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 vxN
 mkb
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
 fZq
 kwe
 eYX
@@ -33010,21 +33003,21 @@ aEB
 xQS
 xQS
 bkQ
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
 fQq
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
 lhC
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
+kwe
+kwe
 mwP
 tCH
 pAh
@@ -33251,10 +33244,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 fnY
 mkb
-yjk
+kwe
 xQS
 xQS
 xQS
@@ -33268,7 +33261,7 @@ xQS
 xQS
 xQS
 mET
-yjk
+kwe
 pYB
 wUJ
 wUJ
@@ -33281,7 +33274,7 @@ wUJ
 wUJ
 wUJ
 wUJ
-yjk
+kwe
 eYX
 xQS
 rdB
@@ -33765,10 +33758,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 dqJ
 mkb
-yjk
+kwe
 mEc
 xQS
 xQS
@@ -33782,7 +33775,7 @@ xQS
 xQS
 xQS
 xQS
-yjk
+kwe
 uxz
 wUJ
 wUJ
@@ -33795,7 +33788,7 @@ oNi
 fRD
 wUJ
 dfe
-yjk
+kwe
 pwR
 xQS
 iOV
@@ -34022,10 +34015,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 eMT
 mkb
-yjk
+kwe
 mPM
 wBq
 wBq
@@ -34039,20 +34032,20 @@ wBq
 wBq
 wBq
 qHm
-yjk
+kwe
 cYw
 oNi
 wUJ
 kfX
 kfX
-yjk
-yjk
+kwe
+kwe
 wji
-yjk
-yjk
+kwe
+kwe
 krH
-yjk
-yjk
+kwe
+kwe
 gcq
 tra
 pAh
@@ -34279,10 +34272,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 eMT
 mkb
-yjk
+kwe
 ntt
 xoc
 xoc
@@ -34296,23 +34289,23 @@ xoc
 xoc
 xoc
 kzm
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
 hZq
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
 uCl
 xbK
-yjk
+kwe
 kPs
 xbK
 cTq
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -34536,13 +34529,13 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 eMT
 mkb
-yjk
+kwe
 mjR
 xoc
-bgV
+xoc
 aab
 hBs
 inf
@@ -34553,20 +34546,20 @@ pDZ
 ajL
 cQs
 aow
-yjk
+kwe
 wUJ
 frC
 wUJ
 kaR
 uWn
-yjk
+kwe
 uNN
 wLs
-yjk
+kwe
 kAt
 xbK
 wLs
-yjk
+kwe
 lri
 xRX
 xRX
@@ -34793,10 +34786,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+kwe
 gyl
 kpR
-yjk
+kwe
 rtf
 wZf
 xPN
@@ -34810,20 +34803,20 @@ wfy
 ajL
 xUv
 aow
-yjk
+kwe
 exg
 kqx
 wUJ
 wUJ
 eiL
-yjk
+kwe
 nDn
 xbK
-yjk
+kwe
 lwj
 jEu
 vMq
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -35048,15 +35041,15 @@ xRX
 xRX
 xRX
 xRX
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
 hiw
-yjk
+kwe
 rtf
 xoc
-bgV
+xoc
 iiZ
 rNp
 uYP
@@ -35067,20 +35060,20 @@ wCo
 ajL
 cQs
 aow
-yjk
+kwe
 wUJ
 wUJ
 wUJ
 wUJ
 wUJ
-yjk
+kwe
 hQA
 xbK
-yjk
-yjk
+kwe
+kwe
 fif
-yjk
-yjk
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -35310,9 +35303,9 @@ aou
 aSi
 gHC
 mkb
-yjk
+kwe
 szY
-bgV
+xoc
 xoc
 xoc
 xoc
@@ -35324,16 +35317,16 @@ xoc
 xoc
 xoc
 kzm
-yjk
+kwe
 wUJ
 wUJ
 wUJ
 wUJ
 kfX
-yjk
+kwe
 nDn
 wLs
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -35567,7 +35560,7 @@ aHt
 aJd
 aou
 mkb
-yjk
+kwe
 vdz
 aHs
 aHs
@@ -35581,16 +35574,16 @@ aHs
 aHs
 aHs
 ewW
-yjk
+kwe
 tpL
 wUJ
 wUJ
 wUJ
 fNZ
-yjk
+kwe
 hQA
 xbK
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -35824,7 +35817,7 @@ aHv
 aSJ
 hdb
 mkb
-yjk
+kwe
 vwF
 vwF
 vwF
@@ -35838,16 +35831,16 @@ vwF
 vwF
 vwF
 vwF
-yjk
+kwe
 euz
 spX
 irX
 eiR
 kfX
-yjk
-yjk
+kwe
+kwe
 epB
-yjk
+kwe
 xRX
 xRX
 xRX
@@ -36076,12 +36069,12 @@ xRX
 xRX
 xRX
 xRX
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
+kwe
+kwe
+kwe
+kwe
+kwe
+kwe
 xRX
 xRX
 xRX
@@ -36095,13 +36088,13 @@ xRX
 xRX
 xRX
 xRX
-yjk
-yjk
+kwe
+kwe
 pAh
 buM
 pRO
 pAh
-yjk
+kwe
 xRX
 xRX
 xRX

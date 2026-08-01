@@ -2,17 +2,16 @@
 #define DRILL_LIGHT_WARNING 1
 #define DRILL_LIGHT_ACTIVE 2
 
-/obj/machinery/mining
+/obj/structure/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
 	anchored = FALSE
 	use_power = POWER_USE_OFF //The drill takes power directly from a cell.
 	density = TRUE
 	layer = MOB_LAYER + 0.1 //So it draws over mobs in the tile north of it.
 
-/obj/machinery/mining/drill
+/obj/structure/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	desc_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
@@ -58,16 +57,79 @@
 		/obj/item/cell/high
 	)
 
-/obj/machinery/mining/drill/Initialize()
+	parts_power_mgmt = FALSE
+
+	/// The list of ores currently held within the mining drill
+	var/list/stored_ores = list()
+
+	/// The last time the stored ores were updated, used as a cooldown to not nuke the server
+	var/last_stored_ore_update = 0
+
+/obj/structure/machinery/mining/drill/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Attaching a mining satchel with a warp extraction pack and a linked ore box to this drill will bluespace-teleport any mined ore directly into the linked ore box."
+
+/obj/structure/machinery/mining/drill/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase ore capacity."
+	. += "Upgraded <b>capacitors</b> will improve power efficiency."
+	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore harvested."
+
+/obj/structure/machinery/mining/drill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(need_player_check)
+		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
+	else
+		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
+
+	if(panel_open)
+		. += "The power cell is [cell ? "installed" : "missing"]."
+
+	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
+
+	if(is_adjacent)
+		if(attached_satchel)
+			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
+		if(current_error)
+			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
+
+	if(!is_adjacent) //Can only check the contents of drills if you can physically reach them.
+		return
+
+	add_fingerprint(user)
+
+	if(world.time > last_stored_ore_update + 1 SECOND)
+		update_ore_count()
+		last_stored_ore_update = world.time
+
+	if(!length(stored_ores))
+		. += SPAN_NOTICE("It is empty.")
+		return
+
+	. += SPAN_NOTICE("It holds:")
+	for(var/ore in stored_ores)
+		. += SPAN_NOTICE("- [stored_ores[ore]] [ore]")
+
+/obj/structure/machinery/mining/drill/Initialize()
 	. = ..()
 	spark_system = bind_spark(src, 3)
 
-/obj/machinery/mining/drill/Destroy()
+/obj/structure/machinery/mining/drill/Destroy()
 	QDEL_NULL(attached_satchel)
 	QDEL_NULL(spark_system)
+	QDEL_NULL(cell)
+	QDEL_NULL_LIST(stored_ores)
 	return ..()
 
-/obj/machinery/mining/drill/process()
+/obj/structure/machinery/mining/drill/proc/update_ore_count()
+	stored_ores = list()
+	for(var/obj/item/ore/O in contents)
+		if(stored_ores[O.name])
+			stored_ores[O.name]++
+		else
+			stored_ores[O.name] = 1
+
+/obj/structure/machinery/mining/drill/process()
 	if(need_player_check)
 		return
 
@@ -90,8 +152,16 @@
 		return
 
 	//Drill through the flooring, if any.
-	if(istype(get_turf(src), /turf/unsimulated/floor/asteroid))
-		var/turf/unsimulated/floor/asteroid/T = get_turf(src)
+	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit))
+		var/turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit/T = get_turf(src)
+		if(!T.dug)
+			T.gets_dug()
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
+		var/turf/simulated/floor/exoplanet/asteroid/T = get_turf(src)
 		if(!T.dug)
 			T.gets_dug()
 			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
@@ -178,23 +248,7 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(need_player_check)
-		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
-	else
-		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
-	if(panel_open)
-		. += "The power cell is [cell ? "installed" : "missing"]."
-	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
-	if(is_adjacent)
-		if(attached_satchel)
-			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
-		if(current_error)
-			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
-	return
-
-/obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
+/obj/structure/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
 	switch(lights)
 		if(DRILL_LIGHT_IDLE)
 			set_light(2, 0.75, LIGHT_COLOR_TUNGSTEN)
@@ -203,12 +257,12 @@
 		if(DRILL_LIGHT_ACTIVE)
 			set_light(4, 1, LIGHT_COLOR_LAVA)
 
-/obj/machinery/mining/drill/attack_ai(mob/user)
+/obj/structure/machinery/mining/drill/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/mining/drill/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mining/drill/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mecha_equipment/drill_mover)) // the drill mover afterattack handles it
 		return
 	if(!active)
@@ -262,7 +316,7 @@
 			attached_satchel.insert_into_storage(ore)
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
@@ -276,7 +330,7 @@
 			attached_satchel = null
 		return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(panel_open)
 			if(cell)
 				to_chat(user, SPAN_NOTICE("You shimmy out \the [cell]."))
@@ -330,7 +384,7 @@
 		..()
 	return
 
-/obj/machinery/mining/drill/attack_hand(mob/user)
+/obj/structure/machinery/mining/drill/attack_hand(mob/user)
 	check_supports()
 
 	if(need_player_check)
@@ -385,7 +439,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is unpowered."))
 	update_icon()
 
-/obj/machinery/mining/drill/update_icon()
+/obj/structure/machinery/mining/drill/update_icon()
 	if(need_player_check)
 		icon_state = "mining_drill_error"
 		activate_light(DRILL_LIGHT_WARNING)
@@ -400,7 +454,7 @@
 		activate_light(DRILL_LIGHT_IDLE)
 	return
 
-/obj/machinery/mining/drill/RefreshParts()
+/obj/structure/machinery/mining/drill/RefreshParts()
 	..()
 	harvest_speed = 0
 	capacity = 0
@@ -415,7 +469,7 @@
 			charge_use -= 5 * P.rating
 	cell = locate(/obj/item/cell) in component_parts
 
-/obj/machinery/mining/drill/proc/check_supports()
+/obj/structure/machinery/mining/drill/proc/check_supports()
 	supported = FALSE
 
 	if(supports && length(supports) >= braces_needed)
@@ -428,7 +482,7 @@
 
 	update_icon()
 
-/obj/machinery/mining/drill/proc/system_error(var/error)
+/obj/structure/machinery/mining/drill/proc/system_error(var/error)
 	if(error)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
 		current_error = error
@@ -437,7 +491,7 @@
 	active = FALSE
 	update_icon()
 
-/obj/machinery/mining/drill/proc/get_resource_field()
+/obj/structure/machinery/mining/drill/proc/get_resource_field()
 	resource_field = list()
 	need_update_field = FALSE
 
@@ -452,7 +506,7 @@
 	if(!length(resource_field))
 		system_error("Resources depleted.")
 
-/obj/machinery/mining/drill/proc/use_cell_power()
+/obj/structure/machinery/mining/drill/proc/use_cell_power()
 	if(!cell)
 		return FALSE
 	if(cell.charge >= charge_use)
@@ -460,7 +514,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/mining/drill/verb/unload()
+/obj/structure/machinery/mining/drill/verb/unload()
 	set name = "Unload Drill"
 	set category = "Object"
 	set src in oview(1)
@@ -479,18 +533,18 @@
 		to_chat(usr, SPAN_NOTICE("You spill the contents of \the [src]'s storage box all over the ground."))
 
 
-/obj/machinery/mining/brace
+/obj/structure/machinery/mining/brace
 	name = "mining drill brace"
 	desc = "A machinery brace for an industrial drill. It looks easily two feet thick."
 	icon_state = "mining_brace"
 	obj_flags = OBJ_FLAG_ROTATABLE
-	var/obj/machinery/mining/drill/connected
+	var/obj/structure/machinery/mining/drill/connected
 
 	component_types = list(
 		/obj/item/circuitboard/miningdrillbrace
 	)
 
-/obj/machinery/mining/brace/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mining/brace/attackby(obj/item/attacking_item, mob/user)
 	if(connected?.active)
 		to_chat(user, SPAN_WARNING("You know you ought not work with the brace of a <i>running</i> drill, but you do anyways."))
 		sleep(5)
@@ -520,7 +574,7 @@
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(istype(get_turf(src), /turf/space))
 			to_chat(user, SPAN_NOTICE("You send \the [src] careening into space. Idiot."))
 			var/inertia = rand(10, 30)
@@ -551,13 +605,13 @@
 		else
 			disconnect()
 
-/obj/machinery/mining/brace/Destroy()
+/obj/structure/machinery/mining/brace/Destroy()
 	disconnect()
 	return ..()
 
-/obj/machinery/mining/brace/proc/connect()
-	for(var/angle in GLOB.cardinal) // make it face any drill in GLOB.cardinal direction from it
-		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
+/obj/structure/machinery/mining/brace/proc/connect()
+	for(var/angle in GLOB.cardinals) // make it face any drill in GLOB.cardinals direction from it
+		var/obj/structure/machinery/mining/drill/D = locate() in get_step(src, angle)
 		if(D)
 			src.dir = angle
 			connected = D
@@ -574,7 +628,7 @@
 	connected.supports += src
 	connected.check_supports()
 
-/obj/machinery/mining/brace/proc/disconnect()
+/obj/structure/machinery/mining/brace/proc/disconnect()
 	if(!connected)
 		return
 

@@ -33,7 +33,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/kazhkz_crash
+/obj/structure/machinery/computer/shuttle_control/explore/kazhkz_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed Kazhkz Shuttle"
 
@@ -74,7 +74,7 @@
 /obj/effect/landmark/corpse/kazhkz_crash/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/kazhkz_crash/captain
 	corpsesuit = /obj/item/clothing/suit/space/void/mining

@@ -1,4 +1,4 @@
-var/global/universe_has_ended = 0
+GLOBAL_VAR_INIT(universe_has_ended, 0)
 
 
 /datum/universal_state/supermatter_cascade
@@ -45,7 +45,7 @@ var/global/universe_has_ended = 0
 	for(var/mob/M in GLOB.player_list)
 		M.flash_act()
 
-	if(evacuation_controller.cancel_evacuation())
+	if(GLOB.evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
 
 	SSskybox.change_skybox("cascade", new_use_stars = FALSE, new_use_overmap_details = FALSE)
@@ -56,7 +56,7 @@ var/global/universe_has_ended = 0
 	OverlayAndAmbientSet()
 
 	// Disable Nar-Sie.
-	cult.allow_narsie = 0
+	GLOB.cult.allow_narsie = 0
 
 	PlayerSet()
 
@@ -80,17 +80,17 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	"}
 	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
-	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.machinery)
-		if(istype(C, /obj/machinery/computer/shuttle_control/multi/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
+	for(var/obj/structure/machinery/computer/shuttle_control/C in SSmachinery.machinery)
+		if(istype(C, /obj/structure/machinery/computer/shuttle_control/multi/research) || istype(C, /obj/structure/machinery/computer/shuttle_control/mining))
 			C.req_access = list()
 			C.req_one_access = list()
 
 /datum/universal_state/supermatter_cascade/proc/end_universe()
 	SSticker.station_explosion_cinematic(0, null, SSatlas.current_map.player_levels) // TODO: Custom cinematic
-	universe_has_ended = 1
+	GLOB.universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
@@ -107,22 +107,14 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 				T.underlays += "end01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
-		if (!C.active)
-			continue
-
-		if (isNotAdminLevel(C.z))
-			C.update_lumcount(0.15, 0.15, 0.5)
-		CHECK_TICK
-
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in SSmachinery.processing)
+	for (var/obj/structure/machinery/firealarm/alm in SSmachinery.processing)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in SSmachinery.processing)
+	for (var/obj/structure/machinery/power/apc/APC in SSmachinery.processing)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)

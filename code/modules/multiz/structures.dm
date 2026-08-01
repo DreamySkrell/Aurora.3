@@ -81,7 +81,8 @@
 	if (!istype(G))
 		G = M.r_hand
 
-	if(!M.Move(get_turf(src)))
+	var/turf/T = get_turf(src)
+	if(M.loc != T && !M.Move(T))
 		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
@@ -147,7 +148,7 @@
 		return FALSE
 	return TRUE
 
-/mob/abstract/observer/may_climb_ladders(var/ladder)
+/mob/abstract/ghost/observer/may_climb_ladders(var/ladder)
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)
@@ -179,6 +180,8 @@
 	return M.forceMove(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
@@ -256,8 +259,12 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
-	if(!staircase && (target_dir != dir && target_dir != GLOB.reverse_dir[dir]))
-		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
+	// If moving laterally off a staircase...
+	if(!staircase && (target_dir != dir && target_dir != REVERSE_DIR(dir)))
+		// And nothing blocks you from doing so...
+		if(CanPass(mover, target))
+			// Then fall over, idiot.
+			INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 
@@ -294,6 +301,9 @@
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
 	if(airflow)
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
 		return TRUE
 
 	// Disallow stepping onto the elevated part of the stairs.
@@ -345,8 +355,12 @@
 	icon_state = "stairs_railing"
 	anchored = TRUE
 	density = TRUE
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
@@ -414,19 +428,29 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER|ATOM_FLAG_ALWAYS_ALLOW_PICKUP
 	climbable = TRUE
 	color = COLOR_TILED
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
+
+/obj/structure/platform/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform/update_icon()
+	if(dir == NORTH)
+		layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
-	if(mover.throwing)
-		return TRUE
-	if(get_dir(mover, target) == GLOB.reverse_dir[dir])
+	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
 	if(height && (mover.dir == dir))
 		return FALSE
@@ -435,7 +459,7 @@
 /obj/structure/platform/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
 		return TRUE
-	if(get_dir(O, target) == GLOB.reverse_dir[dir])
+	if(get_dir(O, target) == REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 
@@ -445,15 +469,36 @@
 		/// If the user is on the same turf as the platform, we're trying to go past it, so we need to use reverse_dir.
 		/// Otherwise, use our own turf.
 		var/same_turf = get_turf(user) == get_turf(src)
-		var/turf/next_turf = get_step(src, same_turf ? GLOB.reverse_dir[dir] : 0)
+		var/turf/next_turf = get_step(src, same_turf ? REVERSE_DIR(dir) : 0)
 		if(istype(next_turf) && !next_turf.density && can_climb(user))
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)
 			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
-			if(do_after(user, 1 SECOND) && can_climb(user, TRUE))
-				user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
-				user.forceMove(next_turf)
-				LAZYREMOVE(climbers, user)
+
+			if(!do_after(user, 1 SECOND) || !can_climb(user, TRUE))
+				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
+				return
+
+			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
+			user.forceMove(next_turf)
+			LAZYREMOVE(climbers, user)
+
+/obj/structure/platform/CollidedWith(atom/bumped_atom)
+	. = ..()
+	for(var/obj/other_obj in get_turf(src))
+		if(other_obj == src)
+			continue
+
+		if(other_obj.density)
+			return // Whatever other structure is blocking the hop-down effect.
+
+	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
+		var/atom/movable/bumped_movable = bumped_atom
+		if(ismob(bumped_movable))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+		else
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge
 	icon_state = "ledge"
@@ -481,6 +526,14 @@
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform_deco"
 	color = COLOR_TILED
+
+/obj/structure/platform_deco/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform_deco/update_icon()
+	if(dir & (NORTH|SOUTH))
+		layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/platform_deco/dark
 	icon_state = "platform_deco_dark"

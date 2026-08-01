@@ -11,7 +11,6 @@
 	size = 8
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "IDCardModification"
-	ui_auto_update = FALSE
 	var/is_centcom = FALSE
 	var/show_assignments = FALSE
 
@@ -203,7 +202,7 @@
 						id_card.access += access_type
 						. = TRUE
 	if(id_card)
-		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
+		id_card.name = "[id_card.registered_name]'s ID Card ([id_card.assignment])"
 		. = TRUE
 
 /datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/card/id/id_card)

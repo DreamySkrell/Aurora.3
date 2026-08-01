@@ -7,7 +7,7 @@
 	icon_dead = "bees1"
 	mob_size = 0.5
 	unsuitable_atoms_damage = 2.5
-	maxHealth = 20
+	maxhealth = 20
 	density = 0
 	var/strength = 1
 	var/feral = 0
@@ -15,14 +15,14 @@
 	var/toxic = 0
 	var/turf/target_turf
 	var/mob/target_mob
-	var/obj/machinery/beehive/parent
+	var/obj/structure/machinery/beehive/parent
 	var/loner = 0
 	pass_flags = PASSTABLE | PASSRAILING
 	turns_per_move = 6
-	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
+	var/obj/structure/machinery/portable_atmospherics/hydroponics/my_hydrotray
 	emote_sounds = list('sound/effects/creatures/bees.ogg')
 
-/mob/living/simple_animal/bee/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+/mob/living/simple_animal/bee/Initialize(mapload, var/obj/structure/machinery/beehive/new_parent)
 	. = ..()
 	parent = new_parent
 
@@ -51,7 +51,7 @@
 			qdel(src)
 			return
 		else
-			health = maxHealth
+			health = maxhealth
 			if (prob(25))//probability to reduce spam
 				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
@@ -90,12 +90,12 @@
 			if ((worn_suit.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.7
 			else
-				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, "bio"), 70)) // Is it sealed? I can't get to 70% of your body.
+				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, BIO), 70)) // Is it sealed? I can't get to 70% of your body.
 		if(worn_helmet)
 			if ((worn_helmet.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.3
 			else
-				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
+				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, BIO), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
@@ -147,7 +147,7 @@
 	if (feral && isturf(loc))
 		//smoke, water and steam calms us down
 		var/static/list/calmers = typecacheof(list(
-			/obj/effect/effect/smoke,
+			/obj/effect/smoke,
 			/obj/effect/effect/water,
 			/obj/effect/effect/foam,
 			/obj/effect/effect/steam,
@@ -187,7 +187,7 @@
 				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinal))
+				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinals))
 				if(istype(T))
 					Move(T)
 			break
@@ -228,7 +228,7 @@
 		else if(feral < 0)
 			turns_since_move = 0
 		else if(!my_hydrotray || my_hydrotray.loc != src.loc || my_hydrotray.dead || !my_hydrotray.seed)
-			var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray = locate() in src.loc
+			var/obj/structure/machinery/portable_atmospherics/hydroponics/my_hydrotray = locate() in src.loc
 			if(my_hydrotray)
 				if(!my_hydrotray.dead && my_hydrotray.seed)
 					turns_per_move = rand(20,50)
@@ -277,13 +277,13 @@
 /mob/living/simple_animal/bee/standalone
 	loner = 1
 
-/mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+/mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/structure/machinery/beehive/new_parent)
 	. = ..()
 	strength = rand(4,8)
 	update_icon()
 
 /mob/living/simple_animal/bee/beegun
-	maxHealth = 30
+	maxhealth = 30
 	strength = 5
 	feral = 30
 

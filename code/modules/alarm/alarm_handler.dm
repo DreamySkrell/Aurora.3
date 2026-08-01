@@ -3,9 +3,12 @@
 
 /datum/alarm_handler
 	var/category = ""
-	var/list/datum/alarm/alarms = new		// All alarms, to handle cases when an origin has been deleted with one or more active alarms
-	var/list/datum/alarm/alarms_assoc = new	// Associative list of alarms, to efficiently acquire them based on origin.
-	var/list/listeners = new				// A list of all objects interested in alarm changes.
+	// All alarms, to handle cases when an origin has been deleted with one or more active alarms
+	var/list/datum/alarm/alarms = new
+	// Associative list of alarms, to efficiently acquire them based on origin.
+	var/list/datum/alarm/alarms_assoc = new
+	// A list of all objects interested in alarm changes.
+	var/list/listeners = new
 
 /datum/alarm_handler/process()
 	for(var/datum/alarm/A in alarms)
@@ -71,7 +74,7 @@
 	return 0
 
 /datum/alarm_handler/proc/on_alarm_change(var/datum/alarm/alarm, var/was_raised)
-	for(var/obj/machinery/camera/C in alarm.cameras())
+	for(var/obj/structure/machinery/camera/C in alarm.cameras())
 		if(was_raised)
 			C.add_network(category)
 		else

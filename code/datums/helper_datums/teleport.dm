@@ -48,13 +48,24 @@
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
 		var/turf/T = get_turf(adestination)
-		for(var/found_inhibitor in bluespace_inhibitors)
-			var/obj/machinery/anti_bluespace/AB = found_inhibitor
+		if(!T)
+			return adestination
+		var/list/invalid_inhibitors
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+			if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
+			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+			if(QDELETED(AB))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
 			bad_turfs += circle_range_turfs(get_turf(AB),8)
 			good_turfs += circle_range_turfs(get_turf(AB),9)
+		if(invalid_inhibitors)
+			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		if(length(good_turfs) && length(bad_turfs))
 			good_turfs -= bad_turfs
 			if(length(good_turfs))
@@ -64,7 +75,7 @@
 
 //Check if we're in range of a bluespace inhibitor. We can't be teleported if we are.
 /datum/teleport/proc/checkLocalInhibitors(atom/movable/teleportee)
-	for(var/obj/machinery/anti_bluespace/AB in range(8, teleportee))
+	for(var/obj/structure/machinery/anti_bluespace/AB in range(8, teleportee))
 		if(AB.stat & (NOPOWER | BROKEN))
 			continue
 		else
@@ -145,6 +156,14 @@
 		return FALSE
 
 	playSpecials(curturf,effectin,soundin)
+
+	// we don't want a teleportation loop, if we teleport to a destination that already has a portal
+	// disable it for just a moment until we get there
+	var/has_active_destination_portal = FALSE
+	var/obj/effect/portal/destination_portal = locate() in destturf
+	if(destination_portal?.does_teleport)
+		has_active_destination_portal = TRUE
+		destination_portal.does_teleport = FALSE
 
 	var/obj/structure/bed/stool/chair/C = null
 	if(isliving(teleatom))
@@ -270,6 +289,9 @@
 
 	destarea.Entered(teleatom)
 
+	if(has_active_destination_portal)
+		destination_portal.does_teleport = TRUE
+
 	return TRUE
 
 /datum/teleport/proc/teleport()
@@ -313,7 +335,7 @@
 		return FALSE
 
 
-	if(isobserver(teleatom)) // do not teleport ghosts
+	if(isghost(teleatom)) // do not teleport ghosts
 		return FALSE
 
 

@@ -14,9 +14,11 @@
 	map = "IHSS Reclamation"
 	descriptor = "The very first space station constructed by the Unathi, and nearly a century old, the IHSS Reclamation has been extensively refurbished to provide a monitoring and research station for ecological restoration efforts on the Moghresian Wasteland."
 
-/obj/effect/overmap/visitable/sector/ihss_reclamation
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation
 	name = "IHSS Reclamation"
 	desc = "The very first space station constructed by the Unathi, and nearly a century old, the IHSS Reclamation has been extensively refurbished to provide a monitoring and research station for ecological restoration efforts on the Moghresian Wasteland."
+	class = "IHSS"
+	designation = "Reclamation"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
 	color = "#f05c3e"
@@ -99,7 +101,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/ihss_reclamation
+/obj/structure/machinery/computer/shuttle_control/explore/ihss_reclamation
 	name = "shuttle control console"
 	shuttle_tag = "IHSS Reclamation Shuttle"
 

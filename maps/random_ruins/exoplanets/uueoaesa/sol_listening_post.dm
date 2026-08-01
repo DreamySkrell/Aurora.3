@@ -13,7 +13,6 @@
 	name = "Solarian Listening Post"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -33,7 +32,7 @@
 /obj/effect/landmark/corpse/sol_marine_husk/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/sol_officer_husk
 	name = "Decayed Solarian Officer"
@@ -45,7 +44,7 @@
 /obj/effect/landmark/corpse/sol_officer_husk/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/unathi_pirate
 	name = "Unathi Pirate"
@@ -58,7 +57,7 @@
 /obj/effect/landmark/corpse/unathi_pirate/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 	if(prob(10))
 		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt)
 

@@ -135,10 +135,12 @@
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
 	initial_weather_state = /singleton/state/weather/calm/snow_planet
+	has_icy_weather = TRUE
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
 	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	alignment = "Contested"
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
@@ -152,7 +154,7 @@
 	water_color = "#b5dfeb"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	small_flora_types = list(/datum/seed/shand, /datum/seed/mtear, /datum/seed/earthenroot, /datum/seed/nifberries, /datum/seed/mushroom/nfrihi, /datum/seed/nmshaan)
+	small_flora_types = list(/datum/seed/shand, /datum/seed/mtear, /datum/seed/earthenroot, /datum/seed/dirtberries, /datum/seed/mushroom/nfrihi, /datum/seed/sugartree)
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,

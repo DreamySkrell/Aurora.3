@@ -1,11 +1,23 @@
-import { round } from '../../common/math';
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack, Table, Tabs } from '../components';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type AutolatheData = {
+  manufacturer: string;
   disabled: BooleanLike;
   material_efficiency: number;
   build_time: number;
@@ -30,7 +42,10 @@ type Recipe = {
   sheets: number;
   can_make: BooleanLike;
   recipe: string;
-  hidden: BooleanLike;
+  security_level: string;
+  hack_only: BooleanLike;
+  enabled: BooleanLike;
+  build_time: number;
 };
 
 type QueueItem = {
@@ -40,14 +55,15 @@ type QueueItem = {
   multiplier: number;
   build_time: number;
   progress: number;
+  remaining_time: number;
 };
 
-export const Autolathe = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+export const Autolathe = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
+  const [tab, setTab] = useLocalState('tab', 'All');
 
   return (
-    <Window resizable theme="hephaestus" width="1000" height="700">
+    <Window theme={data.manufacturer} width={1000} height={700}>
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -60,7 +76,8 @@ export const Autolathe = (props, context) => {
                       <Box bold fontSize={1.4}>
                         {capitalizeAll(material.material)}
                       </Box>
-                    }>
+                    }
+                  >
                     <ProgressBar
                       ranges={{
                         good: [
@@ -75,7 +92,8 @@ export const Autolathe = (props, context) => {
                       }}
                       value={round(material.stored, 1)}
                       maxValue={material.max_capacity}
-                      minValue={0}>
+                      minValue={0}
+                    >
                       {material.stored} / {material.max_capacity}
                     </ProgressBar>
                   </LabeledList.Item>
@@ -91,7 +109,8 @@ export const Autolathe = (props, context) => {
                     textAlign="center"
                     selected={category === tab}
                     key={category}
-                    onClick={() => setTab(category)}>
+                    onClick={() => setTab(category)}
+                  >
                     {category}
                   </Tabs.Tab>
                 ))}
@@ -110,132 +129,187 @@ export const Autolathe = (props, context) => {
   );
 };
 
-export const CategoryData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
-  const [amount, setAmount] = useLocalState(context, 'amount', 1);
+export const CategoryData = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
+  const [tab] = useLocalState('tab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
+  const search = searchTerm.trim().toLowerCase();
+  const recipes = data.recipes.filter((recipe) => {
+    if (tab !== 'All' && recipe.category !== tab) {
+      return false;
+    }
+    if (search && !recipe.name?.toLowerCase().includes(search)) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <Section
       fill
       title={tab}
       buttons={
-        <Input
+        <SearchBar
           autoFocus
-          autoSelect
           placeholder="Search by name"
-          maxLength={512}
-          onInput={(e, value) => {
-            setSearchTerm(value);
-          }}
-          value={searchTerm}
+          query={searchTerm}
+          onSearch={(value) => setSearchTerm(value)}
         />
-      }>
+      }
+    >
       <Table collapsing>
         <Table.Row header>
           <Table.Cell>Recipe</Table.Cell>
           <Table.Cell>Resources</Table.Cell>
         </Table.Row>
-        {data.recipes
-          .filter(
-            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
-          )
-          .map((recipe) =>
-            recipe.category === tab || tab === 'All' ? (
-              <Table.Row>
-                <Table.Cell py={0.25}>
+        {recipes.map((recipe) => (
+          <Table.Row key={recipe.recipe}>
+            <Table.Cell py={0.25}>
+              <Button
+                content={
+                  <Box bold color={recipe.hack_only ? 'red' : ''}>
+                    {capitalizeAll(recipe.name)}
+                  </Box>
+                }
+                tooltip={
+                  !recipe.enabled
+                    ? `Security Level Needed: ${recipe.security_level}`
+                    : ''
+                }
+                className={
+                  !recipe.enabled || recipe.can_make
+                    ? 'color-disabled'
+                    : 'color-default'
+                }
+                backgroundColor={
+                  !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                }
+                textColor={
+                  !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                }
+                onClick={() =>
+                  !recipe.enabled || recipe.can_make
+                    ? null
+                    : act('make', { multiplier: 1, recipe: recipe.recipe })
+                }
+              />
+              {recipe.max_sheets ? (
+                <>
+                  {' '}
                   <Button
                     content={
-                      <Box bold color={recipe.hidden ? 'red' : ''}>
-                        {capitalizeAll(recipe.name)}
+                      <Box bold color={recipe.hack_only ? 'red' : ''}>
+                        [x5]
                       </Box>
                     }
-                    disabled={recipe.can_make}
-                    color="transparent"
+                    className={
+                      !recipe.enabled || recipe.can_make
+                        ? 'color-disabled'
+                        : 'color-default'
+                    }
+                    backgroundColor={
+                      !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                    }
+                    textColor={
+                      !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                    }
                     onClick={() =>
-                      act('make', { multiplier: 1, recipe: recipe.recipe })
+                      !recipe.enabled || recipe.can_make
+                        ? null
+                        : act('make', {
+                            multiplier: 5,
+                            recipe: recipe.recipe,
+                          })
                     }
                   />
-                  {recipe.max_sheets ? (
-                    <>
-                      {' '}
-                      <Button
-                        content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
-                            [x5]
-                          </Box>
-                        }
-                        disabled={recipe.can_make}
-                        color="transparent"
-                        onClick={() =>
-                          act('make', { multiplier: 5, recipe: recipe.recipe })
-                        }
-                      />
-                      <Button
-                        content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
-                            [x10]
-                          </Box>
-                        }
-                        disabled={recipe.can_make}
-                        color="transparent"
-                        onClick={() =>
-                          act('make', { multiplier: 10, recipe: recipe.recipe })
-                        }
-                      />
-                      <Button
-                        content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
-                            [x{recipe.max_sheets}]
-                          </Box>
-                        }
-                        disabled={recipe.can_make}
-                        color="transparent"
-                        onClick={() =>
-                          act('make', {
+                  <Button
+                    content={
+                      <Box bold color={recipe.hack_only ? 'red' : ''}>
+                        [x10]
+                      </Box>
+                    }
+                    className={
+                      !recipe.enabled || recipe.can_make
+                        ? 'color-disabled'
+                        : 'color-default'
+                    }
+                    backgroundColor={
+                      !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                    }
+                    textColor={
+                      !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                    }
+                    onClick={() =>
+                      !recipe.enabled || recipe.can_make
+                        ? null
+                        : act('make', {
+                            multiplier: 10,
+                            recipe: recipe.recipe,
+                          })
+                    }
+                  />
+                  <Button
+                    content={
+                      <Box bold color={recipe.hack_only ? 'red' : ''}>
+                        [x{recipe.max_sheets}]
+                      </Box>
+                    }
+                    className={
+                      !recipe.enabled || recipe.can_make
+                        ? 'color-disabled'
+                        : 'color-default'
+                    }
+                    backgroundColor={
+                      !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                    }
+                    textColor={
+                      !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                    }
+                    onClick={() =>
+                      !recipe.enabled || recipe.can_make
+                        ? null
+                        : act('make', {
                             multiplier: recipe.max_sheets,
                             recipe: recipe.recipe,
                           })
-                        }
-                      />
-                    </>
-                  ) : (
-                    ''
-                  )}
-                </Table.Cell>
-                <Table.Cell collapsing>
-                  <Button
-                    color="transparent"
-                    tooltip={recipe.resources}
-                    icon="question"
+                    }
                   />
-                </Table.Cell>
-              </Table.Row>
-            ) : (
-              ''
-            )
-          )}
+                </>
+              ) : (
+                ''
+              )}
+            </Table.Cell>
+            <Table.Cell collapsing>
+              <Button
+                color="transparent"
+                tooltip={
+                  <>
+                    <div>{recipe.resources}</div>
+                    <div>{recipe.build_time} seconds</div>
+                  </>
+                }
+                icon="question"
+              />
+            </Table.Cell>
+          </Table.Row>
+        ))}
       </Table>
     </Section>
   );
 };
 
-export const QueueData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
+export const QueueData = (props) => {
+  const { act, data } = useBackend<AutolatheData>();
 
   return (
     <Section fill title="Queue">
       <LabeledList>
-        {data.queue && data.queue.length ? (
+        {data.queue?.length ? (
           data.queue.map((queue_item) => (
             <LabeledList.Item
               key={queue_item.ref}
-              label={capitalizeAll(queue_item.order)}>
+              label={capitalizeAll(queue_item.order)}
+            >
               <ProgressBar
                 minValue={0}
                 maxValue={queue_item.build_time}
@@ -247,8 +321,9 @@ export const QueueData = (props, context) => {
                     queue_item.build_time * 0.5,
                   ],
                   bad: [0, queue_item.build_time * 0.25],
-                }}>
-                {round(queue_item.progress, 1)} / {queue_item.build_time}
+                }}
+              >
+                {queue_item.remaining_time / 10} seconds
                 <Button
                   icon="cancel"
                   color="transparent"

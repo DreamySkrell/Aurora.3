@@ -140,7 +140,7 @@
 
 		//Update their traitor status.
 		if(host.mind)
-			borers.add_antagonist_mind(host.mind, 1, borers.faction_role_text, borers.faction_welcome)
+			GLOB.borers.add_antagonist_mind(host.mind, 1, GLOB.borers.faction_role_text, GLOB.borers.faction_welcome)
 
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
@@ -429,7 +429,7 @@
 			to_chat(B.host_brain, SPAN_WARNING("You feel a strange sensation as a foreign influence prods your mind."))
 			to_chat(src, SPAN_WARNING("It doesn't seem to be as effective as you hoped."))
 		else
-			to_chat(B.host_brain, SPAN_DANGER("<FONT size=3>Horrific, burning agony lances through you, ripping a soundless scream from your trapped mind!</FONT>"))
+			to_chat(B.host_brain, SPAN_DANGER("<FONT size=6>Horrific, burning agony lances through you, ripping a soundless scream from your trapped mind!</FONT>"))
 
 /mob/living/carbon/proc/spawn_larvae()
 	set category = "Abilities"
@@ -561,4 +561,7 @@
 		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
-	health_scan_mob(host, src, TRUE, TRUE)
+	var/datum/component/health_analyzer/borer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/borer)
+	if(!h_analyzer)
+		return
+	h_analyzer.health_scan_mob(host, src, TRUE, FALSE)

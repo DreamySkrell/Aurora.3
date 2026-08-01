@@ -11,7 +11,7 @@
 
 /datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/obj/structure/cable/self, var/dir)
 	var/turf/T = get_step(get_turf(self), dir)
-	var/reverse = GLOB.reverse_dir[dir]
+	var/reverse = REVERSE_DIR(dir)
 
 	. = list() //can have multiple connected neighbours for a dir, e.g. Y-junctions
 	for(var/obj/structure/cable/other in T)
@@ -57,8 +57,8 @@
 /datum/unit_test/areas_apc_uniqueness/start_test()
 	var/failed = 0
 	for(var/area/A in world)
-		var/obj/machinery/power/apc/found_apc = null
-		for(var/obj/machinery/power/apc/APC in A)
+		var/obj/structure/machinery/power/apc/found_apc = null
+		for(var/obj/structure/machinery/power/apc/APC in A)
 			if(!found_apc)
 				found_apc = APC
 				continue

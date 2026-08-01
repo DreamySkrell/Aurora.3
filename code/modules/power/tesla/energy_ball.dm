@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -26,14 +26,16 @@
 	var/energy_to_lower = -20
 	var/list/immune_things = list(/obj/effect/projectile/muzzle/emitter, /obj/effect/ebeam, /obj/effect/decal/cleanable/ash, /obj/singularity)
 
+/obj/singularity/energy_ball/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(orbiting_balls.len)
+		. +=  "There are <b>[orbiting_balls.len] energy balls</b> orbiting \the [src]."
+
 /obj/singularity/energy_ball/ex_act(severity, target)
 	return
 
 /obj/singularity/energy_ball/Destroy()
 	walk(src, 0) // Stop walking
-	if(orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/EB = orbiting.orbiting
-		EB.orbiting_balls -= src
 
 	for(var/ball in orbiting_balls)
 		var/obj/singularity/energy_ball/EB = ball
@@ -69,17 +71,11 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(orbiting_balls.len)
-		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
-
-
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
 	var/list/valid_directions = GLOB.alldirs.Copy()
 
-	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
+	var/can_zmove = !(locate(/obj/structure/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))
 		valid_directions.Add(UP)
 		valid_directions.Add(DOWN)
@@ -257,10 +253,6 @@
 	. = ..()
 
 /obj/singularity/energy_ball/stop_orbit()
-	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
-		orbitingball.orbiting_balls -= src
-		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
 	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
@@ -268,7 +260,7 @@
 /obj/singularity/energy_ball/proc/dust_mobs(atom/A)
 	if(!iscarbon(A))
 		return
-	for(var/obj/machinery/power/grounding_rod/GR in orange(src, 2))
+	for(var/obj/structure/machinery/power/grounding_rod/GR in orange(src, 2))
 		if(GR.anchored)
 			return
 	var/mob/living/carbon/C = A
@@ -284,34 +276,34 @@
 
 	var/closest_dist = 0
 	var/closest_atom
-	var/obj/machinery/power/tesla_coil/closest_tesla_coil
-	var/obj/machinery/power/grounding_rod/closest_grounding_rod
+	var/obj/structure/machinery/power/tesla_coil/closest_tesla_coil
+	var/obj/structure/machinery/power/grounding_rod/closest_grounding_rod
 	var/mob/living/closest_mob
-	var/obj/machinery/closest_machine
+	var/obj/structure/machinery/closest_machine
 	var/obj/structure/closest_structure
-	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown. Will escape.
+	var/obj/structure/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown. Will escape.
 	var/static/list/blacklisted_types = typecacheof(list(
-		/obj/machinery/atmospherics,
-		/obj/machinery/field_generator,
+		/obj/structure/machinery/atmospherics,
+		/obj/structure/machinery/field_generator,
 		/mob/living/simple_animal,
-		/obj/machinery/particle_accelerator/control_box,
+		/obj/structure/machinery/particle_accelerator/control_box,
 		/obj/structure/particle_accelerator/fuel_chamber,
 		/obj/structure/particle_accelerator/particle_emitter/center,
 		/obj/structure/particle_accelerator/particle_emitter/left,
 		/obj/structure/particle_accelerator/particle_emitter/right,
 		/obj/structure/particle_accelerator/power_box,
 		/obj/structure/particle_accelerator/end_cap,
-		/obj/machinery/containment_field,
+		/obj/structure/machinery/containment_field,
 		/obj/structure/disposalpipe,
 		/obj/structure/sign,
-		/obj/machinery/gateway,
+		/obj/structure/machinery/gateway,
 		/obj/structure/lattice,
 		/obj/structure/grille,
-		/obj/machinery/the_singularitygen/tesla,
-		/obj/machinery/atmospherics/pipe
+		/obj/structure/machinery/the_singularitygen/tesla,
+		/obj/structure/machinery/atmospherics/pipe
 	))
 	var/static/list/things_to_shock = typecacheof(list(
-		/obj/machinery,
+		/obj/structure/machinery,
 		/mob/living,
 		/obj/structure
 	))
@@ -320,8 +312,8 @@
 	var/beam_range = zap_range + 2
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, beam_range), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/tesla_beacon))
-			var/obj/machinery/power/tesla_beacon/E = A
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/structure/machinery/power/tesla_beacon))
+			var/obj/structure/machinery/power/tesla_beacon/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
@@ -331,9 +323,9 @@
 			qdel(B)
 			return
 
-		else if(istype(A, /obj/machinery/power/tesla_coil))
+		else if(istype(A, /obj/structure/machinery/power/tesla_coil))
 			var/dist = get_dist(source, A)
-			var/obj/machinery/power/tesla_coil/C = A
+			var/obj/structure/machinery/power/tesla_coil/C = A
 			if(dist <= zap_range && (dist < closest_dist || !closest_tesla_coil) && !C.being_shocked)
 				closest_dist = dist
 
@@ -343,11 +335,11 @@
 				closest_atom = C
 
 		else if(closest_tesla_coil)
-			if(istype(A, /obj/machinery/power/grounding_rod)) // to count number of rods
+			if(istype(A, /obj/structure/machinery/power/grounding_rod)) // to count number of rods
 				rods_count += 1
 			continue //no need checking these other things
 
-		else if(istype(A, /obj/machinery/power/grounding_rod))
+		else if(istype(A, /obj/structure/machinery/power/grounding_rod))
 			rods_count += 1
 			var/dist = get_dist(source, A)-2
 			if(dist <= zap_range && (dist < closest_dist || !closest_grounding_rod))
@@ -358,8 +350,8 @@
 		else if(closest_grounding_rod)
 			continue
 
-		else if(istype(A, /obj/machinery/power/emitter))
-			var/obj/machinery/power/emitter/e = A
+		else if(istype(A, /obj/structure/machinery/power/emitter))
+			var/obj/structure/machinery/power/emitter/e = A
 			closest_emitter = e
 
 		else if(closest_emitter)
@@ -376,13 +368,6 @@
 		else if(closest_mob)
 			continue
 
-		else if(istype(A, /obj/machinery))
-			var/obj/machinery/M = A
-			var/dist = get_dist(source, A)
-			if(dist <= zap_range && (dist < closest_dist || !closest_machine) && !M.being_shocked)
-				closest_machine = M
-				closest_atom = A
-				closest_dist = dist
 
 		else if(closest_mob)
 			continue
@@ -431,7 +416,7 @@
 		closest_emitter.tesla_act(power, melt)
 
 	else if(closest_mob)
-		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
+		var/shock_damage = clamp(round(power/400), 10, 90) + rand(-5, 5)
 		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1)
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob

@@ -1,4 +1,4 @@
-var/global/list/all_portal_masters
+GLOBAL_LIST_INIT_TYPED(all_portal_masters, /obj/effect/map_effect/portal/master, null)
 
 /*
 Portal map effects allow a mapper to join two distant places together, while looking somewhat seamlessly connected.
@@ -146,7 +146,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/list/portal_lines = list()
 
 /obj/effect/map_effect/portal/master/Initialize()
-	LAZYADD(all_portal_masters, src)
+	LAZYADD(GLOB.all_portal_masters, src)
 	become_hearing_sensitive()
 	find_lines()
 	..()
@@ -158,7 +158,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	apply_offset()
 
 /obj/effect/map_effect/portal/master/Destroy()
-	LAZYREMOVE(all_portal_masters, src)
+	LAZYREMOVE(GLOB.all_portal_masters, src)
 	for(var/thing in portal_lines)
 		qdel(thing)
 	return ..()
@@ -179,8 +179,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 // Connects both sides of a portal together.
 /obj/effect/map_effect/portal/master/proc/find_counterparts()
-	for(var/thing in all_portal_masters)
+	var/list/invalid_portal_masters
+	for(var/thing in GLOB.all_portal_masters)
+		if(!istype(thing, /obj/effect/map_effect/portal/master))
+			LAZYADD(invalid_portal_masters, thing)
+			continue
 		var/obj/effect/map_effect/portal/master/M = thing
+		if(QDELETED(M))
+			LAZYADD(invalid_portal_masters, thing)
+			continue
 		if(M == src)
 			continue
 		if(M.counterpart)
@@ -196,6 +203,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 					our_line.counterpart = their_line
 					their_line.counterpart = our_line
 			break
+
+	if(invalid_portal_masters)
+		GLOB.all_portal_masters -= invalid_portal_masters
 
 	if(!counterpart)
 		crash_with("Portal master [type] ([x],[y],[z]) could not find another portal master with a matching portal_id ([portal_id]).")

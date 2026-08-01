@@ -8,7 +8,6 @@
 					researchers to take a variety of samples, ranging from plant and animal tissue to soil or water samples, compacted into \
 					a single handheld device. It became widely popular even among rival corporations and independant research groups, with \
 					its versatility and compact nature making it the tool-of-choice for almost every modern scientific expedition."
-	desc_info = "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 	icon = 'icons/obj/item/sampling.dmi'
 	icon_state = "sampler"
 	item_state = "sampler"
@@ -22,6 +21,10 @@
 	 * The vial we load our sample into
 	 */
 	var/obj/item/reagent_containers/glass/beaker/vial/vial
+
+/obj/item/sampler/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 
 /obj/item/sampler/Initialize(mapload, ...)
 	. = ..()
@@ -75,7 +78,7 @@
 	if(I)
 		AddOverlays(I)
 
-/obj/item/sampler/attack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/sampler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!vial || vial.reagents.total_volume)
 		return ..()
 	else
@@ -141,14 +144,14 @@
 				vial.reagents.add_reagent(/singleton/reagent/water, 10, data)
 				return TRUE
 
-/obj/machinery/microscope/science
+/obj/structure/machinery/microscope/science
 	name = "compound microscope"
 	desc = "A less-than-state-of-the-art means of examining tiny samples. At least it has a printer for recording its results."
 	icon = 'icons/obj/item/sampling.dmi'
 	density = FALSE
 	allowed_analysis = MICROSCOPE_CELLS
 
-/obj/machinery/centrifuge
+/obj/structure/machinery/centrifuge
 	name = "centrifuge"
 	desc = "A device capable of spinning samples at 1000 RPM, to separate their components for analysis. It has a printer attached to record its results."
 	icon = 'icons/obj/item/sampling.dmi'
@@ -165,11 +168,11 @@
 	 */
 	var/report_num = 0
 
-/obj/machinery/centrifuge/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/centrifuge/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	update_icon()
 
-/obj/machinery/centrifuge/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/centrifuge/attackby(obj/item/attacking_item, mob/user)
 
 	if(LAZYLEN(samples) >= 4)
 		to_chat(user, SPAN_WARNING("\The [src] is already full with samples."))
@@ -183,7 +186,7 @@
 		update_icon()
 		return
 
-/obj/machinery/centrifuge/attack_hand(mob/user)
+/obj/structure/machinery/centrifuge/attack_hand(mob/user)
 
 	if(!LAZYLEN(samples))
 		to_chat(user, SPAN_WARNING("\The [src] has no samples to examine."))
@@ -198,7 +201,7 @@
 	icon_state = "centrifuge_working"
 	addtimer(CALLBACK(src, PROC_REF(process_samples)), 30 SECONDS)
 
-/obj/machinery/centrifuge/proc/process_samples()
+/obj/structure/machinery/centrifuge/proc/process_samples()
 	update_icon()
 	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."))
 	var/obj/item/paper/report = new()
@@ -227,7 +230,7 @@
 /**
  * Removes the last sample from the centrifuge
  */
-/obj/machinery/centrifuge/proc/remove_sample(mob/living/remover)
+/obj/structure/machinery/centrifuge/proc/remove_sample(mob/living/remover)
 	if(!istype(remover) || remover.incapacitated() || !Adjacent(remover))
 		return
 	if(!LAZYLEN(samples))
@@ -240,20 +243,20 @@
 	samples -= sample
 	update_icon()
 
-/obj/machinery/centrifuge/AltClick()
+/obj/structure/machinery/centrifuge/AltClick()
 	remove_sample(usr)
 
-/obj/machinery/centrifuge/MouseDrop(var/atom/other)
-	if(usr == other)
-		remove_sample(usr)
+/obj/structure/machinery/centrifuge/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == over)
+		remove_sample(user)
 	else
 		return ..()
 
-/obj/machinery/centrifuge/update_icon()
+/obj/structure/machinery/centrifuge/update_icon()
 	. = ..()
 	icon_state = "centrifuge_[LAZYLEN(samples)]"
 
-/obj/machinery/spectrophotometer
+/obj/structure/machinery/spectrophotometer
 	name = "spectrophotometer"
 	desc = "A device to analyse liquid samples by shining various frequencies of light through and measuring absorption. It has a printer attached to record its results."
 	icon = 'icons/obj/item/sampling.dmi'
@@ -279,11 +282,11 @@
 	 */
 	var/open = FALSE
 
-/obj/machinery/spectrophotometer/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/spectrophotometer/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	update_icon()
 
-/obj/machinery/spectrophotometer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/spectrophotometer/attackby(obj/item/attacking_item, mob/user)
 	if(!open)
 		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
@@ -300,7 +303,7 @@
 		update_icon()
 		return
 
-/obj/machinery/spectrophotometer/attack_hand(mob/user)
+/obj/structure/machinery/spectrophotometer/attack_hand(mob/user)
 	if(open)
 		if(!sample)
 			to_chat(user, SPAN_WARNING("\The [src] has no samples to remove."))
@@ -332,7 +335,7 @@
 /**
  * Prints a report of the analysis after finishing, or zeroes successfully
  */
-/obj/machinery/spectrophotometer/proc/process_sample()
+/obj/structure/machinery/spectrophotometer/proc/process_sample()
 	update_icon()
 	if(!zeroed)
 		zeroed = TRUE
@@ -360,10 +363,10 @@
 		report.update_icon()
 	print(report)
 
-/obj/machinery/spectrophotometer/AltClick()
+/obj/structure/machinery/spectrophotometer/AltClick()
 	open = !open
 	update_icon()
 
-/obj/machinery/spectrophotometer/update_icon()
+/obj/structure/machinery/spectrophotometer/update_icon()
 	. = ..()
 	icon_state = "spectrophotometer_[open ? "open" : "closed"]_[sample ? "full" : "empty"]"

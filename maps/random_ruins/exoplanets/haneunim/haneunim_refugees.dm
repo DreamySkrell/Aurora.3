@@ -21,7 +21,7 @@
 	corpseuniform = /obj/item/clothing/under/gearharness
 	corpsesuit = /obj/item/clothing/suit/space/emergency
 	corpsehelmet = /obj/item/clothing/head/helmet/space/emergency
-	corpseback = /obj/item/device/suit_cooling_unit/no_cell
+	corpseback = /obj/item/suit_cooling_unit/no_cell
 	corpseshoes = /obj/item/clothing/shoes/magboots
 	corpseid = FALSE
 	species = SPECIES_IPC
@@ -29,7 +29,7 @@
 /obj/effect/landmark/corpse/ipc_refugee/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200, 400))
 	M.adjustFireLoss(rand(100, 200))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/item/paper/fluff/haneunim_refugees
 	name = "message"

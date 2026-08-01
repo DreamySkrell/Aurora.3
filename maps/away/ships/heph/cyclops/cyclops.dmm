@@ -5,9 +5,10 @@
 	color = "#ff9900";
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "ae" = (
@@ -19,34 +20,34 @@
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/lead/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "af" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
-	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ap" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/machinery/computer/ship/sensors/terminal{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -57,7 +58,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "ax" = (
@@ -73,13 +75,13 @@
 	dir = 10
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "aG" = (
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -87,7 +89,7 @@
 /turf/simulated/floor/airless,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "aH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -111,56 +113,52 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "bc" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 24;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "bd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/vending/engineering{
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "bj" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	id = "processing_3"
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "bl" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply,
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -174,11 +172,11 @@
 /obj/item/storage/toolbox/drill{
 	pixel_y = -6
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/item/storage/bag/inflatable,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
@@ -194,36 +192,48 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "bC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "bD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"bT" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"bX" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "ce" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange,
@@ -244,20 +254,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "cl" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/structure/machinery/computer/ship/engines/terminal,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "co" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_star";
 	master_tag = "cyclops_tank_star"
 	},
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	pixel_y = 18
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -270,28 +279,33 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cr" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "cv" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "cN" = (
@@ -304,33 +318,36 @@
 	color = "#4c4324";
 	frame_color = "#4c4324"
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "cP" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cU" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "cW" = (
@@ -343,12 +360,13 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "de" = (
@@ -361,14 +379,15 @@
 	pixel_y = 32
 	},
 /obj/item/deck/cards,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "di" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "dn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -376,7 +395,7 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "dp" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "pump to waste"
 	},
@@ -386,7 +405,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "dq" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -394,6 +413,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "dr" = (
@@ -402,23 +422,36 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
+"dv" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "dD" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	id = "processing_3";
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "dE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -437,14 +470,15 @@
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "dH" = (
@@ -454,7 +488,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "dN" = (
@@ -465,79 +499,84 @@
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	id_tag = "cyclops_shuttle_out";
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -5;
 	pixel_y = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "dO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "dU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/glass{
 	name = "Recreation";
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "ec" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
 	req_access = list(216);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "ee" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	id = "processing_1";
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ef" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -546,19 +585,24 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "eg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber/on{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
+"el" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "eo" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -573,7 +617,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "eA" = (
@@ -582,17 +626,19 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "eB" = (
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "eF" = (
@@ -605,10 +651,10 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail{
 	pixel_y = -8
 	},
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "eM" = (
@@ -618,13 +664,13 @@
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "eV" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -632,19 +678,19 @@
 "eZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "fa" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/shuttle/cyclops_shuttle)
 "fb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -656,34 +702,36 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ff" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "fi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "fv" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_1"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -698,14 +746,15 @@
 	color = "#ff9900";
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "fB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
@@ -722,29 +771,26 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "fV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -752,7 +798,7 @@
 	},
 /area/shuttle/cyclops_shuttle)
 "fZ" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
@@ -760,37 +806,34 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "gf" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "gm" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
-	},
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "gn" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	name = "carbon dioxide supply"
-	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -798,11 +841,16 @@
 	name = "cyclops_tank_port";
 	master_tag = "cyclops_tank_port"
 	},
+/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "carbon dioxide supply"
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "gs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -828,10 +876,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+/obj/structure/machinery/power/terminal{
+	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "gH" = (
@@ -840,10 +888,26 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
+"gJ" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed{
+	color = "#4c6324"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/ghostspawpoint{
+	name = "cyclops_crew";
+	identifier = "cyclops_crew"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_barracks)
 "gL" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_1"
 	},
 /obj/structure/window/reinforced{
@@ -851,13 +915,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
-"gV" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "gZ" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
@@ -874,7 +931,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/shoes/magboots,
@@ -893,11 +950,12 @@
 /obj/item/storage/belt/mining,
 /obj/item/pickaxe,
 /obj/item/storage/bag/ore,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "hK" = (
@@ -907,10 +965,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "hS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -926,8 +984,15 @@
 /obj/effect/floor_decal/corner/orange,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"if" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/space)
 "il" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -936,12 +1001,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "iB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -962,25 +1027,34 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/power/portgen/basic/advanced,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "iL" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "iM" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "EVA Access";
 	req_access = list(216);
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 4
+	},
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "iR" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -989,33 +1063,35 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "iT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "iU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "iX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1033,17 +1109,17 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "jm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1053,12 +1129,13 @@
 	dir = 9
 	},
 /obj/structure/dispenser/phoron,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "jF" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -1071,53 +1148,65 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "kd" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -5;
 	pixel_y = 28
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "kD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "kN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
-"kT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+"kO" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/shuttle_landmark/cyclops/nav6{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
+"kT" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1134,40 +1223,75 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"kV" = (
-/obj/machinery/light{
-	dir = 8
+"kU" = (
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/suit/storage/toggle/corp/heph,
+/obj/item/clothing/suit/storage/toggle/corp/heph,
+/obj/item/card/id/hephaestus,
+/obj/item/card/id/hephaestus,
+/obj/item/flag/heph,
+/obj/item/flag/heph,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
-	name = "carbon dioxide supply"
+/obj/item/clothing/accessory/storage/webbing,
+/obj/item/clothing/accessory/storage/webbing,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/structure/closet/cabinet{
+	anchored = 1
+	},
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/accessory/offworlder/bracer{
+	accent_color = "38531D"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	accent_color = "#995108"
+	},
+/obj/item/storage/backpack/cloak/klax,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_barracks)
+"kV" = (
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_star";
 	master_tag = "cyclops_tank_star"
 	},
+/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "carbon dioxide supply"
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "kY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Office";
 	req_access = list(216);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "lu" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1176,25 +1300,33 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"ly" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/clothing/head/cone,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "lz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "lC" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 29
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1206,7 +1338,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "lV" = (
@@ -1219,6 +1352,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "lY" = (
@@ -1228,52 +1362,64 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "mb" = (
-/obj/effect/shuttle_landmark/cyclops/nav2{
-	dir = 8
-	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -5;
 	pixel_y = 28
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"mf" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/space/dynamic,
+/area/space)
 "mn" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "mv" = (
-/obj/machinery/vending/dinnerware{
-	pixel_x = 11;
-	pixel_y = -2
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate{
+	name = "DANGER - CONTAINS K'OIS"
+	},
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/item/reagent_containers/food/snacks/koisbar_clean,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "mA" = (
@@ -1282,7 +1428,7 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "mI" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1291,7 +1437,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "mN" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -1304,7 +1450,7 @@
 /area/shuttle/cyclops_shuttle)
 "mX" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
 	department = "Hephaestus Mining Vessel"
 	},
@@ -1320,25 +1466,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "na" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "nb" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
@@ -1348,29 +1493,28 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "nc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -5;
 	pixel_y = 28
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ne" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1386,8 +1530,8 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/light,
+/obj/structure/machinery/firealarm/south,
 /obj/structure/table/rack,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
@@ -1405,8 +1549,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
+"nG" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "nJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1414,10 +1565,10 @@
 	},
 /area/shuttle/cyclops_shuttle)
 "nK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1431,31 +1582,34 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "oh" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Bridge";
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_bridge)
-"on" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/turf/simulated/floor/tiled/dark/full,
+/area/hephmining_ship/cyclops/cyclops_bridge)
+"on" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1464,7 +1618,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "ow" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sign/poster{
@@ -1474,21 +1628,21 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "oA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "oH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "oS" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1496,32 +1650,38 @@
 /turf/simulated/floor/airless,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "oZ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "pc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/item/stack/material/uranium/full,
+/obj/structure/closet/crate/rad{
+	name = "emergency fuel crate"
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "pf" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_3"
 	},
 /obj/structure/plasticflaps/mining,
@@ -1543,28 +1703,29 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "pl" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
 	dir = 8;
 	name = "Fuel Tank to Thrusters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "pv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "pw" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
@@ -1575,7 +1736,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -1584,24 +1745,21 @@
 /area/hephmining_ship/cyclops)
 "pE" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "pG" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1614,26 +1772,27 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/loading/operations,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "pL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "pU" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
-/obj/machinery/meter,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "pW" = (
@@ -1643,45 +1802,46 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "qg" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "qn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "qo" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "qu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -1691,8 +1851,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "qy" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1705,8 +1865,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "qz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1715,25 +1875,35 @@
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "qD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
-"qH" = (
-/obj/machinery/computer/ship/engines{
+"qF" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/effect/shuttle_landmark/cyclops/nav8{
 	dir = 4
 	},
+/turf/space/dynamic,
+/area/space)
+"qH" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet/west,
+/obj/structure/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "qJ" = (
@@ -1749,19 +1919,22 @@
 /turf/template_noop,
 /area/space)
 "qT" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Recreation";
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "qU" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "ra" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1772,15 +1945,16 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
 "rp" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	id = "stacking_3";
 	pixel_y = -23
 	},
 /obj/effect/floor_decal/corner/orange/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "rr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1788,16 +1962,16 @@
 	},
 /area/shuttle/cyclops_shuttle)
 "rv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_3"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "rD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1809,16 +1983,8 @@
 "rF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light,
-/obj/structure/closet/crate{
-	name = "DANGER - CONTAINS K'OIS"
-	},
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
-/obj/item/reagent_containers/food/snacks/koisbar_clean,
+/obj/structure/machinery/light,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "rG" = (
@@ -1826,9 +1992,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suit_cycler/mining/prepared{
+/obj/structure/machinery/suit_cycler/mining/prepared{
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "rJ" = (
@@ -1845,8 +2012,19 @@
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"rO" = (
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/spline/fancy{
+	color = "#ff9900"
+	},
+/obj/item/lore_radio{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "sb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -1857,11 +2035,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "sj" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "sl" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/cyclops_shuttle,
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -1873,8 +2052,8 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/machinery/light,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/light,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "sD" = (
@@ -1884,7 +2063,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "sF" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1893,15 +2072,18 @@
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "sI" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	req_access = list(216);
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/engineering{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "sJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1916,7 +2098,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "sP" = (
 /obj/structure/dispenser/oxygen,
@@ -1926,26 +2108,53 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"sQ" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "tb" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "td" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"tj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/space)
 "tn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
+"to" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "tw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -1956,41 +2165,38 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "tP" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
+	},
+/obj/structure/machinery/computer/ship/engines/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "tR" = (
-/obj/machinery/computer/ship/sensors{
+/obj/effect/floor_decal/corner/orange/full,
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "tT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "ua" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2001,29 +2207,26 @@
 /area/shuttle/cyclops_shuttle)
 "ui" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "uj" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2033,7 +2236,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "cyclops_bridge_lockdown";
 	name = "Bridge Blastdoor";
 	req_access = list(216);
@@ -2045,18 +2248,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "ux" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "uy" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -2072,17 +2276,18 @@
 /turf/simulated/floor/airless,
 /area/space)
 "uC" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "uG" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "uL" = (
@@ -2094,18 +2299,13 @@
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "uN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/alarm{
-	pixel_x = -32;
-	pixel_y = 30;
-	req_one_access = null;
-	req_access = list(216)
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "uO" = (
@@ -2115,8 +2315,8 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "uT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2125,13 +2325,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "uZ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/firealarm/south{
+/obj/structure/machinery/firealarm/south{
 	pixel_y = 32;
 	dir = 1
 	},
@@ -2156,17 +2356,18 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "vj" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_2"
 	},
 /obj/structure/plasticflaps/mining,
@@ -2176,16 +2377,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "vl" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
@@ -2194,10 +2395,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2214,34 +2415,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "vx" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "vC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "vG" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_3"
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2250,13 +2451,13 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/button/switch{
+/obj/structure/machinery/button/switch{
 	dir = null;
 	pixel_y = -1;
 	pixel_x = -27;
@@ -2272,7 +2473,7 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "wk" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_2"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2280,7 +2481,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ws" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -2290,10 +2491,10 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
 "wt" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2308,10 +2509,10 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "wE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2343,48 +2544,59 @@
 /obj/item/stamp/hephaestus,
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"wT" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/cyclops/nav9{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
 "wU" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "xo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "xz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "xG" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "xJ" = (
@@ -2392,7 +2604,7 @@
 /turf/template_noop,
 /area/space)
 "xK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -2432,10 +2644,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ym" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2444,10 +2656,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "yo" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	id = "stacking_2";
 	pixel_y = -23
 	},
@@ -2457,10 +2670,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "yp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2487,11 +2700,11 @@
 	pixel_x = -6;
 	pixel_y = 7
 	},
-/obj/machinery/cell_charger,
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/cell_charger,
+/obj/structure/machinery/power/apc/east{
 	req_access = list(216)
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = 6;
 	pixel_y = 8
 	},
@@ -2502,10 +2715,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "yB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -2517,23 +2730,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "yC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "yD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2545,82 +2759,96 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "yL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"yM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "yW" = (
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines/terminal,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "yX" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
 	dir = 4;
 	name = "Fuel Tank to Thrusters"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "yY" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	req_access = list(216);
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/engineering,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "yZ" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ze" = (
-/obj/machinery/computer/shuttle_control/explore/cyclops_shuttle{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle{
+	dir = 4;
+	req_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "zi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2629,8 +2857,8 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "zx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
@@ -2640,14 +2868,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "zL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "zW" = (
@@ -2657,7 +2886,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "zX" = (
@@ -2668,16 +2897,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Af" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2685,11 +2914,11 @@
 /area/hephmining_ship/cyclops)
 "Ag" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "Ai" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2702,17 +2931,18 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Aw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2721,25 +2951,27 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Ax" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
+/obj/effect/floor_decal/industrial/hatch_door/service{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "Ay" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -2748,17 +2980,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "AF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "AH" = (
@@ -2769,7 +3005,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "AI" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/full{
@@ -2777,20 +3013,21 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Energy Carbine";
 	req_access = list(216)
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "AL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2799,6 +3036,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AO" = (
@@ -2807,7 +3045,7 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "AQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/stool/bar/padded/orange,
 /obj/effect/floor_decal/spline/fancy{
 	color = "#ff9900";
@@ -2816,13 +3054,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "AX" = (
@@ -2846,10 +3085,11 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	req_access = null;
 	pixel_y = -26
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "AY" = (
@@ -2857,27 +3097,36 @@
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_barracks)
+"Ba" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/space/dynamic,
+/area/space)
 "Bf" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Bg" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Bi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2889,29 +3138,38 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Bk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"Bn" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/cyclops/nav10,
+/turf/space/dynamic,
+/area/space)
 "Br" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "heph_1";
 	pixel_x = 11;
 	pixel_y = -5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/floor_decal/industrial/loading/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Bw" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
@@ -2923,14 +3181,14 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "BB" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	id = "processing_1"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2940,26 +3198,34 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "BC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/shuttle/cyclops_shuttle)
-"BH" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+"BD" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"BH" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "BM" = (
@@ -2969,10 +3235,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "BP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "BV" = (
@@ -2986,7 +3253,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/shoes/magboots,
@@ -3002,15 +3269,16 @@
 /obj/item/storage/belt/mining,
 /obj/item/pickaxe,
 /obj/item/storage/bag/ore,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "BX" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
@@ -3023,7 +3291,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Cd" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
@@ -3031,34 +3299,34 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Ch" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Ck" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -3074,12 +3342,22 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "CB" = (
-/obj/machinery/atmospherics/binary/pump/fuel,
+/obj/structure/machinery/atmospherics/binary/pump/fuel,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
+"CD" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/cyclops/nav7,
+/turf/space/dynamic,
+/area/space)
 "CE" = (
 /turf/template_noop,
 /area/space)
@@ -3088,7 +3366,8 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suit_cycler/offship/hephaestus,
+/obj/structure/machinery/suit_cycler/offship/hephaestus,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "CT" = (
@@ -3096,25 +3375,19 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"CU" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "CV" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/light,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3123,49 +3396,52 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Dc" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"Dq" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark/full,
+/area/hephmining_ship/cyclops)
 "Dt" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380
-	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
-	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "DJ" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -3174,7 +3450,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "DK" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle{
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle{
 	charge = 2e+006
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3184,45 +3460,48 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "DO" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "DV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	frequency = 1004;
-	master_tag = "airlock_cyclops_starboard";
-	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "DW" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "DX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3234,56 +3513,60 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ev" = (
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "freight_ship_sensor";
 	pixel_y = 26
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "EF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
 	req_access = list(216);
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops/bathroom)
-"EI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hephmining_ship/cyclops/cyclops/bathroom)
+"EI" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3308,13 +3591,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "EK" = (
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "EL" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3333,7 +3617,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/shoes/magboots,
@@ -3349,8 +3633,9 @@
 /obj/item/storage/belt/mining,
 /obj/item/pickaxe,
 /obj/item/storage/bag/ore,
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "EW" = (
@@ -3360,7 +3645,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -3370,9 +3655,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Ff" = (
@@ -3383,7 +3669,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "Fk" = (
 /obj/effect/floor_decal/corner/orange{
@@ -3397,7 +3683,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "FO" = (
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3408,7 +3694,7 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_captain)
 "FZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -3427,26 +3713,30 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Gd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Gg" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
 	req_access = list(216);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Gs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Gx" = (
@@ -3455,20 +3745,25 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "Gz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/service{
+	dir = 4
+	},
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "GB" = (
 /obj/effect/floor_decal/corner/orange{
@@ -3477,15 +3772,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "GF" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "GG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3497,32 +3792,34 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "GL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "GP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "GU" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_access = list(216);
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Hc" = (
@@ -3540,10 +3837,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Hr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3552,10 +3849,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -3564,29 +3861,32 @@
 /obj/structure/sign/flag/heph{
 	pixel_x = 32
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "HB" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/engineering{
+	dir = 8
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "HM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3613,7 +3913,7 @@
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "Ic" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -3625,7 +3925,7 @@
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Ik" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3664,7 +3964,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "IA" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "heph_3";
 	pixel_x = 11;
 	pixel_y = -5
@@ -3672,44 +3972,47 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/floor_decal/industrial/loading/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "IN" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "IO" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/stool/bar/padded/orange,
 /obj/effect/floor_decal/spline/fancy{
 	color = "#ff9900";
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "IP" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
 /obj/structure/closet/crate/bin,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "IS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/structure/machinery/mineral/equipment_vendor,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -3729,16 +4032,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Jb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Je" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3753,10 +4056,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Jk" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_3"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3772,7 +4076,7 @@
 	color = "#4c4324";
 	frame_color = "#4c4324"
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
 /turf/simulated/floor/plating,
@@ -3781,10 +4085,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3805,18 +4109,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "JC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "JE" = (
 /obj/structure/bed/stool/bar/padded/orange,
@@ -3824,6 +4130,7 @@
 	color = "#ff9900";
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "JH" = (
@@ -3845,49 +4152,55 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "JL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/hatch/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "JN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
 	req_access = list(216);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "JQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 11
@@ -3896,7 +4209,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/item/storage/belt/utility/full,
@@ -3906,20 +4219,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "JU" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "heph_2";
 	pixel_x = 11;
 	pixel_y = -5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/floor_decal/industrial/loading/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "JV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3936,15 +4249,15 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "Ko" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Kq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3960,42 +4273,60 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "KJ" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"KL" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/shuttle_landmark/cyclops/nav2{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
 "KP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "KV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
+"Lb" = (
+/obj/structure/bed/stool/bar/padded/orange,
+/obj/effect/floor_decal/spline/fancy{
+	color = "#ff9900";
+	dir = 5
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Ld" = (
@@ -4009,14 +4340,15 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "Ln" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/fancy{
 	color = "#ff9900"
@@ -4027,7 +4359,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ly" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "LR" = (
@@ -4040,31 +4372,21 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
-"LV" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
 "LW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_cyclops";
-	name = "airlock_shuttle_cyclops";
-	req_one_access = list(216);
-	shuttle_tag = "Cyclops Shuttle";
-	cycle_to_external_air = 1
+/obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
+	req_one_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Mg" = (
@@ -4075,10 +4397,11 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Mm" = (
@@ -4114,6 +4437,7 @@
 	accent_color = "#995108"
 	},
 /obj/item/storage/backpack/cloak/klax,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Mx" = (
@@ -4121,10 +4445,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "MB" = (
@@ -4133,7 +4457,7 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
 "MD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "MV" = (
@@ -4146,16 +4470,17 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Nc" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Nh" = (
@@ -4165,7 +4490,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/ghostspawpoint{
 	name = "cyclops_captain";
 	identifier = "cyclops_captain"
@@ -4175,10 +4500,15 @@
 "Nk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 15
+	},
+/obj/structure/machinery/alarm/north{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "Nt" = (
@@ -4208,7 +4538,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Nz" = (
-/obj/machinery/door/airlock/vault{
+/obj/structure/machinery/door/airlock/vault{
 	name = "Secure Storage";
 	req_access = list(216);
 	dir = 4
@@ -4216,17 +4546,23 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "ND" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "NG" = (
@@ -4247,92 +4583,94 @@
 /turf/simulated/floor/airless,
 /area/space)
 "NX" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	id = "processing_2";
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ob" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Oh" = (
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Or" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "Oy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "OE" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "OP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Pc" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "Pe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -4341,25 +4679,34 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"Pg" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
 "Pp" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Pv" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Pz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -4369,10 +4716,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "PK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -4382,29 +4729,19 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "PM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "PP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
-"PQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
 "PW" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Qd" = (
@@ -4420,7 +4757,7 @@
 /area/space)
 "QM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
@@ -4429,13 +4766,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "QN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -4447,59 +4784,75 @@
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"QY" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
 "Rg" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Ry" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	id_tag = "airlock_cyclops_hangar";
 	pixel_y = -28;
 	dir = 1;
 	name = "Cyclops Shuttle docking port controller";
 	frequency = 1380
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "RO" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	id = "processing_2"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"RS" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "RZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Sf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "Sh" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/operations,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Sm" = (
@@ -4509,7 +4862,7 @@
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "Sn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -4521,17 +4874,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Sv" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "SD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "SF" = (
@@ -4549,14 +4903,14 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "SG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4571,7 +4925,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -4580,37 +4934,38 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "SK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "SL" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "SP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "SS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange,
@@ -4620,8 +4975,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "SV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
@@ -4636,6 +4991,7 @@
 /obj/item/pen/drafting/blue{
 	pixel_y = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "SW" = (
@@ -4648,7 +5004,7 @@
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -4665,21 +5021,22 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/hephaestus,
 /obj/item/clothing/head/helmet/space/void/hephaestus,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/item/clothing/shoes/magboots/vaurca,
-/obj/item/device/gps/mining,
-/obj/item/device/suit_cooling_unit,
+/obj/item/gps/mining,
+/obj/item/suit_cooling_unit,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Tb" = (
@@ -4688,20 +5045,21 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Tp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Ts" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Tu" = (
@@ -4715,9 +5073,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -4730,31 +5088,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Ty" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(216)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "TC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "TD" = (
@@ -4764,18 +5124,27 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "TG" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"TN" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "TP" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
@@ -4789,25 +5158,25 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "Uf" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Uh" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Ul" = (
@@ -4825,24 +5194,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Up" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Us" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_2"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ut" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "UA" = (
@@ -4852,13 +5222,13 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "UN" = (
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	dir = 1;
 	pixel_y = -25
 	},
@@ -4869,45 +5239,48 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "UY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/reagent_dispensers/coolanttank,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Vz" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	id = "stacking_1";
 	pixel_y = -23
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "VC" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Atmospherics"
+/obj/structure/machinery/door/airlock/hatch{
+	name = "Atmospherics";
+	req_one_access = list(216)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "VE" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_1"
 	},
 /obj/structure/plasticflaps/mining,
@@ -4917,42 +5290,47 @@
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "VH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/vending/tool{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/vending/tool{
 	req_access = list(216)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "VI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "VK" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"Wb" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "Ws" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "WD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4980,14 +5358,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "WR" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_port";
 	master_tag = "cyclops_tank_port"
 	},
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	pixel_y = 18
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -4996,31 +5374,30 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Xc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Xe" = (
-/obj/machinery/door/window,
-/obj/structure/curtain/open/shower,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/tiled/freezer,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Xu" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector/scrubber{
+/obj/structure/machinery/atmospherics/portables_connector/scrubber{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Xw" = (
@@ -5045,11 +5422,12 @@
 /obj/structure/sign/flag/heph{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "XT" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -5058,19 +5436,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "XZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/light,
-/obj/machinery/firealarm/south,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/light,
+/obj/structure/machinery/firealarm/south,
+/obj/structure/machinery/alarm/west{
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Yc" = (
@@ -5079,32 +5458,31 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Yh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Yj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "Yo" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -5116,8 +5494,9 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "YE" = (
@@ -5130,10 +5509,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -5146,11 +5525,12 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "YY" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
+	},
+/obj/structure/machinery/computer/ship/helm/terminal{
+	dir = 1;
+	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -5158,7 +5538,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -5168,8 +5548,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/operations{
+	dir = 8
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Zg" = (
@@ -5185,9 +5568,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Zn" = (
@@ -5203,7 +5587,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5217,32 +5601,35 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Zv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ZB" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_cyclops_2";
-	master_tag = "airlock_cyclops_dock";
-	name = "airlock_cyclops_dock"
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
+/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+	req_one_access = list(216)
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "ZE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5260,8 +5647,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "ZH" = (
-/obj/machinery/computer/ship/helm,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/computer/ship/helm/terminal{
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "ZI" = (
@@ -5272,12 +5661,12 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/item/towel/random,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "ZJ" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -29010,7 +29399,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -29782,6 +30171,13 @@ CE
 CE
 CE
 CE
+bT
+CE
+CE
+bT
+CE
+CE
+bT
 CE
 CE
 CE
@@ -29823,20 +30219,13 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -30057,6 +30446,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -30077,8 +30467,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -30304,6 +30693,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -30341,8 +30731,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -30828,6 +31217,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -30848,8 +31238,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -31075,6 +31464,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -31112,8 +31502,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -31580,7 +31969,26 @@ CE
 CE
 CE
 CE
-YE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+CE
+Wb
 CE
 CE
 CE
@@ -31601,26 +32009,7 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -31846,6 +32235,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -31883,8 +32273,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -32115,24 +32504,24 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
+bT
+CE
+Pg
+qF
+CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -32360,45 +32749,45 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+Bn
+if
+mf
+if
+if
+if
+if
+mf
+if
+if
+if
+if
+mf
+if
+if
+if
+if
+mf
+if
+if
+Ag
+Ag
+mf
+if
+if
+if
+mf
+if
+if
+if
+if
+mf
+if
+if
+if
+if
+mf
+if
+if
 CE
 CE
 CE
@@ -32617,45 +33006,45 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-PQ
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+Ag
 NW
 Ag
 Ag
 NW
-eA
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+Ag
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+tj
+wT
 CE
 CE
 CE
@@ -32878,6 +33267,7 @@ CE
 CE
 CE
 CE
+QY
 CE
 CE
 CE
@@ -32891,8 +33281,7 @@ CE
 CE
 CE
 CE
-CE
-CU
+Pg
 mA
 kd
 cP
@@ -32910,7 +33299,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33131,6 +33520,11 @@ CE
 CE
 CE
 CE
+Wb
+CE
+CE
+CE
+QY
 CE
 CE
 CE
@@ -33144,12 +33538,7 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CU
+Pg
 cW
 eB
 af
@@ -33167,9 +33556,9 @@ CE
 CE
 CE
 CE
+QY
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -33392,6 +33781,7 @@ CE
 CE
 CE
 CE
+QY
 CE
 CE
 CE
@@ -33405,8 +33795,7 @@ CE
 CE
 CE
 CE
-CE
-CU
+Pg
 cW
 yC
 gm
@@ -33424,7 +33813,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33649,6 +34038,7 @@ CE
 CE
 CE
 CE
+QY
 CE
 CE
 CE
@@ -33662,26 +34052,25 @@ CE
 CE
 CE
 CE
-CE
-CU
+Pg
 mA
 ff
 DV
 mA
 NW
-LV
-LV
-LV
-LV
-LV
-LV
-LV
+if
+if
+if
+if
+if
+if
+if
 Gx
 CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33902,6 +34291,11 @@ CE
 CE
 CE
 CE
+Wb
+CE
+CE
+CE
+QY
 CE
 CE
 CE
@@ -33915,12 +34309,7 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CU
+Pg
 mA
 Bk
 cX
@@ -33938,9 +34327,9 @@ Gx
 CE
 CE
 CE
+QY
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -34163,20 +34552,20 @@ CE
 CE
 CE
 BZ
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
-LV
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
 NW
 mA
 gf
@@ -34186,8 +34575,8 @@ AY
 Ul
 Iz
 ZV
-Iz
-ZV
+kU
+gJ
 Nt
 AY
 AY
@@ -34195,7 +34584,7 @@ Ag
 Gx
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -34452,7 +34841,7 @@ AY
 eZ
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -34673,7 +35062,7 @@ CE
 CE
 CE
 CE
-CE
+Wb
 Ly
 dn
 PK
@@ -34709,9 +35098,9 @@ AY
 eZ
 CE
 CE
+QY
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -34964,9 +35353,9 @@ ce
 yb
 AY
 NW
-LV
-LV
-LV
+if
+if
+if
 eA
 CE
 CE
@@ -35179,13 +35568,13 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
+bT
 CE
 CE
 Ob
@@ -35227,13 +35616,13 @@ AO
 Ag
 Gx
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -35455,21 +35844,21 @@ Pe
 HB
 zL
 fi
-uT
-DO
+BD
+sQ
 Kq
 fi
 uT
 DO
 fi
 bD
-uT
+BD
 pW
 aB
 Qd
 iH
 pc
-Fk
+bX
 ae
 AY
 AY
@@ -35981,7 +36370,7 @@ wL
 lY
 IS
 Qd
-sP
+RS
 zi
 qU
 rG
@@ -36233,7 +36622,7 @@ BH
 BC
 bc
 zn
-zn
+el
 uL
 vs
 Ry
@@ -36490,8 +36879,8 @@ pE
 gw
 gw
 gw
-zn
-uL
+el
+yM
 Je
 Mx
 Qd
@@ -37012,7 +37401,7 @@ Qd
 hy
 Yo
 xo
-qu
+dv
 dU
 KV
 xo
@@ -37269,7 +37658,7 @@ Qd
 EV
 yp
 SL
-Mm
+TN
 qT
 hK
 qU
@@ -37277,7 +37666,7 @@ SS
 Za
 gc
 Bi
-XE
+nG
 Ku
 Tb
 lu
@@ -37782,7 +38171,7 @@ Pv
 Qd
 Ut
 nK
-qU
+Dq
 AX
 Qd
 JE
@@ -38032,8 +38421,8 @@ eo
 eo
 gw
 gw
-zn
-uL
+el
+yM
 fb
 tO
 Qd
@@ -38043,7 +38432,7 @@ qU
 lV
 Qd
 XR
-Ln
+rO
 hS
 FP
 oA
@@ -38279,17 +38668,17 @@ Iy
 SD
 cp
 MV
+to
+to
+to
 MV
 MV
 MV
 MV
 MV
 MV
-MV
-MV
-MV
-MV
-cp
+to
+ly
 wi
 EI
 UA
@@ -38299,7 +38688,7 @@ GG
 il
 rJ
 Qd
-Zr
+Lb
 fz
 kT
 FP
@@ -38520,13 +38909,13 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
+bT
 CE
 CE
 aY
@@ -38568,13 +38957,13 @@ FP
 oS
 eZ
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -39042,7 +39431,7 @@ CE
 CE
 CE
 CE
-CE
+Wb
 GF
 vl
 pl
@@ -39080,7 +39469,7 @@ VI
 yt
 FP
 eZ
-CE
+Wb
 CE
 CE
 CE
@@ -39813,7 +40202,7 @@ CE
 CE
 CE
 CE
-CE
+Wb
 aY
 aY
 aY
@@ -39847,11 +40236,11 @@ Ig
 Ig
 Ig
 NW
-gV
-gV
-gV
+tj
+tj
+tj
 sM
-CE
+Wb
 CE
 CE
 CE
@@ -40074,20 +40463,20 @@ CE
 CE
 CE
 uB
-gV
-gV
-gV
-gV
-gV
+tj
+tj
+tj
+tj
+tj
 NW
 gZ
 mN
 gZ
 NW
-gV
-gV
-gV
-gV
+tj
+tj
+tj
+tj
 NW
 Zg
 Ev
@@ -40102,11 +40491,11 @@ Ga
 Ga
 Ig
 Ag
-gV
+tj
 sM
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40331,12 +40720,12 @@ CE
 CE
 CE
 CE
+QY
 CE
 CE
 CE
 CE
-CE
-CU
+Pg
 gZ
 gZ
 gZ
@@ -40345,25 +40734,25 @@ CE
 CE
 CE
 CE
-CU
+Pg
 Zg
 bC
 Dt
 gZ
 NW
-gV
-gV
-gV
-gV
-gV
-gV
-gV
+tj
+tj
+tj
+tj
+tj
+tj
+tj
 sM
 CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40584,25 +40973,25 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
-CE
-CE
+QY
 CE
 CE
 CE
 CE
 Ff
-gV
-gV
-gV
+tj
+tj
+tj
 dr
 CE
 CE
 CE
 CE
-CU
+Pg
 Zg
 CX
 ZB
@@ -40620,9 +41009,9 @@ CE
 CE
 CE
 CE
+QY
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -40845,6 +41234,7 @@ CE
 CE
 CE
 CE
+QY
 CE
 CE
 CE
@@ -40858,8 +41248,7 @@ CE
 CE
 CE
 CE
-CE
-CU
+Pg
 gZ
 mb
 cv
@@ -40877,7 +41266,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -41098,45 +41487,45 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+CD
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+Ag
+NW
+Ag
+Ag
+NW
+Ag
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
 CE
 CE
 CE
@@ -41355,45 +41744,45 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+tj
+tj
+Ba
+tj
+tj
+tj
+tj
+Ba
+tj
+tj
+tj
+tj
+Ba
+tj
+tj
+tj
+tj
+Ba
+tj
+tj
+Ag
+Ag
+Ba
+tj
+tj
+tj
+tj
+Ba
+tj
+tj
+tj
+Ba
+tj
+tj
+tj
+tj
+Ba
+tj
+kO
 CE
 CE
 CE
@@ -41624,24 +42013,24 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
+bT
+CE
+KL
+eZ
+CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -41869,6 +42258,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -41906,8 +42296,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -42136,6 +42525,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -42156,8 +42546,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -42640,6 +43029,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -42677,8 +43067,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -42907,6 +43296,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -42927,8 +43317,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -43411,6 +43800,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -43448,6 +43838,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -43457,8 +43848,6 @@ CE
 CE
 CE
 CE
-CE
-YE
 CE
 CE
 CE
@@ -43678,6 +44067,7 @@ CE
 CE
 CE
 CE
+Wb
 CE
 CE
 CE
@@ -43698,8 +44088,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+Wb
 CE
 CE
 CE
@@ -43917,6 +44306,13 @@ CE
 CE
 CE
 CE
+bT
+CE
+CE
+bT
+CE
+CE
+bT
 CE
 CE
 CE
@@ -43958,20 +44354,13 @@ CE
 CE
 CE
 CE
+bT
 CE
 CE
+bT
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+bT
 CE
 CE
 CE
@@ -44486,7 +44875,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE

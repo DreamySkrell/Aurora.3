@@ -1,5 +1,10 @@
 /obj/structure/table/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover,/obj/projectile))
 		return (check_cover(mover,target))
 	if (flipped == 1)
@@ -60,6 +65,11 @@
 
 /obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		var/mob/living/L = arrived
+		if(L.buckled_to)
+			return
 
 	if(ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
@@ -127,23 +137,23 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
-	var/obj/item/stack/material/what = dropping
+/obj/structure/table/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/item/stack/material/what = dropped
 	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
 		reinforce_table(what, usr)
 		return
 
-	if(ismob(dropping.loc)) //If placing an item
-		if(!isitem(dropping) || user.get_active_hand() != dropping)
+	if(ismob(dropped.loc)) //If placing an item
+		if(!isitem(dropped) || user.get_active_hand() != dropped)
 			return ..()
 		if(isrobot(user))
 			return
 		user.drop_item()
-		if(dropping.loc != src.loc)
-			step(dropping, get_dir(dropping, src))
+		if(dropped.loc != src.loc)
+			step(dropped, get_dir(dropped, src))
 
-	else if(isturf(dropping.loc) && isitem(dropping)) //If pushing an item on the tabletop
-		var/obj/item/I = dropping
+	else if(isturf(dropped.loc) && isitem(dropped)) //If pushing an item on the tabletop
+		var/obj/item/I = dropped
 		if(I.anchored)
 			return
 
@@ -234,10 +244,7 @@
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
-	if(!attacking_item.dropsafety())
-		return
-
-	if(reinforced && attacking_item.isscrewdriver())
+	if(reinforced && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		remove_reinforced(attacking_item, user)
 		if(!reinforced)
 			update_desc()
@@ -245,7 +252,7 @@
 			update_material()
 		return 1
 
-	if(carpeted && attacking_item.iscrowbar())
+	if(carpeted && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
 								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
@@ -264,7 +271,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
 
-	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!reinforced && !carpeted && material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		remove_material(attacking_item, user)
 		if(!material)
 			update_connections(1)
@@ -275,11 +282,11 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!carpeted && !reinforced && !material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		dismantle(attacking_item, user)
 		return 1
 
-	if(health < maxhealth && attacking_item.iswelder())
+	if(health < maxhealth && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.welding)
 			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
@@ -309,7 +316,7 @@
 		var/obj/item/melee/energy/blade/blade = attacking_item
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src.loc, SFX_SPARKS, 50, 1)
 		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
@@ -319,11 +326,11 @@
 		return
 
 
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				return ..()
 			if(health < maxhealth)
 				if(D.get_amount() < 1)
@@ -334,6 +341,9 @@
 					if(D.use(1))
 						health = maxhealth
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+
+	if(!attacking_item.dropsafety())
+		return
 
 	// Placing stuff on tables
 	if(user.unEquip(attacking_item, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion

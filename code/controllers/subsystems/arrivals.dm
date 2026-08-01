@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(arrivals)
 		return
 
 	if (istype(M))
-		current_mobs += SOFTREF(M)
+		current_mobs += REF(M)
 
 	can_fire = TRUE	// Wake the process.
 
@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(arrivals)
 		set_launch_countdown()
 
 /datum/controller/subsystem/arrivals/proc/on_hotzone_exit(mob/living/M)
-	current_mobs -= SOFTREF(M)
+	current_mobs -= REF(M)
 
 //called when the shuttle has arrived.
 
@@ -56,9 +56,9 @@ SUBSYSTEM_DEF(arrivals)
 		return 1
 	if(istype(A,/obj/item/disk/nuclear))
 		return 1
-	if(istype(A,/obj/machinery/nuclearbomb))
+	if(istype(A,/obj/structure/machinery/nuclearbomb))
 		return 1
-	if(istype(A,/obj/item/device/radio/beacon))
+	if(istype(A,/obj/item/radio/beacon))
 		return 1
 	if(istype(A,/obj/item/phylactery))
 		return 1

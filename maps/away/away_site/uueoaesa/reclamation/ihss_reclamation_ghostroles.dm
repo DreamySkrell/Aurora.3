@@ -23,7 +23,7 @@
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	uniform = /obj/item/clothing/under/unathi
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/ihss_reclamation/get_id_access()
@@ -39,7 +39,7 @@
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/device/uv_light, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light, slot_in_backpack)
 
 /datum/ghostspawner/human/ihss_reclamation/security
 	short_name = "ihss_security"
@@ -48,7 +48,7 @@
 	spawnpoints = list("ihss_security")
 	max_count = 3
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	welcome_message = "You are security personnel aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Security"
 	special_role = "IHSS Reclamation Security"

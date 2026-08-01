@@ -19,6 +19,7 @@ var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
 var/const/HRA              =(1<<14)
 var/const/CONSULAR_ASST	   =(1<<15)
+var/const/DIPLOMAT_GUARD   =(1<<16)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -58,6 +59,7 @@ var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
+GLOBAL_VAR_CONST(DIPLOMAT_AIDE, 1<<16)
 
 //EVENTDEPT
 //This is needed because there are just not enough bitflags available across the other departments
@@ -87,12 +89,14 @@ var/list/command_support_positions = list(
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bridge Crew",
-	"Diplomatic Aide"
+	"Diplomatic Aide",
+	"Diplomatic Bodyguard",
+	"Corporate Aide"
 )
 
 var/list/engineering_positions = list(
 	"Chief Engineer",
-	"Engineer",
+	"Ship Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice",
 	"Engineering Personnel"
@@ -115,7 +119,7 @@ var/list/science_positions = list(
 	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
-	"Lab Assistant",
+	"Research Intern",
 	"Science Personnel"
 )
 
@@ -167,9 +171,6 @@ var/list/armory_positions = list(
 	"Captain",
 	"Executive Officer",
 	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer",
 	"Operations Manager"
 )
 

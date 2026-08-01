@@ -8,12 +8,13 @@
 #define IS_PLANT            BITFLAG(7)    // Is a treeperson.
 #define NO_EMBED            BITFLAG(8)    // Can not have shrapnel or any object embedded into its body
 #define IS_MECHANICAL       BITFLAG(9)    // Is a robot.
-#define ACCEPTS_COOLER      BITFLAG(10)    // Can wear suit coolers and have them work without a suit.
+#define ACCEPTS_COOLER      BITFLAG(10)   // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
 #define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
 #define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
 #define CAN_SWEAT           BITFLAG(14)   // Forgive me.
-#define NO_COLD_SLOWDOWN	BITFLAG(15)		//Doesn't slow down in the cold.
+#define NO_COLD_SLOWDOWN	BITFLAG(15)	  //Doesn't slow down in the cold.
+#define NO_EQUIP_SPEEDMODS	BITFLAG(16)	  //Doesn't get affected by carrying certain things or equipping some clothing
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
@@ -70,6 +71,7 @@
 #define LANGUAGE_GREIMORIAN "Greimorian Chattering" //Intelligent Greimorians
 #define LANGUAGE_GREIMORIAN_HIVEMIND "Greimorian Hivemind" //Intelligent Greimorian Hivemind
 #define LANGUAGE_PURPOSE "Encrypted Transmission" //Purpose
+#define LANGUAGE_HIVEBOT "Hivebot Network" //Hivebots
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk
@@ -99,6 +101,20 @@
 #define KNOWONLYHEAR  BITFLAG(10) // Only people who know the language actually hears it
 #define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
 #define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
+
+// These language flags do not support multiple languages in one message.
+#define LANG_NO_MULTILANG (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR)
+
+// Clarity levels: how clearly one listener perceives one message (the acoustic/sight axis).
+#define CLARITY_NONE   0   // not perceived (deaf / vacuum / blind-sign)
+#define CLARITY_FAINT  1   // body stars()-ed (radio static, whisper eavesdrop)
+#define CLARITY_DROWSY 2   // word-sampled "you almost hear..." (asleep)
+#define CLARITY_CLEAR  3   // verbatim (subject to comprehension only)
+
+// Delivery mode: how the message reached the listener. Selects the envelope.
+#define SAYMODE_SPOKEN 1
+#define SAYMODE_RADIO  2
+#define SAYMODE_SIGN   3
 
 // Autohiss
 #define AUTOHISS_OFF 0

@@ -2,18 +2,24 @@
 	name = "door"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
 	build_amt = 10
+
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
-	var/health = 100
-	var/maxhealth = 100
+
+
+/obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lock)
+		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -24,11 +30,11 @@
 	health -= material.combustion_effect(get_turf(src),temperature, 0.3)
 	CheckHealth()
 
-/obj/structure/simple_door/New(var/newloc, var/material_name, var/locked)
+/obj/structure/simple_door/New(var/newloc, var/newmaterial, var/locked)
 	..()
-	if(!material_name)
-		material_name = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(material_name)
+	if(!newmaterial)
+		newmaterial = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(newmaterial)
 	if(!material)
 		qdel(src)
 		return
@@ -36,8 +42,8 @@
 	name = "[material.display_name] door"
 	color = material.icon_colour
 
-	maxhealth = max(1,round(material.integrity))
-	health = maxhealth
+	set_health(material.integrity)
+	set_health(maxhealth)
 
 	if(initial_lock_value)
 		locked = initial_lock_value
@@ -60,11 +66,6 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lock)
-		. += SPAN_NOTICE("It appears to have a lock.")
-
 /obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
@@ -80,13 +81,16 @@
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
 
-/obj/structure/simple_door/attack_generic(mob/user)
+/obj/structure/simple_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors
 		TryToSwitchState(user)
 	return
 
 /obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) return 0
+	if(air_group)
+		return FALSE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density
@@ -193,9 +197,13 @@
 		attack_hand(user)
 	return
 
-/obj/structure/simple_door/bullet_act(var/obj/projectile/Proj)
-	health -= Proj.damage
-	bullet_ping(Proj)
+/obj/structure/simple_door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.damage
+	bullet_ping(hitting_projectile)
 	CheckHealth()
 
 /obj/structure/simple_door/proc/CheckHealth()

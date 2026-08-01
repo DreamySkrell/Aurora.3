@@ -4,7 +4,7 @@
 	icon_state = null
 	damage = 0 //Base damage handled elsewhere.
 	damage_type = DAMAGE_BRUTE
-	check_armor = "bomb"
+	check_armor = BOMB
 	range = 5
 	var/pressure_decrease = 0.25
 	var/base_damage = 0
@@ -18,8 +18,10 @@
 /obj/projectile/kinetic/mech/burst
 	damage = 25
 
-/obj/projectile/kinetic/on_impact(var/atom/A)
-	var/turf/target_turf = get_turf(A)
+/obj/projectile/kinetic/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
 		target_turf = get_turf(src)
 	if(istype(target_turf))
@@ -28,7 +30,7 @@
 /obj/projectile/kinetic/proc/do_damage(var/turf/T, var/living_damage = 1, var/mineral_damage = 1)
 	if(!istype(T)) return
 	var/datum/gas_mixture/environment = T.return_air()
-	living_damage *= max(1 - (environment.return_pressure() / 100) * 0.75, 0)
+	living_damage *= max(1 - (XGM_PRESSURE(environment) / 100) * 0.75, 0)
 	new /obj/effect/overlay/temp/kinetic_blast(T)
 	for(var/mob/living/L in T)
 		L.take_overall_damage(min(living_damage, 50))

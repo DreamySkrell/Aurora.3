@@ -12,16 +12,32 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 18
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	amount_per_transfer_from_this = 150
 	possible_transfer_amounts = null
 	volume = 150
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
+
+/obj/item/reagent_containers/extinguisher_refill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!distance <= 2)
+		return
+
+	if(is_open_container())
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("It contains <b>[round(reagents.total_volume, accuracy)]</b> units of non-aerosol mix.")
+		else
+			. += SPAN_NOTICE("It is empty.")
+	else
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
+		else
+			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(is_open_container())
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
@@ -58,22 +74,6 @@
 		to_chat(user,SPAN_NOTICE("\The reagents inside [src] are already secured!"))
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!distance <= 2)
-		return
-
-	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
-			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
-		else
-			. += SPAN_NOTICE("It is empty.")
-	else
-		if(LAZYLEN(reagents?.reagent_volumes))
-			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
-		else
-			. += SPAN_NOTICE("The cartridge seems spent.")
-
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one contains monoammonium phosphate."
@@ -96,10 +96,10 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 	var/spray_particles = 3
 	var/spray_amount = 10	//units of liquid per particle
@@ -125,20 +125,20 @@
 	spray_distance = 1
 	sprite_name = "miniFE"
 
+/obj/item/extinguisher/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += SPAN_NOTICE("\The [src] contains <b>[src.reagents.total_volume]</b> units of reagents.")
+		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
+	return
+
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		. += SPAN_NOTICE("\The [src] contains [src.reagents.total_volume] units of reagents.")
-		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
-	return
-
-/obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
-	if(ismob(M) && user.a_intent != I_HURT)
+/obj/item/extinguisher/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ismob(target_mob) && user.a_intent != I_HURT)
 		return FALSE
 	return ..()
 

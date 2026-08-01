@@ -30,19 +30,19 @@
 
 	var/chained = 0//Adminbus chain-grab
 
-/obj/singularity/New(loc, var/starting_energy = 50, var/temp = 0, var/alert = TRUE)
+/obj/singularity/Initialize(mapload, energy = 50, qdel_in = 0, alert_admins = TRUE)
+	. = ..()
 	//CARN: admin-alert for chuckle-fuckery.
-	if(alert)
+	if(alert_admins)
 		admin_investigate_setup()
-	energy = starting_energy
+	src.energy = energy
 
-	if (temp)
-		QDEL_IN(src, temp)
+	if(qdel_in)
+		QDEL_IN(src, qdel_in)
 
-	..()
 	START_PROCESSING(SScalamity, src)
 	SScalamity.singularities += src
-	for(var/obj/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
+	for(var/obj/structure/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
 		if(singubeacon.active)
 			target = singubeacon
 			break
@@ -71,8 +71,12 @@
 			energy += round((rand(20,60)/2),1)
 			return
 
-/obj/singularity/bullet_act(obj/projectile/P)
-	return 0 //Will there be an impact? Who knows. Will we see it? No.
+/obj/singularity/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	return BULLET_ACT_BLOCK //Will there be an impact? Who knows. Will we see it? No.
 
 /obj/singularity/Collide(atom/A)
 	. = ..()
@@ -103,7 +107,7 @@
 
 /obj/singularity/proc/admin_investigate_setup()
 	last_warning = world.time
-	var/count = locate(/obj/machinery/containment_field) in orange(30, src)
+	var/count = locate(/obj/structure/machinery/containment_field) in orange(30, src)
 
 	var/msg = "A singulo has been created."
 	if (!count)
@@ -399,15 +403,15 @@
 	if (!isturf(T))
 		return 0
 
-	if ((locate(/obj/machinery/containment_field) in T) || (locate(/obj/shieldwall) in T))
+	if ((locate(/obj/structure/machinery/containment_field) in T) || (locate(/obj/shieldwall) in T))
 		return 0
-	else if (locate(/obj/machinery/field_generator) in T)
-		var/obj/machinery/field_generator/G = locate(/obj/machinery/field_generator) in T
+	else if (locate(/obj/structure/machinery/field_generator) in T)
+		var/obj/structure/machinery/field_generator/G = locate(/obj/structure/machinery/field_generator) in T
 
 		if (G && G.active)
 			return 0
-	else if (locate(/obj/machinery/shieldwallgen) in T)
-		var/obj/machinery/shieldwallgen/S = locate(/obj/machinery/shieldwallgen) in T
+	else if (locate(/obj/structure/machinery/shieldwallgen) in T)
+		var/obj/structure/machinery/shieldwallgen/S = locate(/obj/structure/machinery/shieldwallgen) in T
 
 		if (S?.power_state)
 			return 0

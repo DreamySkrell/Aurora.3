@@ -40,8 +40,7 @@
 	decompose_matrix.rotation = arctan(cossine, sine) * flip_sign
 
 /matrix/proc/TurnTo(old_angle, new_angle)
-	. = new_angle - old_angle
-	Turn(.) //BYOND handles cases such as -270, 360, 540 etc. DOES NOT HANDLE 180 TURNS WELL, THEY TWEEN AND LOOK LIKE SHIT
+	return Turn(new_angle - old_angle) //BYOND handles cases such as -270, 360, 540 etc. DOES NOT HANDLE 180 TURNS WELL, THEY TWEEN AND LOOK LIKE SHIT
 
 /**
  * Shear the transform on either or both axes.
@@ -219,26 +218,52 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 				return COLOR_MATRIX_IDENTITY
 			CRASH(message)
 
+///Animates source spinning around itself. For docmentation on the args, check atom/proc/SpinAnimation()
+/atom/proc/do_spin_animation(speed = 1 SECONDS, loops = -1, segments = 3, angle = 120, parallel = TRUE)
+	var/list/matrices = list()
+	for(var/i in 1 to segments-1)
+		var/matrix/segment_matrix = matrix(transform)
+		segment_matrix.Turn(angle*i)
+		matrices += segment_matrix
+	var/matrix/last = matrix(transform)
+	matrices += last
+
+	speed /= segments
+
+	if(parallel)
+		animate(src, transform = matrices[1], time = speed, loop = loops, flags = ANIMATION_PARALLEL)
+	else
+		animate(src, transform = matrices[1], time = speed, loop = loops)
+	for(var/i in 2 to segments) //2 because 1 is covered above
+		animate(transform = matrices[i], time = speed)
+		//doesn't have an object argument because this is "Stacking" with the animate call above
+		//3 billion% intentional
+
+/**
+ * Proc called when you want the atom to spin around the center of its icon (or where it would be if its transform var is translated)
+ * By default, it makes the atom spin forever and ever at a speed of 60 rpm.
+ *
+ * Arguments:
+ * * speed: how much it takes for the atom to complete one 360° rotation
+ * * loops: how many times do we want the atom to rotate
+ * * clockwise: whether the atom ought to spin clockwise or counter-clockwise
+ * * segments: in how many animate calls the rotation is split. Probably unnecessary, but you shouldn't set it lower than 3 anyway.
+ * * parallel: whether the animation calls have the ANIMATION_PARALLEL flag, necessary for it to run alongside concurrent animations.
+ */
+/atom/proc/SpinAnimation(speed = 1 SECONDS, loops = -1, clockwise = TRUE, segments = 3, parallel = TRUE)
+	if(!segments)
+		return
+	var/segment = 360/segments
+	if(!clockwise)
+		segment = -segment
+	SEND_SIGNAL(src, COMSIG_ATOM_SPIN_ANIMATION, speed, loops, segments, segment)
+	do_spin_animation(speed, loops, segments, segment, parallel)
+
 
 /*############################
 	AURORA SNOWFLAKE SECTION
 	(Most are from Bay)
 ############################*/
-
-/**
- * Performs a spin/rotation animation on the atom's sprite.
- *
- * **Parameters**:
- * - `speed` (int) - How quickly the atom should rotate.
- * - `loops` (int) - How many times the spin animation should occur. Set to `-1` for infinite looping.
- */
-/atom/proc/SpinAnimation(speed = 10, loops = -1)
-	var/matrix/m120 = matrix(transform).Update(rotation = 120)
-	var/matrix/m240 = matrix(transform).Update(rotation = 240)
-	var/matrix/m360 = matrix(transform).Update(rotation = 360)
-	animate(src, transform = m120, time = speed / 3, loops)
-	animate(transform = m240, time = speed / 3)
-	animate(transform = m360, time = speed / 3)
 
 /**
  * Performs a shaking animation on the atom's sprite.
@@ -282,7 +307,7 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 	LUMA_B + cos * -LUMA_B + sin * (1-LUMA_B), LUMA_B + cos * -LUMA_B + sin * constC, LUMA_B + cos * (1-LUMA_B) + sin * LUMA_B
 	)
 
-var/global/list/delta_index = list(
+GLOBAL_LIST_INIT(delta_index, list(
 	0,    0.01, 0.02, 0.04, 0.05, 0.06, 0.07, 0.08, 0.1,  0.11,
 	0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.20, 0.21, 0.22, 0.24,
 	0.25, 0.27, 0.28, 0.30, 0.32, 0.34, 0.36, 0.38, 0.40, 0.42,
@@ -293,7 +318,7 @@ var/global/list/delta_index = list(
 	2.37, 2.50, 2.62, 2.75, 2.87, 3.0,  3.2,  3.4,  3.6,  3.8,
 	4.0,  4.3,  4.7,  4.9,  5.0,  5.5,  6.0,  6.5,  6.8,  7.0,
 	7.3,  7.5,  7.8,  8.0,  8.4,  8.7,  9.0,  9.4,  9.6,  9.8,
-	10.0)
+	10.0))
 
 ///Exxagerates or removes brightness
 /proc/color_contrast(value)
@@ -308,9 +333,9 @@ var/global/list/delta_index = list(
 	else
 		x = value % 1
 		if(x == 0)
-			x = delta_index[value]
+			x = GLOB.delta_index[value]
 		else
-			x = delta_index[value] * (1-x) + delta_index[value+1] * x//use linear interpolation for more granularity.
+			x = GLOB.delta_index[value] * (1-x) + GLOB.delta_index[value+1] * x//use linear interpolation for more granularity.
 		x = x * 127 + 127
 
 	var/mult = x / 127

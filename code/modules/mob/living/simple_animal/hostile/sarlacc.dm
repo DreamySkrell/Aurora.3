@@ -96,7 +96,7 @@
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
@@ -135,9 +135,8 @@
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
 	SSmobs.greatworms -= src
-	if(sarlacc)
-		qdel(sarlacc)
-		sarlacc = null
+	QDEL_NULL(sarlacc)
+	QDEL_LIST(active_tentacles)
 	return ..()
 
 /mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
@@ -168,11 +167,11 @@
 			sated -= 1
 		if(prob(5) && tentacles < 6)
 			tentacles += 1
-		if(health < maxHealth)
+		if(health < maxhealth)
 			health += 1
 			sated -= 1
-			if(health >= maxHealth)
-				health = maxHealth
+			if(health >= maxhealth)
+				health = maxhealth
 		if(sarlacc && sarlacc.deployed)
 			sarlacc.deployed = 0
 	else
@@ -214,13 +213,15 @@
 		return
 	if(asleep)
 		return
-	..()
+	. = ..()
 
 /mob/living/simple_animal/hostile/greatworm/FoundTarget()
-	if(target_mob.faction != "syndicate")
-		spawn_tentacle(target_mob)
+	if(ismob(last_found_target))
+		var/mob/mob_target = last_found_target
+		if(mob_target.faction != "syndicate")
+			spawn_tentacle(mob_target)
+
 	LoseTarget()
-	return
 
 /mob/living/simple_animal/hostile/greatworm/proc/spawn_tentacle(var/mob/living/target)
 	if(active_tentacles.len >= tentacles)
@@ -230,12 +231,12 @@
 	if(target.loc == src.loc)
 		return 0
 	var/turf/T = get_turf(target.loc)
-	if(!istype(T,/turf/unsimulated/floor/asteroid))
+	if(!istype(T,/turf/simulated/floor/exoplanet/asteroid))
 		return 0
 	if(locate(/mob/living/simple_animal/hostile/lesserworm) in T)
 		return 0
 	spawn_delay = world.time + spawn_time
-	var/turf/unsimulated/floor/asteroid/A = T
+	var/turf/simulated/floor/exoplanet/asteroid/A = T
 	var/mob/living/simple_animal/hostile/lesserworm/L = new /mob/living/simple_animal/hostile/lesserworm(A)
 	if(A.dug < 1)
 		A.gets_dug()
@@ -258,7 +259,7 @@
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacctentacle"
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
@@ -287,6 +288,7 @@
 /mob/living/simple_animal/hostile/lesserworm/Destroy()
 	if(originator)
 		originator.active_tentacles -= src
+	originator = null
 	return ..()
 
 /mob/living/simple_animal/hostile/lesserworm/proc/Penetrate()
@@ -314,13 +316,13 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	universal_speak = 1
 	universal_understand = 1
 
 	health = 450
-	maxHealth = 450
+	maxhealth = 450
 
 	gender = MALE
 	status_flags = 0
@@ -361,9 +363,9 @@
 /obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
-	nodamage = TRUE
+	damage = 0
 	agony = 20
-	check_armor = "energy"
+	check_armor = ENERGY
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	var/list/thoughts = list(
 		"You hear a cacophany of alien sounds.",
@@ -391,10 +393,10 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/projectile/energy/thoughtbubble/on_impact(var/atom/A)
-	..()
-	if(istype(A, /mob/living))
-		var/mob/living/L = A
+/obj/projectile/energy/thoughtbubble/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living))
+		var/mob/living/L = target
 		if(L.reagents)
 			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)

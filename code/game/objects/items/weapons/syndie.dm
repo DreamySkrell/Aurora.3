@@ -41,17 +41,17 @@
 	detonator.bomb = src
 
 /obj/item/syndie/c4explosive/Destroy()
-	. = ..()
 	QDEL_NULL(detonator)
+	return ..()
 
 /obj/item/syndie/c4explosive/proc/detonate()
 	icon_state = "c-4[size]_1"
 	spawn(50)
 		explosion(get_turf(src), power, power*2, power*3, power*4, power*4)
-		for(var/dirn in GLOB.cardinal)		//This is to guarantee that C4 at least breaks down all immediately adjacent walls and doors.
+		for(var/dirn in GLOB.cardinals)		//This is to guarantee that C4 at least breaks down all immediately adjacent walls and doors.
 			var/turf/simulated/wall/T = get_step(src,dirn)
-			if(locate(/obj/machinery/door/airlock) in T)
-				var/obj/machinery/door/airlock/D = locate() in T
+			if(locate(/obj/structure/machinery/door/airlock) in T)
+				var/obj/structure/machinery/door/airlock/D = locate() in T
 				if(D.density)
 					D.open()
 			if(istype(T,/turf/simulated/wall))
@@ -102,7 +102,6 @@
 /obj/item/syndie/teleporter
 	name = "pen"
 	desc = "An instrument for writing or drawing with ink. This one is in black, in a classic, grey casing. Stylish, classic and professional."
-	desc_antag = "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device. Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
@@ -120,15 +119,17 @@
 	var/recharge_time = 1 MINUTE
 	var/when_recharge = 0
 
-/obj/item/syndie/teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!ready_to_use && burglars.is_antagonist(user.mind))
-		. += SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]")
+/obj/item/syndie/teleporter/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device."
+	. += "Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."
+	if(!ready_to_use && GLOB.burglars.is_antagonist(user.mind))
+		. += "<b>Charging: [num2loadingbar(world.time / when_recharge)]</b>"
 
 /obj/item/syndie/teleporter/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
 
-/obj/item/syndie/teleporter/attack()
+/obj/item/syndie/teleporter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/syndie/teleporter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

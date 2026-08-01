@@ -7,8 +7,8 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
 	else
@@ -63,11 +63,11 @@
 		if("highvalue")
 			new /obj/random/highvalue (get_turf(src))
 		if("supermatter")
-			new /obj/machinery/power/supermatter/shard (get_turf(src))
+			new /obj/structure/machinery/power/supermatter/shard (get_turf(src))
 		if("artifact")
-			new /obj/machinery/artifact (get_turf(src))
+			new /obj/structure/machinery/artifact (get_turf(src))
 		if("beyond")
-			new /obj/machinery/from_beyond (get_turf(src))
+			new /obj/structure/machinery/from_beyond (get_turf(src))
 	return
 
 /obj/item/sarcophagus_key

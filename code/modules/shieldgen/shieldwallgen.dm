@@ -2,42 +2,59 @@
 #define POWER_STARTING 1
 #define POWER_ACTIVE 2
 
-/obj/machinery/shieldwallgen
-	name = "shield generator"
+/obj/structure/machinery/shieldwallgen
+	name = "shield wall generator"
 	desc = "A portable shield generator, capable of casting a shield to another powered generator in range."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "Shield_Gen"
+	icon = 'icons/obj/machinery/shielding.dmi'
+	icon_state = "shieldwalloff"
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
-
+	/// Range at which it can pair with another shield wall generator (must be this many spaces BETWEEN THEM at maximum)
+	var/range = 9
 	var/power_state = FALSE
 	var/is_powered = FALSE
-	var/wrenched = FALSE
-	var/steps = 0
-	var/last_check = 0
-	var/check_delay = 10
 	var/locked = TRUE
 	var/storedpower = 0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	//There have to be at least two posts, so these are effectively doubled
-	var/power_draw = 30000 //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
-	var/max_stored_power = 50000 //50 kW
-	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
 
-/obj/machinery/shieldwallgen/update_icon()
+	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
+	var/power_draw = 200 KILO WATTS
+	var/max_stored_power = 1000 KILO WATTS
+	/// Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF
+
+/obj/structure/machinery/shieldwallgen/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A shield wall generator can pair with another from up to <b>[range]</b> tiles away (maximum wall length of <b>[range - 1]</b>)."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+
+/obj/structure/machinery/shieldwallgen/active
+	power_state = POWER_STARTING
+	is_powered = TRUE
+	anchored = TRUE
+	locked = FALSE
+	icon_state = "shieldwallon"
+	storedpower = 9000000
+
+/obj/structure/machinery/shieldwallgen/update_icon()
+	ClearOverlays()
 	if(power_state >= POWER_STARTING)
-		icon_state = "Shield_Gen +a"
+		icon_state = "shieldwallon"
 	else
-		icon_state = "Shield_Gen"
+		icon_state = "shieldwalloff"
+	if(anchored)
+		AddOverlays("+bolts")
 
-/obj/machinery/shieldwallgen/attack_hand(mob/user)
-	if(!wrenched)
+/obj/structure/machinery/shieldwallgen/attack_hand(mob/user)
+	if(!anchored)
 		to_chat(user, SPAN_WARNING("The shield generator needs to be firmly secured to the floor first."))
 		return TRUE
 	if(locked && !issilicon(user))
-		to_chat(user, SPAN_WARNING("The controls are locked!"))
+		playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+		balloon_alert(user, "locked!")
 		return TRUE
 	if(!is_powered)
 		to_chat(user, SPAN_WARNING("The shield generator needs to be powered by wire underneath."))
@@ -53,7 +70,7 @@
 	update_icon()
 	add_fingerprint(user)
 
-/obj/machinery/shieldwallgen/proc/power()
+/obj/structure/machinery/shieldwallgen/proc/power(seconds_per_tick = 1)
 	if(!anchored)
 		is_powered = FALSE
 		return FALSE
@@ -71,8 +88,9 @@
 		is_powered = FALSE
 		return FALSE
 
-	var/shieldload = between(500, max_stored_power - storedpower, power_draw)	//what we try to draw
-	shieldload = PN.draw_power(shieldload) //what we actually get
+	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
+	shieldload = POWERNET_POWER_DRAW(PN, shieldload) //what we actually get
+	DRAW_FROM_POWERNET(PN, shieldload)
 	storedpower += shieldload
 
 	//If we're still in the red, then there must not be enough available power to cover our load.
@@ -83,15 +101,15 @@
 	is_powered = TRUE	// IVE GOT THE POWER!
 	return TRUE
 
-/obj/machinery/shieldwallgen/process()
-	power()
+/obj/structure/machinery/shieldwallgen/process(seconds_per_tick)
+	power(seconds_per_tick)
 	if(is_powered)
-		storedpower -= 2500
+		storedpower -= (2500 * seconds_per_tick)
 
 	storedpower = clamp(storedpower, 0, max_stored_power)
 
 	if(power_state == POWER_STARTING)
-		if(!wrenched)
+		if(!anchored)
 			power_state = POWER_INACTIVE
 			return
 		addtimer(CALLBACK(src, PROC_REF(setup_field), 1), 1)
@@ -107,24 +125,24 @@
 			update_icon()
 			alldir_cleanup()
 
-/obj/machinery/shieldwallgen/proc/setup_field(var/NSEW)
+/obj/structure/machinery/shieldwallgen/proc/setup_field(var/NSEW)
 	var/turf/T = loc
 	var/turf/T2 = loc
-	var/obj/machinery/shieldwallgen/G
+	var/obj/structure/machinery/shieldwallgen/G
 	var/steps = 0
 	var/oNSEW = 0
 
 	if(!NSEW)//Make sure its ran right
 		return
 
-	oNSEW = reverse_direction(NSEW)
+	oNSEW = REVERSE_DIR(NSEW)
 
-	for(var/dist = 0, dist <= 9, dist++) // checks out to 8 tiles away for another generator
+	for(var/dist = 0, dist <= range, dist++) // checks out to 8 tiles away for another generator
 		T = get_step(T2, NSEW)
 		T2 = T
 		steps += 1
-		if(locate(/obj/machinery/shieldwallgen) in T)
-			G = (locate(/obj/machinery/shieldwallgen) in T)
+		if(locate(/obj/structure/machinery/shieldwallgen) in T)
+			G = (locate(/obj/structure/machinery/shieldwallgen) in T)
 			steps -= 1
 			if(!G.power_state)
 				return
@@ -143,39 +161,43 @@
 		var/obj/shieldwall/CF = new /obj/shieldwall/(T, src, G) //(ref to this gen, ref to connected gen)
 		CF.set_dir(field_dir)
 
-/obj/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+/obj/structure/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return
+		if(attacking_item.use_tool(src, user, 1 SECONDS, volume = 50))
+			anchored = !anchored
+			add_fingerprint(user)
+			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
+			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
+			user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
+			update_icon()
+			return
+	return ..()
 
-		wrenched = !wrenched
-		anchored = wrenched
-		attacking_item.play_tool_sound(get_turf(src), 75)
-		add_fingerprint(user)
-		var/others_msg = wrenched ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
-		var/self_msg = wrenched ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
-		return
-
-	if(attacking_item.GetID())
+/obj/structure/machinery/shieldwallgen/AltClick(mob/user)
+	if(Adjacent(user))
 		add_fingerprint(user)
 		if(allowed(user))
 			locked = !locked
-			var/msg = "The controls are now [locked ? "locked" : "unlocked"]."
-			to_chat(user, SPAN_NOTICE(msg))
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
 		else
-			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
 		return
-	return ..()
 
-/obj/machinery/shieldwallgen/proc/alldir_cleanup()
+/obj/structure/machinery/shieldwallgen/proc/alldir_cleanup()
 	for(var/dir in list(NORTH, SOUTH, EAST, WEST))
 		cleanup(dir)
 
-/obj/machinery/shieldwallgen/proc/cleanup(var/NSEW)
+/obj/structure/machinery/shieldwallgen/proc/cleanup(var/NSEW)
 	var/obj/shieldwall/F
-	var/obj/machinery/shieldwallgen/G
+	var/obj/structure/machinery/shieldwallgen/G
 	var/turf/T = loc
 	var/turf/T2 = loc
 
@@ -186,20 +208,23 @@
 			F = (locate(/obj/shieldwall) in T)
 			qdel(F)
 
-		if(locate(/obj/machinery/shieldwallgen) in T)
-			G = (locate(/obj/machinery/shieldwallgen) in T)
+		if(locate(/obj/structure/machinery/shieldwallgen) in T)
+			G = (locate(/obj/structure/machinery/shieldwallgen) in T)
 			if(!G.power_state)
 				break
 
-/obj/machinery/shieldwallgen/Destroy()
+/obj/structure/machinery/shieldwallgen/Destroy()
 	alldir_cleanup()
 	return ..()
 
-/obj/machinery/shieldwallgen/bullet_act(var/obj/projectile/Proj)
-	storedpower -= 400 * Proj.get_structure_damage()
+/obj/structure/machinery/shieldwallgen/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	storedpower -= 400 * hitting_projectile.get_structure_damage()
 	if(power_state >= POWER_STARTING)
-		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [Proj] hits it!"))
-	return ..()
+		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [hitting_projectile] hits it!"))
 
 /obj/shieldwall
 	name = "energy shield"
@@ -216,12 +241,12 @@
 	var/delay = 5
 	var/last_active
 	var/mob/U
-	var/obj/machinery/shieldwallgen/gen_primary
-	var/obj/machinery/shieldwallgen/gen_secondary
+	var/obj/structure/machinery/shieldwallgen/gen_primary
+	var/obj/structure/machinery/shieldwallgen/gen_secondary
 	var/power_usage = 2500	//how much power it takes to sustain the shield
 	var/generate_power_usage = 7500	//how much power it takes to start up the shield
 
-/obj/shieldwall/Initialize(mapload, var/obj/machinery/shieldwallgen/A, var/obj/machinery/shieldwallgen/B)
+/obj/shieldwall/Initialize(mapload, var/obj/structure/machinery/shieldwallgen/A, var/obj/structure/machinery/shieldwallgen/B)
 	. = ..()
 	update_nearby_tiles()
 	gen_primary = A
@@ -255,20 +280,23 @@
 		gen_primary.storedpower -= power_usage / 2
 		gen_secondary.storedpower -= power_usage / 2
 
-/obj/shieldwall/bullet_act(var/obj/projectile/Proj)
+/obj/shieldwall/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(needs_power)
-		var/obj/machinery/shieldwallgen/G
+		var/obj/structure/machinery/shieldwallgen/G
 		if(prob(50))
 			G = gen_primary
 		else
 			G = gen_secondary
-		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [Proj] impacts it!"))
-		G.storedpower -= 400 * Proj.get_structure_damage()
-	return ..()
+		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [hitting_projectile] impacts it!"))
+		G.storedpower -= 400 * hitting_projectile.get_structure_damage()
 
 /obj/shieldwall/ex_act(severity)
 	if(needs_power)
-		var/obj/machinery/shieldwallgen/G
+		var/obj/structure/machinery/shieldwallgen/G
 		switch(severity)
 			if(1.0) //big boom
 				if(prob(50))
@@ -293,6 +321,8 @@
 
 /obj/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
+		return TRUE
+	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(20)

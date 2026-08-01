@@ -38,7 +38,7 @@
 
 /datum/computer_file/program/alarm_monitor/engineering/New()
 	..()
-	alarm_handlers = list(atmosphere_alarm, camera_alarm, fire_alarm, power_alarm)
+	alarm_handlers = list(GLOB.atmosphere_alarm, GLOB.camera_alarm, GLOB.fire_alarm, GLOB.power_alarm)
 
 /datum/computer_file/program/alarm_monitor/security
 	filename = "alarmmonitorsec"
@@ -48,7 +48,7 @@
 
 /datum/computer_file/program/alarm_monitor/security/New()
 	..()
-	alarm_handlers = list(camera_alarm, motion_alarm)
+	alarm_handlers = list(GLOB.camera_alarm, GLOB.motion_alarm)
 
 /datum/computer_file/program/alarm_monitor/proc/register_alarm(var/object, var/procName)
 	for(var/datum/alarm_handler/AH in alarm_handlers)
@@ -92,7 +92,7 @@
 	if(.)
 		return
 	if(action == "switchTo")
-		var/obj/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
+		var/obj/structure/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 
@@ -111,7 +111,7 @@
 			var/list/lost_sources = list()
 
 			if(isAI(user))
-				for(var/obj/machinery/camera/C in A.cameras())
+				for(var/obj/structure/machinery/camera/C in A.cameras())
 					cameras += list(C.nano_structure())
 			for(var/datum/alarm_source/AS in A.sources)
 				if(!AS.source)

@@ -66,7 +66,7 @@
 	..()
 	if(name_language)
 		if(name_language == TRADER_DEFAULT_NAME)
-			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
+			name = capitalize(pick(GLOB.first_names_female + GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			var/datum/language/L = GLOB.all_languages[name_language]
 			if(L)
@@ -159,7 +159,7 @@
 	return replacetext(text, "ORIGIN", origin)
 
 /datum/trader/proc/print_trading_items(var/num)
-	num = Clamp(num,1,trading_items.len)
+	num = clamp(num,1,trading_items.len)
 	if(trading_items[num])
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
@@ -192,7 +192,7 @@
 /datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location, var/mob/user)
 	if(!offers || !offers.len)
 		return TRADER_NOT_ENOUGH
-	num = Clamp(num, 1, trading_items.len)
+	num = clamp(num, 1, trading_items.len)
 	var/offer_worth = 0
 	for(var/item in offers)
 		var/atom/movable/offer = item

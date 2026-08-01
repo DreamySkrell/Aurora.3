@@ -5,7 +5,8 @@
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
-	var/deactivated = FALSE // add wire to re-activate
+	/// Add wire to re-activate
+	var/deactivated = FALSE
 
 /obj/item/landmine/Initialize()
 	. = ..()
@@ -176,7 +177,11 @@
 	else if(attacking_item.force > 10 && deployed)
 		trigger(user)
 
-/obj/item/landmine/bullet_act()
+/obj/item/landmine/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(deployed)
 		trigger()
 
@@ -202,6 +207,9 @@
 	var/explosion_size = 3
 	var/spread_range = 7
 
+/obj/item/landmine/frag/deployed
+	deployed = TRUE
+
 /obj/item/landmine/frag/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
@@ -214,10 +222,10 @@
  */
 /obj/item/landmine/frag/door_rigging
 	name = "door rigging landmine"
-	fragment_damage = 20
+	fragment_damage = 10
 
 	///The airlock that we are observing for when it opens, to explode
-	var/obj/machinery/door/airlock/door_rigged
+	var/obj/structure/machinery/door/airlock/door_rigged
 
 //Prevent this mine to be used like a normal one
 /obj/item/landmine/frag/door_rigging/attack_self(mob/user)
@@ -227,7 +235,7 @@
 /obj/item/landmine/frag/door_rigging/resolve_attackby(atom/A, mob/user, click_parameters)
 	. = ..()
 
-	if(istype(A, /obj/machinery/door/airlock))
+	if(istype(A, /obj/structure/machinery/door/airlock))
 
 		door_rigged = A
 		var/turf/turf_under_door = get_turf(door_rigged)
@@ -299,6 +307,9 @@
 /obj/item/landmine/phoron
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/phoron/deployed
+	deployed = TRUE
+
 /obj/item/landmine/phoron/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -317,6 +328,9 @@
 /obj/item/landmine/n2o
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/n2o/deployed
+	deployed = TRUE
+
 /obj/item/landmine/n2o/trigger(mob/living/L)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -332,6 +346,9 @@
  */
 /obj/item/landmine/emp
 	icon_state = "emplandmine"
+
+/obj/item/landmine/emp/deployed
+	deployed = TRUE
 
 /obj/item/landmine/emp/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
@@ -367,7 +384,7 @@
 /obj/item/landmine/standstill/trigger(mob/living/triggerer)
 	if(!engaged_by && !deactivated)
 		to_chat(triggerer, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
-		engaged_by = ref(triggerer)
+		engaged_by = REF(triggerer)
 
 		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
 		//keep looking if the victim is still on the mine, and otherwise explode the mine
@@ -438,11 +455,14 @@
 	desc = "A landmine that projects sharpnels in a cone of explosion, towards one direction."
 	desc_extended = "A household name, this mine finds extensive use amongst military forces due to its ability to provide area penetration denial and aid ambushes. \
 	It is narrated that Gadpathur, its largest manufacturer in modern times, have built more of these mines than the census of the core planets of the Solarian Alliance."
-	desc_info = "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 	icon = 'icons/obj/item/landmine/claymore.dmi'
 	icon_state = "m20"
 	var/datum/wires/landmine/claymore/trigger_wire
-	var/obj/item/device/assembly/signaler/signaler
+	var/obj/item/assembly/signaler/signaler
+
+/obj/item/landmine/claymore/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 
 /obj/item/landmine/claymore/Initialize(mapload, ...)
 	. = ..()
@@ -458,7 +478,7 @@
 	icon_state = (src.deployed) ? "[initial(icon_state)]_active" : initial(icon_state)
 
 /obj/item/landmine/claymore/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/assembly/signaler))
+	if(istype(attacking_item, /obj/item/assembly/signaler))
 		if(!isnull(signaler))
 			to_chat(user, SPAN_NOTICE("There is already a signaler inserted in \the [src]."))
 			return
@@ -490,7 +510,7 @@
 		var/turf/to_hit = pick(candidate_turfs)
 
 		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
-		pellet.fire(Get_Angle(get_turf(src), to_hit))
+		pellet.fire(get_angle(get_turf(src), to_hit))
 
 	qdel(src)
 

@@ -1,6 +1,6 @@
 /obj/effect/landmark
 	name = "landmark"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x2"
 	anchored = TRUE
 	unacidable = TRUE
@@ -11,7 +11,7 @@
 INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/Initialize(mapload)
 	. = ..()
-	tag = text("landmark*[]", name)
+	tag = "landmark*[name]"
 	GLOB.landmarks_list += src
 
 /obj/effect/landmark/Destroy()
@@ -71,7 +71,17 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	GLOB.latejoin_living_quarters_lift += get_turf(src)
 	return INITIALIZE_HINT_QDEL
 
+/**
+ * # Latejoin medbay marker
+ */
 
+/obj/effect/landmark/latejoinmedbayrecovery
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoinmedbayrecovery/Initialize()
+	. = ..()
+	GLOB.latejoin_medbay_recovery += get_turf(src)
+	return INITIALIZE_HINT_QDEL
 
 /**
  * # Start marker
@@ -82,7 +92,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
  */
 /obj/effect/landmark/start
 	name = "start (rename me to match the job title)" //This is checked in the maplint `tools\maplint\lints\startmarker_unset.yml` file, if you change the name here, do there too
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x"
 
 /obj/effect/landmark/start/Initialize(mapload)

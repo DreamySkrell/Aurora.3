@@ -3,6 +3,7 @@
 	name = "wrists"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
+	gender = NEUTER
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
 	)
@@ -11,7 +12,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	siemens_coefficient = 1.0
 	var/flipped = 0
-	var/mob_wear_layer = WRISTS_LAYER_OVER
+	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
@@ -23,40 +24,34 @@
 	. = ..()
 	update_flip_verb()
 
+/obj/item/clothing/wrists/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "You can <b>Alt-Click</b> to adjust \the [src]'s layer."
+
 /obj/item/clothing/wrists/proc/update_flip_verb()
 	if((gender != PLURAL) && (flipped != -1)) // Check for plurality and whether it has a flipped icon.
-		verbs += /obj/item/clothing/wrists/watch/proc/swapwrists
+		verbs += /obj/item/clothing/wrists/watch/proc/swap_wrists
 
 /obj/item/clothing/wrists/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wristwear Layer"
 	set src in usr
 
-	var/list/options = list("Under Uniform" = WRISTS_LAYER_UNDER, "Over Uniform" = WRISTS_LAYER_UNIFORM, "Over Suit" = WRISTS_LAYER_OVER)
+	handle_change_layer(usr)
+
+/obj/item/clothing/wrists/AltClick(user)
+	handle_change_layer(user)
+
+/obj/item/clothing/wrists/proc/handle_change_layer(mob/user)
+	if(use_check_and_message(user))
+		return
+
+	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER_WR, "Over Uniform" = ABOVE_UNIFORM_LAYER_WR, "Over Suit" = ABOVE_SUIT_LAYER_WR)
 	var/new_layer = tgui_input_list(usr, "Position Wristwear", "Wristwear Style", options)
 	if(new_layer)
 		mob_wear_layer = options[new_layer]
 		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
 		update_clothing_icon()
-
-/obj/item/clothing/wrists/watch/proc/swapwrists()
-	set category = "Object"
-	set name = "Flip Wristwear"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return 0
-
-	flipped = !flipped
-	if(("[initial(icon_state)]_flip") in icon_states(icon))
-		icon_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] wrist.")
-	if(equip_sound)
-		playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
-	else
-		playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	update_clothing_icon()
 
 /obj/item/clothing/wrists/bracelet
 	name = "bracelet"
@@ -116,3 +111,18 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_bracers"
 	item_state = "ruby_bracers"
+
+/obj/item/clothing/wrists/newgibson_uraniumglass_bracelet
+	name = "uranium glass bracelet"
+	desc = "An enamelled, radiofluorescent uranium glass bracelet. Only marginally radioactive. Commonly seen worn on New Gibsonites."
+	icon = 'icons/obj/item/clothing/wrists/human/biesel/newgibson_uraniumglass_bracelet.dmi'
+	icon_state = "newgibson_bracelet"
+	item_state = "newgibson_bracelet"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
+/obj/item/clothing/wrists/newgibson_uraniumglass_bracelet/get_mob_overlay(var/mob/living/carbon/human/H)
+	var/image/I = ..()
+	I.plane = ABOVE_LIGHTING_PLANE
+	I.appearance_flags |= KEEP_APART
+	return I

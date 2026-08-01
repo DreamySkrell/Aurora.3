@@ -6,6 +6,7 @@
 	suffix = "mining_jack.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_mining_jack"
@@ -76,7 +77,7 @@
 	designation = "[pick("Rock Breaker", "Mining Zhan", "Flying Pickaxe", "Asteroid's Worst Nightmare", "Twin Suns Drills", "Minharrzka's Blessing", "Driller", "Stardust", "Dhrarmela's Smelter")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_mining_jack
 	name = "shuttle control console"
 	shuttle_tag = "Mining Jack"
 
