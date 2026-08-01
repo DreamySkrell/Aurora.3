@@ -11,7 +11,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark{
@@ -19,7 +19,7 @@
 	},
 /area/psis_outpost)
 "ch" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Outpost";
 	dir = 1
@@ -32,9 +32,11 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/turretid/lethal{
+/obj/structure/machinery/turretid/lethal{
 	pixel_y = 32;
-	req_access = list(209)
+	req_access = list(209);
+	check_arrest = 0;
+	check_records = 0
 	},
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/tiled/dark{
@@ -42,9 +44,11 @@
 	},
 /area/psis_outpost)
 "dd" = (
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -54,7 +58,7 @@
 	dir = 9
 	},
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/coffeemaster,
+/obj/structure/machinery/chemical_dispenser/coffeemaster,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -62,7 +66,7 @@
 "dO" = (
 /obj/structure/table/standard,
 /obj/item/melee/baton/stunrod,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/item/reagent_containers/spray/pepper,
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_x = 32
@@ -73,11 +77,11 @@
 /area/psis_outpost)
 "dP" = (
 /obj/structure/table/standard,
-/obj/item/device/taperecorder,
-/obj/machinery/light/small/red{
+/obj/item/taperecorder,
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
-/obj/item/device/camera/adhomai,
+/obj/item/camera/adhomai,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -110,7 +114,7 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/folder/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -138,7 +142,7 @@
 	pixel_x = -32;
 	stand_icon = null
 	},
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -167,7 +171,7 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -206,7 +210,7 @@
 	},
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -231,13 +235,16 @@
 	pixel_y = 5;
 	pixel_x = 8
 	},
+/obj/item/storage/box/syndie_kit/spy/hidden,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "lf" = (
-/obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -271,19 +278,19 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
+/obj/item/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "om" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "on" = (
@@ -292,7 +299,7 @@
 /area/psis_outpost)
 "oR" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -305,7 +312,7 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -333,7 +340,7 @@
 	},
 /area/psis_outpost)
 "rM" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Cells";
 	dir = 4
@@ -352,7 +359,7 @@
 /area/psis_outpost)
 "to" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 4
 	},
@@ -371,7 +378,7 @@
 	},
 /area/psis_outpost)
 "up" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "psis_outpost_shutter";
 	name = "Entry";
 	req_access = list(209);
@@ -388,6 +395,16 @@
 /obj/item/handcuffs,
 /obj/item/handcuffs,
 /turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/psis_outpost)
+"vc" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/machinery/light,
+/obj/structure/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
@@ -414,13 +431,13 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "wW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -443,12 +460,19 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"An" = (
+/obj/structure/machinery/turretid/lethal{
+	pixel_y = 32;
+	req_access = list(209)
+	},
+/turf/simulated/wall/r_wall,
+/area/psis_outpost)
 "Bh" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/storage/box/lights{
 	pixel_y = 14
 	},
@@ -482,18 +506,18 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "Cz" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Outpost";
 	dir = 1
 	},
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "psis_outpost_shutter"
 	},
 /turf/simulated/floor/tiled/dark{
@@ -519,8 +543,8 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/vending/cola,
-/obj/machinery/light{
+/obj/structure/machinery/vending/cola,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -536,7 +560,7 @@
 	},
 /area/psis_outpost)
 "Hc" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -548,11 +572,11 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Iy" = (
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	dir = 8;
 	req_access = list(209)
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "psis_cell"
 	},
 /turf/simulated/floor/reinforced{
@@ -590,7 +614,7 @@
 /area/psis_outpost)
 "JZ" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
 	req_access = list(209);
 	department = "Unknown Signal"
@@ -598,7 +622,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -614,7 +638,7 @@
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/radiation,
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	req_access = null;
 	pixel_y = 31
 	},
@@ -627,7 +651,7 @@
 /area/psis_outpost)
 "KF" = (
 /obj/effect/floor_decal/corner/black/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -661,14 +685,14 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/storage/box/folders,
 /obj/structure/closet/crate,
 /obj/item/storage/box/folders,
 /obj/item/storage/box/folders,
-/obj/item/storage/field_ration,
-/obj/item/storage/field_ration,
-/obj/item/storage/field_ration,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
@@ -706,7 +730,7 @@
 /area/psis_outpost)
 "NA" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "psis_cell"
 	},
 /turf/simulated/floor/reinforced{
@@ -756,7 +780,7 @@
 /area/psis_outpost)
 "Qx" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -769,7 +793,7 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -778,7 +802,7 @@
 	},
 /area/psis_outpost)
 "RM" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -791,12 +815,12 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -819,7 +843,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
 	},
@@ -828,7 +852,7 @@
 	},
 /area/psis_outpost)
 "TJ" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Office";
 	dir = 4
@@ -848,7 +872,7 @@
 /obj/item/reagent_containers/glass/bottle/stoxin,
 /obj/item/reagent_containers/glass/bottle/polysomnine,
 /obj/item/reagent_containers/glass/beaker/vial/random,
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -856,7 +880,7 @@
 	},
 /area/psis_outpost)
 "UM" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Interrogation";
 	dir = 1
@@ -903,7 +927,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -913,9 +937,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -939,8 +963,8 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/vending/coffee,
-/obj/machinery/light{
+/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -948,7 +972,7 @@
 	},
 /area/psis_outpost)
 "XH" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_y = 32;
 	req_access = list(209)
 	},
@@ -968,7 +992,7 @@
 	},
 /area/psis_outpost)
 "XU" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/bedsheetbin,
@@ -1030,12 +1054,16 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/automatic/tommygun,
-/obj/item/ammo_magazine/submachinedrum,
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
 /obj/item/gun/energy/rifle/icelance,
+/obj/item/ammo_magazine/submachinedrum,
 /obj/item/gun/energy/pistol,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinedrum,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1508,7 +1536,7 @@ Mq
 Mq
 Mq
 Mq
-Mq
+An
 Mq
 jx
 Kl
@@ -1665,7 +1693,7 @@ Mq
 lf
 Hc
 Tn
-dd
+vc
 Mq
 Ke
 Tn

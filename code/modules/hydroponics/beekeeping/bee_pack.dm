@@ -5,13 +5,17 @@
 	icon_state = "bee_pack"
 	var/full = TRUE
 
+/obj/item/bee_pack/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Insert this into a beehive with an open lid to populate it with bees."
+
 /obj/item/bee_pack/Initialize()
 	. = ..()
-	add_overlay("bee_pack-full")
+	AddOverlays("bee_pack-full")
 
 /obj/item/bee_pack/update_icon()
-	cut_overlays()
-	add_overlay("bee_pack-[full ? "full" : "empty"]")
+	ClearOverlays()
+	AddOverlays("bee_pack-[full ? "full" : "empty"]")
 
 /obj/item/bee_pack/proc/empty()
 	name = "empty bee pack"

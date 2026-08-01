@@ -17,9 +17,18 @@
 	SSexplosives.queue(data)
 
 	//Machines which report explosions.
-	for(var/thing in doppler_arrays)
-		var/obj/machinery/doppler_array/Array = thing
+	var/list/invalid_doppler_arrays
+	for(var/thing in GLOB.doppler_arrays)
+		if(!istype(thing, /obj/structure/machinery/doppler_array))
+			LAZYADD(invalid_doppler_arrays, thing)
+			continue
+		var/obj/structure/machinery/doppler_array/Array = thing
+		if(QDELETED(Array))
+			LAZYADD(invalid_doppler_arrays, thing)
+			continue
 		Array.sense_explosion(epicenter.x,epicenter.y,epicenter.z,devastation_range,heavy_impact_range,light_impact_range)
+	if(invalid_doppler_arrays)
+		GLOB.doppler_arrays -= invalid_doppler_arrays
 
 // == Recursive Explosions stuff ==
 
@@ -31,21 +40,3 @@
 	d.epicenter = T
 	d.rec_pow = power
 	SSexplosives.queue(d)
-
-/atom
-	var/explosion_resistance
-
-/turf/space
-	explosion_resistance = 3
-
-/turf/simulated/open
-	explosion_resistance = 3
-
-/turf/simulated/floor
-	explosion_resistance = 1
-
-/turf/simulated/mineral
-	explosion_resistance = 2
-
-/turf/simulated/wall
-	explosion_resistance = 10

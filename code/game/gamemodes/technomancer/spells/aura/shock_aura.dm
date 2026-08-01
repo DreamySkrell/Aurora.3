@@ -19,11 +19,12 @@
 /obj/item/spell/aura/shock/process()
 	if(!pay_energy(500))
 		qdel(src)
+		return
 	var/list/nearby_mobs = range(calculate_spell_power(4), owner)
 	var/power = calculate_spell_power(7)
 	if(check_for_scepter())
 		power = calculate_spell_power(15)
-	for(var/obj/machinery/light/light in range(calculate_spell_power(7), owner))
+	for(var/obj/structure/machinery/light/light in range(calculate_spell_power(7), owner))
 		light.flicker()
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
@@ -33,7 +34,7 @@
 			continue
 
 		if(L.isSynthetic())
-			to_chat(L, "<span class='danger'>ERROR: Electrical fault detected!</span>")
+			to_chat(L, SPAN_DANGER("ERROR: Electrical fault detected!"))
 			L.stuttering += 3
 
 		if(ishuman(L))

@@ -4,7 +4,7 @@
 /mob/living/heavy_vehicle/handle_status_effects()
 	return
 
-/mob/living/heavy_vehicle/Life()
+/mob/living/heavy_vehicle/Life(seconds_per_tick, times_fired)
 
 	// Size offsets for large mechs.
 	if(offset_x && pixel_x != offset_x)
@@ -67,11 +67,11 @@
 	if(following)
 		if(isturf(loc) && can_move())
 			if(resolved_following)
-				SSmove_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
+				GLOB.move_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
 			else
 				unassign_following()
 		else
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 
 /mob/living/heavy_vehicle/get_cell(force)
 	RETURN_TYPE(/obj/item/cell)
@@ -106,7 +106,7 @@
 		apply_damage(damage = environment.temperature /5 , damagetype = DAMAGE_BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
-			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
+			visible_message(SPAN_DANGER("\The [src]'s hull bends and buckles under the intense heat!"))
 
 /mob/living/heavy_vehicle/death(var/gibbed)
 	// Salvage moves into the wreck unless we're exploding violently.
@@ -131,7 +131,8 @@
 			pilot.body_return()
 			eject(pilot, silent=1)
 			if(remote_network && istype(pilot, /mob/living/simple_animal/spiderbot))
-				gib(pilot)
+				pilot.gib()
+				pilots.Remove(pilot)
 
 	// Handle the rest of things.
 	..(gibbed, (gibbed ? "explodes!" : "grinds to a halt before collapsing!"))
@@ -168,6 +169,7 @@
 	if(head)
 		sight = head.get_sight(powered)
 		see_invisible = head.get_invisible(powered)
+		lighting_alpha = head.get_lighting_alpha(power_profiled_time)
 	if(!hatch_closed || (body && (body.pilot_coverage < 100 || body.transparent_cabin)))
 		sight &= ~BLIND
 

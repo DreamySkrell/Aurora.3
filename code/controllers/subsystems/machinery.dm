@@ -1,26 +1,22 @@
 #define SSMACHINERY_PIPENETS 1
 #define SSMACHINERY_MACHINERY 2
 #define SSMACHINERY_POWERNETS 3
-#define SSMACHINERY_POWER_OBJECTS 4
 
 
 #define START_PROCESSING_IN_LIST(Datum, List) \
-if (Datum.isprocessing) {\
-	if(Datum.isprocessing != "SSmachinery.[#List]")\
-	{\
-		crash_with("Failed to start processing. [log_info_line(Datum)] is already being processed by [Datum.isprocessing] but queue attempt occured on SSmachinery.[#List]."); \
-	}\
+if (Datum.datum_flags & DF_ISPROCESSING) {\
+		crash_with("Failed to start processing. [log_info_line(Datum)] is already being processed but queue attempt occured on SSmachinery.[#List]."); \
 } else {\
-	Datum.isprocessing = "SSmachinery.[#List]";\
+	Datum.datum_flags |= DF_ISPROCESSING;\
 	SSmachinery.List += Datum;\
 }
 
 #define STOP_PROCESSING_IN_LIST(Datum, List) \
-if(Datum.isprocessing) {\
+if(Datum.datum_flags & DF_ISPROCESSING) {\
 	if(SSmachinery.List.Remove(Datum)) {\
-		Datum.isprocessing = null;\
+		(Datum.datum_flags &= ~DF_ISPROCESSING);\
 	} else {\
-		crash_with("Failed to stop processing. [log_info_line(Datum)] is being processed by [isprocessing] and not found in SSmachinery.[#List]"); \
+		crash_with("Failed to stop processing. [log_info_line(Datum)] is being processed and not found in SSmachinery.[#List]"); \
 	}\
 }
 
@@ -30,42 +26,44 @@ if(Datum.isprocessing) {\
 #define START_PROCESSING_POWERNET(Datum) START_PROCESSING_IN_LIST(Datum, powernets)
 #define STOP_PROCESSING_POWERNET(Datum) STOP_PROCESSING_IN_LIST(Datum, powernets)
 
-#define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
-#define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
-
 SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
-	priority = SS_PRIORITY_MACHINERY
 	init_order = INIT_ORDER_MACHINES
-	flags = SS_POST_FIRE_TIMING
+	priority = SS_PRIORITY_MACHINERY
+	flags = SS_KEEP_TIMING
 	wait = 2 SECONDS
 
 	var/static/tmp/current_step = SSMACHINERY_PIPENETS
 	var/static/tmp/cost_pipenets = 0
 	var/static/tmp/cost_machinery = 0
 	var/static/tmp/cost_powernets = 0
-	var/static/tmp/cost_power_objects = 0
 	var/static/tmp/list/pipenets = list()
 	var/static/tmp/list/machinery = list()
 	var/static/tmp/list/powernets = list()
-	var/static/tmp/list/power_objects = list()
 	var/static/tmp/list/processing = list()
 	var/static/tmp/list/queue = list()
 
 	var/list/all_cameras = list()
-	var/list/obj/machinery/hologram/holopad/all_holopads = list()
+	var/list/obj/structure/machinery/hologram/holopad/all_holopads = list()
+	var/list/obj/structure/machinery/power/apc/all_apcs = list()
+	var/list/obj/structure/machinery/light/all_lights = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
-	var/list/obj/machinery/telecomms/all_telecomms = list()
-	var/list/obj/machinery/telecomms/all_receivers = list()
+	var/list/obj/structure/machinery/telecomms/all_telecomms = list()
+	var/list/obj/structure/machinery/telecomms/all_receivers = list()
 
 	var/list/rcon_smes_units = list()
 	var/list/rcon_smes_units_by_tag = list()
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
 	var/list/smes_units = list()
+	var/list/apc_units = list()
 	var/list/all_sensors = list()
 
 	var/list/slept_in_process = list()
@@ -73,9 +71,15 @@ SUBSYSTEM_DEF(machinery)
 	// Cooking stuff. Not substantial enough to get its own SS, so it's shoved in here.
 	var/list/recipe_datums = list()
 
+	// LEMURIAN SEA ARC SNOWFLAKE: Break one random ship light every few minutes. REMOVE AFTER ARC
+	var/next_arc_light_break = 0
+
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
+	all_apcs = SSmachinery.all_apcs
+	all_lights = SSmachinery.all_lights
+	next_arc_light_break = SSmachinery.next_arc_light_break
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors
@@ -87,6 +91,7 @@ SUBSYSTEM_DEF(machinery)
 	makepowernets()
 	build_rcon_lists()
 	setup_atmos_machinery(machinery)
+	next_arc_light_break = world.time + 3 MINUTES // LEMURIAN SEA, REMOVE AFTER ARC
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 
 	return SS_INIT_SUCCESS
@@ -115,15 +120,12 @@ SUBSYSTEM_DEF(machinery)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
 		if(state != SS_RUNNING && initialized)
 			return
-		current_step = SSMACHINERY_POWER_OBJECTS
-		resumed = FALSE
-	if (current_step == SSMACHINERY_POWER_OBJECTS)
-		timer = world.tick_usage
-		process_power_objects(resumed, no_mc_tick)
-		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING && initialized)
-			return
 		current_step = SSMACHINERY_PIPENETS
+		resumed = FALSE
+	// LEMURIAN SEA, REMOVE AFTER ARC
+	if(!resumed && world.time >= next_arc_light_break)
+		break_random_arc_light()
+		next_arc_light_break = world.time + 3 MINUTES
 
 /datum/controller/subsystem/machinery/proc/makepowernets()
 	for(var/datum/powernet/powernet as anything in powernets)
@@ -141,18 +143,18 @@ SUBSYSTEM_DEF(machinery)
 
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
 	var/list/atmos_machines = list()
-	for (var/obj/machinery/atmospherics/machine in machines)
+	for (var/obj/structure/machinery/atmospherics/machine in machines)
 		if(QDELETED(machine))
 			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
 	log_subsystem("machinery", "Initializing atmos machinery.")
-	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+	for (var/obj/structure/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.atmos_init()
 		CHECK_TICK
 	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
 	log_subsystem("machinery", "Initializing pipe networks.")
-	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+	for (var/obj/structure/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.build_network()
 		CHECK_TICK
 
@@ -160,14 +162,15 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = pipenets.Copy()
 	var/datum/pipe_network/network
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		network = queue[i]
 		if (QDELETED(network))
 			if (network)
-				network.isprocessing = null
+				network.datum_flags &= ~DF_ISPROCESSING
 			pipenets -= network
 			continue
-		network.process(wait * 0.1)
+		network.process(seconds_per_tick)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -177,7 +180,8 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/proc/process_machinery(resumed, no_mc_tick)
 	if (!resumed)
 		queue = processing.Copy()
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
 
@@ -186,7 +190,7 @@ SUBSYSTEM_DEF(machinery)
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
 			if(machine in processing)
 				processing.Remove(machine)
-				machine.isprocessing = null
+				machine.datum_flags &= ~DF_ISPROCESSING
 				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				continue
 			else if(resumed)
@@ -200,12 +204,12 @@ SUBSYSTEM_DEF(machinery)
 
 		if (QDELETED(machine))
 			if (machine)
-				machine.isprocessing = null
+				machine.datum_flags &= ~DF_ISPROCESSING
 			processing -= machine
 			continue
 		//process_all was moved here because of calls overhead for no benefits
 		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
-			if(machine.process(wait * 0.1) == PROCESS_KILL)
+			if(machine.process(seconds_per_tick) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
 		if (no_mc_tick)
@@ -222,7 +226,7 @@ SUBSYSTEM_DEF(machinery)
 		network = queue[i]
 		if (QDELETED(network))
 			if (network)
-				network.isprocessing = null
+				network.datum_flags &= ~DF_ISPROCESSING
 			powernets -= network
 			continue
 		network.reset(wait)
@@ -232,25 +236,26 @@ SUBSYSTEM_DEF(machinery)
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/proc/process_power_objects(resumed, no_mc_tick)
-	if (!resumed)
-		queue = power_objects.Copy()
-	var/obj/item/item
-	for (var/i = queue.len to 1 step -1)
-		item = queue[i]
-		if (QDELETED(item))
-			if (item)
-				item.isprocessing = null
-			power_objects -= item
+/// LEMURIAN SEA, REMOVE AFTER ARC
+/datum/controller/subsystem/machinery/proc/break_random_arc_light()
+	var/list/valid_lights = list()
+	for(var/obj/structure/machinery/light/light as anything in all_lights)
+		if(QDELETED(light))
 			continue
-		if (!item.pwr_drain(wait))
-			item.isprocessing = null
-			power_objects -= item
-		if (no_mc_tick)
-			CHECK_TICK
-		else if (MC_TICK_CHECK)
-			queue.Cut(i)
-			return
+		if(!is_station_level(light.z))
+			continue
+		if(light.status != LIGHT_OK)
+			continue
+		valid_lights += light
+
+	if(!length(valid_lights))
+		return
+
+	var/number_lights_broken = rand(1,4)
+	var/obj/structure/machinery/light/chosen_light
+	for(var/n = 0 to number_lights_broken)
+		chosen_light = pick(valid_lights)
+		chosen_light.broken()
 
 /datum/controller/subsystem/machinery/stat_entry(msg)
 	msg = {"\n\
@@ -258,12 +263,10 @@ SUBSYSTEM_DEF(machinery)
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
 		Networks [powernets.len] \
-		Objects [power_objects.len]\n\
 		Costs: \
 		Pipes [round(cost_pipenets, 1)] \
 		Machines [round(cost_machinery, 1)] \
 		Networks [round(cost_powernets, 1)] \
-		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
 	"}
 	return ..()
@@ -279,12 +282,12 @@ SUBSYSTEM_DEF(machinery)
 	rcon_breaker_units.Cut()
 	rcon_breaker_units_by_tag.Cut()
 
-	for(var/obj/machinery/power/smes/buildable/SMES in smes_units)
+	for(var/obj/structure/machinery/power/smes/buildable/SMES in smes_units)
 		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
 			rcon_smes_units += SMES
 			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
 
-	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
+	for(var/obj/structure/machinery/power/breakerbox/breaker in breaker_boxes)
 		if(breaker.RCon_tag != "NO_TAG")
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
@@ -295,4 +298,3 @@ SUBSYSTEM_DEF(machinery)
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY
 #undef SSMACHINERY_POWERNETS
-#undef SSMACHINERY_POWER_OBJECTS

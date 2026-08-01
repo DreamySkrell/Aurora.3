@@ -10,7 +10,10 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	/// This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	var/lightlevel = 0
+	/// Change this to have the light be a different color. Useful for planets with special suns
+	var/lightcolor = COLOR_WHITE
 	var/night = TRUE
 
 // Fluff, specifically for celestial objects.
@@ -20,6 +23,10 @@
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
 	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
+	var/magnet_strength = "No magnetic field detected"
+	var/magnet_difference = "N/A"
+	var/day_length = "~1 BCY (Biesel Cycles)"
+	var/magnet_particles = "N/A"
 
 	var/maxx
 	var/maxy
@@ -54,8 +61,14 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
-	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
 	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
+	/// Whether the weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether the weather system supports having icy weather
+	var/has_icy_weather = FALSE
 
 	var/features_budget = 4
 	var/list/possible_features = list()
@@ -76,6 +89,8 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	///The random name generated for the planet by generate_planet_name()
+	var/planet_name
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
@@ -137,11 +152,11 @@
 	planetary_area = new planetary_area()
 
 	if(generated_name)
-		name = "[generate_planet_name()], \a [name]"
+		planet_name = generate_planet_name()
+		name = "[planet_name], \a [name]"
 
-	world.maxz++
-	forceMove(locate(1,1,world.maxz))
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
+	forceMove(locate(1, 1, exoplanet_level.z_value))
 
 	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
@@ -205,6 +220,7 @@
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -249,8 +265,7 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
-					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
+					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -269,23 +284,25 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
+/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
-	GLOB.death_event.unregister(M, src)
-	GLOB.destroyed_event.unregister(M, src)
+	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
+
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
+	// Generate the exoplanet surface using the exoplanet theme.
+	// Here `/turf/space` is used, as this is what new zlevels are created with.
 	theme.before_map_generation(src)
-	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+	theme.generate_map(map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE), /turf/space)
 
 	for (var/zlevel in map_z)
 		var/list/edges
@@ -309,11 +326,11 @@
 		adapt_animal(A)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
-	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
-	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
-	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
-	S.set_trait(TRAIT_SPREAD,0)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, XGM_PRESSURE(atmosphere) + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, XGM_PRESSURE(atmosphere) + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)
@@ -321,7 +338,7 @@
 			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
 		for(var/g in atmosphere.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
-				S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])
@@ -403,7 +420,7 @@
 					break
 			// Landability check - try to find an already-open space for an LZ
 			if(attempts >= 10)
-				if(check_collision(T.loc, block_to_check))
+				if(check_collision(block_to_check))
 					valid = FALSE
 			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
 				new_type = /obj/effect/shuttle_landmark/automatic/clearing
@@ -423,11 +440,13 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
-		if(prob(90)) //all phoron planet should be rare
-			newgases -= GAS_PHORON
+		newgases -= GAS_PHORON
+		newgases -= GAS_DEUTERIUM
+		newgases -= GAS_TRITIUM
+		newgases -= GAS_HELIUMFUEL
+		newgases -= GAS_WATERVAPOR
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
-		newgases -= GAS_STEAM
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0
@@ -471,6 +490,7 @@
 	. += "<br><large><b>[name]</b></large></center>"
 	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
 	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Governing Body: </b><small>[alignment]</small>"
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"
@@ -491,7 +511,7 @@
 				gases += gas_data.name[g]
 		extra_data += "<b>Atmosphere composition:</b> [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "<b>Atmosphere pressure:</b> [atmosphere.return_pressure()*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
+		extra_data += "<b>Atmosphere pressure:</b> [XGM_PRESSURE(atmosphere)*inaccuracy] kPa, <b>temperature:</b> [atmosphere.temperature*inaccuracy] K"
 
 	if(seeds.len)
 		extra_data += "<br>Unrecognized xenoflora detected."
@@ -511,10 +531,6 @@
 			extra_data += "<hr>[ruin_num] possible artificial structure\s detected."
 
 	. += jointext(extra_data, "<br>")
-
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
-	return skybox_image
-
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
@@ -543,7 +559,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
 	initial_weather_state = W
 	//Tells all our levels exposed to the sky to force change the weather.
-	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	var/obj/abstract/weather_system/new_weather_system = SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	new_weather_system.has_water_weather = has_water_weather
+	new_weather_system.has_icy_weather = has_icy_weather
 
 ///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()

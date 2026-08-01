@@ -1,13 +1,9 @@
-/atom/movable
-	/** Used to check wether or not an atom is being handled by SSfalling. */
-	var/tmp/multiz_falling = 0
-
 /**
  * Verb for the mob to move up a z-level if possible.
  */
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
@@ -16,8 +12,8 @@
  * Verb for the mob to move down a z-level if possible.
  */
 /mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
+	set name = "Move Downwards"
+	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
 		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))
@@ -31,8 +27,9 @@
  *			FALSE otherwise.
  */
 /mob/proc/zMove(direction)
-	// In the case of an active eyeobj, move that instead.
-	if (eyeobj)
+	// If the calling mob has an active eyeobj reference, we move it instead.
+	// This is important because zMove is called from the actual mob and not the eyeobj they're controlling.
+	if(eyeobj)
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.
@@ -40,7 +37,8 @@
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
 		return FALSE
 
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 
 	if(!destination)
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
@@ -97,21 +95,24 @@
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
-		var/obj/machinery/atmospherics/pipe/zpipe/P = loc
+		var/obj/structure/machinery/atmospherics/pipe/zpipe/P = loc
 		if (istype(P) && P.can_z_crawl(src, direction))
 			return P.handle_z_crawl(src, direction)
 
 	return ..()
 
 /mob/abstract/eye/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/abstract/observer/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+// Both observers and storytellers depend on this to be able to move through z-levels freely!
+/mob/abstract/ghost/zMove(direction)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 	else
@@ -130,7 +131,7 @@
 		return TRUE
 	return FALSE
 
-/mob/abstract/observer/can_ztravel(var/direction)
+/mob/abstract/ghost/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
@@ -151,9 +152,9 @@
 /mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
 	if(direction == UP)
-		destination = GetAbove(source)
+		destination = GET_TURF_ABOVE(source)
 	else
-		destination = GetBelow(source)
+		destination = GET_TURF_BELOW(source)
 
 	if(!destination)
 		return
@@ -225,7 +226,7 @@
 	return 1
 
 /mob/living/silicon/robot/can_ztravel(var/direction)
-	if(incapacitated() || is_dead())
+	if(incapacitated() || (stat == DEAD))
 		return FALSE
 
 	if(Allow_Spacemove()) //Checks for active jetpack
@@ -327,7 +328,7 @@
 /obj/item/pipe/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	. = ..()
 
-	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
+	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/structure/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
 /mob/can_fall()
@@ -455,7 +456,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -478,7 +479,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -499,7 +500,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -607,8 +608,8 @@
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
-		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
-			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+		visible_message(SPAN_WARNING("\The [src] falls and lands on their face!"),
+			SPAN_DANGER("With a loud thud, you land on your head. Hard."), "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
 		if(prob(20) && head && head.dislocated != -1)
@@ -634,11 +635,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, SFX_PUNCH, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -663,7 +664,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
+	if(istype(loc, /turf/simulated/floor/exoplanet/asteroid))
 		damage /= 2
 
 	health -= (damage * brute_dam_coeff)
@@ -777,26 +778,22 @@
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
 
-/mob/living
-	var/atom/movable/z_observer/z_eye
-
 /atom/movable/z_observer
 	name = ""
 	simulated = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
+	/// The mob that this observer belongs to.
 	var/mob/living/owner
-	var/tile_shifted = FALSE
+	/// The physical open-space turf we are watching.
+	var/turf/target_turf
 
-/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
+/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/turf/given_turf)
 	. = ..()
 	owner = user
-	if(tile_shift)
-		var/turf/T = get_step(owner, owner.dir)
-		forceMove(T)
-		tile_shifted = TRUE
+	target_turf = given_turf
 	follow()
-	GLOB.moved_event.register(owner, src, PROC_REF(follow))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -811,20 +808,20 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	var/turf/down_step = get_step(tile_shifted ? src : owner, DOWN)
+	var/turf/down_step = get_step(target_turf, DOWN)
 	/// If we move down more than 1 step, don't move down again.
 	if((GET_Z(owner) - down_step.z) < 2)
 		forceMove(down_step)
-	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && TURF_IS_MIMICING(T))
+	if(owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner = null
+	target_turf = null
 	. = ..()
 
 /atom/movable/z_observer/can_fall()

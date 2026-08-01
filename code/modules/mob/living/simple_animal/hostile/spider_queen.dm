@@ -13,7 +13,7 @@
 	emote_hear = list("chitters")
 	speak_chance = 5
 	turns_per_move = 5
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"
@@ -22,10 +22,11 @@
 	blood_type = "#51C404"
 	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 1000
+	maxhealth = 1000
 	health = 1000
 	melee_damage_lower = 35
 	melee_damage_upper = 40
+	melee_reach = 2
 	armor_penetration = 30
 	resist_mod = 15 // LOL good luck pal
 	heat_damage_per_tick = 20
@@ -33,21 +34,15 @@
 	faction = "spiders"
 	fed = 3
 
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
-
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	attacktext = "bit"
+	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
-	move_to_delay = 6
-	speed = -1
+	speed = 6
 	mob_size = 15
 	environment_smash = 2
 
@@ -68,11 +63,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
 	..()
-
-	if(hovering)
+	if(stat == DEAD)
+		icon_state = icon_dead
+	else if(hovering)
 		icon_state = "spider_queen_shadow"
+	else if (stat == UNCONSCIOUS || resting)
+		icon_state = icon_rest
 	else
-		icon_state = initial(icon_state)
+		icon_state = icon_living
+
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
@@ -118,13 +117,15 @@
 	S.layer = initial(S.layer)
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
-		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
+		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN)
 	return TRUE
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
+	if (stat == DEAD)
+		return 0
 	adjustBruteLoss(-3)

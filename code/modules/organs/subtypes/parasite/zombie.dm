@@ -108,7 +108,7 @@
 					var/list/brute_wounds = list()
 					for(var/wound in O.wounds)
 						var/datum/wound/W = wound
-						if(W.damage_type in list(CUT, BRUISE, PIERCE))
+						if(W.damage_type in list(INJURY_TYPE_CUT, INJURY_TYPE_BRUISE, INJURY_TYPE_PIERCE))
 							brute_wounds += W
 					for(var/wound in brute_wounds)
 						var/datum/wound/W = wound
@@ -123,7 +123,7 @@
 					break
 
 		if(prob(10) && (owner.can_feel_pain()))
-			to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
+			to_chat(owner, SPAN_WARNING("You feel a burning sensation on your skin!"))
 			owner.make_jittery(10)
 
 /obj/item/organ/internal/parasite/zombie/process_stage()

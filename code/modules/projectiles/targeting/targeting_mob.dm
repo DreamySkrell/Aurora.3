@@ -1,10 +1,3 @@
-/mob/living
-	///The obj to overlay on the aim target
-	var/obj/aiming_overlay/aiming
-
-	///A list of mobs the target is being aimed at by
-	var/list/aimed_at_by
-
 /mob/verb/toggle_gun_mode()
 	set name = "Toggle Gun Mode"
 	set desc = "Begin or stop aiming."
@@ -42,17 +35,3 @@
 /mob/living/Weaken(amount)
 	stop_aiming(no_message=TRUE)
 	..()
-
-/mob/living/Destroy()
-	if(aiming)
-		qdel(aiming)
-		aiming = null
-
-	QDEL_LIST(aimed_at_by)
-
-	if(vr_mob)
-		vr_mob = null
-	if(old_mob)
-		old_mob = null
-	return ..()
-

@@ -1,7 +1,3 @@
-/mob
-	var/list/default_emotes = list()
-	var/list/usable_emotes = list()
-
 /mob/proc/update_emotes(var/skip_sort)
 	usable_emotes.Cut()
 	for(var/emote in default_emotes)
@@ -10,10 +6,6 @@
 			usable_emotes[emote_datum.key] = emote_datum
 	if(!skip_sort)
 		usable_emotes = sortAssoc(usable_emotes)
-
-/mob/Initialize()
-	. = ..()
-	update_emotes()
 
 // Specific defines follow.
 /mob/living/carbon/alien
@@ -67,7 +59,7 @@
 		)
 
 /mob/living/carbon/brain/can_emote()
-	return (istype(container, /obj/item/device/mmi) && ..())
+	return (istype(container, /obj/item/mmi) && ..())
 
 /mob/living/carbon/brain
 	default_emotes = list(
@@ -89,6 +81,7 @@
 		/singleton/emote/audible/synth/buzz,
 		/singleton/emote/audible/synth/confirm,
 		/singleton/emote/audible/synth/deny,
+		/singleton/emote/audible/synth/alarm,
 		/singleton/emote/visible/nod,
 		/singleton/emote/visible/shake,
 		/singleton/emote/visible/shiver,

@@ -23,8 +23,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/wood/airless,
@@ -33,7 +33,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
 	welded = 1
@@ -43,7 +43,7 @@
 "am" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -72,24 +72,25 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
+/mob/living/simple_animal/hostile/hivebot/guardian,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "aw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "ax" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -100,7 +101,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "aA" = (
@@ -111,7 +112,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/atmos)
 "aE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -145,6 +146,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood/oil/streak,
+/mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "aP" = (
@@ -152,29 +154,29 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood/airless,
 /area/hivebothub/dorm2)
 "aV" = (
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "aW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "aY" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	start_charge = 0
 	},
 /obj/structure/cable/green,
@@ -196,6 +198,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "bn" = (
@@ -203,7 +206,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "bq" = (
@@ -218,8 +221,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "bw" = (
@@ -235,13 +238,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -256,7 +259,7 @@
 	pixel_y = 4;
 	pixel_x = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -274,7 +277,7 @@
 /area/hivebothub/exterior)
 "bI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Washroom"
 	},
@@ -283,16 +286,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/washroom)
 "bL" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/alarm/south,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/alarm/south,
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_4";
 	dir = 4;
@@ -309,10 +312,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -339,6 +342,7 @@
 	},
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/effect/decal/cleanable/floor_damage/broken5,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "bX" = (
@@ -369,17 +373,17 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "cg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_1"
 	},
@@ -431,17 +435,17 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "cE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Dining Quarters";
 	dir = 4
@@ -449,10 +453,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -468,10 +472,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -485,8 +489,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 8;
 	pixel_y = -7
@@ -510,6 +514,7 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/blood/oil/streak,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "cO" = (
@@ -527,7 +532,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/item/stack/material/graphite{
@@ -539,7 +544,7 @@
 /area/hivebothub/portdocks)
 "cT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Secure Storage"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -548,7 +553,7 @@
 "cU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hivebot_starboard_shutter_2"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -570,11 +575,11 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -589,10 +594,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "do" = (
@@ -606,10 +611,10 @@
 	dir = 5
 	},
 /obj/item/broken_bottle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -625,6 +630,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/bridge)
+"dz" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "dE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -647,20 +658,16 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/hivebothub/dorm1)
-"dK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+"dY" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, secure storage"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/janitorialcart{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/hivebothub/atmos)
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "dZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -669,13 +676,11 @@
 /turf/simulated/floor/airless,
 /area/hivebothub/engi)
 "ea" = (
-/obj/item/ore/glass{
-	pixel_y = 8;
-	pixel_x = -5
-	},
-/obj/item/stack/rods,
-/obj/structure/girder,
-/turf/simulated/floor/airless,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "ec" = (
 /turf/simulated/wall/r_wall,
@@ -685,7 +690,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "eh" = (
@@ -707,17 +712,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "em" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_4"
 	},
@@ -726,7 +731,7 @@
 /area/hivebothub/secure)
 "ez" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -754,8 +759,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "eD" = (
@@ -793,7 +798,7 @@
 "eN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
@@ -824,19 +829,29 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
-"eX" = (
+"eU" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/turf/simulated/floor/airless,
+/area/hivebothub/atmos)
+"eX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "eY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/chlorine,
+/obj/structure/machinery/portable_atmospherics/canister/chlorine,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "fd" = (
@@ -851,7 +866,7 @@
 "ff" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -868,7 +883,7 @@
 "fo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "fu" = (
@@ -899,10 +914,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/centralhall)
 "fC" = (
@@ -923,7 +938,7 @@
 "fN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil/streak,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -934,10 +949,10 @@
 "fP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
@@ -945,7 +960,7 @@
 "fQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
 	welded = 1
@@ -984,10 +999,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_starboard_shutter_3";
 	pixel_y = -21
@@ -996,21 +1011,19 @@
 /area/hivebothub/starboarddocks)
 "ga" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "gb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "gd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1022,13 +1035,17 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/effect/decal/cleanable/floor_damage/broken1,
+/mob/living/simple_animal/hostile/hivebot/bomber,
+/mob/living/simple_animal/hostile/hivebotbeacon/weakened,
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/obj/effect/decal/cleanable/floor_damage/broken0,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/centralhall)
 "gg" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1041,10 +1058,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/item/defibrillator/loaded{
@@ -1087,10 +1104,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -1113,10 +1130,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -1133,10 +1150,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -1172,13 +1188,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -1204,7 +1220,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1219,10 +1235,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1239,10 +1255,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1262,16 +1278,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "hD" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "hJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
@@ -1286,10 +1302,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1298,12 +1314,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "ic" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "ig" = (
@@ -1317,13 +1333,14 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/blood/oil/streak,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "ij" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 22;
 	pixel_x = 5
 	},
@@ -1339,20 +1356,20 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "iw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "iy" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/structure/reagent_dispensers/fueltank,
@@ -1360,7 +1377,7 @@
 /area/hivebothub/portdocks)
 "iA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_6"
 	},
@@ -1368,7 +1385,7 @@
 /area/hivebothub/secure)
 "iF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
@@ -1391,10 +1408,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1409,10 +1426,10 @@
 /area/hivebothub/starboarddocks)
 "jf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
@@ -1422,10 +1439,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1461,10 +1478,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1485,10 +1502,10 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "jK" = (
@@ -1497,13 +1514,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
+"jO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/portgen/basic{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/portdocks)
 "jQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -1524,10 +1549,10 @@
 "jT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1567,7 +1592,7 @@
 "ke" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "kf" = (
@@ -1575,11 +1600,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -1602,7 +1627,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1616,10 +1641,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1628,18 +1653,18 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "kR" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/robot/up,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -1683,11 +1708,11 @@
 /area/hivebothub/secure)
 "lb" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/price_scanner{
+/obj/item/price_scanner{
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "lc" = (
@@ -1696,7 +1721,7 @@
 	pixel_y = 4;
 	pixel_x = -9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1704,10 +1729,16 @@
 "lf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/portdocks)
+"ln" = (
+/obj/effect/landmark/entry_point/south{
+	name = "south, west compartment"
+	},
+/turf/simulated/wall/r_wall,
 /area/hivebothub/portdocks)
 "lz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1715,10 +1746,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -1730,8 +1761,8 @@
 	dir = 5
 	},
 /obj/structure/bed/chair,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_starboard_shutter_2";
 	dir = 10;
@@ -1749,10 +1780,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1760,8 +1791,8 @@
 "lL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "lO" = (
@@ -1770,7 +1801,7 @@
 	pixel_y = -2
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
@@ -1783,10 +1814,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1794,7 +1825,7 @@
 "lT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "ma" = (
@@ -1803,10 +1834,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_1";
 	dir = 8;
@@ -1817,7 +1848,7 @@
 "mk" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1829,11 +1860,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/dark/airless,
@@ -1854,7 +1885,7 @@
 /area/hivebothub/dorm1)
 "mt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/item/inflatable/torn{
@@ -1878,8 +1909,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/item/ammo_casing/shotgun/used,
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = -8;
@@ -1891,14 +1922,14 @@
 "mF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_3"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "mH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1921,8 +1952,8 @@
 	name = "emergency rations";
 	opened = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_port_shutter_2";
 	dir = 10;
@@ -1932,8 +1963,8 @@
 /area/hivebothub/portdocks)
 "mN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "mP" = (
@@ -1949,7 +1980,7 @@
 "mS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_4"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -1974,6 +2005,9 @@
 	pixel_x = 2
 	},
 /obj/item/stack/rods,
+/obj/effect/landmark/entry_point/south{
+	name = "south, control room"
+	},
 /turf/simulated/floor/airless,
 /area/hivebothub/bridge)
 "nh" = (
@@ -1994,7 +2028,7 @@
 /area/hivebothub/starboarddocks)
 "nk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
@@ -2017,7 +2051,7 @@
 /area/hivebothub/exterior)
 "nA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2031,10 +2065,10 @@
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -2049,17 +2083,17 @@
 /area/hivebothub/exterior)
 "nI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/atmos{
+/obj/structure/machinery/door/airlock/atmos{
 	dir = 4;
 	name = "Atmospherics"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2079,7 +2113,7 @@
 "od" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2095,12 +2129,12 @@
 /area/hivebothub/centralhall)
 "or" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "ov" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "ow" = (
@@ -2151,7 +2185,7 @@
 "oJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "oL" = (
@@ -2173,12 +2207,13 @@
 	},
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/effect/decal/cleanable/blood/oil,
+/mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "oY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
@@ -2198,10 +2233,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_6";
 	dir = 4;
@@ -2211,19 +2246,19 @@
 /area/hivebothub/secure)
 "pk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/atmos{
+/obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospherics"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/atmos)
 "pt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "px" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2233,7 +2268,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/item/device/flashlight/empty{
+/obj/item/flashlight/empty{
 	pixel_x = -6;
 	pixel_y = 5
 	},
@@ -2241,7 +2276,7 @@
 /area/hivebothub/secure)
 "pC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -2250,7 +2285,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_2"
 	},
@@ -2273,10 +2308,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/stack/tile/floor_dark{
@@ -2293,13 +2328,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -2312,7 +2347,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
@@ -2338,8 +2373,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
@@ -2349,6 +2384,7 @@
 	dir = 8
 	},
 /obj/item/material/twohanded/fireaxe,
+/obj/item/wrench,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "qA" = (
@@ -2356,12 +2392,12 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "qC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
@@ -2381,9 +2417,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "qG" = (
-/obj/structure/girder,
-/turf/simulated/floor/airless,
-/area/hivebothub/kitchen)
+/obj/effect/landmark/entry_point/north{
+	name = "north, west compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/portdocks)
 "qI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -2391,7 +2429,7 @@
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_4"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2402,9 +2440,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/airless,
 /area/hivebothub/engi)
 "qS" = (
@@ -2422,16 +2460,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "qZ" = (
@@ -2439,10 +2475,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -2451,10 +2487,10 @@
 "re" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2464,16 +2500,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "rk" = (
@@ -2485,13 +2521,21 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "rn" = (
-/turf/template_noop,
-/area/hivebothub/kitchen)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/machinery/light,
+/turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/centralhall)
 "ro" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "rq" = (
@@ -2509,7 +2553,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/shipsensors/strong,
+/obj/structure/machinery/shipsensors/strong,
 /turf/simulated/floor/airless,
 /area/space)
 "ry" = (
@@ -2518,10 +2562,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -2536,7 +2580,7 @@
 /obj/structure/barricade/metal{
 	dir = 8
 	},
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2551,14 +2595,14 @@
 "rJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "rK" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_5";
 	dir = 4;
@@ -2569,7 +2613,7 @@
 "rT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_6"
 	},
@@ -2580,13 +2624,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "rX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -2603,16 +2647,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "sd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2635,10 +2679,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/ammo_casing/rifle/used{
@@ -2688,10 +2732,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -2699,7 +2743,7 @@
 /area/hivebothub/portdocks)
 "sv" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_1"
 	},
 /obj/item/ore/silver{
@@ -2715,29 +2759,29 @@
 "sF" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/bridge)
 "sT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "sW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_2"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2761,17 +2805,17 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "td" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -2782,6 +2826,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
+"tn" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, power generation"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/engi)
 "tp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2791,7 +2841,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/floor_damage,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -2805,11 +2855,11 @@
 /obj/item/pen/blue{
 	pixel_x = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/item/ammo_casing/shotgun/used,
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/bridge)
 "tw" = (
@@ -2826,7 +2876,7 @@
 /area/hivebothub/portdocks)
 "tx" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet,
 /area/hivebothub/dorm2)
 "tD" = (
@@ -2850,7 +2900,7 @@
 /obj/item/ammo_casing/rifle/used{
 	pixel_y = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -2869,13 +2919,13 @@
 "tN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -2887,10 +2937,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/ammo_casing/rifle/used{
@@ -2908,10 +2958,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2954,7 +3004,7 @@
 	pixel_y = 6;
 	pixel_x = 15
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/item/paper/hivebot_hub/diary{
@@ -2970,7 +3020,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "ui" = (
@@ -2978,10 +3028,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "ul" = (
@@ -3000,8 +3050,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood/airless,
@@ -3026,7 +3076,7 @@
 "up" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -3038,10 +3088,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3051,20 +3101,20 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "uC" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/airless,
@@ -3101,7 +3151,7 @@
 /obj/random/suit,
 /obj/random/softcap,
 /obj/item/gun/energy/stunrevolver,
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /obj/random/colored_jumpsuit,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /turf/simulated/floor/wood/airless,
@@ -3112,7 +3162,7 @@
 /obj/item/toy/plushie/bee{
 	pixel_y = -3
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_2"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -3123,7 +3173,7 @@
 /obj/item/clothing/gloves/yellow{
 	pixel_y = 6
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
@@ -3140,16 +3190,16 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "ve" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "vi" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3157,7 +3207,7 @@
 "vo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "vz" = (
@@ -3173,8 +3223,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
@@ -3182,7 +3232,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
 	welded = 1
@@ -3190,10 +3240,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "vG" = (
@@ -3202,6 +3252,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/blood/oil,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "vI" = (
@@ -3209,17 +3260,17 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "vO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
@@ -3230,7 +3281,7 @@
 /area/hivebothub/kitchen)
 "vR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -3241,7 +3292,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "vW" = (
@@ -3253,10 +3304,10 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "wg" = (
@@ -3285,10 +3336,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3300,10 +3351,10 @@
 	pixel_y = 11;
 	pixel_x = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3324,17 +3375,17 @@
 	dir = 5
 	},
 /obj/structure/table/steel,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/item/gun/energy,
+/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "wN" = (
@@ -3393,17 +3444,23 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
+"xk" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, secure storage"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "xo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -3419,6 +3476,7 @@
 	},
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/effect/decal/cleanable/blood/splatter,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "xs" = (
@@ -3449,8 +3507,8 @@
 /area/hivebothub/secure)
 "xF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -3462,7 +3520,7 @@
 	pixel_y = -6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3489,7 +3547,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -3507,7 +3565,7 @@
 /area/hivebothub/centralhall)
 "xU" = (
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_3";
 	dir = 8;
@@ -3525,13 +3583,13 @@
 "yc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "yf" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3560,7 +3618,7 @@
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
 "yr" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
@@ -3600,7 +3658,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
@@ -3612,13 +3670,13 @@
 /area/hivebothub/starboarddocks)
 "yF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hivebot_starboard_shutter_2"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "yG" = (
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -3626,14 +3684,30 @@
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/engi)
+"yH" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/mob/living/simple_animal/hostile/hivebot/bomber,
+/turf/simulated/floor/airless,
+/area/hivebothub/centralhall)
 "yO" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_port_shutter_3";
 	pixel_y = -21
@@ -3649,14 +3723,14 @@
 /area/hivebothub/exterior)
 "yV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "yW" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_shutter_2";
 	dir = 8;
@@ -3665,13 +3739,13 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "za" = (
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3684,10 +3758,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
@@ -3700,7 +3774,7 @@
 "zm" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -3717,6 +3791,21 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
+"zq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/centralhall)
 "zs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3732,8 +3821,8 @@
 /area/hivebothub/centralhall)
 "zE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "zH" = (
@@ -3769,29 +3858,51 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
+"Ag" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "Ak" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "An" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
+"Aq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/airless,
+/area/hivebothub/centralhall)
 "Ar" = (
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	req_access = list();
 	dir = 4
 	},
@@ -3845,6 +3956,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
+"AA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/portable_atmospherics/canister/tritium,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/secure)
 "AF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3855,10 +3972,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -3870,10 +3987,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "AO" = (
@@ -3892,7 +4009,7 @@
 /obj/structure/barricade/metal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "AX" = (
@@ -3901,7 +4018,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/personal_shield,
+/obj/item/personal_shield,
 /turf/simulated/floor/wood/airless,
 /area/hivebothub/dorm2)
 "Bd" = (
@@ -3950,10 +4067,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/stack/tile/floor_dark{
@@ -3967,7 +4084,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -3986,7 +4103,7 @@
 /area/hivebothub/washroom)
 "Bs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -4010,7 +4127,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "BB" = (
@@ -4024,12 +4141,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "BD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
 	welded = 1
 	},
@@ -4049,7 +4166,7 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_starboard_shutter_1";
 	dir = 10;
@@ -4068,10 +4185,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4081,14 +4198,14 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "BR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_2"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -4136,9 +4253,10 @@
 	req_access = list();
 	opened = 1
 	},
-/obj/item/gun/energy/disruptorpistol,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/ammo_magazine/c45m,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "Co" = (
@@ -4179,10 +4297,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
@@ -4193,8 +4311,8 @@
 /area/hivebothub/secure)
 "CE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -4202,7 +4320,7 @@
 "CH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Dormitory #2";
 	dir = 4;
@@ -4212,10 +4330,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -4228,17 +4346,17 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/wood/airless,
 /area/hivebothub/dorm2)
 "CL" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	req_access = list();
 	dir = 4
 	},
@@ -4255,7 +4373,7 @@
 /area/hivebothub/starboarddocks)
 "CM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_1"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4279,10 +4397,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/ammo_casing/rifle/used{
@@ -4298,11 +4416,11 @@
 /area/hivebothub/starboarddocks)
 "Db" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/gibs/robot,
@@ -4311,7 +4429,7 @@
 "Dd" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
 	welded = 1
@@ -4320,10 +4438,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "De" = (
@@ -4331,14 +4449,14 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "Dh" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -4406,7 +4524,7 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -4416,7 +4534,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4431,10 +4549,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4448,7 +4566,7 @@
 /area/hivebothub/centralhall)
 "DT" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "DW" = (
@@ -4463,19 +4581,19 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "DX" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -4487,13 +4605,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "Eq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
 "Eu" = (
@@ -4501,8 +4619,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -4510,13 +4628,13 @@
 "Ex" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "Ez" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_4"
 	},
@@ -4544,10 +4662,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/item/ammo_casing/rifle/used{
@@ -4562,12 +4680,12 @@
 /area/hivebothub/centralhall)
 "EK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "EL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -4580,7 +4698,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "EQ" = (
@@ -4590,11 +4708,11 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/item/ammo_casing/shotgun/used,
@@ -4610,7 +4728,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "EX" = (
@@ -4622,7 +4740,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4632,10 +4750,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4681,6 +4799,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Ft" = (
+/obj/effect/landmark/entry_point/south{
+	name = "south, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "FI" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/fake_object{
@@ -4701,7 +4825,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4719,14 +4843,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "FS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
 "FU" = (
@@ -4736,13 +4860,14 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "Gc" = (
@@ -4761,7 +4886,7 @@
 /area/hivebothub/starboarddocks)
 "Gl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_2"
 	},
@@ -4785,6 +4910,9 @@
 /obj/item/gun/projectile/gyropistol,
 /obj/item/ammo_magazine/a75,
 /obj/item/anomaly_core,
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "Gw" = (
@@ -4795,13 +4923,12 @@
 "Gx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -4810,14 +4937,20 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
+"GV" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, crew facilities"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/washroom)
 "GW" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_y = 17;
@@ -4857,7 +4990,7 @@
 "Hk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_3"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -4872,6 +5005,9 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/floor_damage/broken1,
+/obj/random/tech_supply{
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "Ht" = (
@@ -4892,7 +5028,7 @@
 /area/hivebothub/secure)
 "HC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "HG" = (
@@ -4900,7 +5036,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -4909,12 +5045,12 @@
 "HL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "HM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	start_charge = 0
 	},
 /obj/structure/cable/green,
@@ -4923,6 +5059,12 @@
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/engi)
+"HO" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, crew quarters"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/dorm1)
 "HT" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -4931,7 +5073,7 @@
 	dir = 7
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/wood_broken5,
@@ -4941,8 +5083,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft,
-/obj/machinery/shower{
+/obj/structure/machinery/door/window/southleft,
+/obj/structure/machinery/shower{
 	pixel_y = 16
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4968,7 +5110,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "Ik" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	target_pressure = 15000;
 	name = "Scrubbers to Waste"
 	},
@@ -4982,7 +5124,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -4994,10 +5136,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -5034,21 +5176,21 @@
 	pixel_x = -5;
 	pixel_y = -6
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/wood/airless,
 /area/hivebothub/dorm1)
 "IL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "IP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "IQ" = (
@@ -5064,10 +5206,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/item/ammo_casing/shotgun/used,
@@ -5077,15 +5219,15 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/light,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "Jb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Dormitory #1";
 	welded = 1
@@ -5093,8 +5235,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/dorm1)
 "Jc" = (
@@ -5103,16 +5245,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/gun/projectile/automatic/rifle/shorty{
-	pixel_y = 18
-	},
-/obj/item/ammo_magazine/c762{
-	pixel_y = 4;
-	pixel_x = -7
-	},
-/obj/item/ammo_magazine/c762{
-	pixel_x = 6
-	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "Jj" = (
@@ -5121,10 +5253,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -5146,7 +5278,7 @@
 "Ju" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -5183,7 +5315,7 @@
 /area/hivebothub/starboarddocks)
 "JE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
@@ -5193,7 +5325,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -5209,9 +5341,18 @@
 	},
 /turf/simulated/floor/wood/airless,
 /area/hivebothub/dorm2)
+"JK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/mob/living/simple_animal/hostile/hivebot/range/rapid,
+/turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/centralhall)
 "JO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/dinnerware{
+/obj/structure/machinery/vending/dinnerware{
 	pixel_y = 22
 	},
 /obj/structure/table/steel,
@@ -5232,7 +5373,7 @@
 "JW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "Ka" = (
@@ -5243,12 +5384,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "Kb" = (
@@ -5261,12 +5403,12 @@
 /area/hivebothub/portdocks)
 "Kh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "Ki" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -5285,7 +5427,7 @@
 	pixel_y = 7;
 	pixel_x = 5
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5293,10 +5435,10 @@
 "Kn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -5311,10 +5453,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -5324,14 +5466,14 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/bridge)
 "KM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_4"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5347,7 +5489,7 @@
 /area/hivebothub/bridge)
 "KP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -5386,7 +5528,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -5399,11 +5541,17 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Ls" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, secure storage"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "Lu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5423,7 +5571,7 @@
 "Ly" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -5431,7 +5579,7 @@
 "LC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/item/stack/material/graphite{
 	pixel_y = -10;
 	pixel_x = 1;
@@ -5440,7 +5588,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "LJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "LP" = (
@@ -5465,7 +5613,7 @@
 "Mp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "Mv" = (
@@ -5476,23 +5624,21 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/floor_damage/broken0,
-/mob/living/simple_animal/hostile/hivebotbeacon/weakened,
-/obj/effect/decal/cleanable/floor_damage/broken5,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "MF" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
@@ -5515,10 +5661,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5532,18 +5678,18 @@
 	pixel_y = 3;
 	pixel_x = -7
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "MM" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5551,7 +5697,7 @@
 "MN" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
@@ -5559,8 +5705,8 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -5589,7 +5735,7 @@
 /area/hivebothub/portdocks)
 "Nh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -5597,7 +5743,7 @@
 /area/hivebothub/atmos)
 "Ni" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
 	dir = 4;
 	welded = 1
@@ -5605,10 +5751,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5623,7 +5769,7 @@
 /area/hivebothub/atmos)
 "Nm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
@@ -5631,7 +5777,7 @@
 "Nn" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
 "Nq" = (
@@ -5674,10 +5820,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "NJ" = (
@@ -5689,7 +5835,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -5729,10 +5875,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -5757,11 +5903,11 @@
 	opened = 1
 	},
 /obj/item/trash/gum,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_starboard_shutter_4";
 	pixel_y = -21
@@ -5770,9 +5916,9 @@
 /area/hivebothub/starboarddocks)
 "Oa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "Ob" = (
@@ -5828,10 +5974,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -5842,14 +5988,6 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/item/ore/uranium{
-	pixel_x = 5;
-	pixel_y = -5
-	},
-/obj/item/ore/glass{
-	pixel_y = 15;
-	pixel_x = -11
-	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "Oy" = (
@@ -5860,7 +5998,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	start_charge = 0
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -5897,7 +6035,7 @@
 /area/hivebothub/dorm2)
 "OI" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -5908,7 +6046,7 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -5919,10 +6057,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -5937,11 +6075,27 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Pb" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/blood/oil,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/airless,
+/area/hivebothub/centralhall)
 "Pf" = (
 /obj/structure/lattice,
 /obj/item/ore/uranium{
@@ -5983,8 +6137,8 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
@@ -5999,19 +6153,19 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "PU" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	target_pressure = 15000;
 	name = "Air to Distribution"
@@ -6021,13 +6175,13 @@
 /area/hivebothub/atmos)
 "PY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "PZ" = (
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -6066,10 +6220,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -6078,9 +6232,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
-	},
-/obj/random/tech_supply{
-	pixel_x = -4
 	},
 /obj/structure/closet/walllocker/emerglocker/west{
 	pixel_x = 0;
@@ -6110,7 +6261,7 @@
 /area/hivebothub/centralhall)
 "QC" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_4"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6119,13 +6270,13 @@
 "QD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -6161,7 +6312,7 @@
 /obj/item/trash/liquidfood,
 /obj/item/trash/liquidfood,
 /obj/item/trash/liquidfood,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "QI" = (
@@ -6171,8 +6322,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -6221,10 +6372,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -6259,8 +6410,8 @@
 /area/hivebothub/starboarddocks)
 "Rh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "Rk" = (
@@ -6268,10 +6419,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -6290,20 +6441,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "Rr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
@@ -6319,7 +6470,7 @@
 "Ry" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "Rz" = (
@@ -6327,7 +6478,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
@@ -6337,7 +6488,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6355,8 +6506,8 @@
 	pixel_y = 2;
 	pixel_x = 4
 	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/light,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6385,11 +6536,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -6405,7 +6556,7 @@
 "RU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -6426,7 +6577,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6434,7 +6585,7 @@
 "Se" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_5"
 	},
@@ -6460,7 +6611,7 @@
 /obj/item/storage/toolbox/lunchbox/nymph{
 	pixel_x = 4
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	start_charge = 0
 	},
 /turf/simulated/floor/carpet,
@@ -6479,7 +6630,7 @@
 	pixel_x = -8;
 	pixel_y = -2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "St" = (
@@ -6500,7 +6651,7 @@
 "Su" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
@@ -6517,12 +6668,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/hivebothub/dorm2)
-"SI" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/tritium,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/hivebothub/secure)
 "SY" = (
 /obj/item/ore/glass{
 	pixel_y = 7;
@@ -6531,7 +6676,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6550,7 +6695,7 @@
 	pixel_y = 8;
 	pixel_x = -5
 	},
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "Tc" = (
@@ -6566,7 +6711,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6598,7 +6743,7 @@
 /area/hivebothub/centralhall)
 "TE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_4"
 	},
@@ -6618,10 +6763,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_port_shutter_4";
 	pixel_y = -21
@@ -6640,7 +6785,7 @@
 /area/hivebothub/starboarddocks)
 "TP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -6665,7 +6810,7 @@
 /area/hivebothub/portdocks)
 "Ua" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_3"
 	},
@@ -6676,10 +6821,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -6699,6 +6844,12 @@
 /obj/item/trash/can,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Uq" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, atmospherics"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/atmos)
 "Ur" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
@@ -6737,7 +6888,7 @@
 "Uy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/brown/full,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -6749,7 +6900,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -6760,7 +6911,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6777,7 +6928,7 @@
 	pixel_x = 9;
 	pixel_y = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -6797,27 +6948,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/yellow,
-/obj/machinery/power/portgen/basic{
-	anchored = 1
-	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
-"UY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/hivebothub/secure)
 "Va" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "Vb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "Vc" = (
@@ -6828,7 +6970,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -6848,7 +6990,7 @@
 "Vu" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_4"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -6856,10 +6998,10 @@
 "Vw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/secure)
 "Vx" = (
@@ -6879,10 +7021,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -6895,10 +7037,10 @@
 /area/hivebothub/portdocks)
 "VL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -6922,7 +7064,7 @@
 /area/hivebothub/engi)
 "VY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
@@ -6940,15 +7082,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/hivebothub/washroom)
 "Wf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_starboard_shutter_3"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -6959,7 +7101,7 @@
 /area/hivebothub/starboarddocks)
 "Wm" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hivebot_port_shutter_3"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -6968,10 +7110,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "Wz" = (
@@ -6979,17 +7121,17 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "WF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hivebot_shutter_5"
 	},
@@ -6997,16 +7139,10 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "WG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/ore/uranium{
-	pixel_x = -8;
-	pixel_y = -2
-	},
-/obj/item/ore/uranium{
-	pixel_x = 4;
-	pixel_y = -16
-	},
-/turf/simulated/floor/tiled/dark/airless,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "WJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7014,14 +7150,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "WK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -7031,17 +7167,17 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "WO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/airless,
@@ -7052,15 +7188,15 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "WY" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -7082,7 +7218,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#808080";
 	name = "Central Compartment";
 	dir = 4;
@@ -7099,10 +7235,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "Xj" = (
@@ -7113,6 +7249,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
+"Xk" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, west compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/portdocks)
 "Xo" = (
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
@@ -7123,8 +7265,8 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Shutter Control";
 	id = "hivebot_port_shutter_1";
 	dir = 10;
@@ -7137,7 +7279,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/emitter,
+/obj/structure/machinery/power/emitter,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
 "Xx" = (
@@ -7145,7 +7287,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -7176,13 +7318,13 @@
 /area/hivebothub/starboarddocks)
 "XF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/starboarddocks)
 "XH" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/overmap/visitable/sector/hivebot_hub,
@@ -7206,13 +7348,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "Yf" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	start_charge = 0
 	},
 /obj/structure/cable/green{
@@ -7255,16 +7397,16 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
 "Yp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7322,8 +7464,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
@@ -7347,10 +7489,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
 "YY" = (
@@ -7371,12 +7513,15 @@
 	pixel_x = -4
 	},
 /obj/item/stack/rods,
+/obj/effect/landmark/entry_point/east{
+	name = "east, control room"
+	},
 /turf/simulated/floor/airless,
 /area/hivebothub/bridge)
 "Ze" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -7384,8 +7529,8 @@
 /turf/simulated/floor/airless,
 /area/hivebothub/engi)
 "Zf" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7400,11 +7545,19 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,
 /area/hivebothub/exterior)
+"Zi" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/portable_atmospherics/canister/deuterium,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/secure)
 "Zj" = (
-/obj/structure/lattice/catwalk,
-/obj/item/wrench,
-/turf/space/dynamic,
-/area/hivebothub/exterior)
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/west{
+	name = "west, control room"
+	},
+/turf/simulated/floor/airless,
+/area/hivebothub/bridge)
 "Zk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -7450,15 +7603,15 @@
 /area/hivebothub/centralhall)
 "ZD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Secure Storage"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "ZH" = (
@@ -32305,7 +32458,7 @@ fH
 Qy
 mk
 fH
-fH
+Xk
 fH
 fH
 jR
@@ -33079,7 +33232,7 @@ ck
 ck
 eT
 mS
-ke
+jO
 fH
 xs
 Lj
@@ -35125,7 +35278,7 @@ yU
 yU
 jR
 jR
-fH
+ln
 hD
 iy
 bP
@@ -35135,7 +35288,7 @@ TY
 jT
 oY
 CE
-fH
+qG
 jR
 jR
 yU
@@ -37950,7 +38103,7 @@ Lj
 Lj
 qS
 jR
-Sh
+HO
 Sh
 mr
 IJ
@@ -37964,7 +38117,7 @@ ax
 DX
 yf
 aK
-aK
+Uq
 jR
 Oi
 Lj
@@ -38219,7 +38372,7 @@ NV
 aK
 FS
 mH
-dK
+eU
 Zf
 aK
 aK
@@ -38235,7 +38388,7 @@ ya
 rq
 jR
 UL
-UL
+dY
 UL
 UL
 jR
@@ -38492,7 +38645,7 @@ UL
 UL
 YY
 UL
-Oa
+ea
 Rh
 UL
 uP
@@ -39784,9 +39937,9 @@ hj
 bq
 pC
 Cz
-WG
+As
 Or
-ea
+UL
 xs
 Lj
 Lj
@@ -40011,12 +40164,12 @@ Pt
 Xi
 tS
 zc
-Xi
+yH
 fz
 gd
-fz
-zc
-Xi
+zq
+Pb
+Aq
 XO
 Mv
 vA
@@ -40043,7 +40196,7 @@ vz
 vz
 vz
 Hw
-UL
+Ls
 xs
 Lj
 Lj
@@ -40272,7 +40425,7 @@ qd
 QB
 gy
 kV
-Kj
+JK
 oS
 rj
 aw
@@ -40523,8 +40676,8 @@ Uw
 Uw
 cE
 Uw
-qG
-qG
+Uw
+Uw
 Uw
 vG
 FU
@@ -41027,7 +41180,7 @@ nw
 yU
 jR
 YA
-cF
+Zj
 cF
 YA
 KX
@@ -41039,7 +41192,7 @@ XJ
 FR
 wg
 Ej
-qG
+Uw
 eg
 jK
 Gx
@@ -41291,7 +41444,7 @@ yU
 jR
 Uw
 Uw
-rn
+Uw
 Uw
 Uw
 Uw
@@ -41299,7 +41452,7 @@ Uw
 Uw
 Hr
 tb
-xr
+rn
 ec
 qO
 aa
@@ -41314,13 +41467,13 @@ KX
 jR
 UL
 lT
-UY
-SI
+Zi
+AA
 UL
 UL
 UL
-Rh
-Rh
+WG
+WG
 UL
 UL
 UL
@@ -41557,7 +41710,7 @@ bI
 ml
 cI
 zs
-tW
+ec
 nA
 nA
 dZ
@@ -41576,7 +41729,7 @@ UL
 UL
 Fd
 UL
-Rh
+WG
 Rh
 UL
 QZ
@@ -41819,8 +41972,8 @@ VP
 jW
 ap
 qi
-tW
-tW
+ec
+ec
 jR
 yU
 yU
@@ -41833,7 +41986,7 @@ yU
 yU
 nG
 UL
-UL
+xk
 UL
 UL
 jR
@@ -42062,7 +42215,7 @@ Lj
 Lj
 nw
 jR
-bN
+GV
 bN
 Oy
 EN
@@ -42076,8 +42229,8 @@ yG
 za
 PZ
 ec
-ec
-Zj
+tn
+jR
 eG
 Lj
 Lj
@@ -44891,7 +45044,7 @@ ya
 ya
 jR
 jR
-CR
+Ft
 kZ
 nJ
 Wz
@@ -44901,7 +45054,7 @@ fd
 lK
 Gc
 NT
-CR
+Ag
 jR
 jR
 ya
@@ -47725,7 +47878,7 @@ CR
 UP
 Ly
 CR
-CR
+dz
 CR
 CR
 jR

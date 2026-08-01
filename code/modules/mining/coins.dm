@@ -9,16 +9,17 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 0
 	throwforce = 0.0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	var/string_attached
+	var/string_attached = FALSE
 	var/sides = 2
 	var/cmineral = null
 	var/last_flip = 0 //Spam limiter
 
-/obj/item/coin/New()
+/obj/item/coin/Initialize(mapload)
+	. = ..()
 	randpixel_xy()
 
 /obj/item/coin/gold
@@ -73,19 +74,19 @@
 	cmineral = "mining"
 
 /obj/item/coin/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/CC = attacking_item
 		if(string_attached)
 			to_chat(user, SPAN_NOTICE("There already is a string attached to this coin."))
 			return
 		if(CC.use(1))
-			add_overlay("coin_string_overlay")
+			AddOverlays("coin_string_overlay")
 			string_attached = TRUE
 			to_chat(user, SPAN_NOTICE("You attach a string to the coin."))
 		else
 			to_chat(user, SPAN_NOTICE("This cable coil appears to be empty."))
 		return
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!string_attached)
 			..()
 			return
@@ -93,8 +94,8 @@
 		var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(get_turf(user))
 		CC.amount = 1
 		CC.update_icon()
-		cut_overlays()
-		string_attached = null
+		ClearOverlays()
+		string_attached = FALSE
 		to_chat(user, SPAN_NOTICE("You detach the string from the coin."))
 	else ..()
 

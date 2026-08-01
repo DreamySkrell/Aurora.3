@@ -55,6 +55,9 @@
 	_app_preset_type = /datum/modular_computer_app_presets/research
 	icon_state = "wristbound-tox"
 
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
+
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_state = "wristbound-h"
@@ -112,9 +115,15 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/bartender
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chef
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/chef
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian/Initialize()
 	. = ..()
@@ -145,6 +154,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -174,6 +187,10 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 // Medical
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -202,6 +219,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/research/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 	icon_add = "rd"
@@ -219,6 +240,9 @@
 	icon_add = "hos"
 
 // Command / Misc
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command

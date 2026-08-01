@@ -7,15 +7,36 @@
 	thrown_force_divisor = 0.1
 	var/image/base_image
 	var/max_butts = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()
-	if(!material)
-		return INITIALIZE_HINT_QDEL
+	persistent_objects_expiration_time_days = rand(7, 180) // Imagine they get stolen, lost or break...
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
 	randpixel_xy()
 	update_icon()
+	SSpersistence.objectsRegisterTrack(src, null)
+
+/obj/item/material/ashtray/persistent_objects_get_content()
+	var/list/content = list()
+	content["fill_count"] = length(contents)
+	content["material"] = material.type
+	return content
+
+/obj/item/material/ashtray/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(content["material"])
+		set_material(content["material"])
+		max_butts = round(material.hardness/10)
+	var/fill_count = content["fill_count"]
+	if(fill_count)
+		if(fill_count > max_butts)
+			fill_count = max_butts
+		for(var/i = 1; i <= fill_count; i++)
+			var/obj/item/trash/cigbutt/cigarbutt/cigbutt = new /obj/item/trash/cigbutt(src)
+			cigbutt.forceMove(src)
 
 /obj/item/material/ashtray/shatter()
 	..()
@@ -39,20 +60,20 @@
 
 /obj/item/material/ashtray/update_icon()
 	color = null
-	cut_overlays()
+	ClearOverlays()
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
 		var/image/I = image('icons/obj/ashtray.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
-	add_overlay(ashtray_cache[cache_key])
+	AddOverlays(ashtray_cache[cache_key])
 
 	if (contents.len == max_butts)
-		add_overlay("ashtray_full")
+		AddOverlays("ashtray_full")
 		desc = "It's stuffed full."
 	else if (contents.len > max_butts/2)
-		add_overlay("ashtray_half")
+		AddOverlays("ashtray_half")
 		desc = "It's half-filled."
 	else
 		desc = "An ashtray made of [material.display_name]."
@@ -66,6 +87,9 @@
 			return
 		user.remove_from_mob(attacking_item)
 		attacking_item.forceMove(src)
+
+		if(istype(attacking_item, /obj/item/trash/cigbutt))
+			SSpersistence.objectsDeregisterTrack(attacking_item) // Ashtray will handle the persistent contents in it itself
 
 		if (istype(attacking_item,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = attacking_item
@@ -109,6 +133,10 @@
 			return
 		update_icon()
 	return ..()
+
+/obj/item/material/ashtray/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use help intent to empty into a disposal. Use harm intent to put into a disposal."
 
 /obj/item/material/ashtray/plastic/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_PLASTIC)

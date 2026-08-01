@@ -44,7 +44,6 @@
 		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
 		/obj/item/syndie/c4explosive                 = TRADER_ALL,
 		/obj/item/melee/energy/sword                 = TRADER_ALL,
-		/obj/item/melee/energy/sword/color           = TRADER_BLACKLIST,
 		/obj/item/melee/energy/axe                   = TRADER_THIS_TYPE,
 		/obj/item/shield/energy                      = TRADER_ALL,
 		/obj/item/clothing/gloves/force/syndicate    = TRADER_THIS_TYPE,
@@ -53,27 +52,27 @@
 		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
 		/obj/item/rig/light/hacker                   = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser/sniper             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
 		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
 	)
 
 	speech = list(
-		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable things from that station nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
+		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable things from that ship nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
 		"hail_deny"            = "This is not worth my time.",
 		"trade_complete"       = "Oooh, the commander will LOVE this!",
 		"trade_no_money"       = "Don't waste my time!",
 		"trade_not_enough"     = "Get me the good stuff I need or I'm gone!",
 		"trade_found_unwanted" = "I need high value things, not this garbage!",
 		"how_much"             = "I need VALUABLE things, and I need them FAST.",
-		"what_want"            = "There's a station near you, go there, get some high value and classified things. Or crystals.",
+		"what_want"            = "There's a ship near you, go there, get some high value and classified things. Or crystals.",
 		"compliment_deny"      = "Shove your compliments, I'm busy!",
 		"compliment_accept"    = "I might just recommend you to my employers...",
 		"insult_good"          = "Heh, you got style.",
 		"insult_bad"           = "I'm marking you for a hit..."
 	)
 
-	mob_transfer_message = "<span class='danger'>You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.</span>"
+	mob_transfer_message = SPAN_DANGER("You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.")
 
 /datum/trader/ship/unique/severance
 	name = "Unknown"
@@ -110,7 +109,7 @@
 		"insult_bad"           = "Maybe you should c-come here and say that. You'd be worth s-something then."
 	)
 
-	mob_transfer_message = "<span class='danger'>You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.</span>"
+	mob_transfer_message = SPAN_DANGER("You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.")
 
 
 /datum/trader/ship/unique/rock
@@ -121,7 +120,7 @@
 		/obj/item/ore = TRADER_ALL
 	)
 	possible_trading_items = list(
-		/obj/machinery/power/supermatter                = TRADER_ALL,
+		/obj/structure/machinery/power/supermatter                = TRADER_ALL,
 		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE,
 		/obj/item/aiModule                       = TRADER_SUBTYPES_ONLY
 	)
@@ -148,10 +147,10 @@
 
 	possible_wanted_items = list(
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
-		/obj/machinery/bluespacerelay                 = TRADER_ALL,
+		/obj/structure/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
 		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
-		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
+		/obj/item/soulstone                    = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_console = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,

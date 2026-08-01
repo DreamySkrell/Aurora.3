@@ -26,7 +26,9 @@ GLOBAL_LIST_EMPTY(topic_commands_names)
 GLOBAL_PROTECT(topic_commands_names)
 
 /// List of all landmarks.
-GLOBAL_LIST_EMPTY(landmarks_list)
+GLOBAL_LIST_EMPTY_TYPED(landmarks_list, /obj/effect/landmark)
+/// List of all ruin landmarks.
+GLOBAL_LIST_EMPTY_TYPED(ruin_landmarks, /obj/effect/landmark/ruin)
 /// Assoc list of force spawnpoints for event maps.
 GLOBAL_LIST_EMPTY(force_spawnpoints)
 /// List of all jobstypes, minus borg, merchant and AI.
@@ -44,12 +46,10 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 /// List of all implants. Used for teleportation/tracking implants.
 GLOBAL_LIST_EMPTY(implants)
 
-/// Turf is added to this list if isStationLevel() passes when it's initialized.
+/// Turf is added to this list if is_station_level() passes when it's initialized.
 GLOBAL_LIST_EMPTY(station_turfs)
-/// List of all instanced areas by type.
+/// List of all instanced areas by type. THIS IS DIFFERENT FROM TG AS IT DOES NOT ONLY CONTAIN UNIQUE AREAS.
 GLOBAL_LIST_EMPTY(areas_by_type)
-/// List of all instanced areas.
-GLOBAL_LIST_EMPTY(all_areas)
 
 /// Languages/species/whitelist.
 GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)
@@ -66,11 +66,8 @@ GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 /// A list of ALL playable species, whitelisted, latejoin or otherwise.
 GLOBAL_LIST_EMPTY(playable_species)
 
-/// Poster designs (/datum/poster).
-GLOBAL_LIST_EMPTY(poster_designs)
-
 /// All uplinks.
-GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
+GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/uplink)
 
 /// Preferences stuff below.
 /// Stores /datum/sprite_accessory/hair indexed by name.
@@ -95,7 +92,7 @@ GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
 /// List of possible backpack shapes for the loadout.
-GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook"))
+GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook", "Chest Pouch"))
 /// List of possible backpack styles for the loadout.
 GLOBAL_LIST_INIT(backbagstyles, list("Job-specific", "Generic", "Faction-specific"))
 /// List of possible backpack colors for the loadout.
@@ -109,10 +106,19 @@ GLOBAL_LIST_INIT(exclude_jobs, list(/datum/job/ai, /datum/job/cyborg, /datum/job
 GLOBAL_LIST_INIT(pdalist, list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound"))
 
 /// Headset loadout choices.
-GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio"))
+GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio", "Clip-on Radio"))
 
 /// Primary Radio Slot loadout choices.
 GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
+
+/// Used to track fauna spawners on the phoron deposit away site.
+GLOBAL_LIST_INIT(fauna_spawners, list())
+
+/// List of spawn points associated with '/obj/effect/organized_fauna_spawner'. It will automatically assign the spawn points in the same Z level as spawner.
+GLOBAL_LIST_EMPTY(organized_spawn_points)
+
+/// List of mob waypoints for fauna spawners.
+GLOBAL_LIST_EMPTY(mob_waypoints)
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)
@@ -121,10 +127,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
-/// Escape exits for universe states.
-GLOBAL_LIST_EMPTY(endgame_exits)
-/// Safe spawns  for universe states.
-GLOBAL_LIST_EMPTY(endgame_safespawns)
 
 GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
 
@@ -136,6 +138,11 @@ GLOBAL_LIST_EMPTY(intent_listener)
 
 /// Cache for clothing species adaptability.
 GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
+
+/// Cache for outfit selection.
+GLOBAL_LIST_EMPTY(outfit_cache)
+
+GLOBAL_LIST_EMPTY(all_particles)
 
 //////////////////////////
 /////Initial Building/////
@@ -195,6 +202,8 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
 	for(var/path in paths)
+		if(is_abstract(path))
+			continue
 		var/datum/character_disabilities/T = new path()
 		GLOB.chargen_disabilities_list[T.name] = T
 
@@ -244,13 +253,12 @@ GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 		if(S.spawn_flags & IS_WHITELISTED)
 			GLOB.whitelisted_species += S.name
 
-	//Posters
-	paths = subtypesof(/datum/poster)
-	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
+	paths = typesof(/particles)
+	for (var/path in paths)
+		var/particles/P = new path()
+		GLOB.all_particles[P.name] = P
 
-	return 1
+	return TRUE
 
 GLOBAL_LIST_INIT(correct_punctuation, list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, \
 										"*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, \

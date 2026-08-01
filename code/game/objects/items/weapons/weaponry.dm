@@ -12,7 +12,7 @@
 	if(!QDELETED(src))
 		QDEL_IN(src, 1)
 
-/obj/item/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -44,7 +44,8 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	var/health = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
 
 /obj/effect/energy_net/Initialize()
@@ -74,10 +75,13 @@
 		qdel(src)
 		return
 
-/obj/effect/energy_net/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
+/obj/effect/energy_net/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	health_check()
-	return FALSE
 
 /obj/effect/energy_net/ex_act(var/severity = 2.0)
 	health = 0
@@ -85,7 +89,7 @@
 
 /obj/effect/energy_net/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	if(user == affecting)
 		to_chat(user, SPAN_WARNING("You can't claw at \the [src] while trapped inside it! You need to use a weapon."))
 		return
@@ -105,7 +109,8 @@
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
-	user.do_attack_animation(src, attacking_item)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src, used_item = attacking_item)
 	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2
@@ -120,15 +125,15 @@
 	item_state = "canesword"
 	force = 25
 	throwforce = 5
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 
 /obj/item/banhammer
 	desc = "banhammer"
@@ -137,12 +142,13 @@
 	icon_state = "toyhammer"
 	slot_flags = SLOT_BELT
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
-	to_chat(M, "<span class='warning'><b> You have been banned FOR NO REISIN by [user]</b></span>")
-	to_chat(user, "<span class='warning'> You have <b>BANNED</b> [M]</span>")
+/obj/item/banhammer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	to_chat(target_mob, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
+	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [target_mob]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
+

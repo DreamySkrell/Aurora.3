@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(all_robolimbs)
 GLOBAL_LIST_EMPTY(internal_robolimbs)
 GLOBAL_LIST_EMPTY(chargen_robolimbs)
-GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_LIST_EMPTY_TYPED(fabricator_robolimbs, /datum/robolimb)
 GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
@@ -18,7 +18,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb
 	/// Shown when selecting the limb.
-	var/company = "Unbranded"
+	var/company = PROSTHETIC_UNBRANDED
 	/// Seen when examining a limb.
 	var/desc = "A generic unbranded robotic prosthesis."
 	/// Icon base to draw from.
@@ -38,6 +38,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 		SPECIES_UNATHI,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
 		SPECIES_IPC_BISHOP,
@@ -45,6 +46,12 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	)
 	/// If this prosthetic type is paintable.
 	var/paintable = 0
+	/// If this prosthetic glows in the dark
+	var/emissive = FALSE
+	/// If this prosthetic has an active overlay
+	var/overlay = FALSE
+	/// If this prosthetic is a tesla limb (required for some special handling)
+	var/is_tesla = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -81,6 +88,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
 
+/datum/robolimb/emissive
+	company = PROSTHETIC_UNBRANDED_EMISSIVE
+	emissive = TRUE
+
+	allowed_internal_organs = list(BP_EYES)
+	allowed_external_organs = list()
+
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
 	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
@@ -88,6 +102,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_BISHOP
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
@@ -96,6 +111,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G2
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
@@ -104,6 +120,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_ZENGHU
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
@@ -112,6 +129,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_XION
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
@@ -131,6 +149,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC_G1
 	fabricator_available = TRUE
 	allows_internal = FALSE
+	emissive = TRUE
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
@@ -165,6 +184,9 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	species_can_use = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	internal_organ_suffix = "tesla"
 	allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
+	overlay = TRUE
+	emissive = TRUE
+	is_tesla = TRUE
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
@@ -182,10 +204,25 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/vaurca
 	company = PROSTHETIC_VAURCA
-	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenace to most of the basic Vaurcesian bioforms."
+	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenance to most of the basic Vaurcesian bioforms."
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
-	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allows_internal = FALSE
+	paintable = TRUE
+
+/datum/robolimb/vaurca/warrior
+	company = PROSTHETIC_VAURCA_WARRIOR
+	icon = 'icons/mob/human_races/vaurca/r_vaurcawarriorlimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	allowed_external_organs = list(BP_L_HAND, BP_R_HAND)
+	paintable = TRUE
+
+/datum/robolimb/vaurca/bulwark
+	company = PROSTHETIC_VAURCA_BULWARK
+	desc = "An adaptation of designs from old Sedantis, it has been redesigned to accomodate larger bioforms."
+	icon = 'icons/mob/human_races/vaurca/r_vaurcabulwarklimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_BULWARK)
+	paintable = TRUE
 
 /datum/robolimb/hoplan
 	company = PROSTHETIC_HOPLAN
@@ -203,6 +240,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/indricus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
 
 /datum/robolimb/raxus
 	company = PROSTHETIC_RAXUS
@@ -213,3 +251,36 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+	emissive = TRUE
+
+/datum/robolimb/selen
+	company = PROSTHETIC_SELEN
+	desc = "A seamless white monoplane covers the majority of the head, concealing various optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/selen.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/sienna
+	company = PROSTHETIC_SIENNA
+	desc = "A delicate-looking head covered in eight state-of-the-art optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/sienna.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/siseyo
+	company = PROSTHETIC_SISEYO
+	desc = "A sleek vertical gap in the head opens up to allow various optical sensors, running lights and slots for additional modules."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/siseyo.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/cheap
+	company = PROSTHETIC_CHEAP
+	desc = "A cheap, basic, and outdated prosthetic limb made out of plastic and metal. Straps onto the body."
+	allows_internal = FALSE
+	icon = 'icons/mob/human_races/cheap_prosthetic.dmi'
+	brute_mod = 1.1
+	burn_mod = 1.2

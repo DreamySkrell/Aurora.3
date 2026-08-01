@@ -22,7 +22,7 @@ Protectiveness | Armor %
 
 /obj/item/clothing/suit/armor/material
 	name = "armor"
-	default_material = DEFAULT_WALL_MATERIAL
+	default_material = MATERIAL_STEEL
 
 /obj/item/clothing/suit/armor/material/makeshift
 	name = "sheet armor"
@@ -32,15 +32,15 @@ Protectiveness | Armor %
 	item_state = "material_armor"
 	contained_sprite = 1
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 	)
 	pocket_slots = 1
 
 /obj/item/clothing/suit/armor/material/makeshift/plasteel
-	default_material = "plasteel"
+	default_material = MATERIAL_PLASTEEL
 
 /obj/item/clothing/suit/armor/material/makeshift/glass
-	default_material = "glass"
+	default_material = MATERIAL_GLASS
 
 /obj/item/material/armor_plating
 	name = "armor plating"
@@ -56,26 +56,26 @@ Protectiveness | Armor %
 	if(istype(attacking_item, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/S = attacking_item
 		if(wired)
-			to_chat(user, "<span class='warning'>This already has enough wires on it.</span>")
+			to_chat(user, SPAN_WARNING("This already has enough wires on it."))
 			return
 		if(S.use(20))
-			to_chat(user, "<span class='notice'>You attach several wires to \the [src]..</span>")
+			to_chat(user, SPAN_NOTICE("You attach several wires to \the [src].."))
 			wired = TRUE
 			icon_state = "[initial(icon_state)]_wired"
 			return
 		else
-			to_chat(user, "<span class='notice'>You need more wire for that.</span>")
+			to_chat(user, SPAN_NOTICE("You need more wire for that."))
 			return
 	if(istype(attacking_item, /obj/item/material/armor_plating))
 		var/obj/item/material/armor_plating/second_plate = attacking_item
 		if(!wired && !second_plate.wired)
-			to_chat(user, "<span class='warning'>You need something to hold the two pieces of plating together.</span>")
+			to_chat(user, SPAN_WARNING("You need something to hold the two pieces of plating together."))
 			return
 		if(second_plate.material != src.material)
-			to_chat(user, "<span class='warning'>Both plates need to be the same type of material.</span>")
+			to_chat(user, SPAN_WARNING("Both plates need to be the same type of material."))
 			return
 		//TODO: Possible better animations
-		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material.name)
+		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material)
 		user.drop_from_inventory(src,new_armor)
 		user.drop_from_inventory(second_plate,new_armor)
 		user.put_in_hands(new_armor)
@@ -98,7 +98,7 @@ Protectiveness | Armor %
 	icon_state = "bucket"
 	item_state = "bucket"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 	)
 	contained_sprite = 1
 
@@ -115,21 +115,21 @@ Protectiveness | Armor %
 	if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/S = attacking_item
 		if(S.use(2))
-			to_chat(user, "<span class='notice'>You apply some [S.material.use_name] to \the [src]. </span>")
-			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.name)
+			to_chat(user, SPAN_NOTICE("You apply some [S.material.use_name] to \the [src]. "))
+			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.type)
 			user.put_in_hands(helmet)
 			user.drop_from_inventory(src)
 			qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You don't have enough material to build a helmet!</span>")
+			to_chat(user, SPAN_WARNING("You don't have enough material to build a helmet!"))
 	else
 		..()
 
 /obj/item/clothing/head/helmet/material
 	name = "helmet"
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
-	default_material = DEFAULT_WALL_MATERIAL
+	default_material = MATERIAL_STEEL
 	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/material/makeshift
@@ -141,7 +141,7 @@ Protectiveness | Armor %
 	contained_sprite = 1
 
 /obj/item/clothing/head/helmet/material/makeshift/plasteel
-	default_material = "plasteel"
+	default_material = MATERIAL_PLASTEEL
 
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat
 	name = "armored trenchcoat"
@@ -156,7 +156,7 @@ Protectiveness | Armor %
 		var/obj/item/clothing/suit/storage/toggle/trench/kelly = attacking_item
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(kelly)
-		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)
+		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.type)
 		user.put_in_hands(new_armor)
 		qdel(src)
 		qdel(kelly)

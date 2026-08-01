@@ -4,9 +4,6 @@
 // This could be extended to atoms, but it's bad enough as is
 // I genuinely tried to Add and Remove them from var and proc lists, but just couldn't get it working
 
-//for easy reference
-/obj/var/datum/talking_atom/talking_atom
-
 /datum/talking_atom
 	var/list/heard_words = list()
 	var/last_talk_time = 0
@@ -60,7 +57,7 @@
 		var/list/options = list("[holder_atom] seems to be listening intently to [source]...",\
 			"[holder_atom] seems to be focusing on [source]...",\
 			"[holder_atom] seems to turn it's attention to [source]...")
-		holder_atom.loc.visible_message("<span class='notice'>[icon2html(holder_atom, viewers(get_turf(holder_atom)))] [pick(options)]</span>")
+		holder_atom.loc.visible_message(SPAN_NOTICE("[icon2html(holder_atom, viewers(get_turf(holder_atom)))] [pick(options)]"))
 
 	if(prob(20))
 		spawn(2)

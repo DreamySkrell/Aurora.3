@@ -1,5 +1,5 @@
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ListData = {
@@ -11,22 +11,44 @@ type List = {
   value: any;
 };
 
-export const ListViewer = (props, context) => {
-  const { act, data } = useBackend<ListData>(context);
+export const ListViewer = (props) => {
+  const { act, data } = useBackend<ListData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
-        <Section title="List">
-          <LabeledList>
+        <Section
+          title="List"
+          buttons={
+            <Button onClick={() => act('open_whole_list')}>
+              Open Whole List
+            </Button>
+          }
+        >
+          <Table preserveWhitespace>
+            <Table.Row header>
+              <Table.Cell>Key</Table.Cell>
+              <Table.Cell>Value</Table.Cell>
+              <Table.Cell>Actions</Table.Cell>
+            </Table.Row>
             {data.listvar.map((list) => (
               <Box key={list.key}>
-                <LabeledList.Item label={list.key}>
-                  {list.value}
-                </LabeledList.Item>
+                <Table.Row>
+                  <Table.Cell>{list.key}</Table.Cell>
+                  <Table.Cell>{list.value}</Table.Cell>
+                  <Table.Cell>
+                    <Button
+                      onClick={() =>
+                        act('open_entry', { open_entry_key: list.key })
+                      }
+                    >
+                      Edit
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
               </Box>
             ))}
-          </LabeledList>
+          </Table>
         </Section>
       </Window.Content>
     </Window>

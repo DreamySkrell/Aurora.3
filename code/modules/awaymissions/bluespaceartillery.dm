@@ -1,5 +1,5 @@
 
-/obj/machinery/computer/artillerycontrol
+/obj/structure/machinery/computer/artillerycontrol
 	var/reload = 180
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
@@ -7,28 +7,28 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/computer/artillerycontrol/process()
+/obj/structure/machinery/computer/artillerycontrol/process()
 	if(src.reload<180)
 		src.reload++
 
-/obj/machinery/computer/artillerycontrol/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/artillerycontrol/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	var/dat = "<B>Bluespace Artillery Control:</B><BR>"
 	dat += "Locked on<BR>"
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
-	dat += "<A href='byond://?src=\ref[src];fireArea=1'>Open Fire - Area</A><BR>"
-	dat += "<A href='byond://?src=\ref[src];fireCords=1'>Open Fire - Coordinates</A><BR>"
+	dat += "<A href='byond://?src=[REF(src)];fireArea=1'>Open Fire - Area</A><BR>"
+	dat += "<A href='byond://?src=[REF(src)];fireCords=1'>Open Fire - Coordinates</A><BR>"
 	dat += "Deployment of weapon authorized by <br>[SSatlas.current_map.company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
-	user << browse(dat, "window=scroll")
+	user << browse(HTML_SKELETON(dat), "window=scroll")
 	onclose(user, "scroll")
 	return
 
-/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
+/obj/structure/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
 	if(href_list["fireArea"])
-		var/area/A = input("Area to jump bombard", "Open Fire") in GLOB.all_areas
+		var/area/A = input("Area to jump bombard", "Open Fire") in get_sorted_areas()
 		var/turf/loc = pick(get_area_turfs(A))
 		announce_and_fire(loc, usr)
 	else if(href_list["fireCords"])
@@ -40,7 +40,7 @@
 		var/turf/T = get_turf(locate(ix, iy, iz))
 		announce_and_fire(T, usr)
 
-/obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
+/obj/structure/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
 	if(!istype(t))
 		return
 	if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))

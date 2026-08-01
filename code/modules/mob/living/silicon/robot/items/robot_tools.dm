@@ -1,6 +1,3 @@
-/obj/item/crowbar/robotic
-	icon = 'icons/obj/robot_items.dmi'
-
 /obj/item/wrench/robotic
 	icon = 'icons/obj/robot_items.dmi'
 
@@ -9,7 +6,7 @@
 	icon_state = "screwdriver"
 	build_from_parts = FALSE
 
-/obj/item/device/multitool/robotic
+/obj/item/multitool/robotic
 	icon = 'icons/obj/robot_items.dmi'
 
 /obj/item/wirecutters/robotic
@@ -47,7 +44,7 @@
 		var/mob/living/silicon/robot/R = loc
 		return R.get_cell()
 
-/obj/item/robot_teleporter/examine(mob/user, distance)
+/obj/item/robot_teleporter/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(!ready_to_use && isrobot(user))
 		to_chat(user, SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]"))

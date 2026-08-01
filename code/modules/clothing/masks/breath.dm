@@ -5,7 +5,7 @@
 	item_state = "breath"
 	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_FLEXIBLE_MATERIAL
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
 	down_gas_transfer_coefficient = 1
@@ -43,3 +43,15 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_SKRELL)
 	adjustable = FALSE
+
+/obj/item/clothing/mask/breath/reade
+	name = "readic breath mask"
+	desc = "A personalised breath mask, with design features commonly seen from Reade. It is designed to be both practical and stylish."
+	icon = 'icons/obj/item/clothing/mask/breath/human/biesel/reade_breath_mask.dmi'
+	icon_state = "reademask"
+	item_state = "reademask"
+	worn_overlay = "airtube"
+	contained_sprite = TRUE
+	has_accents = TRUE
+	build_from_parts = TRUE
+

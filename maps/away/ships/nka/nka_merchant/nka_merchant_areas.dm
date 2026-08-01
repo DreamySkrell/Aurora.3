@@ -2,7 +2,6 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	icon_state = "bluenew"
 	requires_power = 1
-	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -30,10 +29,6 @@
 /area/nka_merchant/bridge
 	name = "Her Majesty's Mercantile Flotilla Ship Bridge"
 	icon_state = "bridge"
-
-/area/nka_merchant/bridge/secondary
-	name = "Her Majesty's Mercantile Flotilla Ship Secondary Bridge"
-	icon_state = "bridge_crew"
 
 /area/nka_merchant/warehouse
 	name = "Her Majesty's Mercantile Flotilla Ship warehouse"

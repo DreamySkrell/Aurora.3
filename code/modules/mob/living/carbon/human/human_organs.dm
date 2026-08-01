@@ -4,21 +4,20 @@
 		eyes.update_colour()
 		regenerate_icons()
 
-/mob/living/carbon/var/list/internal_organs = list()
-/mob/living/carbon/var/shock_stage = 0
-/mob/living/carbon/human/var/list/organs = list()
-
 /mob/living/carbon/human/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()
+	var/arterial_check = 0
 	for(var/obj/item/organ/external/O in organs)
 		damage_this_tick += O.burn_dam + O.brute_dam
+		if(O.status & ORGAN_ARTERY_CUT)
+			arterial_check = 1
 
-	if(damage_this_tick > last_dam)
+	if(damage_this_tick > last_dam || arterial_check != 0)
 		. = TRUE
 	last_dam = damage_this_tick
 
 // Takes care of organ related updates, such as broken and missing limbs
-/mob/living/carbon/human/proc/handle_organs()
+/mob/living/carbon/human/proc/handle_organs(seconds_per_tick)
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 
@@ -26,15 +25,6 @@
 		bad_external_organs.Cut()
 		for(var/obj/item/organ/external/Ex in organs)
 			bad_external_organs |= Ex
-
-	//processing internal organs is pretty cheap, do that first.
-	for(var/obj/item/organ/I in internal_organs)
-		if (QDELETED(I))
-			LOG_DEBUG("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
-			internal_organs -= I
-			continue
-
-		I.process()
 
 	handle_stance()
 	handle_grasp()
@@ -49,7 +39,6 @@
 			bad_external_organs -= E
 			continue
 		else
-			E.process()
 			number_wounds += E.number_wounds
 
 			if (!lying && !buckled_to && world.time - l_move_time < 15)
@@ -60,13 +49,9 @@
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				if (E.wounds.len)
-					for(var/datum/wound/W in E.wounds)
-						if (W.infection_check())
-							W.germ_level += 1
-
-/mob/living/carbon/human
-	var/next_stance_collapse = 0
+				for(var/datum/wound/W as anything in E.wounds)
+					if (W.infection_check())
+						W.germ_level += 1
 
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
@@ -107,7 +92,7 @@
 		for(var/limb_tag in list(BP_L_HAND,BP_L_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
-				visible_message("<span class='danger'>Lacking a functioning left hand, \the [src] drops \the [l_hand].</span>")
+				visible_message(SPAN_DANGER("Lacking a functioning left hand, \the [src] drops \the [l_hand]."))
 				drop_from_inventory(l_hand)
 				break
 
@@ -115,7 +100,7 @@
 		for(var/limb_tag in list(BP_R_HAND,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
-				visible_message("<span class='danger'>Lacking a functioning right hand, \the [src] drops \the [r_hand].</span>")
+				visible_message(SPAN_DANGER("Lacking a functioning right hand, \the [src] drops \the [r_hand]."))
 				drop_from_inventory(r_hand)
 				break
 
@@ -169,7 +154,7 @@
 
 			spark(src, 5)
 
-//Handles chem traces
+/// Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
 	for(var/_A in reagents.reagent_volumes)
@@ -190,10 +175,13 @@
 
 /mob/living/carbon/human/is_asystole()
 	if(isSynthetic())
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/C = internal_organs_by_name[BP_CELL]
 		if(istype(C) && C.is_usable() && C.percent())
-			return FALSE
+			var/obj/item/organ/internal/machine/posibrain/posi = internal_organs_by_name[BP_BRAIN]
+			if(istype(posi) && !posi.self_preservation_activated)
+				return FALSE
 		return TRUE
+
 	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())
@@ -207,7 +195,7 @@
 		if(!brain || stat == DEAD || (status_flags & FAKEDEATH))
 			brain_result = 0
 		else if(stat != DEAD)
-			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+			brain_result = round(max(0,(1 - brain.get_damage()/brain.max_damage)*100))
 	else
 		brain_result = -1
 	return brain_result
@@ -216,12 +204,12 @@
 	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)
-			brain_result = "<span class='bad'>none, patient is braindead</span>"
+			brain_result = SPAN_BAD("none, patient is braindead")
 		if(-1)
 			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
 		else
 			if(brain_result <= 50)
-				brain_result = "<span class='bad'>[brain_result]%</span>"
+				brain_result = SPAN_BAD("[brain_result]%")
 			else if(brain_result <= 80)
 				brain_result = "<span class='average'>[brain_result]%</span>"
 			else

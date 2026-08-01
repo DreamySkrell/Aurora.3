@@ -1,11 +1,11 @@
 /obj/item/modular_computer/process()
-	if(!enabled) // The computer is turned off
-		last_power_usage = 0
-		return FALSE
-
 	handle_power() // Handles all computer power interaction
 
-	if(damage > broken_damage)
+	if(!enabled) // The computer is turned off
+		last_power_usage = 0
+		return PROCESS_KILL // Unpowered computers don't need to process.
+
+	if(health <= broken_damage)
 		shutdown_computer()
 		return FALSE
 
@@ -41,11 +41,11 @@
 			else
 				enabled_services -= service
 
-	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
+	working = hard_drive && processor_unit && health >= broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+		playsound(get_turf(src), SFX_COMPUTER_BEEP, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -68,6 +68,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/proc/handle_verbs()
+	verbs += /obj/item/modular_computer/proc/force_shutdown
 	if(card_slot)
 		if(card_slot.stored_card)
 			verbs += /obj/item/modular_computer/proc/eject_id
@@ -84,7 +85,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -95,6 +95,7 @@
 	initial_name = name
 	listener = new("modular_computers", src)
 	sync_linked()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -115,7 +116,8 @@
 		QDEL_LIST(hard_drive.stored_files)
 
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
-		uninstall_component(null, CH)
+		// Eject_id is made false here as we want to delete the id too
+		uninstall_component(null, CH, eject_id = FALSE)
 		qdel(CH)
 
 	registered_id = null
@@ -165,19 +167,39 @@
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
-	cut_overlays()
-	if(damage >= broken_damage)
+	ClearOverlays()
+	if(health <= broken_damage)
 		icon_state = icon_state_broken
-		add_overlay("broken")
+		AddOverlays("broken")
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			if (is_holographic)
-				holographic_overlay(src, src.icon, icon_state_screensaver)
-			else
-				add_overlay(icon_state_screensaver)
+			var/mutable_appearance/I = overlay_image(src.icon, icon_state_screensaver)
+			if(is_holographic)
+				var/mutable_appearance/I_holographic = overlay_image(src.icon, icon_state_screensaver)
+				I_holographic.filters += filter(type="color", color=list(
+					0, 0, 0, 0,
+					0, 0, 0, 0,
+					0, 0, 0, 0,
+					HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+				))
+				I.filters += filter(type="color", color=list(
+					HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0, 0, 0,
+					0, HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0, 0,
+					0, 0, HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0,
+					0, 0, 0, 1
+				))
+				I_holographic.blend_mode = BLEND_MULTIPLY
+				I.blend_mode = BLEND_ADD
+				AddOverlays(I_holographic)
+			var/mutable_appearance/E = emissive_appearance(src.icon, icon_state_screensaver)
+			AddOverlays(I)
+			AddOverlays(E)
 		if(icon_state_screensaver_key && working)
-			add_overlay(icon_state_screensaver_key)
+			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key)
+			var/image/IK = image(src.icon, icon_state_screensaver_key)
+			AddOverlays(EK)
+			AddOverlays(IK)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -185,21 +207,56 @@
 			set_light(0)
 		return
 	if(active_program)
-		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		var/state_program = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		var/mutable_appearance/state = overlay_image(src.icon, state_program)
 		var/state_key = active_program.program_key_icon_state ? active_program.program_key_icon_state : icon_state_menu_key // for corresponding keyboards.
-		if (is_holographic)
-			holographic_overlay(src, src.icon, state)
-		else
-			add_overlay(state)
-		add_overlay(state_key)
+		if(is_holographic)
+			var/mutable_appearance/state_holographic = overlay_image(src.icon, state_program)
+			state_holographic.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			state.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			state.blend_mode = BLEND_ADD
+			state_holographic.blend_mode = BLEND_MULTIPLY
+			AddOverlays(state_holographic)
+		AddOverlays(list(state, state_key))
+		var/emissive_image = emissive_appearance(src.icon, state_program)
+		var/emissive_image_key = emissive_appearance(src.icon, "[state_key]_mask")
+		AddOverlays(list(emissive_image, emissive_image_key))
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
-		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_state_menu)
-		else
-			add_overlay(icon_state_menu)
-		add_overlay(icon_state_menu_key)
+		var/mutable_appearance/menu = overlay_image(src.icon, icon_state_menu)
+		if(is_holographic)
+			var/mutable_appearance/holographic_menu = overlay_image(src.icon, icon_state_menu)
+			holographic_menu.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			menu.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			menu.blend_mode = BLEND_ADD
+			holographic_menu.blend_mode = BLEND_MULTIPLY
+			AddOverlays(holographic_menu)
+		AddOverlays(list(menu, icon_state_menu_key))
+		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu)
+		var/emissive_menu_key = emissive_appearance(src.icon, "[icon_state_menu_key]_mask")
+		AddOverlays(emissive_menu)
+		AddOverlays(emissive_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 
@@ -207,7 +264,7 @@
 	if(tesla_link)
 		tesla_link.enabled = TRUE
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
-	if(damage > broken_damage)
+	if(health <= broken_damage)
 		if(issynth)
 			to_chat(user, SPAN_WARNING("You send an activation signal to \the [src], but it responds with an error code. It must be damaged."))
 		else
@@ -233,8 +290,8 @@
 	else
 		return FALSE
 	var/mob/user = usr
-	if(user && istype(user) && !forced)
-		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+	if(user && istype(user) && !forced && !QDELETED(src))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
 /**
@@ -261,6 +318,7 @@
 	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
+	STOP_PROCESSING(SSprocessing, src)
 	SStgui.close_uis(active_program)
 	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
@@ -282,6 +340,7 @@
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
+	START_PROCESSING(SSprocessing, src)
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)
@@ -327,7 +386,7 @@
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
 		return
 
-	P.computer = src
+	P.set_computer(src)
 
 	if(!P.is_supported_by_hardware(hardware_flag, TRUE, user))
 		return
@@ -358,13 +417,10 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnanoui.update_uis(active_program)
-		SStgui.update_uis(src)
-		if(active_program.NM)
-			SSnanoui.update_uis(active_program.NM)
+		if(active_program)
+			SStgui.update_uis(active_program)
 	else
 		SStgui.update_uis(src)
-		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
@@ -400,18 +456,6 @@
 	if(ui_update_needed)
 		update_uis()
 
-// Used by camera monitor program
-/obj/item/modular_computer/check_eye(var/mob/user)
-	if(active_program)
-		return active_program.check_eye(user)
-	return ..()
-
-// Used by camera monitor program
-/obj/item/modular_computer/grants_equipment_vision(var/mob/user)
-	if(active_program)
-		return active_program.grants_equipment_vision(user)
-	return ..()
-
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL
 
@@ -445,7 +489,7 @@
 	if(QDELETED(S))
 		return
 
-	S.computer = src
+	S.set_computer(src)
 
 	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
 		return

@@ -43,7 +43,7 @@
 // END RESEARCH DATUMS
 // BEGIN ABILITY VERBS
 
-/datum/game_mode/malfunction/verb/hack_holopad(var/obj/machinery/hologram/holopad/HP = null as obj in get_unhacked_holopads())
+/datum/game_mode/malfunction/verb/hack_holopad(var/obj/structure/machinery/hologram/holopad/HP = null as obj in get_unhacked_holopads())
 	set name = "Hack Holopad"
 	set desc = "50 CPU - Hacks a holopad shorting out its projector. Using a hacked holopad only turns on the audio feature."
 	set category = "Software"
@@ -64,7 +64,7 @@
 	to_chat(user, "Holopad hacked.")
 	user.hacking = 0
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in GLOB.cameranet.cameras)
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/structure/machinery/camera/target = null as obj in GLOB.cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
@@ -142,14 +142,14 @@
 		return
 
 	to_chat(user, "Emergency forcefield projection completed.")
-	new/obj/machinery/shield/malfai(T)
+	new/obj/structure/machinery/shield/malfai(T)
 	user.hacking = 1
 	log_ability_use(user, "emergency forcefield", T)
 	sleep(20)
 	user.hacking = 0
 
 
-/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.machinery)
+/datum/game_mode/malfunction/verb/machine_overload(obj/structure/machinery/M in SSmachinery.machinery)
 	set name = "Machine Overload"
 	set desc = "400 CPU - Causes cyclic short-circuit in machine, resulting in weak explosion after some time."
 	set category = "Software"
@@ -159,46 +159,46 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	if(istype(M, /obj/machinery/shield))
+	if(istype(M, /obj/structure/machinery/shield))
 		to_chat(user, SPAN_WARNING("ERROR: Generated shields cannot be overloaded!"))
 		return
 
-	var/obj/machinery/power/N = M
+	var/obj/structure/machinery/power/N = M
 
 	var/explosion_intensity = 2 //Base explosion intensity
 
 	// Verify if we can overload the target, if yes, calculate explosion strength. Some things have higher explosion strength than others, depending on charge(APCs, SMESs)
-	if(N && istype(N)) // /obj/machinery/power first, these create bigger explosions due to direct powernet connection
-		if(!istype(N, /obj/machinery/power/apc) && !istype(N, /obj/machinery/power/smes/buildable) && (!N.powernet || !N.powernet.avail)) // Directly connected machine which is not an APC or SMES. Either it has no powernet connection or it's powernet does not have enough power to overload
-			to_chat(user, "<span class='notice'>ERROR: Low network voltage. Unable to overload. Increase network power level and try again.</span>")
+	if(N && istype(N)) // /obj/structure/machinery/power first, these create bigger explosions due to direct powernet connection
+		if(!istype(N, /obj/structure/machinery/power/apc) && !istype(N, /obj/structure/machinery/power/smes/buildable) && (!N.powernet || !N.powernet.avail)) // Directly connected machine which is not an APC or SMES. Either it has no powernet connection or it's powernet does not have enough power to overload
+			to_chat(user, SPAN_NOTICE("ERROR: Low network voltage. Unable to overload. Increase network power level and try again."))
 			return
-		else if (istype(N, /obj/machinery/power/apc)) // APC. Explosion is increased by available cell power.
-			var/obj/machinery/power/apc/A = N
+		else if (istype(N, /obj/structure/machinery/power/apc)) // APC. Explosion is increased by available cell power.
+			var/obj/structure/machinery/power/apc/A = N
 			if(A.cell && A.cell.charge)
 				explosion_intensity = explosion_intensity + (A.cell.charge/10000)*6
 			else
-				to_chat(user, "<span class='notice'>ERROR: APC Malfunction - Cell depleted or removed. Unable to overload.</span>")
+				to_chat(user, SPAN_NOTICE("ERROR: APC Malfunction - Cell depleted or removed. Unable to overload."))
 				return
-		else if (istype(N, /obj/machinery/power/smes/buildable)) // SMES. These explode in a very very very big boom. Similar to magnetic containment failure when messing with coils.
-			var/obj/machinery/power/smes/buildable/S = N
+		else if (istype(N, /obj/structure/machinery/power/smes/buildable)) // SMES. These explode in a very very very big boom. Similar to magnetic containment failure when messing with coils.
+			var/obj/structure/machinery/power/smes/buildable/S = N
 			if(S.charge && S.RCon)
 				explosion_intensity = explosion_intensity + (S.charge/10000)*6
 			else
 				// Different error texts
 				if(!S.charge)
-					to_chat(user, "<span class='notice'>ERROR: SMES Depleted. Unable to overload. Please charge SMES unit and try again.</span>")
+					to_chat(user, SPAN_NOTICE("ERROR: SMES Depleted. Unable to overload. Please charge SMES unit and try again."))
 				else
-					to_chat(user, "<span class='notice'>ERROR: SMES RCon error - Unable to reach destination. Please verify wire connection.</span>")
+					to_chat(user, SPAN_NOTICE("ERROR: SMES RCon error - Unable to reach destination. Please verify wire connection."))
 				return
 	else if(M && istype(M)) // Not power machinery, so it's a regular machine instead. These have weak explosions.
 		if(!M.use_power) // Not using power at all
-			to_chat(user, "<span class='notice'>ERROR: No power grid connection. Unable to overload.</span>")
+			to_chat(user, SPAN_NOTICE("ERROR: No power grid connection. Unable to overload."))
 			return
-		if(M.inoperable()) // Not functional
-			to_chat(user, "<span class='notice'>ERROR: Unknown error. Machine is probably damaged or power supply is nonfunctional.</span>")
+		if(!M.operable()) // Not functional
+			to_chat(user, SPAN_NOTICE("ERROR: Unknown error. Machine is probably damaged or power supply is nonfunctional."))
 			return
 	else // Not a machine at all (what the hell is this doing in Machines list anyway??)
-		to_chat(user, "<span class='notice'>ERROR: Unable to overload - target is not a machine.</span>")
+		to_chat(user, SPAN_NOTICE("ERROR: Unable to overload - target is not a machine."))
 		return
 
 	explosion_intensity = min(explosion_intensity, 12) // 1, 6, 12 explosion cap
@@ -206,12 +206,12 @@
 	if(!ability_pay(user,price))
 		return
 
-	M.use_power_oneoff(250 KILOWATTS)
+	M.use_power_oneoff(250 KILO WATTS)
 
 	// Trigger a powernet alarm. Careful engineers will probably notice something is going on.
 	var/area/temp_area = get_area(M)
 	if(temp_area)
-		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
+		var/obj/structure/machinery/power/apc/temp_apc = temp_area.get_apc()
 		if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 			temp_apc.terminal.powernet.trigger_warning(50) // Long alarm
 		if(temp_apc)
@@ -221,7 +221,7 @@
 
 
 	log_ability_use(user, "machine overload", M)
-	M.visible_message("<span class='notice'>BZZZZZZZT</span>")
+	M.visible_message(SPAN_NOTICE("BZZZZZZZT"))
 	sleep(50)
 	explosion(get_turf(M), min(1,round(explosion_intensity/4)),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
 	if(M)
@@ -245,7 +245,7 @@
 		return
 
 	for(var/A in SSmachinery.gravity_generators)
-		var/obj/machinery/gravity_generator/main/B = A
+		var/obj/structure/machinery/gravity_generator/main/B = A
 		B.throw_up_and_down(Area)
 	log_ability_use(user, "gravity malfunction")
 

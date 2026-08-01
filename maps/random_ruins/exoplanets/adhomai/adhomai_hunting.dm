@@ -7,13 +7,16 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_hunting.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_hunting.dmm"
+
+	unit_test_groups = list(3)
 
 /area/adhomai_hunting
 	name = "Adhomai Hunting Lodge"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -46,8 +49,7 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/under/tajaran/summer
 	)
 
 	shoes = list(

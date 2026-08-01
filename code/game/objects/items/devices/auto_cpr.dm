@@ -4,16 +4,11 @@
 	name = "stabilizer harness"
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
-	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
-				while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
-				<br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
-				The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
-
 	icon = 'icons/obj/med_harness.dmi'
 	icon_state = "med_harness"
 	item_state = "med_harness"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 5, TECH_BIO = 3)
 	slot_flags = SLOT_OCLOTHING
 	var/panel_open = FALSE
@@ -40,6 +35,47 @@
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
 
+/obj/item/auto_cpr/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flatlining. Uses battery power."
+	. += "The EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Uses battery power."
+	. += "Use this item in your hand to toggle the CPR or EPP modes on/off."
+
+/obj/item/auto_cpr/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(panel_open)
+		. += "The panel for adding/removing items is open and could be closed with some <b>screws</b>."
+
+/obj/item/auto_cpr/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!panel_open)
+		. += "The panel for adding/removing items is <b>screwed</b> shut."
+	else
+		if(battery)
+			. += "The battery could be <b>pried</b> out."
+		if(tank_type)
+			. += "The tank is secured with several <b>bolts</b>."
+		if(breath_mask)
+			. += "The breath mask could be removed <b>by hand</b>."
+
+/obj/item/auto_cpr/feedback_hints(mob/user, distance, is_adjacent)
+	if(distance > 2)
+		return
+	. += ..()
+	. += "\The [src]'s [EPP] is currently <b>[epp_mode ? "on" : "off"]</b>, while the Auto CPR is <b>[cpr_mode ? "on" : "off"]</b>."
+	if(battery)
+		if(battery.percent() > 10)
+			. += "It currently has a battery with <b>[battery.percent()]%</b> charge."
+		else if(battery.percent() > 0)
+			. += SPAN_ALERT("It currently has a battery with <b>[battery.percent()]%</b> charge.")
+		else
+			. += SPAN_DANGER("It currently has a battery with no charge left!")
+	if(tank)
+		. += "It has \the [tank] installed. The meter shows <b>[round(XGM_PRESSURE(tank.air_contents))] kPa</b>, \
+		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>.[epp_active ? " The [EPP] is active." : ""]"
+	if(breath_mask)
+		. += "It has \the [breath_mask] installed."
+
 /obj/item/auto_cpr/Initialize()
 	. = ..()
 	battery = new /obj/item/cell(src)
@@ -65,35 +101,35 @@
 		var/c_state = "battery[battery_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/battery_overlay = image(c_icon, c_state)
 		battery_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(battery_overlay)
+		I.AddOverlays(battery_overlay)
 	if(breath_mask)
 		var/c_state = "mask_[mask_on ? "worn" : "idle"][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/mask_overlay = image(c_icon, c_state)
 		mask_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(mask_overlay)
+		I.AddOverlays(mask_overlay)
 	if(tank)
 		if(tank_level)
 			var/c_state = "tank_indicator[tank_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 			var/image/tank_level_overlay = image(c_icon, c_state)
 			tank_level_overlay.appearance_flags = RESET_ALPHA
-			I.add_overlay(tank_level_overlay)
+			I.AddOverlays(tank_level_overlay)
 		var/c_state = "tank_[tank_type][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/tank_overlay = image(c_icon, c_state)
 		tank_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(tank_overlay)
+		I.AddOverlays(tank_overlay)
 	if(epp_active)
 		var/c_state = "epp_active[cpr_mode ? "_cpr" : ""][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/epp_overlay = image(c_icon, c_state)
 		epp_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(epp_overlay)
+		I.AddOverlays(epp_overlay)
 	return I
 
 /obj/item/auto_cpr/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	item_state = "[cpr_mode ? "med_harness_cpr" : "[initial(item_state)]"]"
 
 	if(breath_mask)
-		add_overlay("mask_[mask_on ? "worn" : "idle"]")
+		AddOverlays("mask_[mask_on ? "worn" : "idle"]")
 	if(battery)
 		switch(battery.percent())
 			if(90 to INFINITY)	battery_level = 6
@@ -103,7 +139,7 @@
 			if(20 to 39)		battery_level = 2
 			if(05 to 19)		battery_level = 1
 			if(-INFINITY to 4)	battery_level = 0
-		add_overlay("battery[battery_level]")
+		AddOverlays("battery[battery_level]")
 	if(tank)
 		switch(tank.percent())
 			if(90 to INFINITY)	tank_level = 6
@@ -113,7 +149,7 @@
 			if(20 to 39)		tank_level = 2
 			if(05 to 19)		tank_level = 1
 			if(-INFINITY to 4)	tank_level = 0
-		add_overlay("tank_indicator[tank_level]")
+		AddOverlays("tank_indicator[tank_level]")
 
 		if(istype(tank, /obj/item/tank/emergency_oxygen/engi))
 			tank_type = "engi"
@@ -121,13 +157,13 @@
 			tank_type = "oxy"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type]")
+		AddOverlays("tank_[tank_type]")
 	if(epp_active)
-		add_overlay("epp_active")
+		AddOverlays("epp_active")
 	if(panel_open)
-		add_overlay("panel_open[battery ? "_battery" : ""]")
+		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
-/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
+/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	. = ..()
 	if(slot == slot_wear_suit)
 		if(panel_open)
@@ -140,7 +176,8 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/H, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H) && user.a_intent == I_HELP)
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("You must screw \the [src]'s panel closed before fitting it onto anyone!"))
@@ -162,7 +199,7 @@
 		return ..()
 
 /obj/item/auto_cpr/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
@@ -174,7 +211,7 @@
 		return TRUE
 
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
@@ -184,7 +221,7 @@
 			tank = null
 			update_icon()
 			return TRUE
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
@@ -237,8 +274,8 @@
 		update_icon()
 		return
 	var/list/options = list(
-		"Toggle CPR" = image('icons/mob/screen/radial.dmi', "cpr_mode"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Toggle CPR" = image('icons/hud/mob/radial.dmi', "cpr_mode"),
+		"Toggle EPP" = image('icons/hud/mob/radial.dmi', "iv_epp"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
@@ -344,7 +381,7 @@
 
 	var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
 	var/safe_pressure_min = H.species.breath_pressure + 2
-	safe_pressure_min *= 1 + rand(1,4) * lungs.damage/lungs.max_damage
+	safe_pressure_min *= 1 + rand(1,4) * lungs.get_damage()/lungs.max_damage
 	if(!lungs)
 		epp_off()
 		return
@@ -352,7 +389,7 @@
 		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."))
 		epp_off()
 		return
-	if(tank.air_contents.return_pressure() <= 10)
+	if(XGM_PRESSURE(tank.air_contents) <= 10)
 		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."))
 		epp_off()
 		return
@@ -476,18 +513,5 @@
 	to_chat(usr, SPAN_NOTICE("You toggle \the [src]'s Auto CPR system [cpr_mode ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
-
-/obj/item/auto_cpr/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!is_adjacent)
-		return
-	. += SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"].")
-	if(battery)
-		. += SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge.")
-	if(tank)
-		. += SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]")
-	if(breath_mask)
-		. += SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed.")
 
 #undef EPP

@@ -9,7 +9,7 @@
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
 	var/grille_path = /obj/structure/grille/over
-	var/firedoor_path = /obj/machinery/door/firedoor
+	var/firedoor_path = /obj/structure/machinery/door/firedoor
 
 	/// For full window panes and full windows
 	var/single_window = FALSE
@@ -33,7 +33,7 @@
 /obj/effect/map_effect/window_spawner/attack_ghost()
 	attack_generic()
 
-/obj/effect/map_effect/window_spawner/attack_generic()
+/obj/effect/map_effect/window_spawner/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	activate()
 
 /obj/effect/map_effect/window_spawner/Initialize(mapload)
@@ -56,10 +56,12 @@
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
-		new firedoor_path(loc)
+		var/obj/structure/machinery/door/firedoor/new_firedoor = new firedoor_path(loc)
+		if(req_one_access)
+			new_firedoor.req_one_access = req_one_access
 	if(!single_window)
 		var/list/neighbours = list()
-		for (var/dir in GLOB.cardinal)
+		for (var/dir in GLOB.cardinals)
 			var/turf/T = get_step(src, dir)
 			var/obj/effect/map_effect/window_spawner/other = locate(/obj/effect/map_effect/window_spawner) in T
 			if(!other)
@@ -232,6 +234,7 @@
 /obj/effect/map_effect/window_spawner/full/shuttle
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow_shuttle"
+	frame_path = /obj/structure/window_frame/shuttle
 	window_path = /obj/structure/window/full/reinforced
 
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
@@ -241,3 +244,43 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary
 	icon_state = "full_rwindow_shuttle_merc"
 	frame_color = "#5B5B5B"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/raider
+	icon_state = "full_rwindow_shuttle"
+	frame_color = "#6C7364"
+	color = "#6C7364"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/industrial
+	icon_state = "full_rwindow_shuttle"
+	frame_color = "#6E5B4A"
+	color = "#6E5B4A"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/brown
+	icon_state = "full_rwindow_shuttle"
+	frame_color = COLOR_MUTED_BROWN
+	color = COLOR_MUTED_BROWN
+
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor
+	spawn_firedoor = TRUE
+
+//Coalition window frames
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition
+	name = "coalition reinforced window spawner"
+	icon_state = "coalition_window"
+	frame_path = /obj/structure/window_frame/shuttle
+	frame_color = COLOR_COALITION
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille
+	name = "coalition reinforced window spawner with grille"
+	icon_state = "coalition_window-g"
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor
+	name = "coalition reinforced window spawner with firedoor"
+	icon_state = "coalition_window-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor
+	name = "coalition reinforced window spawner with grille and firedoor"
+	icon_state = "coalition_window-gf"
+	spawn_firedoor = TRUE

@@ -17,7 +17,7 @@
 
 /obj/item/clothing/head/softcap/verb/ToggleHat()
 	set name = "Flip Hat"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -27,6 +27,7 @@
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	item_state = icon_state
 	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
+	update_icon()
 	update_clothing_icon()	// So our mob-overlays update.
 
 /obj/item/clothing/head/softcap/colorable
@@ -36,6 +37,9 @@
 /obj/item/clothing/head/softcap/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
+
+/obj/item/clothing/head/softcap/colorable/accent
+	has_accents = TRUE
 
 /obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
@@ -48,12 +52,6 @@
 	desc = "It's a softcap in a menacing crimson red."
 	icon_state = "softcap_red"
 	item_state = "softcap_red"
-
-/obj/item/clothing/head/softcap/tcfl
-	name = "tcfl cap"
-	desc = "A rugged softcap in TCFL colours, go Biesel!"
-	icon_state = "tcfl"
-	item_state = "tcfl"
 
 // Departmental Softcaps (By Wowzewow (Wezzy))
 /obj/item/clothing/head/softcap/captain
@@ -191,3 +189,16 @@
 	desc = "A peaked cap in a brown colour with a purple brim."
 	icon_state = "custodian_orion"
 	item_state = "custodian_orion"
+
+//goblin.stev's stuff
+/obj/item/clothing/head/softcap/orion
+	name = "Orion Softcap"
+	desc = "A company-issue Orion Express cap. For overworked employees that value corporate pride over protection."
+	icon_state = "orion"
+	item_state = "orion"
+
+/obj/item/clothing/head/softcap/newsboy
+	name = "newsboy cap"
+	desc = "A fashionable peaked cap!"
+	icon_state = "newsboy"
+	item_state = "newsboy"

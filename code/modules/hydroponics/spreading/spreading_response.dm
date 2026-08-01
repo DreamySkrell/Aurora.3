@@ -1,25 +1,22 @@
 /obj/effect/plant/HasProximity(var/atom/movable/AM)
 
-	if(!is_mature() || (seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) == 0))
+	if(!is_mature() || (GET_SEED_TRAIT(seed, TRAIT_SPREAD) != 2 && GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS) == 0))
 		return
 
 	var/mob/living/M = AM
 	if(!istype(M))
 		return
 
-	if(!issmall(M) && seed.get_trait(TRAIT_SPREAD) != 2 && seed.get_trait(TRAIT_CARNIVOROUS) != 2)
+	if(!issmall(M) && GET_SEED_TRAIT(seed, TRAIT_SPREAD) != 2 && GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS) != 2)
 		// let TRAIT_CARNIVOROUS = 1 plants eat small creatures without murdering every hydroponicist
 		return
 
-	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
+	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(GET_SEED_TRAIT(seed, TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
 		addtimer(CALLBACK(src, PROC_REF(entangle), M), 1)
 
-/obj/effect/plant/attack_hand(var/mob/user)
-	manual_unbuckle(user)
-
-/obj/effect/plant/attack_generic(var/mob/user)
+/obj/effect/plant/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	manual_unbuckle(user)
 
 /obj/effect/plant/proc/trodden_on(var/mob/living/victim)
@@ -43,25 +40,25 @@
 
 /obj/effect/plant/proc/manual_unbuckle(mob/user as mob)
 	if(buckled)
-		if(prob(seed ? min(max(0,100 - seed.get_trait(TRAIT_POTENCY)/2),100) : 50))
+		if(prob(seed ? min(max(0,100 - GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2),100) : 50))
 			if(buckled.buckled_to == src)
 				if(buckled != user)
 					buckled.visible_message(\
-						"<span class='notice'>[user.name] frees [buckled.name] from \the [src].</span>",\
-						"<span class='notice'>[user.name] frees you from \the [src].</span>",\
-						"<span class='warning'>You hear shredding and ripping.</span>")
+						SPAN_NOTICE("[user.name] frees [buckled.name] from \the [src]."),\
+						SPAN_NOTICE("[user.name] frees you from \the [src]."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 				else
 					buckled.visible_message(\
-						"<span class='notice'>[buckled.name] struggles free of \the [src].</span>",\
-						"<span class='notice'>You untangle \the [src] from around yourself.</span>",\
-						"<span class='warning'>You hear shredding and ripping.</span>")
+						SPAN_NOTICE("[buckled.name] struggles free of \the [src]."),\
+						SPAN_NOTICE("You untangle \the [src] from around yourself."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 			unbuckle()
 		else
 			var/text = pick("rip","tear","pull")
 			user.visible_message(\
-				"<span class='notice'>[user.name] [text]s at \the [src].</span>",\
-				"<span class='notice'>You [text] at \the [src].</span>",\
-				"<span class='warning'>You hear shredding and ripping.</span>")
+				SPAN_NOTICE("[user.name] [text]s at \the [src]."),\
+				SPAN_NOTICE("You [text] at \the [src]."),\
+				SPAN_WARNING("You hear shredding and ripping."))
 	return
 
 /obj/effect/plant/proc/entangle(var/mob/living/victim)
@@ -80,11 +77,11 @@
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0
 		if(can_grab)
-			src.visible_message("<span class='danger'>Tendrils lash out from \the [src] and drag \the [victim] in!</span>")
+			src.visible_message(SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"))
 			victim.forceMove(src.loc)
 
 	//entangling people
 	if(victim.loc == src.loc)
 		buckle(victim)
-		victim.set_dir(pick(GLOB.cardinal))
-		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")
+		victim.set_dir(pick(GLOB.cardinals))
+		to_chat(victim, SPAN_DANGER("Tendrils tighten around you!"))

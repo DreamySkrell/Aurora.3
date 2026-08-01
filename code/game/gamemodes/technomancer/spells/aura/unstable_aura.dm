@@ -20,6 +20,7 @@
 /obj/item/spell/aura/unstable/process()
 	if(!pay_energy(200))
 		qdel(src)
+		return
 	var/list/nearby_mobs = range(calculate_spell_power(14),owner)
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
@@ -36,11 +37,11 @@
 		if(L.isSynthetic())
 			L.adjustBruteLoss(damage_to_inflict)
 			if(damage_to_inflict && prob(10))
-				to_chat(L, "<span class='danger'>Your chassis seems to slowly be decaying and breaking down.</span>")
+				to_chat(L, SPAN_DANGER("Your chassis seems to slowly be decaying and breaking down."))
 		else
 			L.adjustFireLoss(damage_to_inflict)
 			if(damage_to_inflict && prob(10))
-				to_chat(L, "<span class='danger'>You feel almost like you're melting from the inside!</span>")
+				to_chat(L, SPAN_DANGER("You feel almost like you're melting from the inside!"))
 
 
 	adjust_instability(2)

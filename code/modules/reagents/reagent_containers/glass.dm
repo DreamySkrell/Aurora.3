@@ -12,7 +12,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
 	accuracy = 0.1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	fragile = 2
 	unacidable = 1 //glass doesn't dissolve in acid
@@ -20,12 +20,8 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	var/label_text = ""
 
-/obj/item/reagent_containers/glass/Initialize()
-	. = ..()
-	AddComponent(/datum/component/base_name, name)
-
-/obj/item/reagent_containers/glass/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/glass/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
@@ -45,6 +41,10 @@
 		. += SPAN_NOTICE("It is empty.")
 	if(!is_open_container())
 		. += SPAN_NOTICE("An airtight lid seals it completely.")
+
+/obj/item/reagent_containers/glass/Initialize()
+	. = ..()
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
@@ -77,12 +77,12 @@
 	if(istype(attacking_item,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
-			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))
 		else
-			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
 			update_icon()
@@ -105,9 +105,10 @@
 	filling_states = "20;40;60;80;100"
 	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list(MATERIAL_GLASS = 500)
-	drop_sound = 'sound/items/drop/drinkglass.ogg'
-	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
-	fragile = 1
+	drop_sound = 'sound/items/drop/beaker.ogg'
+	pickup_sound = 'sound/items/pickup/beaker.ogg'
+	fragile = TRUE
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -132,22 +133,22 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 	if(label_text)
 		var/label_icon = "label_[icon_state]"
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
-		add_overlay(label)
+		AddOverlays(label)
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -196,10 +197,25 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/antidote
 	name = "hylemnomil-zeta antidote vial"
-	desc = "<span class='cult'>Your lifeline. Defend it with your life.</span>"
+	desc = SPAN_CULT("Your lifeline. Defend it with your life.")
 	volume = 60
 	amount_per_transfer_from_this = 5
 	reagents_to_add = list(/singleton/reagent/antibodies = 60)
+
+/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
+	name = "dexalin plus vial"
+	desc = "A small vial of Dexalin Plus, a potent medication that aids in the re-oxygenating of blood cells."
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/peridaxon
+	name = "peridaxon vial"
+	desc = "A small vial of Peridaxon, an advanced organ regenerative compound."
+	reagents_to_add = list(/singleton/reagent/peridaxon = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	name = "arithrazine vial"
+	desc = "A small vial of Arithrazine, a potent anti-radiation medication."
+	reagents_to_add = list(/singleton/reagent/arithrazine = 15)
 
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"
@@ -248,7 +264,7 @@
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(MATERIAL_PLASTIC = 200)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	volume = 300
@@ -266,34 +282,34 @@
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(attacking_item.iswirecutter())
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [attacking_item].</span>")
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
+		to_chat(user, SPAN_NOTICE("You cut a big hole in \the [src] with \the [attacking_item]."))
 		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
 	else if(istype(attacking_item, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		else
 			reagents.trans_to_obj(attacking_item, 5)
-			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You wet \the [attacking_item] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else
 		return ..()
 
 /obj/item/reagent_containers/glass/bucket/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents.total_volume > 0)
-		add_overlay("water_[initial(icon_state)]")
+		AddOverlays("water_[initial(icon_state)]")
 	if(!is_open_container())
-		add_overlay("lid_[initial(icon_state)]")
+		AddOverlays("lid_[initial(icon_state)]")
 
 /obj/item/reagent_containers/glass/bucket/on_reagent_change()
 	update_icon()
 
 /obj/item/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink heavily from \the [src]."))
 
 /obj/item/reagent_containers/glass/bucket/wood
 	name = "wooden bucket"
@@ -302,7 +318,7 @@
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	center_of_mass = list("x" = 16,"y" = 8)
-	matter = list("wood" = 50)
+	matter = list(MATERIAL_WOOD = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood

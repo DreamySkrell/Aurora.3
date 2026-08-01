@@ -7,6 +7,7 @@
 #define OUTFIT_MESSENGERBAG 6
 #define OUTFIT_RUCKSACK 7 // the bay one
 #define OUTFIT_POCKETBOOK 8 // the leather bag but smaller
+#define OUTFIT_CHESTPOUCH 9
 
 #define OUTFIT_JOBSPECIFIC 1
 #define OUTFIT_GENERIC 2
@@ -39,3 +40,4 @@
 #define OUTFIT_DOUBLE 4
 #define OUTFIT_WRISTRAD 5
 #define OUTFIT_THIN_WRISTRAD 6
+#define OUTFIT_CLIPON 7

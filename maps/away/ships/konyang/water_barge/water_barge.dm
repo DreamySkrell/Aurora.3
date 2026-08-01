@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/water_barge
 	name = "Water Barge"
 	description = "A PACHROM transport barge, exporting water."
-	suffixes = list("ships/konyang/water_barge/water_barge.dmm")
+
+	prefix = "ships/konyang/water_barge/"
+	suffix = "water_barge.dmm"
+
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1
@@ -105,7 +108,7 @@
 	logging_home_tag = "nav_water_barge_hangar"
 	defer_initialisation = TRUE
 
-/obj/machinery/computer/shuttle_control/explore/water_barge_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/water_barge_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Water Barge Shuttle"
 

@@ -11,7 +11,7 @@
 	var/fillsource = "coffeecup"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents.total_volume)
 		var/image/filling = image('icons/obj/drink_glasses/coffecup.dmi', src, null)
@@ -24,7 +24,7 @@
 			if(80 to 99)	filling.icon_state = "[fillsource]80"
 			if(100 to INFINITY)	filling.icon_state = "[fillsource]100"
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 // ------------------------ nations
 
@@ -81,7 +81,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
 	name = "\improper Nralakk coffee cup"
 	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
-	icon_state = "coffeecup_jarg"
+	icon_state = "coffeecup_nral"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
 	name = "\improper San Colette coffee cup"
@@ -123,9 +123,9 @@
 	desc = "A blue NanoTrasen coffee cup."
 	icon_state = "coffeecup_NT"
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
-	name = "\improper Tau Ceti Foreign Legion coffee cup"
-	desc = "A coffee cup with the TCFL emblem emblazoned on it."
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf
+	name = "\improper Tau Ceti Armed Forces coffee cup"
+	desc = "A coffee cup with the TCAF emblem emblazoned on it."
 	icon_state = "coffeecup_tcfl"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
@@ -278,7 +278,7 @@
 	volume = 60
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents.total_volume)
 		var/image/filling = image('icons/obj/drink_glasses/coffecup_tall.dmi', src, null)
@@ -291,7 +291,7 @@
 			if(90 to 99)	filling.icon_state = "[fillsource]90"
 			if(100 to INFINITY)	filling.icon_state = "[fillsource]100"
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/black
 	name = "tall black coffee cup"

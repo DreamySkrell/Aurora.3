@@ -21,8 +21,19 @@
 	path = /obj/item/clothing/mask/cloth
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/mask/snood
+	display_name = "snood"
+	path = /obj/item/clothing/mask/snood
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/mask/gadpathur
 	display_name = "gadpathurian rebreather"
 	path = /obj/item/clothing/mask/breath/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+
+/datum/gear/mask/reade_breath_mask
+	display_name = "readic personalised oxygen mask"
+	path = /obj/item/clothing/mask/breath/reade
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/reade)

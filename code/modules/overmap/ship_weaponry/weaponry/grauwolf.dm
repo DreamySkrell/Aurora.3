@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/grauwolf
+/obj/structure/machinery/ship_weapon/grauwolf
 	name = "grauwolf flak battery"
 	desc = "A Kumar Arms flak battery developed in 2461 as part of the same <i>\"Chivalry\"</i> line of the Longbow. Its barrels may look smaller than its significantly larger kin's, \
 			but don't let that fool you: this gun will shred through smaller ships."
@@ -9,7 +9,7 @@
 	caliber = SHIP_CALIBER_90MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-/obj/machinery/ammunition_loader/grauwolf
+/obj/structure/machinery/ammunition_loader/grauwolf
 	name = "grauwolf flak loader"
 
 /obj/item/ship_ammunition/grauwolf_bundle
@@ -20,7 +20,7 @@
 	overmap_icon_state = "flak"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf
 	burst = 4
 
 /obj/item/ship_ammunition/grauwolf_bundle/ap
@@ -28,24 +28,29 @@
 	desc = "A bundle of armor-piercing flak shells."
 	icon_state = "bundle_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf/ap
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf/ap
 
-/obj/item/projectile/ship_ammo/grauwolf
+/obj/projectile/ship_ammo/grauwolf
 	name = "high-explosive flak"
 	icon_state = "small_burst"
 	damage = 100
 	armor_penetration = 50
 	penetrating = 0
+	anti_materiel_potential = 6
+	explosion_strength = list(0, 2, 4)
 
-/obj/item/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 0, 2, 4)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 	else
-		explosion(target, 0, 1, 2)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
-/obj/item/projectile/ship_ammo/grauwolf/ap
+/obj/projectile/ship_ammo/grauwolf/ap
 	name = "armor-piercing flak"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 8
+	anti_materiel_potential = 8
+	explosion_strength = list(0, 1, 2)

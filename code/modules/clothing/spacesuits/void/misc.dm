@@ -6,18 +6,18 @@
 	item_state = "sol_helmet"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/sol
@@ -28,19 +28,21 @@
 	item_state = "sol_suit"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
@@ -51,21 +53,21 @@
 	item_state = "vulture_helmet"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
@@ -75,21 +77,23 @@
 	icon_state = "vulture"
 	item_state = "vulture"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit helmet"
@@ -98,19 +102,10 @@
 	icon_state = "xanu_void_helmet"
 	item_state = "xanu_void_helmet"
 	siemens_coefficient = 0.35
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_KEVLAR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
-	)
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	light_overlay = "helmet_light_xanu_voidsuit"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit"
@@ -119,19 +114,10 @@
 	icon_state = "xanu_voidsuit"
 	item_state = "xanu_voidsuit"
 	contained_sprite = TRUE
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_KEVLAR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
-	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
 /obj/item/clothing/suit/space/void/coalition/himeo
 	name = "\improper Himean buzzard voidsuit"
@@ -141,29 +127,8 @@
 	one surrender without a single shot being fired."
 	icon_state = "himeo_voidsuit"
 	item_state = "himeo_voidsuit"
-	slowdown = 1.5
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
-	)
-	allowed = list(
-		/obj/item/device/flashlight,
-		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
-		/obj/item/gun,
-		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
-		/obj/item/melee/energy/sword,
-		/obj/item/handcuffs
-	)
-	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	icon_supported_species_tags = list("taj")
 
@@ -175,18 +140,10 @@
 	one surrender without a single shot being fired."
 	icon_state = "himeo_void_helmet"
 	item_state = "himeo_void_helmet"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
-	)
+
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	icon_supported_species_tags = list("taj")
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 
 /obj/item/clothing/head/helmet/space/void/coalition/galatea
@@ -197,20 +154,7 @@
 	combat protection."
 	icon_state = "galatea_void_helmet"
 	item_state = "galatea_void_helmet"
-	slowdown = 0.65
-	permeability_coefficient = 0
-	gas_transfer_coefficient = 0
-	siemens_coefficient = 0.75
-	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_STRONG,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/coalition/galatea
@@ -221,32 +165,10 @@
 	combat protection."
 	icon_state = "galatea_voidsuit"
 	item_state = "galatea_voidsuit"
-	slowdown = 0.65
-	permeability_coefficient = 0
-	gas_transfer_coefficient = 0
-	siemens_coefficient = 0.75
-	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_STRONG,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
-	allowed = list(
-		/obj/item/device/flashlight,
-		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
-		/obj/item/gun,
-		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
-		/obj/item/melee/energy/sword,
-		/obj/item/handcuffs
-	)
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
+
 
 /obj/item/clothing/head/helmet/space/void/cruiser
 	name = "cruiser voidsuit helmet"
@@ -256,18 +178,18 @@
 	item_state = "cruiser_helm"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
-	w_class = ITEMSIZE_NORMAL
-	brightness_on = 6
+	w_class = WEIGHT_CLASS_NORMAL
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/cruiser
@@ -278,19 +200,21 @@
 	item_state = "cruiser"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/tank,/obj/item/flashlight,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/valkyrie
 	name = "valkyrie voidsuit helmet"
@@ -300,18 +224,18 @@
 	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 
@@ -322,22 +246,24 @@
 	item_state = "valkyrie"
 	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/tank,/obj/item/flashlight,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/lancer
 	name = "lancer voidsuit helmet"
@@ -348,22 +274,21 @@
 	icon_supported_species_tags = list("una")
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-/obj/item/clothing/head/helmet/space/void/lancer/unathi/Initialize()
-	. = ..()
+/obj/item/clothing/head/helmet/space/void/lancer/unathi
 	desc = "A sleek helmet with a bright yellow visor, expertly made in and colored in the iconic branding of Ceres' Lance. This one is fitted to Unathi."
-	refit_contained(BODYTYPE_UNATHI)
+	refit_initialize = BODYTYPE_UNATHI
 
 /obj/item/clothing/suit/space/void/lancer
 	name = "lancer voidsuit"
@@ -373,26 +298,27 @@
 	item_state = "lancer"
 	icon_supported_species_tags = list("una")
 	contained_sprite = TRUE
-	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
+	slowdown = 0.65
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-/obj/item/clothing/suit/space/void/lancer/unathi/Initialize()
-	. = ..()
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
+/obj/item/clothing/suit/space/void/lancer/unathi
 	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance. This one is fitted to Unathi."
-	refit_contained(BODYTYPE_UNATHI)
+	refit_initialize = BODYTYPE_UNATHI
 
 //Einstein Engines espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/einstein
@@ -404,18 +330,18 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_banshee"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -429,22 +355,24 @@
 	item_state = "banshee"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.1
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Zeng-Hu Pharmaceuticals espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zenghu
@@ -456,18 +384,18 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_dragon"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -481,22 +409,24 @@
 	item_state = "dragon"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.25
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -508,18 +438,18 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_caiman"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	icon_supported_species_tags = list("una")
@@ -533,22 +463,24 @@
 	item_state = "caiman"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.75
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi
@@ -560,18 +492,18 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_revenant"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#f65858"
 	desc_extended = "An ominous helmet of Zavodskoi Interstellar make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
 
@@ -583,21 +515,23 @@
 	item_state = "revenant"
 	contained_sprite = 1
 
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.3
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
@@ -609,23 +543,22 @@
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "freelancer_light"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/freelancer
-	icon_state = "freelancer"
 	name = "armored voidsuit"
 	desc = "A suit from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
@@ -633,21 +566,23 @@
 	item_state = "freelancer"
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
-	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
+	slowdown = 0.5
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
@@ -658,17 +593,17 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
@@ -687,23 +622,25 @@
 	icon_state = "dvoidsuit"
 	item_state = "dvoidsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 0.5
 
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/dominia/voidsman
 	name = "dominian voidsman suit"
@@ -714,6 +651,7 @@
 	icon_supported_species_tags = null
 	refittable_species = list(BODYTYPE_HUMAN)
 
+// For use by merchants of the Golden Deep.
 /obj/item/clothing/head/helmet/space/void/golden_deep
 	name = "golden helmet"
 	desc = "A glamorous, decorated helmet plated with gold. Very hefty."
@@ -723,17 +661,17 @@
 	contained_sprite = 1
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	brightness_on = 6
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/golden_deep
 	name = "golden suit"
@@ -742,21 +680,82 @@
 	icon_state = "goldsuit"
 	item_state = "goldsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 1.0
 
-	w_class = ITEMSIZE_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+// For use by non-combatant and non-merchant members of the Golden Deep.
+/obj/item/clothing/suit/space/void/golden_deep/menial
+	name = "golden deep voidsuit"
+	desc = "This is a deep red voidsuit typical of the Golden Deep, often used by its less ostentatious - and, less wealthy - members to go about the work necessary to uphold the interests of their merchant and Collective."
+	icon_state = "golden_deep"
+	item_state = "golden_deep"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/head/helmet/space/void/golden_deep/menial
+	name = "golden deep voidsuit helmet"
+	desc = "This is a deep red voidsuit helmet typical of the Golden Deep, often used by its less ostentatious - and, less wealthy - members to go about the work necessary to uphold the interests of their merchant and Collective. Clever ergonomics appear to allow the helmet to fit a very diverse range of head shapes, including those of a standard baseline."
+	icon_state = "golden_deep_helm"
+	item_state = "golden_deep_helm"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_RESISTANT
+	)
+
+// For use by the Hoplan, the Golden Deep's military.
+/obj/item/clothing/suit/space/void/golden_deep/hoplan
+	name = "hoplan voidsuit"
+	desc = "This is an extremely bulky and heavily made voidsuit used by the Hoplan, the military of the Golden Deep. Designed to provide extreme protection in all conditions, but not particularly comfortable for human use."
+	icon_state = "hoplan"
+	item_state = "hoplan"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
+/obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
+	name = "hoplan voidsuit helmet"
+	desc = "This is an extremely bulky and heavily made voidsuit helmet used by the Hoplan, the military of the Golden Deep. Designed to provide extreme protection in all conditions, but not particularly comfortable for human use."
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
 
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"
@@ -774,7 +773,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -800,7 +799,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -856,7 +855,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This suit looks fit for a Tajara."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This suit looks fit for a Tajara."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
@@ -890,7 +889,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo/tajara
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model is fitted for Tajara and seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model is fitted for Tajara and seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
@@ -1029,21 +1028,33 @@
 	icon_state = "sfa_suit"
 	item_state = "sfa_suit"
 
+/obj/item/clothing/head/helmet/space/void/sol/splf
+	name = "solarian people's liberation fleet voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstinate insurgents to others."
+	icon_state = "splf_helmet"
+	item_state = "splf_helmet"
+
+/obj/item/clothing/suit/space/void/sol/splf
+	name = "solarian people's liberation fleet voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstinate insurgents to others."
+	icon_state = "splf_suit"
+	item_state = "splf_suit"
+
 /obj/item/clothing/head/helmet/space/void/coalition/gadpathur
 	name = "coalition vulture-GP voidsuit helmet"
 	desc = "A helmet resembling an avian. This one has been modified for usage with Gadpathur's navy."
 	icon_state = "gadpathur_vulture_helm"
 	item_state = "gadpathur_vulture_helm"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/gadpathur
 	name = "coalition vulture-GP voidsuit"
 	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. This one has been modified for usage with Gadpathur's navy."
 	icon_state = "gadpathur_vulture"
 	item_state = "gadpathur_vulture"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/void/sol/konyang
 	name = "konyang aerospace forces voidsuit helmet"
@@ -1051,7 +1062,7 @@
 	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "konyang_helmet"
 	item_state = "konyang_helmet"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
@@ -1062,33 +1073,35 @@
 	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "konyang_suit"
 	item_state = "konyang_suit"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
 
 /obj/item/clothing/suit/space/void/tcaf
-	name = "tau ceti armed forces voidsuit"
+	name = "tcaf aegis voidsuit"
 	desc = "A Zavodskoi-manufactured combat voidsuit designed for the Tau Ceti Armed Forces, the Type-37 \"Aegis\" is now the primary armored voidsuit in use by the Republic of Biesel."
 	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
 	icon_state = "tcaf_suit"
 	item_state = "tcaf_suit"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/tcaf
 	name = "tau ceti armed forces voidsuit helmet"
@@ -1097,58 +1110,234 @@
 	icon_state = "tcaf_helmet"
 	item_state = "tcaf_helmet"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
-	brightness_on = 6
+	light_range = 6
 	siemens_coefficient = 0.35
 
-/obj/item/clothing/head/helmet/space/void/coalition/assunzione
-	name = "\improper Assunzionii rook voidsuit helmet"
-	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
-	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+/obj/item/clothing/head/helmet/space/void/sci/assunzione
+	name = "\improper Assunzionii research voidsuit helmet"
+	desc = "Designed to be lightweight and maneuverable, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's greatest scientific minds."
+	desc_extended = "Rook suits are largely seen in the hands of scientific expeditions into the darkness of the Lemurian Sea, although the design is well-respected enough that it's widely permitted for use by Assunzionii scientists across the spur. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "assunzione_helmet"
 	item_state = "assunzione_helmet"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
-	icon_supported_species_tags = list("ipc")
-	anomaly_protection = 0.2
-	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
+	species_restricted = list(BODYTYPE_HUMAN)
 
-/obj/item/clothing/suit/space/void/coalition/assunzione
-	name = "\improper Assunzionii rook voidsuit"
-	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
-	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+/obj/item/clothing/suit/space/void/sci/assunzione
+	name = "\improper Assunzionii research voidsuit"
+	desc = "Designed to be lightweight and maneuverable, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's greatest scientific minds."
+	desc_extended = "Rook suits are largely seen in the hands of scientific expeditions into the darkness of the Lemurian Sea, although the design is well-respected enough that it's widely permitted for use by Assunzionii scientists across the spur. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "assunzione_suit"
 	item_state = "assunzione_suit"
-	icon_supported_species_tags = list("ipc")
-	anomaly_protection = 0.5
-	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
+	species_restricted = list(BODYTYPE_HUMAN)
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL)
-	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+/obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc
+	icon_state = "ipc_assunzione_helmet"
+	item_state = "ipc_assunzione_helmet"
+	species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+/obj/item/clothing/suit/space/void/sci/assunzione/ipc
+	icon_state = "ipc_assunzione_suit"
+	item_state = "ipc_assunzione_suit"
+	species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+// Outer Eyes armoured voidsuit, for their elites only (and antags of course)
+/obj/item/clothing/suit/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit"
+	desc = "A royal burgandy undersuit and black armour plate of the mysterious Outer Eyes. The suit takes design cues from all over the Spur."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to fear the suit."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_suit"
+	item_state = "outer_eyes_suit"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	contained_sprite = TRUE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
+/obj/item/clothing/head/helmet/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit helmet"
+	desc = "A royal burgandy and black armoured helmet of the mysterious Outer Eyes. At the center of the helmet, a single white eye."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to the mask, with it's leering eye."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_helmet"
+	item_state = "outer_eyes_helmet"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+	contained_sprite = TRUE
+	light_overlay = "helmet_light_outer_eyes"
+	light_range = 6
+	light_color = "#FFFFFF"
+	siemens_coefficient = 0.35
+
+// New Gibsonite Voidsuits
+/obj/item/clothing/head/helmet/space/void/mining/newgibson
+	name = "new gibsonite mining voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon_state = "newgibson_helm"
+	item_state = "newgibson_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_helm",
+		slot_r_hand_str = "mining_helm"
+		)
+
+	light_overlay = "helmet_light_dual"
+
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/mining/newgibson
+	name = "new gibsonite mining voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
+	or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "mining",
+		slot_r_hand_str = "mining"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/engineering/newgibson
+	name = "new gibsonite engineering voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson_helm"
+	icon_state = "newgibson_helm"
+	light_overlay = "helmet_light_dual"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering_helm",
+		slot_r_hand_str = "engineering_helm"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/engineering/newgibson
+	name = "new gibsonite engineering voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
+	or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering",
+		slot_r_hand_str = "engineering"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/atmos/newgibson
+	name = "new gibsonite atmospherics voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson_helm"
+	icon_state = "newgibson_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos_helm",
+		slot_r_hand_str = "atmos_helm"
+		)
+
+	light_overlay = "helmet_light_dual"
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/atmos/newgibson
+	name = "new gibsonite atmospherics voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos",
+		slot_r_hand_str = "atmos"
+		)
+
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/ops/newgibson
+	name = "new gibsonite operations voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson_helm"
+	icon_state = "newgibson_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "hangartech_helm",
+		slot_r_hand_str = "hangartech_helm"
+		)
+
+	light_overlay = "helmet_light_dual"
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/ops/newgibson
+	name = "new gibsonite operations voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "hangartech",
+		slot_r_hand_str = "hangartech"
+		)
+
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)

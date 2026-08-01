@@ -1,47 +1,29 @@
-var/image/contamination_overlay = image('icons/effects/contamination.dmi')
+GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contamination.dmi'))
 
 /pl_control
+	///Self Descriptive
 	var/PHORON_DMG = 3
-	var/PHORON_DMG_NAME = "Phoron Damage Amount"
-	var/PHORON_DMG_DESC = "Self Descriptive"
-
+	///If this is on, phoron does damage by getting into cloth.
 	var/CLOTH_CONTAMINATION = TRUE
-	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
-	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
-
+	///If this is on, only biosuits and spacesuits protect against contamination and ill effects.
 	var/PHORONGUARD_ONLY = FALSE
-	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
-	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
-
+	///Chance of genetic corruption as well as toxic damage, X in 10,000.
 	var/GENETIC_CORRUPTION = FALSE
-	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
-	var/GENETIC_CORRUPTION_DESC = "Chance of genetic corruption as well as toxic damage, X in 10,000."
-
+	///Phoron has an effect similar to mustard gas on the un-suited.
 	var/SKIN_BURNS = TRUE
-	var/SKIN_BURNS_DESC = "Phoron has an effect similar to mustard gas on the un-suited."
-	var/SKIN_BURNS_NAME = "Skin Burns"
-
+	///Phoron burns the eyes of anyone not wearing eye protection.
 	var/EYE_BURNS = TRUE
-	var/EYE_BURNS_NAME = "Eye Burns"
-	var/EYE_BURNS_DESC = "Phoron burns the eyes of anyone not wearing eye protection."
-
-	var/CONTAMINATION_LOSS = 2
-	var/CONTAMINATION_LOSS_NAME = "Contamination Loss"
-	var/CONTAMINATION_LOSS_DESC = "How much fire damage is dealt from contaminated clothing, per life process."
-
+	///How much fire damage is dealt from contaminated clothing to each covered body part per life process.
+	var/CONTAMINATION_LOSS = 0.2 //This is no longer divided between all body parts, the whole value is instead applied to all covered body parts, for each piece of contaminated clothing.
+	///Does being in phoron cause you to hallucinate?
 	var/PHORON_HALLUCINATION = FALSE
-	var/PHORON_HALLUCINATION_NAME = "Phoron Hallucination"
-	var/PHORON_HALLUCINATION_DESC = "Does being in phoron cause you to hallucinate?"
-
+	///Does being in sleeping gas cause you to hallucinate?
 	var/N2O_HALLUCINATION = TRUE
-	var/N2O_HALLUCINATION_NAME = "N2O Hallucination"
-	var/N2O_HALLUCINATION_DESC = "Does being in sleeping gas cause you to hallucinate?"
-
-
-/obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
 	if(item_flags & ITEM_FLAG_PHORON_GUARD)
+		return FALSE
+	if(!(prob(100 * min(gas_transfer_coefficient, permeability_coefficient))))
 		return FALSE
 	return TRUE
 
@@ -53,11 +35,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
 	if(!contaminated)
 		contaminated = 1
-		add_overlay(contamination_overlay, TRUE)
+		AddOverlays(GLOB.contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /obj/item/proc/decontaminate()
 	contaminated = 0
-	cut_overlay(contamination_overlay, TRUE)
+	CutOverlays(GLOB.contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /mob/proc/contaminate()
 
@@ -76,7 +58,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Handles all the bad things phoron can do.
 
 	//Contamination
-	if(vsc.plc.CLOTH_CONTAMINATION) contaminate()
+	if(GLOB.vsc.plc.CLOTH_CONTAMINATION) contaminate()
 
 	//Anything else requires them to not be dead.
 	if(stat >= DEAD)
@@ -86,15 +68,15 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 		return
 
 	//Burn skin if exposed.
-	if(vsc.plc.SKIN_BURNS)
+	if(GLOB.vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
-			burn_skin(3)
+			apply_damage(2, DAMAGE_BURN, null, "Chemical burns", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 			if(prob(20))
 				to_chat(src, SPAN_DANGER("Your skin burns!"))
 			updatehealth()
 
 	//Burn eyes if exposed.
-	if(vsc.plc.EYE_BURNS)
+	if(GLOB.vsc.plc.EYE_BURNS)
 
 		var/burn_eyes = 1
 
@@ -116,10 +98,10 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 
 	//Genetic Corruption
-	if(vsc.plc.GENETIC_CORRUPTION)
-		if(rand(1,10000) < vsc.plc.GENETIC_CORRUPTION)
+	if(GLOB.vsc.plc.GENETIC_CORRUPTION)
+		if(rand(1,10000) < GLOB.vsc.plc.GENETIC_CORRUPTION)
 			randmutb(src)
-			to_chat(src, "<span class='danger'>High levels of toxins cause you to spontaneously mutate!</span>")
+			to_chat(src, SPAN_DANGER("High levels of toxins cause you to spontaneously mutate!"))
 			domutcheck(src,null)
 
 
@@ -130,17 +112,17 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
-		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
-		E.damage += 2.5
+		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
+		E.add_damage(2.5)
 		eye_blurry = min(eye_blurry+1.5,50)
-		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
-			to_chat(src, "<span class='danger'>You are blinded!</span>")
+		if (prob(max(0,E.get_damage() - 15) + 1) &&!eye_blind)
+			to_chat(src, SPAN_DANGER("You are blinded!"))
 			eye_blind += 20
 
 /mob/living/carbon/human/proc/pl_head_protected()
 	//Checks if the head is adequately sealed.
 	if(head)
-		if(vsc.plc.PHORONGUARD_ONLY)
+		if(GLOB.vsc.plc.PHORONGUARD_ONLY)
 			if(head.item_flags & ITEM_FLAG_PHORON_GUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
@@ -153,11 +135,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.PHORONGUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
+		if(GLOB.vsc.plc.PHORONGUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
-	if(vsc.plc.PHORONGUARD_ONLY)
+	if(GLOB.vsc.plc.PHORONGUARD_ONLY)
 		return 1
 
 	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)
@@ -167,17 +149,3 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(w_uniform) w_uniform.contaminate()
 	if(shoes) shoes.contaminate()
 	if(gloves) gloves.contaminate()
-
-
-/turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..(thing, oldLoc)
-	//Items that are in phoron, but not on a mob, can still be contaminated.
-	var/obj/item/I = thing
-	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
-		var/datum/gas_mixture/env = return_air(1)
-		if(!env)
-			return
-		for(var/g in env.gas)
-			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
-				I.contaminate()
-				break

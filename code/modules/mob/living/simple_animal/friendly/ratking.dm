@@ -12,7 +12,7 @@
 		to_chat(R, message)
 
 /mob/living/simple_animal/rat/king
-	attacktext = "bitten"
+	attacktext = "bites"
 	a_intent = "harm"
 
 	icon_state = "rat_gray"
@@ -21,7 +21,7 @@
 	icon_dead = "rat_gray_dead"
 	icon_rest = "rat_gray_sleep"
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	var/swarm_name = "peasentry"
 	var/announce_name = "Request"
@@ -38,7 +38,7 @@
 	body_color = "gray"
 
 	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
-	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
+	announceToRodents(SPAN_NOTICE("The rat king has risen! Go at once and join his kingdom, long live the king!"))
 
 /mob/living/simple_animal/rat/king/death()
 	while(rats.len)
@@ -50,7 +50,7 @@
 	return FALSE
 
 /mob/living/simple_animal/rat/king/Move()
-	..()
+	. = ..()
 
 	for(var/image/I in overlays)
 		I.dir = src.dir
@@ -58,7 +58,7 @@
 /mob/living/simple_animal/rat/king/update_icon()
 	..()
 
-	cut_overlays()
+	ClearOverlays()
 
 	for(var/mob/living/simple_animal/rat/R in rats)
 		var/image/rat_overlay = image('icons/mob/npc/animal.dmi', "[R.icon_state]")
@@ -66,7 +66,7 @@
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		rat_overlay.transform = M
-		add_overlay(rat_overlay)
+		AddOverlays(rat_overlay)
 
 /mob/living/simple_animal/rat/king/proc/update()
 	if( rats.len >= RAT_GOD_LEVEL)
@@ -74,10 +74,10 @@
 		swarm_name = "creation"
 		announce_name = "commandment"
 		desc = "A titanic swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 15
 		melee_damage_upper = 20
-		maxHealth = 260
+		maxhealth = 260
 		health = 260
 		mob_size = 10
 		universal_speak = 1
@@ -86,10 +86,10 @@
 		swarm_name = "flock"
 		announce_name = "pronouncement"
 		desc = "A massive swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 10
 		melee_damage_upper = 10
-		maxHealth = 160
+		maxhealth = 160
 		health = 160
 		mob_size = 9
 	else if(rats.len >= RAT_EMPEROR_LEVEL)
@@ -97,10 +97,10 @@
 		swarm_name = "empire"
 		announce_name = "command"
 		desc = "A large swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 7
 		melee_damage_upper = 5
-		maxHealth = 110
+		maxhealth = 110
 		health = 110
 		mob_size = 8
 	else if(rats.len >= RAT_KING_LEVEL)
@@ -108,10 +108,10 @@
 		swarm_name = "kingdom"
 		announce_name = "decree"
 		desc = "A big swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 5
 		melee_damage_upper = 5
-		maxHealth = 60
+		maxhealth = 60
 		health = 60
 		mob_size = 7
 	else if(rats.len >= RAT_DUKE_LEVEL)
@@ -119,8 +119,8 @@
 		swarm_name = "duchy"
 		announce_name = "decree"
 		desc = "A swarm of rats."
-		attacktext = "bitten"
-		maxHealth = 35
+		attacktext = "bites"
+		maxhealth = 35
 		health = 35
 		mob_size = 6
 	else if(rats.len >= RAT_BARON_LEVEL)
@@ -128,8 +128,8 @@
 		swarm_name = "barony"
 		announce_name = "decree"
 		desc = "A group of rats."
-		attacktext = "bitten"
-		maxHealth = 25
+		attacktext = "bites"
+		maxhealth = 25
 		health = 25
 		mob_size = 4
 	else if(rats.len >= RAT_MAYOR_LEVEL)
@@ -137,8 +137,8 @@
 		swarm_name = "hamlet"
 		announce_name = "decree"
 		desc = "A couple of rats."
-		attacktext = "bitten"
-		maxHealth = 15
+		attacktext = "bites"
+		maxhealth = 15
 		health = 15
 		mob_size = 3
 	else
@@ -146,8 +146,8 @@
 		swarm_name = "peasentry"
 		announce_name = "request"
 		desc = "A single rat. This one seems special."
-		attacktext = "scratched"
-		maxHealth = 10
+		attacktext = "scratches"
+		maxhealth = 10
 		health = 10
 		mob_size = 2
 
@@ -165,7 +165,7 @@
 	set name = "Decree"
 
 	if( !health )
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	var/input = sanitize(input(usr, "Please enter the [lowertext( announce_name )] for your whole kingdom.", "What?", "") as message|null, extra = 0)
@@ -183,19 +183,19 @@
 	set name = "Mighty Roar"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(usr, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
 	if(!canRoar())
-		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
+		to_chat(usr, SPAN_WARNING("Our [swarm_name] must grow larger before we can use this ability!"))
 		return
 
-	src.visible_message("<span class='warning'>[src] lets loose a mighty roar!</span>")
-	for( var/obj/machinery/light/L in range( 3, src ))
+	src.visible_message(SPAN_WARNING("[src] lets loose a mighty roar!"))
+	for( var/obj/structure/machinery/light/L in range( 3, src ))
 		if( canRoarBreakLights() && prob(( rats.len/RAT_EMPEROR_LEVEL )*100 ))
 			L.broken()
 		else
@@ -212,28 +212,28 @@
 		return
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(!canEatCorpse())
-		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
+		to_chat(usr, SPAN_WARNING("Our [swarm_name] must grow larger before we can use this ability!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(usr, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
 	if(target.stat != DEAD)
-		to_chat(usr, "<span class='warning'>We can only devour the dead!</span>")
+		to_chat(usr, SPAN_WARNING("We can only devour the dead!"))
 		return
 
-	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
+	usr.visible_message(SPAN_DANGER("\The [usr] swarms the body of \the [target], ripping flesh from bone!") )
 
 	if(!do_after(usr,200))
-		to_chat(src, "<span class='warning'>You need to wait longer to consume the body of [target]!</span>")
+		to_chat(src, SPAN_WARNING("You need to wait longer to consume the body of [target]!"))
 		return 0
 
-	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
+	src.visible_message(SPAN_DANGER("\The [usr] consumed the body of \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()

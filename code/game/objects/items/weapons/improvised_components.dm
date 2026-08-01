@@ -3,13 +3,14 @@
 	desc = "An unfinished concealed knife, it looks like the screws need to be tightened."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterflystep1"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
 /obj/item/material/butterflyconstruction/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, "You finish the concealed blade weapon.")
-		new /obj/item/material/knife/butterfly(user.loc, material.name)
+		new /obj/item/material/knife/butterfly(user.loc, material.type)
 		qdel(src)
 		return
 
@@ -18,6 +19,7 @@
 	desc = "A knife blade. Unusable as a weapon without a grip."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly2"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
@@ -26,6 +28,7 @@
 	desc = "A plasteel grip with screw fittings for a blade."
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly1"
+	w_class = WEIGHT_CLASS_SMALL
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
@@ -33,7 +36,7 @@
 	if(istype(attacking_item, /obj/item/material/butterflyblade))
 		var/obj/item/material/butterflyblade/B = attacking_item
 		to_chat(user, "You attach the two concealed blade parts.")
-		var/finished = new /obj/item/material/butterflyconstruction(user.loc, B.material.name)
+		var/finished = new /obj/item/material/butterflyconstruction(user.loc, B.material.type)
 		qdel(attacking_item)
 		qdel(src)
 		user.put_in_hands(finished)
@@ -47,7 +50,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 18
 	throwforce = 10
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -62,16 +65,16 @@
 	var/image/I = image(icon, null, "wiredrod_cable")
 	I.appearance_flags = RESET_COLOR
 	I.color = cable_color
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/material/wirerod/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(attacking_item, /obj/item/material/shard) || istype(attacking_item, /obj/item/material/spearhead))
 		var/obj/item/material/tmp_shard = attacking_item
-		finished = new /obj/item/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
+		finished = new /obj/item/material/twohanded/spear(get_turf(user), tmp_shard.material.type)
 		to_chat(user, SPAN_NOTICE("You fasten \the [attacking_item] to the top of the rod with the cable."))
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		finished = new /obj/item/melee/baton/cattleprod(get_turf(user), forward_cable_color)
 		to_chat(user, SPAN_NOTICE("You fasten the wirecutters to the top of the rod with the cable, prongs outward."))
 	else if(istype(attacking_item, /obj/item/material/wirerod))
@@ -94,18 +97,18 @@
 	item_state = "rods"
 	force = 11
 	throwforce = 3
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 
 /obj/item/material/shaft/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(attacking_item, /obj/item/material/spearhead))
 		var/obj/item/material/spearhead/tip = attacking_item
-		finished = new /obj/item/material/twohanded/pike(get_turf(user), tip.material.name)
+		finished = new /obj/item/material/twohanded/pike(get_turf(user), tip.material.type)
 		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to the top of \the [src]."))
 	if(finished)
 		user.drop_from_inventory(src,finished)
@@ -123,12 +126,11 @@
 	icon_state = "spearhead"
 	force = 11
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "steel"
-
+	default_material = MATERIAL_STEEL
 
 /obj/item/material/woodenshield
 	name = "shield donut"
@@ -137,14 +139,14 @@
 	icon_state = "shield_fitting_inner"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 
 /obj/item/material/woodenshield/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(attacking_item, /obj/item/material/shieldbits))
 		var/obj/item/material/woodenshield/donut = attacking_item
-		finished = new /obj/item/shield/buckler(get_turf(user), donut.material.name)
+		finished = new /obj/item/shield/buckler(get_turf(user), donut.material.type)
 		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
 	if(finished)
 		user.drop_from_inventory(src)
@@ -161,7 +163,7 @@
 	icon_state = "shield_fitting_outer"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
-	default_material = "steel"
+	default_material = MATERIAL_STEEL
 
 /obj/item/woodcirclet
 	name = "wood circlet"
@@ -169,7 +171,7 @@
 	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "woodcirclet"
 	item_state = "woodcirclet"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/woodcirclet/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/complete = null

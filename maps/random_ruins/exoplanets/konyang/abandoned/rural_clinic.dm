@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/rural_clinic.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffix = "rural_clinic.dmm"
+
+	unit_test_groups = list(1)
 
 /area/konyang/rural_clinic
 	name = "Konyang Rural Clinic"
@@ -19,7 +23,7 @@
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/konyang/police
 	corpsebelt = /obj/item/storage/belt/security
-	corpsepocket2 = /obj/item/device/radio
+	corpsepocket2 = /obj/item/radio
 	corpsepocket1 = /obj/item/storage/wallet/random
 	corpseback = /obj/item/storage/backpack/satchel
 	corpseid = FALSE

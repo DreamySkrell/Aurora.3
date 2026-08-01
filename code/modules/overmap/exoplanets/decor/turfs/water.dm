@@ -1,7 +1,12 @@
 /turf/simulated/floor/exoplanet/water
-	does_footprint = FALSE
-	footstep_sound = /singleton/sound_category/water_footstep
+	name = "water"
+	gender = PLURAL
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "seadeep"
+	desc = "It is wet."
+	footstep_sound = SFX_FOOTSTEP_WATER
 	movement_cost = 4
+	has_resources = FALSE
 	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
 	var/numobjects = 0
 	///Is this water deep enough to drown in?
@@ -60,8 +65,6 @@
 /turf/simulated/floor/exoplanet/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -79,8 +82,6 @@
 /turf/simulated/floor/exoplanet/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -90,13 +91,12 @@
 		if(numobjects)
 			numobjects -= 1
 		var/mob/living/L = AM
-		if(!istype(newloc, /turf/simulated/floor/exoplanet/water))
+		var/new_turf = get_step(src, newloc)
+		if(!istype(new_turf, src))
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	for(var/mob/living/L in src)
 		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 		if(!lattice)
@@ -114,9 +114,10 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	deep = FALSE
 	var/reagent_type = /singleton/reagent/water
 
@@ -164,18 +165,16 @@
 			var/obj/item/organ/external/E = A
 			if(BP_IS_ROBOTIC(E))
 				continue
-			if (E.wounds.len)
-				for(var/datum/wound/W in E.wounds)
-					if(W.germ_level < INFECTION_LEVEL_ONE)
-						W.germ_level = INFECTION_LEVEL_ONE
-					W.germ_level += rand(10, 50)
+			for(var/datum/wound/W as anything in E.wounds)
+				if(W.germ_level < INFECTION_LEVEL_ONE)
+					W.germ_level = INFECTION_LEVEL_ONE
+				W.germ_level += rand(10, 50)
+
+/turf/simulated/floor/exoplanet/water/shallow/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "water"
 
 /turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
-
-	var/obj/effect/effect/water/W = new(O)
-	W.create_reagents(100)
-	W.reagents.add_reagent(/singleton/reagent/water, 100)
-	W.set_up(O, 100)
 
 	if(ishuman(O))
 		var/mob/living/carbon/human/H = O

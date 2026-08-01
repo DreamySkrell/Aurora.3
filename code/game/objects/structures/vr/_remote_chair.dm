@@ -26,7 +26,7 @@
 	return
 
 /obj/structure/bed/stool/chair/remote/attackby(obj/item/attacking_item, mob/user)
-	if(portable_type && attacking_item.iswrench())
+	if(portable_type && attacking_item.tool_behaviour == TOOL_WRENCH)
 		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
 		if(do_after(user, 20 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
@@ -39,7 +39,7 @@
 /obj/structure/bed/stool/chair/remote/user_buckle(mob/user)
 	..()
 	var/area/A = get_area(src)
-	if(!A.powered(EQUIP))
+	if(!A.powered(AREA_USAGE_EQUIP))
 		to_chat(user, SPAN_WARNING("\The [src] is not powered."))
 		return FALSE
 	if(ishuman(user))
@@ -47,7 +47,7 @@
 		if(H.old_mob)
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
-	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
+	AddOverlays(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
 	START_PROCESSING(SSprocessing, src)
 
 
@@ -55,7 +55,7 @@
 	..()
 	if(buckled)
 		var/area/A = get_area(src)
-		if(!A.powered(EQUIP))
+		if(!A.powered(AREA_USAGE_EQUIP))
 			user_unbuckle(buckled)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
@@ -64,6 +64,6 @@
 		var/mob/M = buckled
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
-		cut_overlays()
+		ClearOverlays()
 		STOP_PROCESSING(SSprocessing, src)
 	..()

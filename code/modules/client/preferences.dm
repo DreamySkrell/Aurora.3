@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 
-var/list/preferences_datums = list()
+GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences
 	//doohickeys for savefiles
@@ -26,11 +26,13 @@ var/list/preferences_datums = list()
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	var/tgui_inputs = TRUE
 	var/tgui_buttons_large = FALSE
 	var/tgui_inputs_swapped = FALSE
+	var/tgui_say_light_mode = FALSE
+	var/ui_scale = TRUE
+	var/lobby_music_vol = 85
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 
@@ -92,17 +94,30 @@ var/list/preferences_datums = list()
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
+	var/hidden_shell_status = FALSE
 
-		//Some faction information.
-	var/home_system = "Unset"           //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
-	var/accent = "None"               //Character accent.
+	/// Character citizenship.
+	var/citizenship = "None"
+	/// Antag faction/general associated faction.
+	var/faction = "None"
+	/// Religious association.
+	var/religion = "None"
+	/// Character accent.
+	var/accent = "None"
 
+	/// The character's culture singleton.
 	var/culture
+	/// The character's origin singleton.
 	var/origin
+	/// The character's education singleton.
+	var/education
 
+	/// The character's skills list. JSON.
+	var/list/skills = list()
+	/// The character's current spent skill points. Assoc list of SKILL_CATEGORY define to number of remaining skill points.
+	var/list/skill_points_remaining
+
+	/// The character's psionics. JSON.
 	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
@@ -163,7 +178,7 @@ var/list/preferences_datums = list()
 	var/metadata = ""
 
 	// SPAAAACE
-	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 100
 	var/floating_chat_color
 	var/speech_bubble_type = "default"
@@ -180,21 +195,29 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000000"
+	var/bgstate = "plain_black"
 	var/list/bgstate_options = list(
-		"FFFFFF",
-		"000000",
-		"tiled_preview",
-		"monotile_preview",
-		"dark_preview",
-		"wood",
-		"grass",
-		"reinforced",
-		"white_preview",
-		"freezer",
-		"carpet",
-		"reinforced"
-		)
+		"Plain Black" = "plain_black",
+		"Plain White" = "plain_white",
+		"Monotile" = "monotile",
+		"Tiles" = "tile",
+		"Dark Tiles" = "dark_tile",
+		"Freezer Tiles" = "freezer_tile",
+		"Reinforced Tiles" = "reinforced",
+		"Wood Floor" = "wood",
+		"Grass" = "grass",
+		"Red Carpet" = "carpet_red",
+		"Cyan Carpet" = "carpet_cyan",
+		"Green Carpet" = "carpet_green",
+		"Purple Carpet" = "carpet_purple",
+		"Magenta Carpet" = "carpet_magenta",
+		"Rubber Carpet" = "carpet_rubber",
+		"Blue Circuits" = "circuit_blue",
+		"Green Circuits" = "circuit_green",
+		"Asteroid Turf" = "asteroid",
+		"Desert Turf" = "desert",
+		"Space" = "space"
+	)
 
 	var/fov_cone_alpha = 255
 
@@ -212,8 +235,8 @@ var/list/preferences_datums = list()
 			load_and_update_character()
 
 /datum/preferences/Destroy()
-	. = ..()
 	QDEL_LIST(char_render_holders)
+	return ..()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
@@ -246,11 +269,11 @@ var/list/preferences_datums = list()
 	var/dat = "<center>"
 
 	if(path)
-		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
-		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		dat += "<a href='byond://?src=[REF(src)];load=1'>Load slot</a> - "
+		dat += "<a href='byond://?src=[REF(src)];save=1'>Save slot</a> - "
+		dat += "<a href='byond://?src=[REF(src)];reload=1'>Reload slot</a>"
 		if (GLOB.config.sql_saves)
-			dat += " - <a href='?src=\ref[src];delete=1'>Permanently delete slot</a>"
+			dat += " - <a href='byond://?src=[REF(src)];delete=1'>Permanently delete slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -278,26 +301,27 @@ var/list/preferences_datums = list()
 	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
 		NP.late_choices_ui.update_character_icon()
 
-	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
+	var/atom/movable/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/flooring/tiles.dmi'
+		BG.icon = 'icons/turf/flooring/character_preview.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
 	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
 	var/index = 0
-	for(var/D in GLOB.cardinal)
-		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
+	for(var/D in GLOB.cardinals)
+		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new
 			LAZYSET(char_render_holders, "[D]", O)
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
+		O.hud_layerise()
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]
@@ -318,7 +342,7 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/clear_character_previews()
 	for(var/index in char_render_holders)
-		var/obj/screen/S = char_render_holders[index]
+		var/atom/movable/screen/S = char_render_holders[index]
 		client?.screen -= S
 		qdel(S)
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
@@ -335,7 +359,7 @@ var/list/preferences_datums = list()
 		if(GLOB.config.forumurl)
 			send_link(user, GLOB.config.forumurl)
 		else
-			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
+			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
 	return 1
 
@@ -361,7 +385,7 @@ var/list/preferences_datums = list()
 		close_load_dialog(usr)
 	else if(href_list["new_character_sql"])
 		new_setup(1)
-		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		to_chat(usr, SPAN_NOTICE("Your setup has been refreshed."))
 		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
@@ -390,16 +414,16 @@ var/list/preferences_datums = list()
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(last_names)]"
+			real_name += " [pick(GLOB.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(last_names)]"
+			real_name += "[pick(GLOB.last_names)]"
 
 	character.real_name = real_name
 	character.name = character.real_name
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
-	character.set_floating_chat_color(floating_chat_color)
+	character.langchat_color = floating_chat_color
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -463,7 +487,6 @@ var/list/preferences_datums = list()
 	character.set_culture(GET_SINGLETON(text2path(culture)))
 	character.set_origin(GET_SINGLETON(text2path(origin)))
 
-
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
@@ -472,7 +495,7 @@ var/list/preferences_datums = list()
 	character.all_underwear.Cut()
 	character.all_underwear_metadata.Cut()
 	for(var/underwear_category_name in all_underwear)
-		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		var/datum/category_group/underwear/underwear_category = GLOB.global_underwear.categories_by_name[underwear_category_name]
 		if(underwear_category)
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
@@ -481,7 +504,7 @@ var/list/preferences_datums = list()
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CHESTPOUCH || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
@@ -493,7 +516,7 @@ var/list/preferences_datums = list()
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_CLIPON || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
@@ -503,6 +526,16 @@ var/list/preferences_datums = list()
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
 				P.apply(character)
+
+	// Load all of the player-set skills first.
+	for(var/skill_type in skills)
+		var/singleton/skill/skill = GET_SINGLETON(skill_type)
+		skill.on_spawn(character, skills[skill.type])
+
+	// Attempt to load all the "required" skills.
+	// Player-set skills won't be overwritten here as LoadComponent will never re-initialize a component that already exists.
+	for(var/singleton/skill/required_skill as anything in SSskills.required_skills)
+		character.LoadComponent(required_skill.component_type, SKILL_LEVEL_UNFAMILIAR)
 
 	if(icon_updates)
 		character.force_update_limbs()
@@ -515,8 +548,8 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
 
-	for(var/ckey in preferences_datums)
-		var/datum/preferences/D = preferences_datums[ckey]
+	for(var/ckey in GLOB.preferences_datums)
+		var/datum/preferences/D = GLOB.preferences_datums[ckey]
 		if(D == src)
 			if(!establish_db_connection(GLOB.dbcon))
 				return open_load_dialog_file(user)
@@ -532,19 +565,19 @@ var/list/preferences_datums = list()
 				id = text2num(query.item[1])
 				name = query.item[2]
 				if (id == current_character)
-					dat += "<b><a href='?src=\ref[src];changeslot=[id];'>[name]</a></b><br>"
+					dat += "<b><a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a></b><br>"
 				else
-					dat += "<a href='?src=\ref[src];changeslot=[id];'>[name]</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
 			if (query.RowCount() < GLOB.config.character_slots)
-				dat += "<a href='?src=\ref[src];new_character_sql=1'>New Character</a>"
+				dat += "<a href='byond://?src=[REF(src)];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
 
 	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
+	dat += "<a href='byond://?src=[REF(src)];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
 
 	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
@@ -566,7 +599,7 @@ var/list/preferences_datums = list()
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
 				name = "<b>[name]</b>"
-			dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"
@@ -638,7 +671,6 @@ var/list/preferences_datums = list()
 		b_eyes = 0
 
 		species = SPECIES_HUMAN
-		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
@@ -685,11 +717,11 @@ var/list/preferences_datums = list()
 		return
 
 	if (!current_character)
-		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
+		to_chat(C, SPAN_NOTICE("You do not have a character loaded."))
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
+		to_chat(C, SPAN_NOTICE("Unable to establish database connection."))
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
@@ -698,7 +730,7 @@ var/list/preferences_datums = list()
 	// Create a new character.
 	new_setup(1)
 
-	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+	to_chat(C, SPAN_WARNING("Character successfully deleted! Please make a new one or load an existing setup."))
 
 /datum/preferences/proc/get_species_datum()
 	if (species)

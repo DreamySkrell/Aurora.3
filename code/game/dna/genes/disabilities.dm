@@ -10,19 +10,19 @@
 	name="DISABILITY"
 
 	// Mutation to give (or 0)
-	var/mutation=0
+	var/mutation
 
 	// Disability to give (or 0)
-	var/disability=0
+	var/disability
 
 	// SDisability to give (or 0)
-	var/sdisability=0
+	var/sdisability
 
 	// Activation message
-	var/activation_message=""
+	var/activation_message
 
 	// Yay, you're no longer growing 3 arms
-	var/deactivation_message=""
+	var/deactivation_message
 
 /datum/dna/gene/disability/can_activate(var/mob/M,var/flags)
 	return 1 // Always set!
@@ -35,7 +35,7 @@
 	if(sdisability)
 		M.sdisabilities|=sdisability
 	if(activation_message)
-		to_chat(M, "<span class='warning'>[activation_message]</span>")
+		to_chat(M, SPAN_WARNING("[activation_message]"))
 	else
 		testing("[name] has no activation message.")
 
@@ -47,7 +47,7 @@
 	if(sdisability)
 		M.sdisabilities &= (~sdisability)
 	if(deactivation_message)
-		to_chat(M, "<span class='warning'>[deactivation_message]</span>")
+		to_chat(M, SPAN_WARNING("[deactivation_message]"))
 	else
 		testing("[name] has no deactivation message.")
 

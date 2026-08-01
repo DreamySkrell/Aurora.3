@@ -1,9 +1,13 @@
 /datum/map_template/ruin/away_site/adhomian_circus
 	name = "Adhomian Traveling Circus"
 	description = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
-	suffixes = list("ships/tajara/circus/adhomian_circus.dmm")
+
+	prefix = "ships/tajara/circus/"
+	suffix = "adhomian_circus.dmm"
+
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
-	spawn_weight = 1
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
+	spawn_weight = 0 //Disabled until remapped due to outdated mapping.
 	ship_cost = 1
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
@@ -90,7 +94,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Circus Shuttle"
 

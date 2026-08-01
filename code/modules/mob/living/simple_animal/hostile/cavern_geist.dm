@@ -12,6 +12,8 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
+	faction = "Adhomai"
+
 	tameable = FALSE
 
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -19,7 +21,7 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_amount = 600
-	maxHealth = 500
+	maxhealth = 500
 	health = 500
 	harm_intent_damage = 0
 	melee_damage_lower = 40
@@ -28,10 +30,11 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	pixel_x = -16
 	speed = -1
 
@@ -41,7 +44,7 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/cavern_geist/Life()
+/mob/living/simple_animal/hostile/cavern_geist/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-5)
 
@@ -102,7 +105,7 @@
 	icon_state = "cybergeist"
 	icon_living = "cybergeist"
 	icon_dead = "cybergeist_dead"
-	maxHealth = 700
+	maxhealth = 700
 	health = 700
 	speed = -2
 

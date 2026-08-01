@@ -28,17 +28,14 @@
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
-#define SS_PRIORITY_PROJECTILES 5	// Projectile processing!
 
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define FIRE_PRIORITY_DEFAULT   50	// This is defined somewhere else.
-#define SS_PRIORITY_MOB         40	// Mob Life().
 #define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_STATPANELS  25  // Statpanels.
 #define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
 #define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
-#define SS_PRIORITY_NANOUI      25	// UI updates.
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
@@ -56,7 +53,6 @@
 
 
 // SS_BACKGROUND
-#define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define FIRE_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.

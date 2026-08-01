@@ -4,9 +4,9 @@
 /datum/hud/proc/captive_brain_hud()
 	src.adding = list()
 
-	var/obj/screen/resist = new /obj/screen()
+	var/atom/movable/screen/resist = new /atom/movable/screen()
 	resist.name = "resist"
-	resist.icon = 'icons/mob/screen/captive_brain.dmi'
+	resist.icon = 'icons/hud/mob/captive_brain.dmi'
 	resist.icon_state = "resist"
 	resist.screen_loc = "EAST-8,BOTTOM:8"
 	resist.layer = HUD_ABOVE_ITEM_LAYER

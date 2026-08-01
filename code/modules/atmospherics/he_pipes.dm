@@ -1,5 +1,4 @@
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging
-	desc_info = "This radiates heat from the pipe's gas to space, cooling it down."
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "intact"
 	pipe_icon = "hepipe"
@@ -19,30 +18,35 @@
 	volume = ATMOS_DEFAULT_VOLUME_HE_PIPE
 
 	// BubbleWrap
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
+
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radiates heat from the pipe's gas to space, cooling it down."
+
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
 	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
 // BubbleWrap END
 	color = "#404040" //we don't make use of the fancy overlay system for colours, use this to set the default.
 	add_filter("glow", 1, list(type="drop_shadow", x = 0, y = 0, offset = 0, size = 4))
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/atmos_init()
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/atmos_init()
 	normalize_dir()
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(direction&initialize_directions_he)
 			if (!node1_dir)
 				node1_dir = direction
 			else if (!node2_dir)
 				node2_dir = direction
 
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node1_dir))
+	for(var/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node1_dir))
 		if(target.initialize_directions_he & get_dir(target,src))
 			node1 = target
 			break
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node2_dir))
+	for(var/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node2_dir))
 		if(target.initialize_directions_he & get_dir(target,src))
 			node2 = target
 			break
@@ -53,17 +57,32 @@
 	atmos_initialised = TRUE
 	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/process()
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/process()
 	if(!parent)
 		..()
 	else
 		var/datum/gas_mixture/pipe_air = return_air()
-		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
+		var/turf/T = get_turf(loc)
+		var/turf/turf_above = GET_TURF_ABOVE(T)
+
+		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GET_TURF_BELOW(T), /turf/space) || istype(turf_above, /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
-		else if(istype(loc, /turf/simulated/))
+
+		else if(istype(loc, /turf/simulated/lava))
+			// we want to heat up the pipe to some arbitrary temperature of lava
+			// need to add some thermal energy to pipe air
+			// but only up to a limit so it does not heat up instantly to max
+			// and stop heating when it is at that temperature
+			var/max_energy_change = 200 KILO WATTS
+			var/lava_temperature = 1500
+			var/energy_to_temp = parent.air.get_thermal_energy_change(lava_temperature)
+			parent.air.add_thermal_energy(max(min(energy_to_temp, max_energy_change), 0))
+
+		else if(istype(loc, /turf/simulated))
+			var/turf/simulated/simulated_turf = loc
 			var/environment_temperature = 0
-			if(loc:blocks_air)
-				environment_temperature = loc:temperature
+			if(simulated_turf.blocks_air)
+				environment_temperature = simulated_turf.temperature
 			else
 				var/datum/gas_mixture/environment = loc.return_air()
 				environment_temperature = environment.temperature
@@ -111,7 +130,7 @@
 			set_light(0)
 
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/junction
 	icon = 'icons/atmos/junction.dmi'
 	icon_state = "intact"
 	pipe_icon = "hejunction"
@@ -121,7 +140,7 @@
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 
 // BubbleWrap
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/Initialize()
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/junction/Initialize()
 	. = ..()
 	switch (dir)
 		if (SOUTH)
@@ -138,13 +157,13 @@
 			initialize_directions_he = WEST
 	// BubbleWrap END
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/atmos_init()
-	for(var/obj/machinery/atmospherics/target in get_step(src,initialize_directions))
+/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/junction/atmos_init()
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src,initialize_directions))
 		if(target.initialize_directions & get_dir(target,src))
 			node1 = target
 			break
 
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,initialize_directions_he))
+	for(var/obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,initialize_directions_he))
 		if(target.initialize_directions_he & get_dir(target,src))
 			node2 = target
 			break

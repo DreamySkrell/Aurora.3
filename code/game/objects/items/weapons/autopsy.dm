@@ -5,10 +5,12 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "autopsy"
+	item_state = "autopsy"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()
@@ -16,8 +18,10 @@
 	var/timeofdeath = null
 
 /datum/autopsy_data_scanner
-	var/weapon = null // this is the DEFINITE weapon type that was used
-	var/list/organs_scanned = list() // this maps a number of scanned organs to the wounds to those organs with this data's weapon type
+	/// The DEFINITE weapon type that was used.
+	var/weapon = null
+	/// This maps a number of scanned organs to the wounds to those organs with this data's weapon type.
+	var/list/organs_scanned = list()
 	var/organ_names = ""
 
 /datum/autopsy_data
@@ -82,7 +86,8 @@
 		var/datum/autopsy_data_scanner/D = wdata[wdata_idx]
 		var/total_hits = 0
 		var/total_score = 0
-		var/list/weapon_chances = list() // maps weapon names to a score
+		// Maps weapon names to a score
+		var/list/weapon_chances = list()
 		var/age = 0
 
 		for(var/wound_idx in D.organs_scanned)
@@ -103,18 +108,18 @@
 
 		var/damaging_weapon = (total_score != 0)
 
-		// total score happens to be the total damage
+		// Total score happens to be the total damage
 		switch(total_score)
 			if(0)
 				damage_desc = "Unknown"
 			if(1 to 5)
-				damage_desc = "<span class='good'>negligible</span>"
+				damage_desc = SPAN_DANGER("negligible")
 			if(5 to 15)
-				damage_desc = "<span class='good'>light</span>"
+				damage_desc = SPAN_DANGER("light")
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)
-				damage_desc = "<span class='warning'>severe</span>"
+				damage_desc = SPAN_WARNING("severe")
 
 		if(!total_score) total_score = D.organs_scanned.len
 
@@ -140,7 +145,7 @@
 
 	for(var/mob/O in viewers(usr))
 		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 
@@ -151,7 +156,8 @@
 
 	usr.put_in_hands(P)
 
-/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/autopsy_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
 	if(!istype(M))
 		return
 
@@ -177,6 +183,7 @@
 	for(var/mob/O in viewers(M))
 		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
+	flick("autopsy-scan", src)
 	src.add_data(S)
 
 	return 1

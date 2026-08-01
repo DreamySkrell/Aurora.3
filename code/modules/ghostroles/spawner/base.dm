@@ -1,12 +1,28 @@
 /datum/ghostspawner
 	var/short_name = null
 	var/name = null
+
+	/// Description of the spawner, as seen in the ghostspawner GUI.
+	/// Should be short and simple description, to not clutter up the menus.
+	/// Should have the most brief description and expectations for the role.
 	var/desc = null
+
+	/// Similar to the normal desc, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/desc_ooc = null
+
+	/// Message shown to the player immediately after spawning.
+	/// Can be longer than the description, and more detailed.
+	/// Should also contain anything else specific to the role, for example:
+	/// who does this role answer to, location of the equipment, gimmick or background ideas, tips on how to play it, etc.
+	var/welcome_message = null
+	/// Similar to the normal welcome message, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/welcome_message_ooc = null
 
 	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 
-	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
@@ -15,6 +31,7 @@
 
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
 	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+	var/landmark_type = null //Specify a landmark type to look for, instead of the name, this takes precedence over landmark_name
 
 	var/loc_type = GS_LOC_POS
 
@@ -60,8 +77,16 @@
 	if(!isnull(enable_chance))
 		enabled = prob(enable_chance)
 
+/datum/ghostspawner/proc/spawn_atom_deleted(atom/spawn_atom)
+	SIGNAL_HANDLER
+	spawn_atoms -= spawn_atom
+	UnregisterSignal(spawn_atom, COMSIG_QDELETING)
+
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
+
 	if(req_perms) //Only those with the correct flags can see restricted roles
 		if(check_rights(req_perms, show_msg=FALSE, user=user))
 			return FALSE //Return early and dont perform whitelist checks if staff flags are met
@@ -87,10 +112,12 @@
 /datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
 	if(!ROUND_IS_STARTED)
 		return "The round is not started yet."
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
-	if(!(istype(user, /mob/abstract/observer) || isnewplayer(user)))
+	if(!(istype(user, /mob/abstract/ghost/observer) || isnewplayer(user)))
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
@@ -99,7 +126,7 @@
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
-		return "The station is currently exploding."
+		return "The [station_name(TRUE)] is currently exploding."
 	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
@@ -132,10 +159,13 @@
 					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
 					spawnpoints += spawnpoint
 				return T
-	if(!isnull(landmark_name))
+	if(!isnull(landmark_name) || !isnull(landmark_type))
 		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
-			if(landmark.name == landmark_name)
+			if(landmark_type)
+				if(istype(landmark, landmark_type))
+					possible_landmarks += landmark
+			else if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
 			var/obj/effect/landmark/L = pick(possible_landmarks)
@@ -188,12 +218,14 @@
 	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		disable()
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE(welcome_message)))
 	else
 		if(name)
-			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("You are spawning as: ") + name))
 		if(desc)
-			to_chat(user, SPAN_INFO("Role description: ") + desc)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("Role description: ") + desc))
+	if(welcome_message_ooc)
+		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
 	GLOB.universe.OnPlayerLatejoin(user)
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
@@ -202,6 +234,7 @@
 			sector.y = sector.start_y
 			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
+			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -215,6 +248,9 @@
 	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return FALSE
+
 	if(loc_type == GS_LOC_ATOM)
 		return enabled && !!length(spawn_atoms)
 	if(max_count)
@@ -230,7 +266,7 @@
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
-		for(var/mob/abstract/observer/O in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/O in GLOB.player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")

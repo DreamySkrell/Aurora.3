@@ -10,7 +10,6 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
-	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -77,12 +76,13 @@
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
-	ethanol_resistance = 0.5//gets drunk faster
+	ethanol_resistance = 0.6//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina = 80
 	sprint_cost_factor = 0.4
 	sprint_speed_factor = 0.8
+	standing_jump_range = 3
 	bp_base_systolic = 100 // Default 120
 	bp_base_disatolic = 60 // Default 80
 	low_pulse = 30 // Default 40
@@ -104,13 +104,15 @@
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
-	footsound = /singleton/sound_category/footstep_skrell_sound
+	bodyfall_sound = SFX_BODYFALL_SKRELL
+	footsound = SFX_FOOTSTEP_SKRELL
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	has_psionics = PSI_RANK_SENSITIVE
 	character_creation_psi_points = 2
+	mass_modifier = REFERENCE_MASS_SKRELL / REFERENCE_MASS_HUMAN
+	mob_strength = 1.8 // Offset for very low mass.
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
@@ -139,7 +141,7 @@
 				return
 
 /datum/species/skrell/get_strip_info(var/reference)
-	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
+	return "<BR><A href='byond://?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

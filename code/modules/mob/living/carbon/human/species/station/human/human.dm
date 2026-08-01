@@ -60,6 +60,7 @@
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	onfire_overlay = 'icons/mob/burning/burning_human.dmi'
+	valid_prosthetics = list(PROSTHETIC_SYNTHSKIN)
 
 /datum/species/human/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
@@ -102,7 +103,7 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I))
 				continue
-			if(I.damage > 2)
+			if(I.get_damage() > 2)
 				if(prob(2))
 					var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
 					H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [parent.name]!")

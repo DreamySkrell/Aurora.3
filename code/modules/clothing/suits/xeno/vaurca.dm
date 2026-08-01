@@ -24,13 +24,17 @@
 
 /obj/item/clothing/suit/vaurca/shaper
 	name = "shaper robes"
-	desc = "Commonly worn by Preimmients, these robes are meant to catch pheromones, obfuscating hive affiliation."
+	desc = "Commonly worn by Preimminents, these robes are meant to catch pheromones, obfuscating hive affiliation."
 	icon_state = "shaper_robes"
 	item_state = "shaper_robes"
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
 	)
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
+
+/obj/item/clothing/suit/vaurca/shaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Wearing this will remove your Hive name from physical messages."
 
 /obj/item/clothing/suit/vaurca/breeder
 	name = "zo'ra representative clothes"
@@ -54,8 +58,10 @@
 	item_state = "hive_rep_clothes_cthur"
 	icon_state = "hive_rep_clothes_cthur"
 
-/obj/item/clothing/suit/vaurca/breeder/nralakk
-	name = "nralakk representative clothes"
-	desc = "A large piece of clothing used by Nralakk representatives."
-	item_state = "hive_rep_clothes_nralakk"
-	icon_state = "hive_rep_clothes_nralakk"
+/obj/item/clothing/suit/vaurca/breeder/colorable
+	name = "representative clothes"
+	desc = "A large piece of clothing used by Vaurca Gynes."
+	item_state = "hive_rep_clothes_colorable"
+	icon_state = "hive_rep_clothes_colorable"
+	build_from_parts = TRUE
+	worn_overlay = "rope"

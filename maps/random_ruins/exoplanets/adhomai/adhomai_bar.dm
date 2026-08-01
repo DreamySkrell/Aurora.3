@@ -7,13 +7,16 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_bar.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_bar.dmm"
+
+	unit_test_groups = list(2)
 
 /area/adhomai_bar
 	name = "Adhomian Inn"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -49,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
-	l_pocket = /obj/item/pocketwatch/adhomai
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	l_ear = null
 
 	id = null
@@ -113,7 +116,7 @@
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(

@@ -5,8 +5,8 @@
 	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
 	species_height = HEIGHT_CLASS_SHORT
-	height_min = 150
-	height_max = 190
+	height_min = 145 // human default: 145
+	height_max = 180 // human default: 203
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
@@ -24,10 +24,9 @@
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara
 	)
-	darksight = 8
-	slowdown = -1
+	slowdown = -0.4
 
-	brute_mod = 1.2
+	brute_mod = 1.1
 	fall_mod = 0.5
 
 	grab_mod = 1.25 // Fur easy to cling onto
@@ -38,13 +37,13 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
 
+	language = LANGUAGE_SIIK_MAAS
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
-	ethanol_resistance = 0.8//Gets drunk a little faster
+	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
-	economic_modifier = 7
-	selectable_pronouns = list(MALE, FEMALE)
+	economic_modifier = 9
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
@@ -86,13 +85,13 @@
 
 	reagent_tag = IS_TAJARA
 
-	heat_discomfort_level = 292
+	heat_discomfort_level = 292 //18°C
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 	)
-	cold_discomfort_level = 275
+	cold_discomfort_level = 275 //1°C
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
@@ -129,13 +128,13 @@
 	metabolism_mod = 0.8
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	valid_prosthetics = list(PROSTHETIC_TESLA)
+
+	mass_modifier = REFERENCE_MASS_TAJARA / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
+	var/obj/item/clothing/shoes/tajara/footwraps/S = new /obj/item/clothing/shoes/tajara/footwraps(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
-
-/datum/species/get_species_record_sex(var/mob/living/carbon/human/H)
-	return H.pronouns

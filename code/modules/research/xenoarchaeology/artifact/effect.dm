@@ -58,8 +58,8 @@
 		else
 			activated = 1
 		if(reveal_toggle && holder)
-			if(istype(holder, /obj/machinery/artifact))
-				var/obj/machinery/artifact/A = holder
+			if(istype(holder, /obj/structure/machinery/artifact))
+				var/obj/structure/machinery/artifact/A = holder
 				A.icon_state = "ano[A.icon_num][activated]"
 			var/display_msg
 			if(activated)
@@ -69,7 +69,7 @@
 			var/atom/toplevelholder = holder
 			while(!istype(toplevelholder.loc, /turf))
 				toplevelholder = toplevelholder.loc
-			toplevelholder.visible_message("<span class='warning'>[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]</span>")
+			toplevelholder.visible_message(SPAN_WARNING("[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]"))
 
 /datum/artifact_effect/proc/DoEffectTouch(var/mob/living/user)
 /datum/artifact_effect/proc/DoEffectAura(var/atom/holder)

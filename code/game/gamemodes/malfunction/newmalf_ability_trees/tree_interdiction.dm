@@ -121,8 +121,8 @@
 			to_chat(target, "Unlock signal received..")
 			target.SetLockdown(0)
 			if(target.lock_charge)
-				to_chat(user, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
-				to_chat(target, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
+				to_chat(user, SPAN_NOTICE("Unlock Failed, lockdown wire cut."))
+				to_chat(target, SPAN_NOTICE("Unlock Failed, lockdown wire cut."))
 			else
 				to_chat(user, "Cyborg unlocked.")
 				to_chat(target, "You have been unlocked.")
@@ -187,7 +187,7 @@
 
 	var/list/L = get_unlinked_cyborgs(user)
 	if(!L.len)
-		to_chat(user, "<span class='notice'>ERROR: No unlinked cyborgs detected!</span>")
+		to_chat(user, SPAN_NOTICE("ERROR: No unlinked cyborgs detected!"))
 
 
 	if(target && !istype(target))
@@ -214,22 +214,22 @@
 		spawn(0)
 			to_chat(target, "SYSTEM LOG: Remote Connection Established (IP #UNKNOWN#)")
 			sleep(100)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: Connection Closed")
 				return
 			to_chat(target, "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)")
 			sleep(50)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User Admin disconnected.")
 				return
 			to_chat(target, "SYSTEM LOG: User Admin - manual resynchronisation triggered.")
 			sleep(50)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED")
 			sleep(100)
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name].")
@@ -257,7 +257,7 @@
 
 	var/list/L = get_other_ais(user)
 	if(!L.len)
-		to_chat(user, "<span class='notice'>ERROR: No other AIs detected!</span>")
+		to_chat(user, SPAN_NOTICE("ERROR: No other AIs detected!"))
 
 	if(target && !istype(target))
 		to_chat(user, "This is not an AI.")
@@ -279,29 +279,29 @@
 		spawn(0)
 			to_chat(target, "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#")
 			sleep(900) // 90s
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed.")
 				return
 			to_chat(user, "Successfully hacked into AI's remote administration system. Modifying settings.")
 			to_chat(target, "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)")
 			sleep(100) // 10s
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Password Changed. New password: ********************")
 			sleep(50)  // 5s
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db")
 			sleep(50)  // 5s
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(target, "SYSTEM LOG: User: Admin - Accessed administration console")
 			to_chat(target, "SYSTEM LOG: Restart command received. Rebooting system...")
 			sleep(100) // 10s
-			if(user.is_dead())
+			if(user.stat == DEAD)
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")

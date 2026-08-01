@@ -5,7 +5,7 @@
 /mob/statue_mob/send_emote()
 	to_chat(src, "You are unable to move while trapped as a statue.")
 
-/mob/statue_mob/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/statue_mob/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	to_chat(src, "You are unable to speak while trapped as a statue.")
 
 /obj/structure/closet/statue
@@ -66,15 +66,12 @@
 	timer -= 2
 
 	if (timer == 10)
-		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
+		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"))
 
 	if (timer <= 0)
 		dump_contents()
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
-
-/obj/structure/closet/statue/content_info()
-	return
 
 /obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
 	appearance = L
@@ -105,7 +102,7 @@
 		M.forceMove(loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
-		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob
+		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transferred to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
@@ -124,13 +121,15 @@
 		for(var/mob/M in src)
 			shatter(M)
 
-/obj/structure/closet/statue/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
+/obj/structure/closet/statue/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	check_health()
 
-	return
-
-/obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
+/obj/structure/closet/statue/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage && environment_smash)
 		for(var/mob/M in src)
@@ -146,13 +145,15 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [attacking_item].</span>")
+	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
-/obj/structure/closet/statue/MouseDrop_T()
+/obj/structure/closet/statue/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
-/obj/structure/closet/statue/relaymove()
+/obj/structure/closet/statue/relaymove(mob/living/user, direction)
+	. = ..()
+
 	return
 
 /obj/structure/closet/statue/attack_hand()
@@ -169,7 +170,7 @@
 		user.frozen = FALSE
 		user.dust()
 	dump_contents()
-	visible_message("<span class='warning'>[src] shatters!.</span>")
+	visible_message(SPAN_WARNING("[src] shatters!."))
 	qdel(src)
 
 
@@ -183,7 +184,7 @@
 	dir = L.dir
 	var/image/I
 	I = image(icon = 'icons/obj/statue.dmi', icon_state = "icecube")
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/structure/closet/statue/ice/shatter(mob/user as mob)
 	if (user)
@@ -194,5 +195,5 @@
 			L.bodytemperature -= 150
 
 	dump_contents()
-	visible_message("<span class='warning'>\The [src] shatters!</span>")
+	visible_message(SPAN_WARNING("\The [src] shatters!"))
 	qdel(src)

@@ -16,12 +16,18 @@ SUBSYSTEM_DEF(zcopy)
 	var/multiqueue_skips_turf = 0
 	var/multiqueue_skips_object = 0
 
+	// Caches for fixup.
+	var/list/fixup_cache = list()
+	var/list/fixup_known_good = list()
+
+	// Fixup stats.
+	var/fixup_miss = 0
+	var/fixup_noop = 0
+	var/fixup_hit = 0
+
 	// Highest Z level in a given Z-group for absolute layering.
 	// zstm[zlev] = group_max
 	var/list/zlev_maximums = list()
-
-/datum/controller/subsystem/zcopy/New()
-	NEW_SS_GLOBAL(SSzcopy)
 
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/update_all()
@@ -90,6 +96,10 @@ SUBSYSTEM_DEF(zcopy)
 			Skips: \
 			Turfs [multiqueue_skips_turf] \
 			Objects [multiqueue_skips_object]\
+			Fixups: \
+			Hits [fixup_hit] \
+			Miss [fixup_miss]\
+			No Operation [fixup_noop]\
 		"
 	return ..()
 
@@ -105,7 +115,7 @@ SUBSYSTEM_DEF(zcopy)
 	zlev_maximums = new(world.maxz)
 	var/start_zlev = 1
 	for (var/z in 1 to world.maxz)
-		if (!HasAbove(z))
+		if (!SSmapping.multiz_levels[z][Z_LEVEL_UP])
 			for (var/member_zlev in start_zlev to z)
 				zlev_maximums[member_zlev] = z
 			if (z - start_zlev > OPENTURF_MAX_DEPTH)
@@ -159,20 +169,14 @@ SUBSYSTEM_DEF(zcopy)
 		// Z-Turf on the bottom-most level, just fake-copy space.
 		// If this is ever true, that turf should always pass this condition, so don't bother cleaning up beyond the Destroy() hook.
 		if (!T.below)	// Z-turf on the bottom-most level, just fake-copy space.
-			if (T.z_flags & ZM_MIMIC_OVERWRITE)
-				T.appearance = SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1]
-				T.name = initial(T.name)
-				T.desc = initial(T.desc)
-				T.gender = initial(T.gender)
+			flush_z_state(T)
+			if(T.z_flags & ZM_MIMIC_BASETURF)
+				simple_appearance_copy(T, get_base_turf_by_area(T), OPEN_SPACE_PLANE_END)
 			else
-				// Some openturfs have icons, so we can't overwrite their appearance.
-				if (!T.mimic_underlay)
-					T.mimic_underlay = new(T)
-				var/atom/movable/openspace/turf_proxy/TO = T.mimic_underlay
-				TO.appearance = SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1]
-				TO.name = T.name
-				TO.gender = T.gender	// Need to grab this too so PLURAL works properly in examine.
-				TO.mouse_opacity = initial(TO.mouse_opacity)
+				simple_appearance_copy(T, SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1])
+
+			T.z_generation += 1
+			T.z_queued -= 1
 
 			if (no_mc_tick)
 				CHECK_TICK
@@ -195,12 +199,34 @@ SUBSYSTEM_DEF(zcopy)
 		var/turf_depth
 		turf_depth = T.z_depth = zlev_maximums[Td.z] - Td.z
 
-		var/t_target = OPENTURF_MAX_PLANE - turf_depth	// This is where the turf (but not the copied atoms) gets put.
+		var/t_target = OPEN_SPACE_PLANE_END - turf_depth	// This is where the turf (but not the copied atoms) gets put.
+
+
+		// Turf is set to mimic baseturf, handle that and bail.
+		if (T.z_flags & ZM_MIMIC_BASETURF)
+			flush_z_state(T)
+			simple_appearance_copy(T, get_base_turf_by_area(T), t_target)
+
+			if (T.above)
+				T.above.update_mimic()
+
+			T.z_queued -= 1
+
+			if (no_mc_tick)
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				break
+			continue
+
+		// If we previously were MZ_MIMIC_BASETURF, there might be an orphaned proxy.
+		else if (T.mimic_underlay)
+			QDEL_NULL(T.mimic_underlay)
 
 		// Handle space parallax & starlight.
 		if (T.below.z_eventually_space)
 			T.z_eventually_space = TRUE
-			t_target = PLANE_SPACE_BACKGROUND
+			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space || T.below.type == /turf/space/dynamic)
+				t_target = SPACE_PLANE
 
 		if (T.z_flags & ZM_MIMIC_OVERWRITE)
 			// This openturf doesn't care about its icon, so we can just overwrite it.
@@ -224,8 +250,6 @@ SUBSYSTEM_DEF(zcopy)
 			TO.plane = t_target
 			TO.mouse_opacity = initial(TO.mouse_opacity)
 
-		T.queue_ao(T.ao_neighbors_mimic == null)	// If ao_neighbors hasn't been set yet, we need to do a rebuild
-
 		// Explicitly copy turf delegates so they show up properly on below levels.
 		//   I think it's possible to get this to work without discrete delegate copy objects, but I'd rather this just work.
 		if ((T.below.z_flags & (ZM_MIMIC_BELOW|ZM_MIMIC_OVERWRITE)) == ZM_MIMIC_BELOW)
@@ -235,7 +259,7 @@ SUBSYSTEM_DEF(zcopy)
 			var/atom/movable/openspace/turf_mimic/DC = T.below.mimic_above_copy
 			DC.appearance = T.below
 			DC.mouse_opacity = initial(DC.mouse_opacity)
-			DC.plane = OPENTURF_MAX_PLANE
+			DC.plane = OPEN_SPACE_PLANE_END
 
 		else if (T.below.mimic_above_copy)
 			QDEL_NULL(T.below.mimic_above_copy)
@@ -245,14 +269,12 @@ SUBSYSTEM_DEF(zcopy)
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
-			if (QDELETED(object) || object.no_z_overlay || object.loc != T.below || object.invisibility == INVISIBILITY_ABSTRACT)
+			if (QDELETED(object) || (object.z_flags & ZMM_IGNORE) || object.loc != T.below || object.invisibility == INVISIBILITY_ABSTRACT)
 				// Don't queue deleted stuff, stuff that's not visible, blacklisted stuff, or stuff that's centered on another tile but intersects ours.
 				continue
 
-			// Special case: these are merged into the shadower to reduce memory usage.
-			if (object.type == /atom/movable/lighting_overlay)
-				//T.shadower.copy_lighting(object)
-				continue
+			if (QDELETED(object.bound_overlay))
+				object.bound_overlay = null
 
 			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 				object.bound_overlay = new(T)
@@ -261,18 +283,24 @@ SUBSYSTEM_DEF(zcopy)
 			var/override_depth
 			var/original_type = object.type
 			var/original_z = object.z
+			var/have_performed_fixup = FALSE
+
 			switch (object.type)
 				if (/atom/movable/openspace/mimic)
 					var/atom/movable/openspace/mimic/OOO = object
 					original_type = OOO.mimiced_type
 					override_depth = OOO.override_depth
 					original_z = OOO.original_z
+					have_performed_fixup = OOO.have_performed_fixup
 
 				if (/atom/movable/openspace/turf_proxy, /atom/movable/openspace/turf_mimic)
 					// If we're a turf overlay (the mimic for a non-OVERWRITE turf), we need to make sure copies of us respect space parallax too
 					if (T.z_eventually_space)
 						// Yes, this is an awful hack; I don't want to add yet another override_* var.
-						override_depth = OPENTURF_MAX_PLANE - PLANE_SPACE_BACKGROUND
+						override_depth = OPEN_SPACE_PLANE_END - SPACE_PLANE
+
+				if (/atom/movable/openspace/turf_mimic)
+					original_z += 1
 
 			var/atom/movable/openspace/mimic/OO = object.bound_overlay
 
@@ -292,6 +320,7 @@ SUBSYSTEM_DEF(zcopy)
 			OO.mimiced_type = original_type
 			OO.override_depth = override_depth
 			OO.original_z = original_z
+			OO.have_performed_fixup ||= have_performed_fixup
 
 			// Multi-queue to maintain ordering of updates to these
 			//   queueing it multiple times will result in only the most recent
@@ -351,7 +380,8 @@ SUBSYSTEM_DEF(zcopy)
 			OO.set_dir(OO.associated_atom.dir)
 
 		OO.appearance = OO.associated_atom
-		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		OO.z_flags = OO.associated_atom.z_flags
+		OO.plane = OPEN_SPACE_PLANE_END - OO.depth
 
 		OO.opacity = FALSE
 		OO.queued = 0
@@ -368,10 +398,44 @@ SUBSYSTEM_DEF(zcopy)
 		curr_ov.Cut(1, qo_idex)
 		qo_idex = 1
 
+/datum/controller/subsystem/zcopy/proc/flush_z_state(turf/T)
+	if (T.below) // Z-Mimic turfs aren't necessarily above another turf.
+		if (T.below.mimic_above_copy)
+			QDEL_NULL(T.below.mimic_above_copy)
+		if (T.below.mimic_proxy)
+			QDEL_NULL(T.below.mimic_proxy)
+	QDEL_NULL(T.mimic_underlay)
+	for (var/atom/movable/openspace/mimic/OO in T)
+		qdel(OO)
+
+/datum/controller/subsystem/zcopy/proc/simple_appearance_copy(turf/T, new_appearance, target_plane)
+	if (T.z_flags & ZM_MIMIC_OVERWRITE)
+		T.appearance = new_appearance
+		T.name = initial(T.name)
+		T.desc = initial(T.desc)
+		T.gender = initial(T.gender)
+		if (T.plane == 0 && target_plane)
+			T.plane = target_plane
+	else
+		// Some openturfs have icons, so we can't overwrite their appearance.
+		if (!T.mimic_underlay)
+			T.mimic_underlay = new(T)
+		var/atom/movable/openspace/turf_proxy/TO = T.mimic_underlay
+		TO.appearance = new_appearance
+		TO.name = T.name
+		TO.gender = T.gender // Need to grab this too so PLURAL works properly in examine.
+		TO.mouse_opacity = initial(TO.mouse_opacity)
+		if (TO.plane == 0 && target_plane)
+			TO.plane = target_plane
+
 #define FMT_DEPTH(X) (X == null ? "(null)" : X)
 
 // This is a dummy object used so overlays can be shown in the analyzer.
 /atom/movable/openspace/debug
+
+/atom/movable/openspace/debug/turf
+	var/turf/parent
+	var/computed_depth
 
 /client/proc/analyze_openturf(turf/T)
 	set name = "Analyze Openturf"
@@ -381,13 +445,24 @@ SUBSYSTEM_DEF(zcopy)
 	if (!check_rights(R_DEBUG))
 		return
 
+	var/real_update_count = 0
+	var/claimed_update_count = T.z_queued
+	var/list/tq = SSzcopy.queued_turfs.Copy()
+	for (var/turf/Tu in tq)
+		if (Tu == T)
+			real_update_count += 1
+
+		CHECK_TICK
+
+	var/list/temp_objects = list()
+
 	var/is_above_space = T.is_above_space()
 	var/list/out = list(
 		"<head><meta charset='utf-8'/></head><body>",
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
 		"<b>Queue occurrences:</b> [T.z_queued]",
 		"<b>Above space:</b> Apparent [T.z_eventually_space ? "Yes" : "No"], Actual [is_above_space ? "Yes" : "No"] - [T.z_eventually_space == is_above_space ? "<font color='green'>OK</font>" : "<font color='red'>MISMATCH</font>"]",
-		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_flags, global.mimic_defines), "(none)")]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_flags, GLOB.mimic_defines), "(none)")]",
 		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
 		"<b>Has turf proxy:</b> [T.mimic_proxy ? "Yes" : "No"]",
 		"<b>Has above copy:</b> [T.mimic_above_copy ? "Yes" : "No"]",
@@ -395,10 +470,26 @@ SUBSYSTEM_DEF(zcopy)
 		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
 		"<b>Depth:</b> [FMT_DEPTH(T.z_depth)] [T.z_depth == OPENTURF_MAX_DEPTH ? "(max)" : ""]",
 		"<b>Generation:</b> [T.z_generation]",
+		"<b>Update count:</b> Claimed [claimed_update_count], Actual [real_update_count] - [claimed_update_count == real_update_count ? "<font color='green'>OK</font>" : "<font color='red'>MISMATCH</font>"]",
 		"<ul>"
 	)
 
+	if (!T.below)
+		out += "<h3>Using synthetic rendering (Not Z).<h3>"
+	else if (T.z_flags & ZM_MIMIC_BASETURF)
+		out += "<h3>Using synthetic rendering (BASETURF).</h3>"
+
 	var/list/found_oo = list(T)
+	var/turf/Tbelow = T
+	while ((Tbelow = Tbelow.below))
+		var/atom/movable/openspace/debug/turf/VTO = new
+		VTO.computed_depth = SSzcopy.zlev_maximums[Tbelow.z] - Tbelow.z
+		VTO.appearance = Tbelow
+		VTO.parent = Tbelow
+		VTO.plane = OPEN_SPACE_PLANE_END - VTO.computed_depth
+		found_oo += VTO
+		temp_objects += VTO
+
 	for (var/atom/movable/openspace/O in T)
 		found_oo += O
 
@@ -409,6 +500,7 @@ SUBSYSTEM_DEF(zcopy)
 			if (D.plane < -10000)	// FLOAT_PLANE
 				D.plane = T.shadower.plane
 			found_oo += D
+			temp_objects += D
 
 	sortTim(found_oo, GLOBAL_PROC_REF(cmp_planelayer))
 
@@ -426,9 +518,9 @@ SUBSYSTEM_DEF(zcopy)
 		atoms_list_list -= "0"
 
 	for (var/d in 0 to OPENTURF_MAX_DEPTH)
-		var/pl = OPENTURF_MAX_PLANE - d
+		var/pl = OPEN_SPACE_PLANE_END - d
 		if (!atoms_list_list["[pl]"])
-			out += "<strong>Depth [d], plane [pl] - empty</strong>"
+			out += "<strong>Depth [d], plane [pl] — empty</strong>"
 			continue
 
 		out += "<strong>Depth [d], plane [pl]</strong>"
@@ -437,11 +529,12 @@ SUBSYSTEM_DEF(zcopy)
 		// Flush the list so we can find orphans.
 		atoms_list_list -= "[pl]"
 
-	if (atoms_list_list["[PLANE_SPACE_BACKGROUND]"])	// Space parallax plane
-		out += "<strong>Space parallax plane</strong> ([PLANE_SPACE_BACKGROUND])"
-		SSzcopy.debug_fmt_planelist(atoms_list_list["[PLANE_SPACE_BACKGROUND]"], out, T)
-		atoms_list_list -= "[PLANE_SPACE_BACKGROUND]"
+	if (atoms_list_list["[SPACE_PLANE]"])	// Space parallax plane
+		out += "<strong>Space parallax plane</strong> ([SPACE_PLANE])"
+		SSzcopy.debug_fmt_planelist(atoms_list_list["[SPACE_PLANE]"], out, T)
+		atoms_list_list -= "[SPACE_PLANE]"
 
+	log_debug("atoms_list_list => [json_encode(atoms_list_list)]")
 	for (var/key in atoms_list_list)
 		out += "<strong style='color: red;'>Unknown plane: [key]</strong>"
 		SSzcopy.debug_fmt_planelist(atoms_list_list[key], out, T)
@@ -450,7 +543,10 @@ SUBSYSTEM_DEF(zcopy)
 
 	out += "</body>"
 
-	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-\ref[T]")
+	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-[REF(T)]")
+
+	for (var/item in temp_objects)
+		qdel(item)
 
 // Yes, I know this proc is a bit of a mess. Feel free to clean it up.
 /datum/controller/subsystem/zcopy/proc/debug_fmt_thing(atom/A, list/out, turf/original)

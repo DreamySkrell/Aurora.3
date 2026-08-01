@@ -9,7 +9,7 @@
 	mob_size = MOB_TINY
 	speak_chance = 0
 	turns_per_move = 1
-	maxHealth = 5
+	maxhealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/hugemushroomslice
 	organ_names = list("cap", "chest", "left leg", "right leg")
@@ -22,7 +22,6 @@
 	var/min_explode_time = 1200
 	density = 0
 	holder_type = /obj/item/holder/mushroom
-	mob_size = 2
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 
@@ -51,15 +50,15 @@
 	set src = usr
 
 	if(stat == 2)
-		to_chat(usr, "<span class='danger'>You are dead; it is too late for that.</span>")
+		to_chat(usr, SPAN_DANGER("You are dead; it is too late for that."))
 		return
 
 	if(!seed)
-		to_chat(usr, "<span class='danger'>You are sterile!</span>")
+		to_chat(usr, SPAN_DANGER("You are sterile!"))
 		return
 
 	if(world.time < harvest_time + min_explode_time)
-		to_chat(usr, "<span class='danger'>You are not mature enough for that.</span>")
+		to_chat(usr, SPAN_DANGER("You are not mature enough for that."))
 		return
 
 	spore_explode()
@@ -81,7 +80,7 @@
 		return
 	for(var/turf/simulated/target_turf in orange(1,src))
 		if(prob(60) && !target_turf.density && src.Adjacent(target_turf))
-			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(target_turf,seed)
+			new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(target_turf,seed)
 	seed.thrown_at(src,get_turf(src),1)
 	if(src)
 		gib()

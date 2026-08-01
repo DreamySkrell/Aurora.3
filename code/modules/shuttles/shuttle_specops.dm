@@ -1,17 +1,17 @@
-/obj/machinery/computer/shuttle_control/specops
+/obj/structure/machinery/computer/shuttle_control/specops
 	name = "special operations shuttle console"
 	shuttle_tag = "Phoenix Shuttle"
 	req_access = list(ACCESS_CENT_SPECOPS)
 
-/obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
-	to_chat(user, "<span class='warning'>Access Denied.</span>")
+/obj/structure/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
+	to_chat(user, SPAN_WARNING("Access denied."))
 	return 1
 
 /datum/shuttle/autodock/ferry/specops
 	var/specops_return_delay = 6000		//After moving, the amount of time that must pass before the shuttle may move again
 	var/specops_countdown_time = 600	//Length of the countdown when moving the shuttle
 
-	var/obj/item/device/radio/intercom/announcer
+	var/obj/item/radio/intercom/announcer
 	var/reset_time = 0	//the world.time at which the shuttle will be ready to move again.
 	var/launch_prep = 0
 	var/cancel_countdown = 0
@@ -19,7 +19,7 @@
 
 /datum/shuttle/autodock/ferry/specops/New()
 	..()
-	announcer = new /obj/item/device/radio/intercom(null)//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
+	announcer = new /obj/item/radio/intercom(null)//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
 	announcer.config(list("Response Team" = 0))
 
 /datum/shuttle/autodock/ferry/specops/proc/radio_announce(var/message)
@@ -30,18 +30,18 @@
 	if (!can_launch())
 		return
 
-	if (istype(user, /obj/machinery/computer))
-		var/obj/machinery/computer/C = user
+	if (istype(user, /obj/structure/machinery/computer))
+		var/obj/structure/machinery/computer/C = user
 
 		if(world.time <= reset_time)
-			C.visible_message("<span class='notice'>[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet.</span>")
+			C.visible_message(SPAN_NOTICE("[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet."))
 			if (((world.time - reset_time)/10) > 60)
-				C.visible_message("<span class='notice'>[-((world.time - reset_time)/10)/60] minutes remain!</span>")
+				C.visible_message(SPAN_NOTICE("[-((world.time - reset_time)/10)/60] minutes remain!"))
 			else
-				C.visible_message("<span class='notice'>[-(world.time - reset_time)/10] seconds remain!</span>")
+				C.visible_message(SPAN_NOTICE("[-(world.time - reset_time)/10] seconds remain!"))
 			return
 
-		C.visible_message("<span class='notice'>The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds.</span>")
+		C.visible_message(SPAN_NOTICE("The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds."))
 
 	if (location)	//returning
 		radio_announce("THE SPECIAL OPERATIONS SHUTTLE IS PREPARING TO RETURN")
@@ -51,7 +51,7 @@
 	sleep_until_launch()
 
 	if (location)
-		var/obj/machinery/light/small/readylight/light = locate() in shuttle_area
+		var/obj/structure/machinery/light/small/readylight/light = locate() in shuttle_area
 		if(light) light.set_state(0)
 
 	//launch
@@ -65,14 +65,14 @@
 		if (!location)	//just arrived home
 			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
-				to_chat(M, "<span class='danger'>You have arrived at [SSatlas.current_map.boss_name]. Operation has ended!</span>")
+				to_chat(M, SPAN_DANGER("You have arrived at [SSatlas.current_map.boss_name]. Operation has ended!"))
 		else	//just left for the station
 			launch_mauraders()
 			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
-				to_chat(M, "<span class='danger'>You have arrived at [SSatlas.current_map.station_name]. Commence operation!</span>")
+				to_chat(M, SPAN_DANGER("You have arrived at [SSatlas.current_map.station_name]. Commence operation!"))
 
-				var/obj/machinery/light/small/readylight/light = locate() in T
+				var/obj/structure/machinery/light/small/readylight/light = locate() in T
 				if(light) light.set_state(1)
 
 /datum/shuttle/autodock/ferry/specops/cancel_launch()
@@ -81,9 +81,9 @@
 
 	cancel_countdown = 1
 	radio_announce("ALERT: LAUNCH SEQUENCE ABORTED")
-	if (istype(in_use, /obj/machinery/computer))
-		var/obj/machinery/computer/C = in_use
-		C.visible_message("<span class='warning'>Launch sequence aborted.</span>")
+	if (istype(in_use, /obj/structure/machinery/computer))
+		var/obj/structure/machinery/computer/C = in_use
+		C.visible_message(SPAN_WARNING("Launch sequence aborted."))
 
 	..()
 
@@ -132,7 +132,7 @@
 	var/area/centcom/specops/special_ops = locate()//Where is the specops area located?
 	//Begin Marauder launchpad.
 	spawn(0)//So it parallel processes it.
-		for(var/obj/machinery/door/blast/M in special_ops)
+		for(var/obj/structure/machinery/door/blast/M in special_ops)
 			switch(M.id)
 				if("ASSAULT0")
 					spawn(10)//1 second delay between each.
@@ -158,12 +158,12 @@
 				var/obj/effect/portal/P = new(L.loc)
 				P.set_invisibility(101)//So it is not seen by anyone.
 				P.failchance = 0//So it has no fail chance when teleporting.
-				P.target = pick(spawn_marauder)//Where the marauder will arrive.
+				P.set_target(pick(spawn_marauder))//Where the marauder will arrive.
 				spawn_marauder.Remove(P.target)
 
 		sleep(10)
 
-		for(var/obj/machinery/mass_driver/M in special_ops)
+		for(var/obj/structure/machinery/mass_driver/M in special_ops)
 			switch(M.id)
 				if("ASSAULT0")
 					spawn(10)
@@ -180,7 +180,7 @@
 
 		sleep(50)//Doors remain open for 5 seconds.
 
-		for(var/obj/machinery/door/blast/M in special_ops)
+		for(var/obj/structure/machinery/door/blast/M in special_ops)
 			switch(M.id)//Doors close at the same time.
 				if("ASSAULT0")
 					spawn(0)
@@ -197,13 +197,13 @@
 		special_ops.readyreset()//Reset firealarm after the team launched.
 	//End Marauder launchpad.
 
-/obj/machinery/light/small/readylight
+/obj/structure/machinery/light/small/readylight
 	brightness_range = 5
 	brightness_power = 1
 	brightness_color = "#DA0205"
 	var/state = 0
 
-/obj/machinery/light/small/readylight/proc/set_state(var/new_state)
+/obj/structure/machinery/light/small/readylight/proc/set_state(var/new_state)
 	state = new_state
 	if(state)
 		brightness_color = "00FF00"
@@ -213,12 +213,12 @@
 
 //--Tau Ceti Foreign Legion Shuttle--//
 
-/obj/machinery/computer/shuttle_control/multi/legion
+/obj/structure/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
-	req_access = list(ACCESS_LEGION)
+	req_access = list(ACCESS_TCAF)
 	shuttle_tag = "Legion Shuttle"
 
-/obj/machinery/computer/shuttle_control/multi/distress
+/obj/structure/machinery/computer/shuttle_control/multi/distress
 	name = "shuttle control computer"
 	req_access = list(ACCESS_DISTRESS)
 	shuttle_tag = "Distress Shuttle"

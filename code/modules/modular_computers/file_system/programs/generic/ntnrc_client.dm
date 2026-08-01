@@ -64,7 +64,7 @@
 		else
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
-	if(service_state == PROGRAM_STATE_DISABLED)
+	if(service_state <= PROGRAM_STATE_KILLED) // Killed or disabled.
 		computer.enable_service(null, user, src)
 	if(computer.hidden_uplink && syndi_auth)
 		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")
@@ -196,7 +196,7 @@
 
 	if(action == "ringtone")
 		var/new_ringtone = params["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		var/obj/item/uplink/hidden/H = computer.hidden_uplink
 		if(istype(H) && H.check_trigger(usr, lowertext(new_ringtone), lowertext(H.pda_code)))
 			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
 			syndi_auth = TRUE
@@ -254,6 +254,7 @@
 			else
 				conv.cl_join(src)
 		computer.update_static_data_for_all_viewers()
+		active = conv
 		. = TRUE
 
 	if(action == "set_active")
@@ -298,8 +299,9 @@
 		. = TRUE
 
 	if(action == "new_channel")
-		GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		var/datum/ntnet_conversation/conversation = GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
 		computer.update_static_data_for_all_viewers()
+		active = conversation
 		. = TRUE
 
 	if(action == "delete")
@@ -312,8 +314,9 @@
 
 	if(action == "direct")
 		var/datum/ntnet_user/tUser = locate(params["direct"])
-		GLOB.ntnet_global.begin_direct(src, tUser)
+		var/datum/ntnet_conversation/conversation = GLOB.ntnet_global.begin_direct(src, tUser)
 		computer.update_static_data_for_all_viewers()
+		active = conversation
 		. = TRUE
 
 	if(action == "toggleadmin")

@@ -17,7 +17,7 @@
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
 	to_chat(user, "Use ai-help command to view relevant information about your abilities")
-	to_chat(user, "<span class='danger'><font size=4>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</font></span>")
+	to_chat(user, SPAN_DANGER("<font size=4>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</font>"))
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
 /mob/living/silicon/ai/proc/stop_malf()
@@ -28,7 +28,7 @@
 	research = null
 	// Fix hacked APCs
 	if(hacked_apcs)
-		for(var/obj/machinery/power/apc/A in hacked_apcs)
+		for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
 			A.hacker = null
 	hacked_apcs = null
 	// Reset our verbs
@@ -62,8 +62,8 @@
 	var/cpu_storage = 10
 
 	// Off-Station APCs should not count towards CPU generation.
-	for(var/obj/machinery/power/apc/A in hacked_apcs)
-		if(A.z in SSatlas.current_map.station_levels)
+	for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
+		if(A.z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			cpu_gain += 0.05
 			cpu_storage += 100
 
@@ -84,7 +84,7 @@
 		return
 	if(hardware_integrity() < 50)
 		if(!shutup)
-			to_chat(src, "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>")
+			to_chat(src, SPAN_NOTICE("Starting APU... <b>FAULT</b>(System Damaged)"))
 		return
 	if(!shutup)
 		to_chat(src, "Starting APU... ONLINE")
@@ -102,11 +102,11 @@
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()
-	return ((getOxyLoss() - maxHealth) / maxHealth) * -100
+	return ((getOxyLoss() - maxhealth) / maxhealth) * -100
 
 // Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
 /mob/living/silicon/ai/proc/hardware_integrity()
-	return (health / maxHealth) * 100
+	return (health / maxhealth) * 100
 
 // Shows AI Malfunction related information to the AI.
 /mob/living/silicon/ai/show_malf_ai()
@@ -130,4 +130,4 @@
 /mob/living/silicon/ai/proc/create_powersupply()
 	if(psupply)
 		qdel(psupply)
-	psupply = new/obj/machinery/ai_powersupply(src)
+	psupply = new/obj/structure/machinery/ai_powersupply(src)

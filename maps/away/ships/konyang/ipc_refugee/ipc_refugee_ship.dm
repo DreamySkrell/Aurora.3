@@ -1,8 +1,11 @@
 /datum/map_template/ruin/away_site/ipc_refugee_ship
 	name = "IPC Refugee Ship"
 	description = "The Akers-class freighter is an ancient design, dating back nearly two hundred years. It was considered a reliable freighter for its time, but is completely obsolete by modern standards, making it a rare sight outside of ship graveyards. Scans indicate this vessel in particular to be exceptionally run down, bearing severe structural damage across the whole ship. Damage appears to be from a mix of both meteors and ballistic armaments. Despite this, power signatures seem to indicate the vessel is still somehow operable."
-	suffixes = list("ships/konyang/ipc_refugee/ipc_refugee_ship.dmm")
-	sectors = list(SECTOR_HANEUNIM, SECTOR_LIBERTYS_CRADLE)
+
+	prefix = "ships/konyang/ipc_refugee/"
+	suffix = "ipc_refugee_ship.dmm"
+
+	sectors = list(SECTOR_HANEUNIM, SECTOR_LIBERTYS_CRADLE, SECTOR_XANU)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ipc_refugee_ship"
@@ -133,7 +136,7 @@
 	sizeclass = "Stout-class Utility Craft"
 	shiptype = "Cargo Tug"
 
-/obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Decrepit Cargo Tug"
 

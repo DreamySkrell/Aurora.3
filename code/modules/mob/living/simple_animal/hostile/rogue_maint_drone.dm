@@ -10,11 +10,12 @@
 	universal_speak = FALSE
 	density = FALSE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 	armor_penetration = 5
-	attacktext = "sliced"
+	attacktext = "slices"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = "silicon"
 	min_oxy = 0
 	minbodytemp = 0
@@ -23,13 +24,19 @@
 	var/image/eye_overlay
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
-	eye_overlay = image(icon, "[icon_state]-eyes_emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+	eye_overlay = image(icon, "[icon_state]-eyes_emag")
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
-	add_overlay(eye_overlay)
+	AddOverlays(eye_overlay)
+
+/mob/living/simple_animal/hostile/rogue_drone/Destroy()
+	QDEL_NULL(eye_overlay)
+	return ..()
 
 /mob/living/simple_animal/hostile/rogue_drone/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
@@ -42,7 +49,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 1, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/rogue_drone/validator_living(var/mob/living/L, var/atom/current)
 	. = ..()

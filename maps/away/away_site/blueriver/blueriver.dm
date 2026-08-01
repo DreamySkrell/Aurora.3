@@ -4,10 +4,19 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
-	suffixes = list("away_site/blueriver/blueriver-1.dmm","away_site/blueriver/blueriver-2.dmm")
-	generate_mining_by_z = 2
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM, SECTOR_TAU_CETI, SECTOR_SRANDMARR) //it's a whole ass planet, shouldn't have it in predefined sectors
+
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
+	prefix = "away_site/blueriver/"
+	suffix = "blueriver.dmm"
+
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS, LEMURIAN_SEA_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors
 
 	unit_test_groups = list(1)
 
@@ -84,7 +93,6 @@
 	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	icon_state = "bluespacecrystal1"
 	opacity = 0
-	dynamic_lighting = 0
 
 /turf/unsimulated/wall/supermatter/no_spread/blueriver/Initialize()
 	. = ..()
@@ -102,9 +110,9 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	user.visible_message(
-		"<span class='danger'>[user] hits \the [src] with \the [attacking_item]!</span>",
-		"<span class='danger'>You hit \the [src] with \the [attacking_item]!</span>",
-		"<span class='danger'>You hear something breaking!</span>"
+		SPAN_DANGER("[user] hits \the [src] with \the [attacking_item]!"),
+		SPAN_DANGER("You hit \the [src] with \the [attacking_item]!"),
+		SPAN_DANGER("You hear something breaking!")
 		)
 
 /obj/item/paper/blueriver/expedition_log_1

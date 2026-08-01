@@ -2,6 +2,7 @@
 	name = "mounted storage unit"
 	interface_name = "mounted storage unit"
 	interface_desc = "A storage unit for storing a precious few items in your hardsuit."
+	module_type = MODULETYPE_PASSIVE
 	icon_state = "paper"
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
@@ -9,8 +10,8 @@
 
 	var/obj/item/storage/internal/hardsuit/pockets
 	var/storage_slots = null
-	var/storage_max_w_class = ITEMSIZE_NORMAL
-	var/storage_max_storage_space = 9
+	var/storage_max_w_class = WEIGHT_CLASS_NORMAL
+	var/storage_max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/rig_module/storage/Initialize()
 	. = ..()
@@ -24,16 +25,9 @@
 
 	. = ..()
 
-
-/obj/item/rig/attack_hand(mob/user as mob)
+/obj/item/rig/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage && !storage.pockets.handle_attack_hand(user))
-		return
-	return ..()
-
-/obj/item/rig/MouseDrop(obj/over_object as obj)
-	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage && !storage.pockets.handle_mousedrop(usr, over_object))
+	if(storage && !storage.pockets.handle_mousedrop(user, over))
 		return
 	return ..()
 
@@ -43,12 +37,6 @@
 		storage.pockets.open(user)
 		return TRUE
 	return FALSE
-
-/obj/item/rig/emp_act(severity)
-	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage)
-		storage.pockets.emp_act(severity)
-	return ..()
 
 /obj/item/rig/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules

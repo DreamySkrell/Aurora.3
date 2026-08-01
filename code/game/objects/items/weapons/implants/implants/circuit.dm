@@ -4,14 +4,14 @@
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_implant"
 	known = TRUE
-	var/obj/item/device/electronic_assembly/implant/IC = null
+	var/obj/item/electronic_assembly/implant/IC = null
 
 /obj/item/implant/integrated_circuit/isLegal()
 	return TRUE
 
-/obj/item/implant/integrated_circuit/Initialize()
+/obj/item/implant/integrated_circuit/Initialize(mapload, printed = FALSE)
 	. = ..()
-	IC = new(src)
+	IC = new(src, printed)
 	IC.implant = src
 
 /obj/item/implant/integrated_circuit/Destroy()
@@ -38,11 +38,13 @@
 
 	IC.emp_act(severity)
 
-/obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent)
-	return IC.examine(user, distance, is_adjacent)
+/obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
+
+	return IC.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 
 /obj/item/implant/integrated_circuit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar() || istype(attacking_item, /obj/item/device/integrated_electronics) || istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device) )
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR || istype(attacking_item, /obj/item/integrated_electronics) || istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.tool_behaviour == TOOL_SCREWDRIVER || istype(attacking_item, /obj/item/cell/device) )
 		IC.attackby(attacking_item, user)
 	else
 		..()

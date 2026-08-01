@@ -1,3 +1,7 @@
+/datum/wires/landmine
+	// If we ever get an explosives or similar skill...
+	associated_skill = null
+
 /datum/wires/landmine/New()
 	wires = list(
 		WIRE_EXPLODE
@@ -18,6 +22,12 @@
 		if(WIRE_EXPLODE)
 			if(!mend)
 				explode()
+
+/datum/wires/landmine/get_wire(color)
+	if(color == WIRE_EXPLODE)
+		return WIRE_EXPLODE
+	else
+		return ..()
 
 /datum/wires/landmine/claymore
 	holder_type = /obj/item/landmine/claymore

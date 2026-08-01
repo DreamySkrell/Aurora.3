@@ -2,7 +2,7 @@
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "sand"
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -14,12 +14,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
@@ -104,7 +104,7 @@
 		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
-			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
+			to_chat(L, SPAN_WARNING("You get drenched in water from entering \the [src]!"))
 		wash(L)
 	..()
 
@@ -120,7 +120,7 @@
 			numobjects -= 1
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/floor/beach/water))
-			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
+			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/beach/water/process()

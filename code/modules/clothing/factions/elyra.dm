@@ -1,7 +1,7 @@
 /obj/item/clothing/under/elyra_holo
 	name = "elyran holographic suit"
-	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolisean clothes respectively."
-	icon = 'icons/clothing/under/uniforms/elyra_holoclothes.dmi'
+	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Madani, Aemaqii and Persepolisean clothes respectively."
+	icon = 'icons/obj/item/clothing/under/human/elyra/elyra_holoclothes.dmi'
 	icon_state = "holosuit_fem"
 	item_state = "holosuit_fem"
 	contained_sprite = TRUE
@@ -10,13 +10,13 @@
 	var/clothing_mode = 0
 	var/list/names = list(
 		"base holographic suit",
-		"medinean artisans holo-dress",
+		"madani artisans holo-dress",
 		"aemaqii ocean holo-dress",
 		"persepolisean desert holo-dress"
 		)
 
 	var/list/descriptions = list(
-		"A form-fitting holographic dress with striking purple and white coloration. It possesses high-fidelity, artistic representation of Elyran Medinean culture markers coating its tightly-woven hardlight fabric.",
+		"A form-fitting holographic dress with striking purple and white coloration. It possesses high-fidelity, artistic representation of Elyran Madani culture markers coating its tightly-woven hardlight fabric.",
 		"A fine holo-dress which owes its overall design to the chemical seas of Aemaqq, with itself flowing gently in waves. It looks particularly cozy, and protective against a cold ocean breeze.",
 		"A loose, airy holo-dress with clashing earthen and bright colors. The design is iconic among the Elyran Persepolisean native populations due to its expressive contrast and the hot climate."
 		)
@@ -26,7 +26,7 @@
 	item_state = "holosuit_masc"
 	names = list(
 		"base holographic suit",
-		"medinean artisans holo-suit",
+		"madani artisans holo-suit",
 		"aemaqii fur outfit",
 		"persepolisean nomads outfit"
 		)
@@ -39,10 +39,10 @@
 /obj/item/clothing/under/elyra_holo/Initialize()
 	for(var/option in names)
 		if(!clothing_mode)
-			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', icon_state)
+			names[option] = image('icons/obj/item/clothing/under/human/elyra/elyra_holoclothes.dmi', icon_state)
 			clothing_mode = 1
 		else
-			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
+			names[option] = image('icons/obj/item/clothing/under/human/elyra/elyra_holoclothes.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
 	clothing_mode = 0
 	.=..()
 
@@ -51,7 +51,7 @@
 
 /obj/item/clothing/under/elyra_holo/verb/transform_holoclothing()
 	set name = "Transform Holoclothing"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	select_appearance(usr)
 

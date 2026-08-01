@@ -1,32 +1,32 @@
 /obj/proc/analyze_gases(var/atom/A, var/mob/user)
 	if(src != A)
-		user.visible_message("<span class='notice'>\The [user] has used \an [src] on \the [A]</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] has used \an [src] on \the [A]"))
 
 	if(istype(A))
 		A.add_fingerprint(user)
 		var/list/result = A.atmosanalyze(user)
 		if(result && result.len)
-			to_chat(user, "<span class='notice'>Results of the analysis[src == A ? "" : " of [A]"]</span>")
+			to_chat(user, SPAN_NOTICE("Results of the analysis[src == A ? "" : " of [A]"]"))
 			for(var/line in result)
-				to_chat(user, "<span class='notice'>[line]</span>")
+				to_chat(user, SPAN_NOTICE("[line]"))
 			return 1
 
-	to_chat(user, "<span class='warning'>Your [src] flashes a red light as it fails to analyze \the [A].</span>")
+	to_chat(user, SPAN_WARNING("Your [src] flashes a red light as it fails to analyze \the [A]."))
 	return 0
 
 /proc/atmosanalyzer_scan(var/obj/target, var/datum/gas_mixture/mixture, var/mob/user)
-	var/pressure = mixture.return_pressure()
+	var/pressure = XGM_PRESSURE(mixture)
 	var/total_moles = mixture.total_moles
 
 	var/list/results = list()
 	if (total_moles>0)
-		results += "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>"
-		results += "<span class='notice'>Moles: [round(total_moles,0.1)]</span>"
+		results += SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa")
+		results += SPAN_NOTICE("Moles: [round(total_moles,0.1)]")
 		for(var/mix in mixture.gas)
-			results += "<span class='notice'>[gas_data.name[mix]]: [round((mixture.gas[mix] / total_moles) * 100)]%</span>"
-		results += "<span class='notice'>Temperature: [round(mixture.temperature-T0C)]&deg;C</span>"
+			results += SPAN_NOTICE("[gas_data.name[mix]]: [round((mixture.gas[mix] / total_moles) * 100)]%")
+		results += SPAN_NOTICE("Temperature: [round(mixture.temperature-T0C)]&deg;C")
 	else
-		results += "<span class='notice'>\The [target] is empty!</span>"
+		results += SPAN_NOTICE("\The [target] is empty!")
 
 	return results
 
@@ -34,13 +34,11 @@
 	return
 
 /obj/item/tank/atmosanalyze(var/mob/user)
+	src.manipulated_by = user
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
+/obj/structure/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.parent.air, user)
-
-/obj/item/flamethrower/atmosanalyze(var/mob/user)
-	if(gas_tank)	return atmosanalyzer_scan(src, gas_tank.air_contents, user)

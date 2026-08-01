@@ -1,3 +1,7 @@
+/*
+This represents Geras Dionae, the older variant of the species. Coeus can be accessed via the subspecies file, and are the younger variant.
+They are very slow, reasonably strong, and quite durable. They also require light to survive, and build nutrition from being exposed to it.
+*/
 /datum/species/diona
 	name = SPECIES_DIONA
 	short_name = "dio"
@@ -8,17 +12,17 @@
 	height_min = 100
 	height_max = 250
 	total_health = 240
-	age_min = 30
+	age_min = 1
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
-	economic_modifier = 3
+	economic_modifier = 7
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	language = LANGUAGE_ROOTSONG
-	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA, LANGUAGE_UNATHI)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -27,10 +31,11 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
 		/mob/living/carbon/human/proc/create_structure,
-		/mob/living/carbon/proc/sample
+		/mob/living/carbon/human/proc/root_to_ground,
+		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
-	slowdown = 4
+	slowdown = 1.6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -52,17 +57,21 @@
 	Dionae survive primarily on off of the electromagnetic spectrum and biological matter."
 
 	organ_low_pain_message = "<b>The nymph making up our %PARTNAME% feels injured.</b>"
-	organ_med_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
-	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
+	organ_med_pain_message = "<b><font size=4>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=5>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
-	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+	organ_med_burn_message = SPAN_DANGER("<font size=4>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=5>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
+
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_MEDIUM
+	)
 
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
@@ -97,7 +106,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_PRESET
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
@@ -115,8 +124,8 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
+		/singleton/origin_item/culture/hieroaetheria,
 		/singleton/origin_item/culture/xrim,
-		/singleton/origin_item/culture/eum,
 		/singleton/origin_item/culture/narrows,
 		/singleton/origin_item/culture/diona_biesel,
 		/singleton/origin_item/culture/diona_sol,
@@ -130,6 +139,16 @@
 
 	alterable_internal_organs = list()
 	psi_deaf = TRUE
+
+	sleeps_upright = TRUE
+	snore_key = "chirp"
+	indefinite_sleep = TRUE
+
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/diona/tail.dmi'
+	selectable_tails = list("No Tail", "Unathi Tail")
+
+	mass_modifier = REFERENCE_MASS_DIONA / REFERENCE_MASS_HUMAN
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -174,6 +193,23 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
+//This handles nymphs, which are the only diona specie that can run, since they don't breathe they just take pain damage instead
+/datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
+	if(!pre_move)
+		H.adjustHalLoss(cost*0.3)
+		H.updatehealth()
+
+	if(H.getHalLoss() > (H.maxhealth*0.6))
+		var/shock = H.get_shock()
+		if(prob(shock * 2))
+			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
+			H.m_intent = M_WALK
+
+	if(!pre_move)
+		H.hud_used.move_intent.update_move_icon(H)
+	return 1
+
+
 /datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	. = ..()
 	var/obj/item/storage/box/survival/SB = locate() in H
@@ -183,10 +219,17 @@
 			if(SB)
 				break
 	if(SB)
-		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+		SB.handle_item_insertion(new /obj/item/flashlight/survival(get_turf(H)), TRUE)
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE
 
 /datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE
+
+/datum/species/diona/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."))
+	to_chat(M, SPAN_NOTICE("You creak, entering an introspective state."))
+
+/datum/species/diona/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] sways and creaks, in a dormant state.\n")

@@ -7,7 +7,7 @@
 	else
 		construction_stage = null
 	if(!material)
-		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+		material = GET_SINGLETON(MATERIAL_STEEL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
 		if (material.wall_icon)
@@ -38,7 +38,7 @@
 
 	update_icon()
 
-/turf/simulated/wall/proc/set_material(var/material/newmaterial, var/material/newrmaterial)
+/turf/simulated/wall/proc/set_material(var/singleton/material/newmaterial, var/singleton/material/newrmaterial)
 	material = newmaterial
 	reinf_material = newrmaterial
 	update_material()
@@ -51,9 +51,9 @@
 		generate_overlays()
 
 	if (LAZYLEN(reinforcement_images))
-		cut_overlay(reinforcement_images, TRUE)
+		CutOverlays(reinforcement_images, ATOM_ICON_CACHE_PROTECTED)
 	if (damage_image)
-		cut_overlay(damage_image, TRUE)
+		CutOverlays(damage_image, ATOM_ICON_CACHE_PROTECTED)
 
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
@@ -64,11 +64,11 @@
 		clear_smooth_overlays()
 		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
 		fake_wall_image.color = material.icon_colour
-		add_overlay(fake_wall_image)
+		AddOverlays(fake_wall_image)
 		smoothing_flags = SMOOTH_FALSE
 		return
 	else if (fake_wall_image)
-		cut_overlay(fake_wall_image)
+		CutOverlays(fake_wall_image)
 		fake_wall_image = null
 		smoothing_flags = initial(smoothing_flags)
 
@@ -91,29 +91,33 @@
 		if (reinforcement_images)
 			overlays_to_add += reinforcement_images
 
-	if(damage != 0)
+	if(health < maxhealth)
 		var/integrity = material.integrity
 		if(reinf_material)
 			integrity += reinf_material.integrity
 
-		var/overlay = round(damage / integrity * damage_overlays.len) + 1
+		var/overlay = round(abs(health - maxhealth) / integrity * damage_overlays.len) + 1
 		if(overlay > damage_overlays.len)
 			overlay = damage_overlays.len
 
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
-	add_overlay(overlays_to_add, TRUE)
+	// Remove the existing damage overlay entirely and replace it with the newly-calculated one.
+	CutOverlays(damage_overlays)
+
+	AddOverlays(overlays_to_add)
 	UNSETEMPTY(reinforcement_images)
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 	if(smoothing_flags & SMOOTH_UNDERLAYS)
 		get_underlays(cached_adjacency)
 
 /turf/simulated/wall/proc/generate_overlays()
-	var/alpha_inc = 256 / damage_overlays.len
+	for(var/damage_level = 1; damage_level <= damage_overlays.len; damage_level++) // Generate damage overlay for each placeholder (16 in array)
+		var/image/damage_overlay = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
+		damage_overlay.blend_mode = BLEND_MULTIPLY
 
-	for(var/i = 1; i <= damage_overlays.len; i++)
-		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
-		img.blend_mode = BLEND_MULTIPLY
-		img.alpha = (i * alpha_inc) - 1
-		damage_overlays[i] = img
+		// The actual difference in each damage overlay is represented with a different alpha value, higher alpha = higher visible damage
+		damage_overlay.alpha = damage_level * 18 + 32; // Linear scale with inital offset
+
+		damage_overlays[damage_level] = damage_overlay

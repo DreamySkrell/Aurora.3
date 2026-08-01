@@ -39,17 +39,17 @@
 		return TRUE
 
 	//These only pertain to common. Languages are handled by mob/say_understands()
-	if (!speaking)
-		if (istype(other, /mob/living/carbon/alien/diona))
+	if(!speaking)
+		if(istype(other, /mob/living/carbon/alien/diona))
 			if(other.languages.len >= 2) //They've sucked down some blood and can speak common now.
 				return TRUE
-		if (istype(other, /mob/living/silicon))
+		if(istype(other, /mob/living/silicon))
 			return TRUE
-		if (istype(other, /mob/living/announcer))
+		if(istype(other, /mob/living/announcer))
 			return TRUE
-		if (istype(other, /mob/living/carbon/brain))
+		if(istype(other, /mob/living/carbon/brain))
 			return TRUE
-		if (istype(other, /mob/living/carbon/slime))
+		if(istype(other, /mob/living/carbon/slime))
 			return TRUE
 
 	//This is already covered by mob/say_understands()
@@ -58,7 +58,18 @@
 	//		return 1
 	//	return 0
 
+	// Try to translate with augment if it is installed and not broken.
+	var/obj/item/organ/internal/augment/translator/translator = internal_organs_by_name[BP_AUG_TRANSLATOR]
+	if(!translator?.is_broken() && (speaking?.name in translator?.languages))
+		return TRUE
+
 	return ..()
+
+/mob/living/carbon/human/say(text, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+	// Messaging the user is handled by the species proc.
+	if(!species.can_speak(src, speaking, text))
+		return FALSE
+	. = ..()
 
 /mob/living/carbon/human/GetVoice()
 	var/voice_sub
@@ -76,6 +87,9 @@
 				voice_sub = changer.voice
 	if(voice_sub)
 		return voice_sub
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper robes which obscures Hive affiliation
+		var/list/hiveless_name = splittext(real_name, " ") // then remove Hive surname when speaking
+		return hiveless_name[1]
 	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
 	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
 		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
@@ -102,7 +116,7 @@
 
 /*
 	***Deprecated***
-	let this be handled at the hear_say or hear_radio proc
+	let this be handled at the hear_message proc
 	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
 	robot_talk() proc.
 	There is no language handling build into it however there is at the /mob level so we accept the call
@@ -168,11 +182,11 @@
 
 /mob/living/carbon/human/get_radio()
 	var/list/headsets = list()
-	if(istype(l_ear, /obj/item/device/radio))
+	if(istype(l_ear, /obj/item/radio))
 		headsets["Left Ear"] = l_ear
-	if(istype(r_ear, /obj/item/device/radio))
+	if(istype(r_ear, /obj/item/radio))
 		headsets["Right Ear"] = r_ear
-	if(istype(wrists, /obj/item/device/radio))
+	if(istype(wrists, /obj/item/radio))
 		headsets["Wrist"] = wrists
 
 	if(length(headsets))
@@ -181,66 +195,68 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, var/is_singing = FALSE)
-	if(!whisper && (paralysis || InStasis()))
-		whisper(message, speaking)
+/mob/living/carbon/human/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
+	if(!msg.whisper && (paralysis || InStasis()))
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	switch(message_mode)
 		if("intercom")
-			for(var/obj/item/device/radio/intercom/I in view(1))
+			for(var/obj/item/radio/intercom/I in view(1))
 				I.add_fingerprint(src)
 				used_radios += I
-				I.talk_into(src, message, null, verb, speaking)
+				I.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("headset")
-			var/obj/item/device/radio/R = get_radio()
+			var/obj/item/radio/R = get_radio()
 			if(R)
 				used_radios += R
-				R.talk_into(src, message, null, verb, speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("right ear")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(r_ear,/obj/item/device/radio))
+			if(istype(r_ear,/obj/item/radio))
 				R = r_ear
 				has_radio = TRUE
-			if(istype(r_hand, /obj/item/device/radio))
+			if(istype(r_hand, /obj/item/radio))
 				R = r_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("left ear")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(l_ear, /obj/item/device/radio))
+			if(istype(l_ear, /obj/item/radio))
 				R = l_ear
 				has_radio = TRUE
-			if(istype(l_hand, /obj/item/device/radio))
+			if(istype(l_hand, /obj/item/radio))
 				R = l_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("wrist")
-			var/obj/item/device/radio/R
+			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(wrists,/obj/item/device/radio))
+			if(istype(wrists,/obj/item/radio))
 				R = wrists
 				has_radio = TRUE
-			if(istype(r_hand, /obj/item/device/radio))
+			if(istype(r_hand, /obj/item/radio))
 				R = wrists
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("whisper")
-			whisper(message, speaking, is_singing)
+			whisper(text, primary, msg.singing, say_verb = TRUE, msg = msg)
 			return TRUE
 		else
 			if(message_mode)
-				var/obj/item/device/radio/R = get_radio()
+				var/obj/item/radio/R = get_radio()
 				if(R)
 					used_radios += R
-					R.talk_into(src, message, message_mode, verb, speaking)
+					R.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
@@ -248,7 +264,7 @@
 	return returns
 
 /mob/living/carbon/human/binarycheck()
-	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+	for(var/obj/item/radio/headset/dongle in list(l_ear, r_ear))
 		if(dongle.translate_binary)
 			return TRUE
 	return FALSE

@@ -1,15 +1,20 @@
+/*
+ * subtypes/power.dm
+ * Active power-management circuits that expose assembly charge, draw, and cell state to the circuit network.
+ */
+
 /obj/item/integrated_circuit/power/
 	category_text = "Power - Active"
 
 /obj/item/integrated_circuit/power/transmitter
 	name = "power transmission circuit"
-	desc = "This can wirelessly transmit electricity from an assembly's battery towards a nearby machine."
+	desc = "Wirelessly transmits electricity from an assembly battery to a nearby machine."
 	icon_state = "power_transmitter"
 	extended_desc = "This circuit transmits 5 kJ of electricity every time the activator pin is pulsed. The input pin must be \
 	a reference to a machine to send electricity to.  This can be a battery, or anything containing a battery.  The machine can exist \
 	inside the assembly, or adjacent to it.  The power is sourced from the assembly's power cell.  If the target is outside of the assembly, \
 	some power is lost due to ineffiency."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	complexity = 16
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
@@ -25,12 +30,12 @@
 
 /obj/item/integrated_circuit/power/transmitter/large
 	name = "large power transmission circuit"
-	desc = "This can wirelessly transmit a lot of electricity from an assembly's battery towards a nearby machine.  Warning:  Do not operate in flammable enviroments."
+	desc = "Wirelessly transmits a large amount of electricity from an assembly battery to a nearby machine. Avoid use near flammable environments."
 	extended_desc = "This circuit transmits 20 kJ of electricity every time the activator pin is pulsed. The input pin must be \
 	a reference to a machine to send electricity to.  This can be a battery, or anything containing a battery.  The machine can exist \
 	inside the assembly, or adjacent to it.  The power is sourced from the assembly's power cell.  If the target is outside of the assembly, \
 	some power is lost due to ineffiency."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	complexity = 32
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 6, TECH_MAGNET = 5)
 	power_draw_per_use = 2000
@@ -85,4 +90,4 @@
 	if(..()) // If the above code succeeds, do this below.
 		if(prob(2))
 			spark(src, 3)
-			visible_message("<span class='warning'>\The [assembly] makes some sparks!</span>")
+			visible_message(SPAN_WARNING("\The [assembly] makes some sparks!"))

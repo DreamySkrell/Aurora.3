@@ -7,15 +7,18 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/pirate_outpost.dmm")
+
+	prefix = "konyang/"
+	suffix = "pirate_outpost.dmm"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+
+	unit_test_groups = list(3)
 
 
 /area/konyang_pirate_outpost
 	name = "Konyang Pirate Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -41,7 +44,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/konyang_pirate
+/obj/structure/machinery/computer/shuttle_control/explore/konyang_pirate
 	name = "shuttle control console"
 	shuttle_tag = "Konyang Pirate Shuttle"
 

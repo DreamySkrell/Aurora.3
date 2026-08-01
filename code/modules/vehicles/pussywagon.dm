@@ -116,12 +116,12 @@
 			PW.toggle_hoover()
 
 /obj/vehicle/train/cargo/engine/pussywagon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on)
-		add_overlay(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_on_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[initial(icon_state)]_on"
 	else
-		add_overlay(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_overlay", MOB_LAYER + 1))
 		icon_state = "[initial(icon_state)]"
 	..()
 
@@ -147,7 +147,7 @@
 			load_offset_x = 13
 			load.pixel_y = mob_offset_y
 			load.pixel_x = load_offset_x
-	..()
+	. = ..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon
 	name = "\improper C8000 deluxe custodial trolley"
@@ -174,7 +174,7 @@
 			to_chat(user, SPAN_NOTICE("You replace \the [src]'s reagent reservoir."))
 			return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
@@ -187,7 +187,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a reagent reservoir installed."))
 			return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
 			return
@@ -249,14 +249,14 @@
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(mopping)
-		add_overlay(image('icons/obj/vehicles.dmi', "[icon_state]_mop_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[icon_state]_mop_overlay", MOB_LAYER + 1))
 
 /obj/item/key/janicart
 	name = "\improper C8000 deluxe custodial truck key fob"
 	desc = "A stainless steel key fob with a chromed top attached to a small steel key ring. The key ring has a pink tag hanging on it, with the text \"Pussy Wagon\"."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "keys"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY

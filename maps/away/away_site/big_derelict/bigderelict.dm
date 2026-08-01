@@ -1,9 +1,12 @@
 /datum/map_template/ruin/away_site/big_derelict
 	name = "large derelict"
 	description = "A very large derelict station. According to the starmap, it shouldn't exist."
-	suffixes = list("away_site/big_derelict/bigderelict.dmm")
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_HANEUNIM)
+
+	prefix = "away_site/big_derelict/"
+	suffix = "bigderelict.dmm"
+
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS)
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "big_derelict"
@@ -16,7 +19,7 @@
 
 /obj/effect/overmap/visitable/sector/big_derelict
 	name = "large derelict"
-	desc = "A very large derelict station. According to the starmap, it shouldn't exist."
+	desc = "A very large derelict station. The sensor array is picking up large amounts of echo, suggesting large, hollow spaces within. Unknown biological lifesigns have been detected inside the station. There is no starmap record of a station ever being in this location."
 
 /obj/effect/overmap/visitable/sector/big_derelict/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/wrecks.dmi', "debris_large2")

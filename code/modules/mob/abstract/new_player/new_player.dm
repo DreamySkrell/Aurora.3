@@ -8,7 +8,7 @@
 
 	invisibility = 101
 
-	density = 0
+	density = FALSE
 	stat = DEAD
 	canmove = 0
 
@@ -35,7 +35,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			stack_trace("The map is supposedly loaded, but GLOB.lobby_mobs_location is not set, unable to move the lobby mob!")
 			return
 
-		addtimer(CALLBACK(src, PROC_REF(attempt_moving_new_player_on_marker_turf)), 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(attempt_moving_new_player_on_marker_turf)), 5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /mob/abstract/new_player/Destroy()
 	QDEL_NULL(late_choices_ui)
@@ -107,7 +107,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
-			ready = text2num(href_list["ready"])
+			var/new_ready_state = text2num(href_list["ready"])
+
+			if(SSticker.prevent_unready && new_ready_state == FALSE)
+				tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")
+				return
+
+			ready = new_ready_state
 		else
 			ready = 0
 
@@ -118,7 +124,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["late_join"])
 
 		if(SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 			return
 
 		// Cannot join without a saved character, if we're on SQL saves.
@@ -129,11 +135,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = GLOB.all_species[client.prefs.species]
 			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
-				to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
+				to_chat(usr, SPAN_DANGER("You are currently not whitelisted to play [client.prefs.species]."))
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
+				to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 				return 0
 
 		LateChoices()
@@ -150,10 +156,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["SelectedJob"])
 
 		if(!GLOB.config.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
-			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
+			to_chat(usr, SPAN_DANGER("The [station_name(TRUE)] is currently exploding. Joining would go poorly."))
 			return
 
 		if(client.unacked_warning_count > 0)
@@ -162,11 +168,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 		var/datum/species/S = GLOB.all_species[client.prefs.species]
 		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
-			to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
+			to_chat(usr, SPAN_DANGER("You are currently not whitelisted to play [client.prefs.species]."))
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
+			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -236,51 +242,45 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/IsJobAvailable(rank)
 	var/datum/job/job = SSjobs.GetJob(rank)
-	if (!job)
-		return FALSE
-	if (!job.is_position_available())
-		return FALSE
-	if (jobban_isbanned(src,rank))
+		// Check if the job is open in-round.
+	if (!job || !job.is_position_available() \
+			/* check for job bans */\
+		|| jobban_isbanned(src,rank) \
+			/* check for species blacklists */\
+		|| (job.blacklisted_species && (GLOB.all_species[client.prefs.species].name in job.blacklisted_species)) \
+			/* check for citizenship restrictions */\
+		|| job.blacklisted_citizenship && (astype(SSrecords.citizenships[client.prefs.citizenship], /datum/citizenship).name in job.blacklisted_citizenship))
 		return FALSE
 
-	if(job.blacklisted_species) // check for restricted species
-		var/datum/species/S = GLOB.all_species[client.prefs.species]
-		if(S.name in job.blacklisted_species)
-			return FALSE
-
-	if(job.blacklisted_citizenship)
-		var/datum/citizenship/C = SSrecords.citizenships[client.prefs.citizenship]
-		if(C.name in job.blacklisted_citizenship)
-			return FALSE
-
+	// Checks for faction requirements.
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
-	if (!(job.type in faction_allowed_roles))
+	if (!(job.type in faction_allowed_roles) \
+		|| !faction.can_select(client.prefs,src) \
+		|| !(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job)))
 		return FALSE
 
-	if(!faction.can_select(client.prefs,src))
-		return FALSE
-
-	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
-		return FALSE
+	// Checks for skill requirements.
+	for (var/key,value in job.skill_requirements)
+		if (key && client.prefs.skills[key] < value)
+			return FALSE
 
 	return TRUE
-
 
 /mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
 	if(src != usr)
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return 0
 	if(!GLOB.config.enter_allowed)
-		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+		to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 		return 0
 	if(GLOB.config.sql_saves && !client.prefs.current_character)
 		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
+		to_chat(usr, SPAN_NOTICE("[rank] is not available. Please try another."))
 		return 0
 	if(!(spawning_at in SSatlas.current_map.allowed_spawns))
 		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [SSatlas.current_map]. Defaulting to [SSatlas.current_map.default_spawn]."))
@@ -293,8 +293,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	equip_custom_items(character, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
+	equip_custom_items(character, body_only = FALSE) // Equips all other custom items.
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -317,8 +319,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
-
-	equip_custom_items(character)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -345,7 +345,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
-		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
+		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Robot has arrived"/etc.
 		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [SSatlas.current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()
@@ -431,6 +431,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/Move()
 	return TRUE
 
+/mob/abstract/new_player/hear_message(datum/say_message/msg)
+	return FALSE
+
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window
 
@@ -464,12 +467,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/is_ready()
 	return ready && ..()
-
-/mob/abstract/new_player/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
-	return
-
-/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	return
 
 /mob/abstract/new_player/MayRespawn()
 	return 1

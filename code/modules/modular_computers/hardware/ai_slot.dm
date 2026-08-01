@@ -9,7 +9,7 @@
 	origin_tech = list(TECH_POWER = 2, TECH_DATA = 3)
 	var/obj/item/aicard/stored_card
 	var/power_usage_idle = 100
-	var/power_usage_occupied = 2 KILOWATTS
+	var/power_usage_occupied = 2 KILO WATTS
 
 /obj/item/computer_hardware/ai_slot/proc/update_power_usage()
 	if(!stored_card?.carded_ai)
@@ -27,7 +27,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		stored_card = attacking_item
 		update_power_usage()
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You manually remove \the [stored_card] from \the [src]."))
 		stored_card.forceMove(get_turf(src))
 		stored_card = null

@@ -8,7 +8,7 @@
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	impact_type = SHIP_AMMO_IMPACT_PROBE
 	overmap_behaviour = null	// This ammo cannot hit anything
-	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf_probe
+	projectile_type_override = /obj/projectile/ship_ammo/grauwolf_probe
 	overmap_projectile_type_override = /obj/effect/overmap/projectile/probe
 	burst = 1
 
@@ -42,7 +42,7 @@
 	// Removes the contacts no longer visible
 	remove_lost_contacts:
 		for(var/obj/effect/overmap/lost_contact in diff_contacts)
-			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 
 				// If the ship is seeing it directly, do not remove
 				if(lost_contact in sensor_console.objects_in_view)
@@ -56,7 +56,7 @@
 				sensor_console.datalink_remove_contact(lost_contact, ship)
 
 	// Add the new ones
-	for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+	for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 		for(var/contact in contacts)
 			sensor_console.datalink_add_contact(contact, ship)
 	. = ..()
@@ -69,7 +69,7 @@
 
 	remove_contacts:
 		for(var/obj/effect/overmap/contact in contacts)
-			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 				// If the ship is seeing it directly, do not remove
 				if(contact in sensor_console.objects_in_view)
 					continue remove_contacts
@@ -82,7 +82,7 @@
 				sensor_console.datalink_remove_contact(contact, ship)
 	. = ..()
 
-/obj/item/projectile/ship_ammo/grauwolf_probe
+/obj/projectile/ship_ammo/grauwolf_probe
 	name = "sensor probe projectile"
 	icon_state = "small_burst"
 	damage = 0

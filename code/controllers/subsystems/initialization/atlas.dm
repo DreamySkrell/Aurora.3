@@ -6,50 +6,67 @@ SUBSYSTEM_DEF(atlas)
 	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
 
-	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
+	/// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
 	var/datum/map/current_map
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
 
 	var/list/mapload_callbacks = list()
-	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
+	/// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
+	var/map_override
 	var/list/spawn_locations = list()
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
-	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
-	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+
+	/**
+	 * Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	 * These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	 *
+	 * SOUTH = 1, NORTH = 2, WEST = 4, EAST = 8,
+	 * NORTH-EAST = 5, SOUTH-EAST = 6, NORTH-WEST = 9, SOUTH-WEST = 10,
+	 */
 	var/list/naval_to_dir = list(
-		"1" = list(
+		"1" = list( //Ship Fore is facing North. (These are reversed, a shot travelling south would enter from the north.)
 			"starboard" = WEST,
 			"port" = EAST,
 			"fore" = SOUTH,
-			"aft" = NORTH
+			"aft" = NORTH,
+			"aft-starboard" = NORTH|WEST,
+			"fore-starboard" = SOUTH|WEST,
+			"aft-port" = NORTH|EAST,
+			"fore-port" = SOUTH|EAST
 		),
-		"2" = list(
+		"2" = list( //Ship Fore is facing South.
 			"starboard" = EAST,
 			"port" = WEST,
 			"fore" = NORTH,
-			"aft" = SOUTH
+			"aft" = SOUTH,
+			"aft-starboard" = SOUTH|EAST,
+			"fore-starboard" = NORTH|EAST,
+			"aft-port" = SOUTH|WEST,
+			"fore-port" = NORTH|WEST
 		),
-		"4" = list(
+		"4" = list( //Ship Fore is facing West.
 			"starboard" = NORTH,
 			"port" = SOUTH,
 			"fore" = WEST,
-			"aft" = EAST
+			"aft" = EAST,
+			"aft-starboard" = EAST|NORTH,
+			"fore-starboard" = WEST|NORTH,
+			"aft-port" = EAST|SOUTH,
+			"fore-port" = WEST|SOUTH
 		),
-		"4" = list(
-			"starboard" = NORTH,
-			"port" = SOUTH,
-			"fore" = WEST,
-			"aft" = EAST
-		),
-		"8" = list(
+		"8" = list( //Ship Fore is facing East.
 			"starboard" = SOUTH,
 			"port" = NORTH,
 			"fore" = EAST,
-			"aft" = WEST
+			"aft" = WEST,
+			"aft-starboard" = WEST|SOUTH,
+			"fore-starboard" = EAST|SOUTH,
+			"aft-port" = WEST|NORTH,
+			"fore-port" = EAST|NORTH
 		)
 	)
 
@@ -58,49 +75,49 @@ SUBSYSTEM_DEF(atlas)
 			"1" = "aft",
 			"2" = "fore",
 			"4" = "port",
-			"5" = "port",
-			"6" = "port",
+			"5" = "aft-port",
+			"6" = "fore-port",
 			"8" = "starboard",
-			"9" = "starboard",
-			"10" = "starboard"
+			"9" = "aft-starboard",
+			"10" = "fore-starboard"
 		),
 		"2" = list(
 			"1" = "fore",
 			"2" = "aft",
 			"4" = "starboard",
-			"5" = "starboard",
-			"6" = "starboard",
+			"5" = "fore-starboard",
+			"6" = "aft-starboard",
 			"8" = "port",
-			"9" = "port",
-			"10" = "port"
+			"9" = "fore-port",
+			"10" = "aft-port"
 		),
 		"4" = list(
 			"1" = "starboard",
 			"2" = "port",
 			"4" = "aft",
-			"5" = "starboard",
-			"6" = "port",
+			"5" = "starboard-aft",
+			"6" = "port-aft",
 			"8" = "fore",
-			"9" = "starboard",
-			"10" = "port"
+			"9" = "starboard-fore",
+			"10" = "port-fore"
 		),
 		"5" = list( //northeast
-			"1" = "starboard",
-			"2" = "port",
-			"4" = "port",
+			"1" = "aft-starboard",
+			"2" = "fore-port",
+			"4" = "aft-port",
 			"5" = "aft",
 			"6" = "port",
-			"8" = "starboard",
+			"8" = "fore-starboard",
 			"9" = "starboard",
 			"10" = "fore"
 		),
 		"6" = list( //southeast
-			"1" = "starboard",
-			"2" = "port",
-			"4" = "starboard",
+			"1" = "fore-starboard",
+			"2" = "aft-port",
+			"4" = "aft-starboard",
 			"5" = "starboard",
 			"6" = "aft",
-			"8" = "port",
+			"8" = "fore-port",
 			"9" = "fore",
 			"10" = "port"
 		),
@@ -108,42 +125,42 @@ SUBSYSTEM_DEF(atlas)
 			"1" = "port",
 			"2" = "starboard",
 			"4" = "fore",
-			"5" = "port",
-			"6" = "starboard",
+			"5" = "port-fore",
+			"6" = "starboard-fore",
 			"8" = "aft",
-			"9" = "port",
-			"10" = "starboard"
+			"9" = "port-aft",
+			"10" = "starboard-aft"
 		),
 		"9" = list(  //northwest
-			"1" = "port",
-			"2" = "starboard",
-			"4" = "port",
+			"1" = "aft-port",
+			"2" = "fore-starboard",
+			"4" = "fore-port",
 			"5" = "port",
-			"6" = "fore",
-			"8" = "starboard",
+			"6" = "aft-starboard",
+			"8" = "fore",
 			"9" = "aft",
 			"10" = "starboard"
 		),
 		"10" = list( //southwest
-			"1" = "port",
-			"2" = "starboard",
-			"4" = "starboard",
+			"1" = "fore-port",
+			"2" = "aft-starboard",
+			"4" = "fore-starboard",
 			"5" = "fore",
 			"6" = "starboard",
-			"8" = "port",
-			"9" = "port",
-			"10" = "aft"
+			"8" = "aft-port",
+			"9" = "aft",
+			"10" = "port"
 		)
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[length(SSmapping.z_list)]"
 	return ..()
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
+		stack_trace(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -165,7 +182,7 @@ SUBSYSTEM_DEF(atlas)
 	if (!map_override)
 		map_override = get_selected_map()
 
-	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Loading map [map_override]."), R_DEBUG)
 	log_subsystem_atlas("Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
@@ -173,7 +190,6 @@ SUBSYSTEM_DEF(atlas)
 		world.map_panic("Selected map does not exist!")
 
 	load_map_meta()
-	setup_spawnpoints()
 
 	world.update_status()
 
@@ -181,7 +197,7 @@ SUBSYSTEM_DEF(atlas)
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_subsystem_atlas("Loaded [maps_loaded] maps.")
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
+	admin_notice(SPAN_DANGER("Loaded [maps_loaded] levels."))
 
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
@@ -212,6 +228,8 @@ SUBSYSTEM_DEF(atlas)
 
 	current_sector.setup_current_sector()
 
+	setup_spawnpoints()
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -222,32 +240,32 @@ SUBSYSTEM_DEF(atlas)
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
+	var/list/filemaps_to_load
+	for(var/file in files)
+		if(mapregex.Find(file))
+			filemaps_to_load += list(file)
+
 	var/mfile
-	var/first_dmm = TRUE
-	var/time
-	for (var/i in 1 to files.len)
-		mfile = files[i]
-		if (!mapregex.Find(mfile))
-			continue
+	var/time = world.time
 
-		log_subsystem_atlas("Loading '[mfile]'.")
-		time = world.time
+	if(length(filemaps_to_load) >= 2)
+		stack_trace("Only one file is now supported per map!")
+		return
 
-		mfile = "[directory][mfile]"
+	var/datum/space_level/first_level
+	for(var/traits in current_map.traits)
+		var/level = SSmapping.add_new_zlevel(name, traits, contain_turfs = FALSE)
+		if(!first_level)
+			first_level = level
 
-		var/target_z = 0
-		if (overwrite_default_z && first_dmm)
-			target_z = 1
-			first_dmm = FALSE
-			log_subsystem_atlas("Overwriting first Z.")
+	mfile = "[directory][filemaps_to_load[1]]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_subsystem_atlas("Failed to load '[mfile]'!")
-		else
-			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
-
-		.++
-		CHECK_TICK
+	if(!maploader.load_map(file(mfile), 0, 0, first_level.z_value, no_changeturf = TRUE))
+		log_subsystem_atlas("Failed to load '[mfile]'!")
+		return FALSE
+	else
+		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+		return TRUE
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)
@@ -262,9 +280,10 @@ SUBSYSTEM_DEF(atlas)
 		. = "sccv_horizon"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
+	SHOULD_NOT_SLEEP(TRUE)
 	// This needs to be done after current_map is set, but before mapload.
 
-	admin_departments = list(
+	GLOB.admin_departments = list(
 		"[current_map.boss_name]",
 		"External Routing",
 		"Supply"
@@ -277,10 +296,8 @@ SUBSYSTEM_DEF(atlas)
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()
-		CHECK_TICK
 
 	mapload_callbacks.Cut()
-	mapload_callbacks = null
 
 /datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
@@ -289,11 +306,15 @@ SUBSYSTEM_DEF(atlas)
 	mapload_callbacks += callback
 
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in current_map.spawn_types)
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
 /datum/controller/subsystem/atlas/proc/InitializeSectors()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in subtypesof(/datum/space_sector))
 		var/datum/space_sector/space_sector = new type()
 
@@ -316,14 +337,18 @@ SUBSYSTEM_DEF(atlas)
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
-	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
+	to_chat(world, SPAN_DANGER("Fatal error during map setup, unable to continue! Server will reboot in 60 seconds."))
 	log_subsystem_atlas("-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
 
-/proc/station_name()
+/// Called to retrieve the name of the station. When short is TRUE, the short name of the station will be provided instead.
+/proc/station_name(var/short = FALSE)
 	ASSERT(SSatlas.current_map)
-	. = SSatlas.current_map.station_name
+	if(short)
+		. = SSatlas.current_map.station_short
+	else
+		. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)

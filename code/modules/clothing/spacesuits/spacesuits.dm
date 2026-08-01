@@ -12,8 +12,8 @@
 	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
@@ -30,8 +30,7 @@
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
-	brightness_on = 4
-	light_wedge = LIGHT_WIDE
+	light_range = 4
 	on = 0
 
 /obj/item/clothing/head/helmet/space/Initialize()
@@ -47,18 +46,18 @@
 	item_state = "softsuit"
 	contained_sprite = TRUE
 	center_of_mass = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
-	slowdown = 1
+	allowed = list(/obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/suit_cooling_unit, /obj/item/tank)
+	slowdown = 0.4
 	armor = list(
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
@@ -71,6 +70,8 @@
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
+	base_name = name
+
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
 
@@ -121,7 +122,7 @@
 	icon_state = "softsuit_emergency"
 	item_state = "softsuit_emergency"
 	contained_sprite = TRUE
-	slowdown = 2
+	slowdown = 1
 
 /obj/item/clothing/suit/space/emergency/marooning_equipment
 	name = "marooning softsuit"

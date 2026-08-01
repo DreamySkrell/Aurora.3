@@ -1,11 +1,22 @@
 /mob
-	density = 1
+	density = TRUE
 	layer = MOB_LAYER
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	pass_flags_self = PASSMOB
+	// Determines what the alpha of the lighting is to this mob.
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
+
+	/// List of movement speed modifiers applying to this mob
+	var/list/movespeed_modification //Lazy list, see mob_movespeed.dm
+	/// List of movement speed modifiers ignored by this mob. List -> List (id) -> List (sources)
+	var/list/movespeed_mod_immunities //Lazy list, see mob_movespeed.dm
+	/// The calculated mob speed slowdown based on the modifiers list
+	var/cached_multiplicative_slowdown
 
 	// we never want to hide a turf because it's not lit
 	// We can rely on the lighting plane to handle that for us
@@ -14,40 +25,41 @@
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	can_be_buckled = TRUE
 
-	var/obj/screen/cells = null
-	var/obj/screen/flash = null
-	var/obj/screen/blind = null
-	var/obj/screen/hands = null
-	var/obj/screen/pullin = null
-	var/obj/screen/purged = null
-	var/obj/screen/internals/internals = null
-	var/obj/screen/oxygen = null
-	var/obj/screen/paralysis_indicator = null
-	var/obj/screen/i_select = null
-	var/obj/screen/m_select = null
-	var/obj/screen/toxin = null
-	var/obj/screen/fire = null
-	var/obj/screen/bodytemp = null
-	var/obj/screen/healths = null
-	var/obj/screen/throw_icon = null
-	var/obj/screen/nutrition_icon = null
-	var/obj/screen/hydration_icon = null
-	var/obj/screen/pressure = null
-	var/obj/screen/damageoverlay = null
-	var/obj/screen/pain = null
-	var/obj/screen/gun/item/item_use_icon = null
-	var/obj/screen/gun/radio/radio_use_icon = null
-	var/obj/screen/gun/move/gun_move_icon = null
-	var/obj/screen/gun/mode/gun_setting_icon = null
-	var/obj/screen/gun/unique_action_icon = null
-	var/obj/screen/gun/toggle_firing_mode = null
-	var/obj/screen/energy/energy_display = null
-	var/obj/screen/instability/instability_display = null
-	var/obj/screen/up_hint = null
+	var/atom/movable/screen/cells = null
+	var/atom/movable/screen/flash = null
+	var/atom/movable/screen/blind = null
+	var/atom/movable/screen/hands = null
+	var/atom/movable/screen/pullin = null
+	var/atom/movable/screen/purged = null
+	var/atom/movable/screen/internals/internals = null
+	var/atom/movable/screen/oxygen = null
+	var/atom/movable/screen/paralysis_indicator = null
+	var/atom/movable/screen/i_select = null
+	var/atom/movable/screen/m_select = null
+	var/atom/movable/screen/toxin = null
+	var/atom/movable/screen/bodytemp = null
+	var/atom/movable/screen/healths = null
+	var/atom/movable/screen/throw_icon = null
+	var/atom/movable/screen/nutrition_icon = null
+	var/atom/movable/screen/hydration_icon = null
+	var/atom/movable/screen/pressure = null
+	var/atom/movable/screen/damageoverlay = null
+	var/atom/movable/screen/pain = null
+	var/atom/movable/screen/gun/item/item_use_icon = null
+	var/atom/movable/screen/gun/radio/radio_use_icon = null
+	var/atom/movable/screen/gun/move/gun_move_icon = null
+	var/atom/movable/screen/gun/mode/gun_setting_icon = null
+	var/atom/movable/screen/gun/unique_action_icon = null
+	var/atom/movable/screen/gun/toggle_firing_mode = null
+	var/atom/movable/screen/energy/energy_display = null
+	var/atom/movable/screen/instability/instability_display = null
+	var/atom/movable/screen/up_hint = null
+	/// The IPC version of the fullscreen pain texture.
+	var/atom/movable/screen/fullscreen/robot_pain
 
 	//spells hud icons - this interacts with add_spell and remove_spell
-	var/list/obj/screen/movable/spell_master/spell_masters = null
-	var/obj/screen/movable/ability_master/ability_master = null
+	var/list/atom/movable/screen/movable/spell_master/spell_masters = null
+	var/atom/movable/screen/movable/ability_master/ability_master = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -55,13 +67,13 @@
 	I'll make some notes on where certain variable defines should probably go.
 	Changing this around would probably require a good look-over the pre-existing code.
 	*/
-	var/obj/screen/zone_sel/zone_sel = null
+	var/atom/movable/screen/zone_sel/zone_sel = null
 
 	var/use_me = 1 //Allows all mobs to use the me verb by default, will have to manually specify they cannot
 	var/damageoverlaytemp = 0
 	var/computer_id = null
 	var/character_id = 0
-	var/obj/machinery/machine = null
+	var/obj/structure/machinery/machine = null
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
@@ -79,16 +91,8 @@
 	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
-	var/med_record = ""
-	var/sec_record = ""
-	var/list/incidents = list()
 	var/list/additional_vision_handlers = list()
-	var/gen_record = ""
-	var/ccia_record = ""
-	var/list/ccia_actions = list()
-	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0						//Carbon
 	var/ajourn = 0
 	var/druggy = 0						//Carbon
 	var/confused = 0					//Carbon
@@ -96,10 +100,12 @@
 	var/phoron = null
 	var/sleeping = 0					//Carbon
 	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
+	var/recently_slept = 0				//Carbon - Used to avoid falling over after waking up
+	var/sleeping_indefinitely = FALSE
+	var/sleep_buffer = 0				//Used for indefinite sleeping
 	var/resting = 0						//Carbon
 	var/lying = 0	// Is the mob lying down?
 	var/lying_prev = 0	// Was the mob lying down before?
-	var/lying_is_intentional = FALSE	// Is the mob lying down intentionally? (eg. a manouver)
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = INCORPOREAL_DISABLE
@@ -112,7 +118,7 @@
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
 
-	var/obj/machinery/hologram/holopad/holo = null
+	var/obj/structure/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 
@@ -141,7 +147,6 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
@@ -152,12 +157,13 @@
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
-	var/seer = 0 //for cult//Carbon, probably Human
+	/// contains [/atom/movable/screen/alert only] // On /mob so clientless mobs will throw alerts properly
+	var/list/alerts = list()
+	var/list/screens = list()
 
 	var/datum/hud/hud_used = null
 
 	var/list/grabbed_by = list(  )
-	var/list/requests = list(  )
 
 	var/list/mapobjs = list()
 
@@ -166,10 +172,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-
-	var/const/blindness = 1//Carbon
-	var/const/deafness = 2//Carbon
-	var/const/muteness = 4//Carbon
 
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
@@ -205,13 +207,6 @@
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
 	var/list/spell/spell_list
 
-//List of active diseases
-
-	var/list/viruses = list() // replaces var/datum/disease/virus
-
-//Monkey/infected mode
-	var/list/resistances = list()
-
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/update_icon = 1 //Set to 1 to trigger update_icon() at the next life() call
@@ -236,14 +231,21 @@
 	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
-	var/list/active_genes=list()
+	var/list/active_genes = list()
+
 	var/mob_size = MOB_MEDIUM
+	/// The icon size width of the mob. Used for langchat resizing.
+	var/icon_size = 32
+
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_LIGHT
+	/// The strength of the mob. Affects what kind of mobs can be thrown or carried. By default, does not give any buff.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 
 	var/list/progressbars
 
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
 
 	var/mob_thinks = TRUE
@@ -258,3 +260,80 @@
 	var/atom/movable/typing_indicator/typing_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing
 	var/thinking_IC = FALSE
+
+	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
+	var/list/message_notifications
+
+	var/mob/living/vr_mob = null // In which mob is our mind
+	var/mob/living/old_mob = null // Which mob is our old mob
+
+	/**
+	* LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
+	* calls.
+	*
+	* The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
+	* `/datum/click_handler/default`.
+	*/
+	var/list/click_handlers
+
+	var/should_add_to_mob_list = TRUE
+
+	/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+	var/do_unique_user_handle = 0
+
+	var/mob/lastattacker = null
+	var/mob/lastattacked = null
+	var/attack_log = list()
+
+	/// Spam control, can only point when the previous pointer qdels
+	var/obj/effect/decal/point/pointing_effect = null
+
+	/// 1 decisecond click delay (above and beyond mob/next_move)
+	var/next_click = 0
+
+	var/dizziness = 0//Carbon
+	var/is_dizzy = 0
+	var/is_jittery = 0
+	var/jitteriness = 0//Carbon
+
+	//handles up-down floaty effect in space and zero-gravity
+	var/is_floating = FALSE
+
+	var/last_pain_message = ""
+	var/next_pain_time = 0
+
+	/**
+	* global
+	*
+	* Tracks open UIs for a user.
+	*/
+	var/list/tgui_open_uis = list()
+
+	var/tmp/last_airflow_stun = 0
+
+	//thou shall always be able to see the Geometer of Blood
+	var/image/narsimage = null
+	var/image/narglow = null
+
+	//thou shall always be able to see the rift
+	var/image/riftimage = null
+
+	var/list/client_colors = list()
+
+	var/bloody_hands = null
+	var/datum/weakref/bloody_hands_mob
+	var/track_footprint = 0
+	var/list/feet_blood_DNA
+	var/track_footprint_type
+	var/footprint_color
+
+	var/mob/abstract/eye/eyeobj
+
+	var/mob/living/brain_ghost/bg
+
+	var/list/default_emotes = list()
+	var/list/usable_emotes = list()
+
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
+	var/thinking_enabled = FALSE

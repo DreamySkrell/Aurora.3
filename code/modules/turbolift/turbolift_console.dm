@@ -24,7 +24,7 @@
 /obj/structure/lift/proc/pressed(var/mob/user)
 	if(!istype(user, /mob/living/silicon))
 		if(user.a_intent == I_HURT)
-			user.visible_message("<span class='danger'>\The [user] hammers on the lift button!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] hammers on the lift button!"))
 		else
 			user.visible_message("<b>\The [user]</b> presses the lift button.")
 
@@ -38,7 +38,7 @@
 		return
 	return attack_hand(user)
 
-/obj/structure/lift/attack_generic(var/mob/user)
+/obj/structure/lift/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return attack_hand(user)
 
 /obj/structure/lift/attack_hand(var/mob/user)

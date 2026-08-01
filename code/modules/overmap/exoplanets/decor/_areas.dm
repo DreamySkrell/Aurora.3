@@ -2,7 +2,7 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
-	area_flags = AREA_FLAG_INDESTRUCTIBLE_TURFS
+	area_flags = AREA_FLAG_INDESTRUCTIBLE_TURFS|AREA_FLAG_IS_BACKGROUND
 	is_outside = OUTSIDE_YES
 
 /area/exoplanet/adhomai
@@ -18,7 +18,7 @@
 
 /area/exoplanet/barren/asteroid
 	name = "\improper Asteroid Surface"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/exoplanet/barren/raskara
 	name = "Raskara Surface"
@@ -29,10 +29,24 @@
 /area/exoplanet/barren/burzsia
 	name = "Burzsia Surface"
 
+/area/exoplanet/barren/pid
+	name = "Pid Surface"
+	area_blurb = "The surface of this moon is lifeless and rocky - almost. A faint yellow light suffuses the ground, the dim glow of spores in bloom."
+
 /area/exoplanet/crystal
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_SPACE
 	base_turf = /turf/simulated/floor/exoplanet/crystal
+
+/area/exoplanet/moghes //ambience and area_blurb are set on init
+	name = "Moghes Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
+
+/area/exoplanet/ouerea
+	name = "Ouerea Wilderness"
+	ambience = AMBIENCE_JUNGLE
+	base_turf = /turf/simulated/floor/exoplanet/barren
+	area_blurb = "Strange grasses beneath your feet, and a warm breeze in the air. The shapes of strange flying reptiles dart between the trees, their bright and clear calls drifting on the wind."
 
 /area/exoplanet/desert
 	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
@@ -54,10 +68,20 @@
 	name = "Konyang Wilderness"
 	base_turf = /turf/simulated/floor/exoplanet/konyang
 
+/area/exoplanet/grass/xanu
+	name = "Xanu Prime Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/grass/stalk
+
+/area/exoplanet/assunzione
+	name = "Assunzioni Wilderness"
+	ambience = list()
+	base_turf = /turf/simulated/floor/exoplanet/snow
+	area_blurb = "A lightless lifelessness more oppressive than even that of barren asteroids. One day, even the nitrogen in the still air will freeze solid and the luce vines will finally die out in the wild."
+
 /area/exoplanet/lava
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_LAVA
-	base_turf = /turf/unsimulated/floor/asteroid/basalt
+	base_turf = /turf/simulated/floor/exoplanet/basalt
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')

@@ -8,7 +8,12 @@
 /datum/uplink_item/item/ammo/mc9mm
 	name = "9mm Magazine"
 	path = /obj/item/ammo_magazine/mc9mm
-	desc = "Contains ten rounds of 9mm bullets."
+	desc = "Contains twelve rounds of 9mm bullets."
+
+/datum/uplink_item/item/ammo/mc9mm/polymer
+	name = "AP 9mm Magazine"
+	path = /obj/item/ammo_magazine/mc9mm/polymer
+	desc = "Contains twelve rounds of armor-piercing 9mm bullets."
 
 /datum/uplink_item/item/ammo/darts
 	name = "Chemical Darts"
@@ -18,7 +23,7 @@
 /datum/uplink_item/item/ammo/fourty_five
 	name = ".45 Pistol Magazine"
 	path = /obj/item/ammo_magazine/c45m
-	desc = "Contains seven rounds of .45 bullets."
+	desc = "Contains nine rounds of .45 bullets."
 
 /datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"
@@ -54,13 +59,13 @@
 
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
-	path = /obj/item/storage/box/shotgunshells
+	path = /obj/item/storage/box/shells/buckshot
 	desc = "Contains eight shotgun buckshot shells."
 
 /datum/uplink_item/item/ammo/government
 	name = "Box of .45-70 Govt. ammo"
 	telecrystal_cost = 2
-	path = /obj/item/storage/box/governmentammo
+	path = /obj/item/storage/box/ammo/governmentammo
 	desc = "Contains eight .45-70 Govt. bullets."
 
 /datum/uplink_item/item/ammo/plasma_mag
@@ -73,6 +78,16 @@
 	name = "7.62mm clip"
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."
+
+/datum/uplink_item/item/ammo/adhomai_mag
+	name = "R33 Tamparii magazine"
+	path = /obj/item/ammo_magazine/a68
+	desc = "Contains 25 rounds of 6.8mm bullets for Adhomian rifles."
+
+/datum/uplink_item/item/ammo/adhomai_mag/boltaction
+	name = "R33 Tamparii clip"
+	path = /obj/item/ammo_magazine/boltaction/adhomai
+	desc = "Contains 5 rounds of 6.8mm bullets for Adhomian rifles."
 
 /datum/uplink_item/item/ammo/carbine_mag
 	name = "5.56 carbine magazine"
@@ -108,11 +123,11 @@
 	path = /obj/item/ammo_magazine/super_heavy
 	desc = "A spare magazine, for the super heavy K2557 pistol."
 
-/datum/uplink_item/item/ammo/shotgun_slug
-	name = "Shotgun Slug"
-	telecrystal_cost = 1
-	path = /obj/item/ammo_casing/shotgun
-	desc = "A shotgun slug."
+/datum/uplink_item/item/ammo/shotgun_slugs
+	name = "Box of Slug Shells"
+	telecrystal_cost = 2
+	path = /obj/item/storage/box/shells/slugs
+	desc = "Contains eight shotgun slug shells."
 
 /datum/uplink_item/item/ammo/tungsten_ammo_box
 	name = "Tungsten Ammo Box"
@@ -122,13 +137,13 @@
 
 /datum/uplink_item/item/ammo/slug_magazine
 	name = "Slug Magazine"
-	telecrystal_cost = 8
+	telecrystal_cost = 2
 	path = /obj/item/ammo_magazine/assault_shotgun
 	desc = "A magazine for an assault shotgun, loaded with slug shells."
 
 /datum/uplink_item/item/ammo/buckshot_magazine
 	name = "Buckshot Magazine"
-	telecrystal_cost = 4
+	telecrystal_cost = 1
 	path = /obj/item/ammo_magazine/assault_shotgun/shells
 	desc = "A magazine for an assault shotgun, loaded with buckshot shells."
 

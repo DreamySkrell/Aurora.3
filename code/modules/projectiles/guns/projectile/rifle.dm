@@ -1,14 +1,14 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
-	name = "bolt action rifle"
+	name = "\improper Harrzhak pattern bolt action rifle"
 	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts."
-	icon = 'icons/obj/guns/moistnugget.dmi'
+	icon = 'icons/obj/guns/faction/pra/bolt.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
-	magazine_type = /obj/item/ammo_magazine/boltaction
+	caliber = "6.8mm"
+	ammo_type = /obj/item/ammo_casing/a68
+	magazine_type = /obj/item/ammo_magazine/boltaction/adhomai
 	max_shells = 5
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
@@ -20,6 +20,8 @@
 	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
 	name = "strange rifle"
@@ -37,15 +39,15 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
-	ammo_type = /obj/item/ammo_casing/a762/blank
+	ammo_type = /obj/item/ammo_casing/a68/blank
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope
-	name = "sniper bolt action rifle"
+	name = "scoped Harrzhak pattern bolt action rifle"
 	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it."
-	icon = 'icons/obj/guns/bolt_scope.dmi'
+	icon = 'icons/obj/guns/faction/pra/bolt_scope.dmi'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -58,7 +60,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags &= ~SLOT_BACK
@@ -70,7 +72,7 @@
 		update_icon()
 	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really acurate."
-	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
+	to_chat(user, SPAN_WARNING("You shorten the barrel and stock of the rifle!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
 	name = "sawn-off bolt action rifle"
@@ -78,7 +80,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -105,8 +107,9 @@
 
 	jam_chance = -10
 
-/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/condition_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	switch(jam_chance)
 		if(10 to 20)
 			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
@@ -134,11 +137,11 @@
 	jam_chance = min(jam_chance + 5, 100)
 
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia
-	name = "dominian sniper rifle"
+	name = "\improper MPMR-08/2 sniper rifle"
 	desc = "A precision rifle used by snipers and sharpshooters of the Imperial Army. One of the few modern military-grade weapons to use a bolt for its action."
 	desc_extended = "The MPMR-08/2 is a precisely machined and meticulously designed rifle which prioritizes accuracy and precision over rate of fire. \
 	Outside of the Imperial Army, it is commonly seen in the hands of competition shooters."
-	icon = 'icons/obj/guns/dominia_bolt_action.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_bolt_action.dmi'
 	icon_state = "dom_bolt_action"
 	item_state = "dom_bolt_action"
 	caliber = "a762"
@@ -147,19 +150,19 @@
 	load_method = SPEEDLOADER
 
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/contender
-	name = "pocket rifle"
+	name = "\improper H-H Gram pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action."
-	icon = 'icons/obj/guns/pockrifle.dmi'
+	icon = 'icons/obj/guns/faction/frontier/pockrifle.dmi'
 	icon_state = "pockrifle"
 	item_state = "pockrifle"
 	caliber = "a556"
@@ -172,10 +175,12 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
-		to_chat(user, "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire \the [src] while the bolt is open!"))
 		return 0
 	return ..()
 
@@ -187,7 +192,7 @@
 		loaded -= C
 
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload."))
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
 		item_state = icon_retracted
@@ -197,10 +202,10 @@
 		return 1
 
 	else if(retracted_bolt && loaded.len)
-		to_chat(user, "<span class='notice'>You cycle the loaded round into the chamber, allowing you to fire.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the loaded round into the chamber, allowing you to fire."))
 
 	else
-		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the bolt back into position, leaving the gun empty."))
 
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
@@ -212,20 +217,20 @@
 
 /obj/item/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't load \the [src] without cycling the bolt."))
 		return
 	..()
 
-/obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/contender/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage
-	name = "vintage bolt action rifle"
+	name = "\improper M1903 Springfield rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
-	icon = 'icons/obj/guns/springfield.dmi'
+	icon = 'icons/obj/guns/faction/antique/springfield.dmi'
 	icon_state = "springfield"
 	item_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
@@ -243,29 +248,24 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
 		pump(user)
-		return
-	else
-		if(open_bolt && has_clip)
-			if(has_clip.stored_ammo.len > 0)
-				load_ammo(has_clip, user)
-				src.cut_overlays()
-				if(!has_clip.stored_ammo.len)
-					add_overlay("springfield-clip-empty")
-				else if(has_clip.stored_ammo.len <= 3)
-					add_overlay("springfield-clip-half")
-				else
-					add_overlay("springfield-clip-full")
+	if(open_bolt && has_clip)
+		if(has_clip.stored_ammo.len > 0)
+			load_ammo(has_clip, user)
+			src.ClearOverlays()
+			if(!has_clip.stored_ammo.len)
+				AddOverlays("springfield-clip-empty")
+			else if(has_clip.stored_ammo.len <= 3)
+				AddOverlays("springfield-clip-half")
 			else
-				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
-		else if(!open_bolt)
-			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
+				AddOverlays("springfield-clip-full")
 		else
-			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
+			to_chat(user, SPAN_WARNING("There is no ammo in \the [has_clip.name]!"))
+	else if(!open_bolt)
+		to_chat(user, SPAN_WARNING("The bolt on \the [src.name] is closed! You'll have to grip it with both hands to rack it."))
+	else
+		to_chat(user, SPAN_WARNING("There is no clip in \the [src.name]!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
-	if(!wielded)
-		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
-		return
 	if(!open_bolt)
 		open_bolt = 1
 		icon_state = "springfield-openbolt"
@@ -278,8 +278,7 @@
 	if(has_clip)
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
-		cut_overlays()
-
+		ClearOverlays()
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src))//Eject casing
@@ -295,54 +294,60 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
+			to_chat(user, SPAN_NOTICE("You need to open the bolt of \the [src] first."))
 			return
 		if(!has_clip)
 			user.drop_from_inventory(attacking_item, src)
 			has_clip = attacking_item
-			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You load the clip into \the [src]."))
 			if(!has_clip.stored_ammo.len)
-				add_overlay("springfield-clip-empty")
+				AddOverlays("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
-				add_overlay("springfield-clip-half")
+				AddOverlays("springfield-clip-half")
 			else
-				add_overlay("springfield-clip-full")
+				AddOverlays("springfield-clip-full")
 		else
-			to_chat(user, "<span class='notice'>There's already a clip in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("There's already a clip in \the [src]."))
 
 	else
 		..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/load_ammo(var/obj/item/A, mob/user)
 	if(!open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is closed on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is closed on \the [src]!"))
 		return
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is open on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is open on \the [src]!"))
 		return
 	..()
 
 /obj/item/gun/projectile/gauss
-	name = "gauss thumper"
-	desc = "An outdated gauss weapon which sees sparing use in modern times."
-	w_class = ITEMSIZE_NORMAL
-	slot_flags = 0
+	name = "\improper NGS-01 gauss thumper"
+	desc = "An outdated model of gauss weapon which sees sparing use in modern times."
+	desc_extended = "Designed by NanoTrasen in 2398, the NGS-01 was an offshoot of the venerable HeS-05 gauss rifle. After purchasing \
+	the defunct Henricus company’s designs, work began on an upgrade. Trading in the depleted uranium rounds for tungsten that was more \
+	common in the Solarian core worlds, the power equipment was also made more compact thanks to the usage of phoron components pioneered by NT. \
+	This allowed for a magazine-based ammo loading system, no longer requiring the simple break-action that isolated the ammo from the hot temperatures. \
+	The result was the “Thumper” model of gauss gun. Its popularity quickly established NanoTrasen as a new player in the firearms \
+	industry. While at this point obsolete compared to newer models, its cheapness led it to be established as the official weapon of the \
+	then-recently established Tau Ceti Foreign Legion in 2459, providing it a new lease of life despite its obvious shortcomings due to its age."
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
-	icon = 'icons/obj/guns/gauss_thumper.dmi'
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
 	item_state = "gauss_thumper"
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
 	force = 15
-	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -354,36 +359,44 @@
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/gauss/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
 
 /obj/item/gun/energy/gauss/mounted/mech
-	name = "heavy gauss cannon"
-	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
-	icon = 'icons/obj/guns/gauss_thumper.dmi'
+	name = "NGS-02-EXO heavy gauss cannon"
+	desc = "A power hungry, phoron-enhanced gauss cannon designed by NanoTrasen Corporation, modified to deliver high explosive rounds at high velocities. It is often seen strapped to Tau Ceti Armed Forces' mechanised centuries."
+	desc_extended = null
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/gauss_thumper.dmi' //TODO: Needs a proper sprite
 	icon_state = "gauss_thumper"
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_delay = ROF_UNWIELDY
 	charge_meter = 0
 	max_shots = 3
 	charge_cost = 500
-	projectile_type = /obj/item/projectile/bullet/gauss/highex
-	self_recharge = 1
-	use_external_power = 1
+	projectile_type = /obj/projectile/bullet/gauss/highex
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 12
 	needspin = FALSE
 
-/obj/item/gun/projectile/gauss/carbine
-	name = "gauss carbine"
-	desc = "A simple gun utilizing the gauss technology. It is still reliable and cheap despite being outdated."
-	icon = 'icons/obj/guns/gauss_carbine.dmi'
+/obj/item/gun/projectile/gauss/old
+	name = "\improper Henricus HeS-05 gauss rifle"
+	desc = "A simple break-action gun utilizing gauss technology. It is still reliable and cheap despite being an out of date model."
+	desc_extended = "The Henricus company was de Namur Defense Systems’s chief rival throughout the 23rd and 24th centuries. While de Namur primarily \
+	focused on projectile weapons and armor, the Henricus company was known for its innovative at the time gauss weaponry. While popular throughout the \
+	Coalition, competition by megacorporations allowed in by the Solarian Reproachment chipped at their market share as the weapons became \
+	considered dated, and upgrades were slow to come. The Henricus company eventually shuttered its doors in 2391, its last production facilities \
+	being sold to de Namur."
+	icon = 'icons/obj/guns/faction/frontier/gauss_carbine.dmi'
 	icon_state = "gauss_carbine"
 	item_state = "gauss_carbine"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
-	ammo_type = /obj/item/ammo_casing/gauss/carbine
+	ammo_type = /obj/item/ammo_casing/gauss/old
 	load_method = SINGLE_CASING
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
@@ -391,23 +404,27 @@
 	fire_delay_wielded = ROF_INTERMEDIATE
 	accuracy_wielded = 1
 
-/obj/item/gun/projectile/gauss/carbine/update_icon()
+/obj/item/gun/projectile/gauss/old/update_icon()
 	..()
 	if(loaded.len)
 		icon_state = "gauss_carbine"
 	else
 		icon_state = "gauss_carbine-e"
 
-/obj/item/gun/projectile/gauss/carbine/special_check(mob/user)
+/obj/item/gun/projectile/gauss/old/special_check(mob/user)
 	if(!wielded)
 		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
 
 /obj/item/gun/projectile/shotgun/pump/lever_action
-	name = "lever action rifle"
-	desc = "A lever action rifle with a side-loading port, these are still popular with frontiersmen for hunting and self-defense purposes."
-	icon = 'icons/obj/guns/leveraction.dmi'
+	name = "\improper Harrier-Elrond Zalen lever action rifle"
+	desc = "A lever action rifle from the frontier with a side-loading port, the Zalen is popular with frontiersmen for hunting and self-defense purposes."
+	desc_extended = "The Harrier-Elrond company is not well-known outside of the human frontier, and the outskirts of the Coalition. Mostly providing cheap \
+	firearms for those not readily served by the mega-corporations, a single factory is able to provide for an entire standard years’ demand. \
+	Despite this, the nearly century of business the company have been in have allowed for numerous copies to be found throughout the human frontier, \
+	and in many cases even beyond."
+	icon = 'icons/obj/guns/faction/frontier/leveraction.dmi'
 	icon_state = "leveraction"
 	item_state = "leveraction"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -424,14 +441,16 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
-	name = "crack rifle"
+	name = "\improper Azarak-96 crack rifle"
 	desc = "A heavy bolt-action rifle of Moghesian manufacture."
 	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
 	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
 	Many of these rifles survived the ravages of the Contact War, a testament to their reliability."
-	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/unathi_ballistics.dmi'
 	icon_state = "crackrifle"
 	item_state = "crackrifle"
 	caliber = "5.8mm"

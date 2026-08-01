@@ -9,7 +9,16 @@
 	if(!proximity)
 		return
 	if(ishuman(A) && user != A)
-		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
+		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."))
+
+/obj/item/clothing/ring/newgibson_uraniumglass_ring
+	name = "uranium glass ring"
+	desc = "A ring made out of a radiofluorescent, green, uranium glass. It is only marginally radioactive. Commonly seen worn by New Gibsonites."
+	icon = 'icons/obj/item/clothing/gloves/human/biesel/newgibson_uraniumglass_ring.dmi'
+	icon_state = "newgibson_ring"
+	item_state = "newgibson_ring"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
 
 //Reagent Rings
 
@@ -27,7 +36,7 @@
 	if(istype(H) && H.gloves==src)
 
 		if(reagents.total_volume)
-			to_chat(H, "<span class='danger'>You feel a prick as you slip on \the [src].</span>")
+			to_chat(H, SPAN_DANGER("You feel a prick as you slip on \the [src]."))
 			if(H.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(H, 15, CHEM_BLOOD)
@@ -38,10 +47,13 @@
 /obj/item/clothing/ring/reagent/sleepy
 	name = "silver ring"
 	desc = "A ring made from what appears to be silver."
-	desc_antag = "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 	icon_state = "material"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/singleton/reagent/polysomnine = 10)
+
+/obj/item/clothing/ring/reagent/sleepy/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 
 //Seals and Signet Rings
 
@@ -58,10 +70,10 @@
 
 /obj/item/clothing/ring/seal/signet/attack_self(mob/user)
 	if(nameset)
-		to_chat(user, "<span class='notice'>\The [src] has already been claimed!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] has already been claimed!"))
 		return
 
-	to_chat(user, "<span class='notice'>You claim \the [src] as your own!</span>")
+	to_chat(user, SPAN_NOTICE("You claim \the [src] as your own!"))
 	change_name(user)
 	nameset = 1
 

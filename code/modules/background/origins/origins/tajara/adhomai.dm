@@ -1,6 +1,7 @@
 /singleton/origin_item/culture/adhomian
 	name = "Adhomian"
 	desc = "Adhomai is the most important planet culturally for the Tajara species. Due to its relatively recent discovery, all Tajara have some kind of connection to the homeworld. Adhomai is currently divided between three competing nations. Besides the national divide, regional and ethnic divisions still exist."
+	important_information = "Tajara with Republic of Biesel citizenship would have immigrated later in life and would have had to either live on Biesel for 2 years or serve in the TCFL for 1 year to gain Biesel citizenship. Tajara with Republic of Biesel citizenship must still hold citizenship of one of the Adhomian nations as well. Failure to abide by this is a whitelist issue."
 	possible_origins = list(
 		/singleton/origin_item/origin/hadiist_heartlands,
 		/singleton/origin_item/origin/southern_rasnrr,
@@ -47,6 +48,9 @@
 		/singleton/origin_item/origin/zarrjirah,
 		/singleton/origin_item/origin/crevus
 	)
+
+/singleton/origin_item/culture/adhomian/get_custom_time()
+	return "Adhomian Time: [tajaran_time()], [tajaran_full_date()]"
 
 /singleton/origin_item/origin/hadiist_heartlands
 	name = "Hadiist Heartlands"
@@ -165,6 +169,8 @@
 	possible_accents = list(ACCENT_CREVAN)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+	origin_traits = list(TRAIT_ORIGIN_ALCOHOL_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
+	origin_traits_descriptions = list("have a higher alcoholic tolerance", "have a higher tolerance to recreative drugs")
 
 /singleton/origin_item/origin/old_nobility
 	name = "Pre-Contact Nobility"

@@ -18,9 +18,15 @@
 /obj/item/modular_computer/handheld/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
+/obj/item/modular_computer/handheld/pda/civilian/bartender
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/bartender
+
 /obj/item/modular_computer/handheld/pda/civilian/bartender/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
+
+/obj/item/modular_computer/handheld/pda/civilian/chef
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/chef
 
 /obj/item/modular_computer/handheld/pda/civilian/librarian
 	icon_add = "libb"
@@ -54,6 +60,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/pda/engineering/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -71,10 +81,14 @@
 	card_slot.stored_item = new /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/pda/supply/miner
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/miner
 
 /obj/item/modular_computer/handheld/pda/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+
+/obj/item/modular_computer/handheld/pda/supply/machinist/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/handheld/pda/supply/om
 	icon_add = "q"
@@ -111,6 +125,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
 
+/obj/item/modular_computer/handheld/pda/research/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 	icon_add = "rd"
@@ -129,6 +147,9 @@
 	icon_add = "hos"
 
 // Command / Misc
+
+/obj/item/modular_computer/handheld/pda/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
 
 /obj/item/modular_computer/handheld/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command

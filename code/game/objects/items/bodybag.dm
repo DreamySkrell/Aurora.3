@@ -5,10 +5,27 @@
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = ITEMSIZE_SMALL
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	w_class = WEIGHT_CLASS_SMALL
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	var/deploy_type = /obj/structure/closet/body_bag
+
+/obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+	. += "It [contains_body ? "contains" : "does not contain"] a body."
+
+/obj/structure/closet/body_bag/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/body_bag/disassembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
+
+/obj/structure/closet/body_bag/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+	// Doesn't inherit standard closet hints.
 
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bag(user, user.loc)
@@ -25,7 +42,7 @@
 	var/obj/structure/closet/body_bag/R = new deploy_type(location)
 	R.add_fingerprint(user)
 	tweak_bag(R)
-	playsound(src, 'sound/items/drop/cloth.ogg', 30)
+	playsound(src, drop_sound, 30)
 	qdel(src)
 
 /obj/item/bodybag/proc/tweak_bag(var/obj/structure/closet/body_bag/BB)
@@ -53,27 +70,14 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
+	layer = ABOVE_STRUCTURE_LAYER
 	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
-	var/contains_body = FALSE
 	can_be_buckled = TRUE
 
-/obj/structure/closet/body_bag/content_info(mob/user, content_size)
-	if(!content_size && !contains_body)
-		to_chat(user, "\The [src] is empty.")
-	else if(storage_capacity > content_size*4)
-		to_chat(user, "\The [src] is barely filled.")
-	else if(storage_capacity > content_size*2)
-		to_chat(user, "\The [src] is less than half full.")
-	else if(storage_capacity > content_size)
-		to_chat(user, "\The [src] still has some free space.")
-	else
-		to_chat(user, "\The [src] is full.")
-	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
-
 /obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.ispen())
+	if (attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "What would you like the label to be?", name)
 		if (user.get_active_hand() != attacking_item)
 			return TRUE
@@ -83,12 +87,12 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 			LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
 		return TRUE
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
@@ -120,10 +124,10 @@
 	..()
 	slowdown = initial(slowdown)
 
-/obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
+/obj/structure/closet/body_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		fold(usr)
+	if((over == user && (in_range(src, user) || user.contents.Find(src))))
+		fold(user)
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
 	if(!(ishuman(user)))
@@ -155,6 +159,10 @@
 	if(stasis_power)
 		C.stasis_power = stasis_power
 
+/obj/item/bodybag/cryobag/Destroy()
+	color = null
+	return ..()
+
 /obj/structure/closet/body_bag/cryobag
 	name = "stasis bag"
 	desc = "A reusable plastic bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
@@ -163,8 +171,28 @@
 	item_path = /obj/item/bodybag/cryobag
 	var/datum/gas_mixture/airtank
 
-	var/stasis_power = 20
-	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
+	/// Starting stasis multiplier.
+	var/stasis_power = 10
+
+	/**
+	 * Number of seconds between degredation periods.
+	 * Stasis bags lose 25% of their current stasis value per interval of this many seconds.
+	 */
+	var/degradation_time = 60
+
+/obj/structure/closet/body_bag/cryobag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Applies a [stasis_power]x stasis effect to any living creature stored inside this bag."
+	. += "This causes effects such as bleeding and brain damage to accumulate [stasis_power]x slower."
+	. += "stasis bags lose 25% of their stasis power every [degradation_time] seconds. The bag will turn from blue to grey when this happens."
+
+/obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The stasis meter shows <b>'[stasis_power]x'</b>."
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
+		. += "<span class='info'>You peer into \the [src].</span>"
+		for(var/mob/living/L in contents)
+			L.examine(arglist(args))
 
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()
@@ -177,6 +205,7 @@
 /obj/structure/closet/body_bag/cryobag/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(airtank)
+	overlays.Cut()
 	return ..()
 
 /obj/structure/closet/body_bag/cryobag/Entered(atom/movable/AM)
@@ -212,13 +241,13 @@
 		folded.stasis_power = stasis_power
 		folded.color = color_saturation(get_saturation())
 
-/obj/structure/closet/body_bag/cryobag/process()
+/obj/structure/closet/body_bag/cryobag/process(seconds_per_tick)
 	if(stasis_power < 2)
 		return PROCESS_KILL
 	var/mob/living/carbon/human/H = locate() in src
 	if(!H)
 		return PROCESS_KILL
-	degradation_time--
+	degradation_time -= seconds_per_tick
 	if(degradation_time < 0)
 		degradation_time = initial(degradation_time)
 		stasis_power = round(0.75 * stasis_power)
@@ -232,15 +261,7 @@
 /obj/structure/closet/body_bag/cryobag/return_air() //Used to make stasis bags protect from vacuum.
 	if(airtank)
 		return airtank
-	..()
-
-/obj/structure/closet/body_bag/cryobag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The stasis meter shows '[stasis_power]x'."
-	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
-		. += "<span class='info'>You peer into \the [src].</span>"
-		for(var/mob/living/L in contents)
-			L.examine(arglist(args))
+	else return ..()
 
 /obj/item/usedcryobag
 	name = "used stasis bag"

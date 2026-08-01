@@ -13,7 +13,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 10
 	amount_per_transfer_from_this = 10
@@ -24,6 +24,11 @@
 	volume = 250
 	var/safety = 0
 	var/spray_sound = 'sound/effects/spray2.ogg'
+
+/obj/item/reagent_containers/spray/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += "[round(reagents.total_volume)] units left."
 
 /obj/item/reagent_containers/spray/Initialize()
 	. = ..()
@@ -60,12 +65,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
-		to_chat(user, "<span class='notice'>The safety is on!</span>")
+		to_chat(user, SPAN_NOTICE("The safety is on!"))
 		return
 
 	Spray_at(A, user, proximity)
@@ -74,13 +79,13 @@
 
 	if(reagents.has_reagent(/singleton/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
-		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
-		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Polyacid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
-		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Space lube from \a [src].")
 	return
 
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
@@ -99,12 +104,11 @@
 		D.set_color()
 		D.set_up(my_target, spray_size, 10)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back,/obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who spray acid or lube. Other modules could use attack_disrupt_check() in future.
 
 /obj/item/reagent_containers/spray/attack_self(var/mob/user)
 	if(!possible_transfer_amounts)
@@ -113,21 +117,16 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += "[round(reagents.total_volume)] units left."
-
 /obj/item/reagent_containers/spray/verb/empty()
 
 	set name = "Empty Spray Bottle"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner
@@ -135,10 +134,22 @@
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 
+/obj/item/reagent_containers/spray/cleaner/surgical
+	name = "surgical cleaner"
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	icon_state = "sterilespray"
+
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 	volume = 50
+
+/obj/item/reagent_containers/spray/cleaner/deodorant
+	name = "deodorant"
+	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."
+	volume = 35
+	icon_state = "deodorant"
+	item_state = "deodorant"
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
@@ -170,9 +181,11 @@
 	volume = 40
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
+	drop_sound = 'sound/items/drop/pepper_spray.ogg'
+	pickup_sound = 'sound/items/pickup/pepper_spray.ogg'
 
-/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += "The safety is [safety ? "on" : "off"]."
 
@@ -211,7 +224,7 @@
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	possible_transfer_amounts = null
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
@@ -254,7 +267,7 @@
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology
 	name = "xenoblaster"
 	desc = "A child's plastic watergun repurposed for the use in pacifying slimes. Has an adjustable nozzle that controls precision as well as strength."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon = 'icons/obj/guns/faction/toy/xenoblaster.dmi'
 	icon_state = "xenoblaster"
 	item_state = "xenoblaster"
 	contained_sprite = TRUE
@@ -286,3 +299,14 @@
 		return
 
 	..()
+
+/obj/item/reagent_containers/spray/cleaner/glass_glue
+	name = "single-use glass adhesive spray"
+	desc = "A small spray tube of a Hephaestus Industries ultra-strong silicate epoxy adhesive. For window and glass repair. Single-use!"
+	volume = 20
+	icon_state = "deodorant"
+	item_state = "deodorant"
+	possible_transfer_amounts = null
+	spray_size = 1
+	spray_sizes = null
+	reagents_to_add = list(/singleton/reagent/silicate = 20)

@@ -32,7 +32,7 @@
 	spawn_reagent = /singleton/reagent/copper
 
 /obj/item/reagent_containers/chem_disp_cartridge/ethanol
-	spawn_reagent = /singleton/reagent/alcohol
+	spawn_reagent = /singleton/reagent/alcohol/ethanol
 
 /obj/item/reagent_containers/chem_disp_cartridge/hclacid
 	spawn_reagent = /singleton/reagent/acid/hydrochloric
@@ -122,6 +122,9 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/wine
 	spawn_reagent = /singleton/reagent/alcohol/wine
+
+/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
+	spawn_reagent = /singleton/reagent/alcohol/rice_beer
 
 
 	// Bar, soft
@@ -341,3 +344,6 @@
 /obj/item/reagent_containers/chem_disp_cartridge/sanasomnum
 	spawn_reagent = /singleton/reagent/sanasomnum
 
+// Antagonist/EXTREMELY UNSAFE
+/obj/item/reagent_containers/chem_disp_cartridge/radioactive_waste
+	spawn_reagent = /singleton/reagent/radioactive_waste

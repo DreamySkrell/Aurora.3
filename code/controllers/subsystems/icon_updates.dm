@@ -11,11 +11,8 @@ SUBSYSTEM_DEF(icon_update)
 	 */
 	VAR_PRIVATE/list/icon_update_queue = list()
 
-	///Deferred list, contains atoms that were not ready to be processed in the previous run
+	/// Deferred list, contains atoms that were not ready to be processed in the previous run
 	VAR_PRIVATE/list/deferred = list()
-
-/datum/controller/subsystem/icon_update/New()
-	NEW_SS_GLOBAL(SSicon_update)
 
 /datum/controller/subsystem/icon_update/stat_entry(msg)
 	msg = "QU:[icon_update_queue.len]"
@@ -73,14 +70,14 @@ SUBSYSTEM_DEF(icon_update)
 
 	var/atom/item_cache = item
 
-	//Skip atoms that are being deleted
+	// Skip atoms that are being deleted
 	if(QDELETED(item_cache))
 		return
 
-	if(!item_cache.icon_update_queued && (!item_cache.icon_update_delay || (item_cache.last_icon_update + item_cache.icon_update_delay < world.time)))
+	if(!item_cache.icon_update_queued && item_cache.last_icon_update < world.time)
 		item_cache.icon_update_queued = TRUE
 
-		//Determine if we got any parameter, and if we do set it in the associative list, otherwise just set it to TRUE
+		// Determine if we got any parameter, and if we do set it in the associative list, otherwise just set it to TRUE
 		var/list/calling_arguments = length(args) > 1 ? args.Copy(2) : TRUE
 		src.icon_update_queue[item_cache] = calling_arguments
 
@@ -102,6 +99,9 @@ SUBSYSTEM_DEF(icon_update)
 		src.icon_update_queue -= item_cache
 		src.deferred -= item_cache
 
+/**
+ * Updates the atom's icon based on current state(s).
+ */
 /atom/proc/update_icon()
 	SHOULD_NOT_SLEEP(TRUE)
 	return

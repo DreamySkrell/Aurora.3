@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate
+ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate)
 	var/list/enemies = list()
 
 /mob/living/simple_animal/hostile/retaliate/Destroy()
@@ -26,7 +26,7 @@
 
 /mob/living/simple_animal/proc/name_species()
 	set name = "Name Alien Species"
-	set category = "Object"
+	set category = "IC.Critters"
 	set src in view()
 
 	if(!SSatlas.current_map.use_overmap)
@@ -41,7 +41,7 @@
 			newname = sanitizeName(newname, allow_numbers = TRUE)
 			if(newname && !use_check_and_message(usr))
 				if(E.rename_species(type, newname))
-					to_chat(usr,"<span class='notice'>This species will be known from now on as '[newname]'.</span>")
+					to_chat(usr,SPAN_NOTICE("This species will be known from now on as '[newname]'."))
 				else
-					to_chat(usr,"<span class='warning'>This species has already been named!</span>")
+					to_chat(usr,SPAN_WARNING("This species has already been named!"))
 			return

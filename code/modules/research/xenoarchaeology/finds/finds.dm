@@ -32,12 +32,12 @@
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
 
-/obj/item/ore/strangerock/New(loc, var/inside_item_type = 0)
-	..(loc)
+/obj/item/ore/strangerock/Initialize(mapload, inside_item_type)
+	. = ..()
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new/obj/item/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -65,14 +65,14 @@
 				w.use(1)
 			return
 
-	else if(istype(attacking_item, /obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = attacking_item
+	else if(istype(attacking_item, /obj/item/core_sampler/))
+		var/obj/item/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 
 	..()
 	if(prob(33))
-		src.visible_message("<span class='warning'>[src] crumbles away, leaving some dust and gravel behind.</span>")
+		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
 		qdel(src)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,11 +84,13 @@
 	icon_state = "ano01"
 	var/find_type = 0
 
-/obj/item/archaeological_find/New(loc, var/new_item_type)
+/obj/item/archaeological_find/Initialize(mapload, new_item_type)
+	. = ..()
+
 	if(new_item_type)
 		find_type = new_item_type
 	else
-		find_type = rand(1,36)	//update this when you add new find types
+		find_type = rand(1,40)	//update this when you add new find types
 
 	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
@@ -101,7 +103,7 @@
 	var/apply_prefix = 1
 	if(prob(40))
 		material_descriptor = pick("rusted ","dusty ","archaic ","fragile ")
-	source_material = pick("cordite","quadrinium",DEFAULT_WALL_MATERIAL,"titanium","aluminium","ferritic-alloy","plasteel","duranium")
+	source_material = pick("cordite","quadrinium","steel","titanium","aluminium","ferritic-alloy","plasteel","duranium")
 
 	var/talkative = 0
 	if(prob(5))
@@ -249,8 +251,9 @@
 			possible_spawns += /obj/item/stack/material/silver
 
 			var/new_type = pick(possible_spawns)
-			new_item = new new_type(src.loc)
-			new_item:amount = rand(5,45)
+			var/obj/item/stack/material/new_mat_stack = new new_type(src.loc)
+			new_mat_stack.amount = rand(5,45)
+			new_item = new_mat_stack
 		if(15)
 			if(prob(75))
 				new_item = new /obj/item/pen(src.loc)
@@ -278,7 +281,7 @@
 			if(prob(10))
 				apply_image_decorations = 1
 			if(prob(25))
-				new_item = new /obj/item/device/soulstone(src.loc)
+				new_item = new /obj/item/soulstone(src.loc)
 				new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 				new_item.icon_state = icon_state
 		if(17)
@@ -288,7 +291,7 @@
 			apply_material_decorations = 0
 			apply_image_decorations = 0
 		if(18)
-			new_item = new /obj/item/device/radio/beacon(src.loc)
+			new_item = new /obj/item/radio/beacon(src.loc)
 			talkative = 0
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 			new_item.icon_state = "unknown[rand(1,4)]"
@@ -311,7 +314,7 @@
 		if(21)
 			//soulstone
 			apply_prefix = 0
-			new_item = new /obj/item/device/soulstone(src.loc)
+			new_item = new /obj/item/soulstone(src.loc)
 			item_type = new_item.name
 			apply_material_decorations = 0
 		if(22)
@@ -409,7 +412,7 @@
 				apply_image_decorations = 0
 		if(29)
 			//fossil bone/skull
-			//new_item = new /obj/item/fossil/base(src.loc)
+			new_item = new /obj/item/fossil/base(src.loc)
 
 			//the replacement item propogation isn't working, and it's messy code anyway so just do it here
 			var/list/candidates = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
@@ -492,10 +495,18 @@
 				new_item = new /obj/item/clothing/mask/gas(src.loc)
 		if(36)
 			new_item = new /obj/item/sarcophagus_key(src.loc)
+		if(37)
+			new_item = new /obj/item/cell/mecha/phoron/alien
+		if(38)
+			new_item = new /obj/item/mecha_equipment/crisis_drone/alien
+		if(39)
+			new_item = new /obj/item/organ/internal/heart/alien_heart
+		if(40)
+			new_item = new /obj/item/organ/internal/liver/alien_liver
 
 	var/decorations = ""
 	if(apply_material_decorations)
-		source_material = pick("cordite","quadrinium",DEFAULT_WALL_MATERIAL,"titanium","aluminium","ferritic-alloy","plasteel","duranium")
+		source_material = pick("cordite","quadrinium","steel","titanium","aluminium","ferritic-alloy","plasteel","duranium")
 		desc = "A [material_descriptor ? "[material_descriptor] " : ""][item_type] made of [source_material], all craftsmanship is of [pick("the lowest","low","average","high","the highest")] quality."
 
 		var/list/descriptors = list()
@@ -553,7 +564,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		QDEL_IN(src, 1 SECOND)
+		return INITIALIZE_HINT_QDEL
 
 	else if(talkative)
 		src.talking_atom = new(src)

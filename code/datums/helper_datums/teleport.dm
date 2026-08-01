@@ -48,13 +48,24 @@
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
 		var/turf/T = get_turf(adestination)
-		for(var/found_inhibitor in bluespace_inhibitors)
-			var/obj/machinery/anti_bluespace/AB = found_inhibitor
+		if(!T)
+			return adestination
+		var/list/invalid_inhibitors
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+			if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
+			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+			if(QDELETED(AB))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
 			bad_turfs += circle_range_turfs(get_turf(AB),8)
 			good_turfs += circle_range_turfs(get_turf(AB),9)
+		if(invalid_inhibitors)
+			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		if(length(good_turfs) && length(bad_turfs))
 			good_turfs -= bad_turfs
 			if(length(good_turfs))
@@ -64,7 +75,7 @@
 
 //Check if we're in range of a bluespace inhibitor. We can't be teleported if we are.
 /datum/teleport/proc/checkLocalInhibitors(atom/movable/teleportee)
-	for(var/obj/machinery/anti_bluespace/AB in range(8, teleportee))
+	for(var/obj/structure/machinery/anti_bluespace/AB in range(8, teleportee))
 		if(AB.stat & (NOPOWER | BROKEN))
 			continue
 		else
@@ -121,14 +132,12 @@
 /datum/teleport/proc/playSpecials(atom/location,datum/effect_system/effect,sound)
 	if(location)
 		if(effect)
-			spawn(-1)
-				src = null
-				effect.location = location
-				effect.queue()
+			src = null
+			effect.location = location
+			effect.queue()
 		if(sound)
-			spawn(-1)
-				src = null
-				playsound(location,sound,60,1)
+			src = null
+			playsound(location,sound,60,1)
 	return
 
 //do the monkey dance
@@ -147,6 +156,14 @@
 		return FALSE
 
 	playSpecials(curturf,effectin,soundin)
+
+	// we don't want a teleportation loop, if we teleport to a destination that already has a portal
+	// disable it for just a moment until we get there
+	var/has_active_destination_portal = FALSE
+	var/obj/effect/portal/destination_portal = locate() in destturf
+	if(destination_portal?.does_teleport)
+		has_active_destination_portal = TRUE
+		destination_portal.does_teleport = FALSE
 
 	var/obj/structure/bed/stool/chair/C = null
 	if(isliving(teleatom))
@@ -218,12 +235,12 @@
 
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
-								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
+								to_chat(H, SPAN_DANGER("You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!"))
 								H.apply_damage(35, DAMAGE_BRUTE, E, 0)
 
 					else
 						if(newdest)
-							to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
+							to_chat(L, SPAN_DANGER("You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!"))
 							L.adjustBruteLoss(40)
 
 				else
@@ -254,13 +271,13 @@
 				if(!L.mind && !isvaurca(L))
 
 					if(BS.message_countdown >= 200)
-						to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+						to_chat(BS, SPAN_NOTICE("<b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b>"))
 						BS.mind.transfer_to(L)
 						to_chat(L, "<b>You have been restored to a corporeal form. You retain no memories of your time as a bluespace echo, but regardless of your current form the memories of your time before being a bluespace echo are returned.</b>")
 						qdel(BS)
 
 					else
-						to_chat(BS, "<span class='warning'>You lack the strength of echoes necessary to reattain corporeality in \the [L]!</span>")
+						to_chat(BS, SPAN_WARNING("You lack the strength of echoes necessary to reattain corporeality in \the [L]!"))
 
 					break
 
@@ -271,6 +288,9 @@
 		C.forceMove(destturf)
 
 	destarea.Entered(teleatom)
+
+	if(has_active_destination_portal)
+		destination_portal.does_teleport = TRUE
 
 	return TRUE
 
@@ -306,30 +326,30 @@
 		precision = max(rand(1,100)*bagholding.len,100)
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			to_chat(MM, "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>")
+			to_chat(MM, SPAN_DANGER("The Bluespace interface on your [teleatom] interferes with the teleport!"))
 	return TRUE
 
 /datum/teleport/instant/science/teleportChecks()
 	if(istype(teleatom, /obj/item/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
-		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+		teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 		return FALSE
 
 
-	if(isobserver(teleatom)) // do not teleport ghosts
+	if(isghost(teleatom)) // do not teleport ghosts
 		return FALSE
 
 
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/disk/nuclear)))
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			MM.visible_message("<span class='danger'>\The [MM] bounces off of the portal!</span>","<span class='warning'>Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through.</span>")
+			MM.visible_message(SPAN_DANGER("\The [MM] bounces off of the portal!"),SPAN_WARNING("Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through."))
 		else
-			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 		return FALSE
 
 	if(isAdminLevel(destination.z)) //centcomm z-level
 		if(!isemptylist(teleatom.search_contents_for(/obj/item/storage/backpack/holding)))
-			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 			return FALSE
 
 

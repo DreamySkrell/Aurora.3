@@ -7,6 +7,22 @@
 /obj/effect/landmark/corpse
 	name = "Unknown"
 	var/mobname = "Unknown"  //Unused now but it'd fuck up maps to remove it now
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "corpsespawner"
+
+	/// If set, this outfit is used to dress and equip the corpse.
+	/// Should either be a subtype of `/obj/outfit`, and then it is that specific outfit
+	/// Or a list of subtypes, where it randomly picks one outfit from that list
+	var/outfit = null
+
+	/// Species of the corpse.
+	/// Should either be a species string, and then it is that specific string
+	/// Or a list of species strings, where it randomly picks one species from that list
+	var/species = SPECIES_HUMAN
+
+	// Vars below are used for legacy corpses.
+	// Should use the outfit var instead, as it can be shared by ghostrole spawners, and generally is more sane.
+
 	var/corpseuniform = null //Set this to an object path to have the slot filled with said object on the corpse.
 	var/corpsesuit = null
 	var/corpseshoes = null
@@ -23,66 +39,83 @@
 	var/corpseidjob = null // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
-	var/species = SPECIES_HUMAN
 
 /obj/effect/landmark/corpse/Initialize()
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/corpse/LateInitialize()
 	createCorpse()
 
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
+
+	if(islist(species))
+		species = pick(species)
 	M.set_species(species)
+
 	M.name = random_name(M.gender, M.species.name)
 	M.real_name = M.name
+
 	M.death(1) //Kills the new mob
-	if(src.corpseuniform)
-		var/obj/item/clothing/under/cuniform = new corpseuniform(M)
-		cuniform.sensor_mode = 0
-		M.equip_to_slot_or_del(cuniform, slot_w_uniform)
-	if(src.corpsesuit)
-		M.equip_to_slot_or_del(new src.corpsesuit(M), slot_wear_suit)
-	if(src.corpseshoes)
-		M.equip_to_slot_or_del(new src.corpseshoes(M), slot_shoes)
-	if(src.corpsegloves)
-		M.equip_to_slot_or_del(new src.corpsegloves(M), slot_gloves)
-	if(src.corpseradio)
-		M.equip_to_slot_or_del(new src.corpseradio(M), slot_l_ear)
-	if(src.corpseglasses)
-		M.equip_to_slot_or_del(new src.corpseglasses(M), slot_glasses)
-	if(src.corpsemask)
-		M.equip_to_slot_or_del(new src.corpsemask(M), slot_wear_mask)
-	if(src.corpsehelmet)
-		M.equip_to_slot_or_del(new src.corpsehelmet(M), slot_head)
-	if(src.corpsebelt)
-		M.equip_to_slot_or_del(new src.corpsebelt(M), slot_belt)
-	if(src.corpsepocket1)
-		M.equip_to_slot_or_del(new src.corpsepocket1(M), slot_r_store)
-	if(src.corpsepocket2)
-		M.equip_to_slot_or_del(new src.corpsepocket2(M), slot_l_store)
-	if(src.corpseback)
-		M.equip_to_slot_or_del(new src.corpseback(M), slot_back)
-	if(src.corpseid == 1)
-		var/obj/item/card/id/W = new(M)
-		var/datum/job/jobdatum
-		for(var/jobtype in typesof(/datum/job))
-			var/datum/job/J = new jobtype
-			if(J.title == corpseidaccess)
-				jobdatum = J
-				break
-		if(src.corpseidicon)
-			W.icon_state = corpseidicon
-		if(src.corpseidaccess)
-			if(jobdatum)
-				W.access = jobdatum.get_access()
-			else
-				W.access = list()
-		if(corpseidjob)
-			W.assignment = corpseidjob
-		M.set_id_info(W)
-		M.equip_to_slot_or_del(W, slot_wear_id)
+
+	if(outfit)
+		// use the outfit to dress and equip the corpse
+		if(islist(outfit))
+			outfit = pick(outfit)
+		M.preEquipOutfit(outfit, FALSE)
+		M.equipOutfit(outfit, FALSE)
+	else
+		// otherwise, use the old vars
+		if(src.corpseuniform)
+			var/obj/item/clothing/under/cuniform = new corpseuniform(M)
+			cuniform.sensor_mode = 0
+			M.equip_to_slot_or_del(cuniform, slot_w_uniform)
+		if(src.corpsesuit)
+			M.equip_to_slot_or_del(new src.corpsesuit(M), slot_wear_suit)
+		if(src.corpseshoes)
+			M.equip_to_slot_or_del(new src.corpseshoes(M), slot_shoes)
+		if(src.corpsegloves)
+			M.equip_to_slot_or_del(new src.corpsegloves(M), slot_gloves)
+		if(src.corpseradio)
+			M.equip_to_slot_or_del(new src.corpseradio(M), slot_l_ear)
+		if(src.corpseglasses)
+			M.equip_to_slot_or_del(new src.corpseglasses(M), slot_glasses)
+		if(src.corpsemask)
+			M.equip_to_slot_or_del(new src.corpsemask(M), slot_wear_mask)
+		if(src.corpsehelmet)
+			M.equip_to_slot_or_del(new src.corpsehelmet(M), slot_head)
+		if(src.corpsebelt)
+			M.equip_to_slot_or_del(new src.corpsebelt(M), slot_belt)
+		if(src.corpsepocket1)
+			M.equip_to_slot_or_del(new src.corpsepocket1(M), slot_r_store)
+		if(src.corpsepocket2)
+			M.equip_to_slot_or_del(new src.corpsepocket2(M), slot_l_store)
+		if(src.corpseback)
+			M.equip_to_slot_or_del(new src.corpseback(M), slot_back)
+		if(src.corpseid == 1)
+			var/obj/item/card/id/W = new(M)
+			var/datum/job/jobdatum
+			for(var/jobtype in typesof(/datum/job))
+				var/datum/job/J = new jobtype
+				if(J.title == corpseidaccess)
+					jobdatum = J
+					break
+			if(src.corpseidicon)
+				W.icon_state = corpseidicon
+			if(src.corpseidaccess)
+				if(jobdatum)
+					W.access = jobdatum.get_access()
+				else
+					W.access = corpseidaccess
+			if(corpseidjob)
+				W.assignment = corpseidjob
+			M.set_id_info(W)
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+	M.update_icon()
 	do_extra_customization(M)
 	qdel(src)
-
 
 /obj/effect/landmark/corpse/proc/do_extra_customization(var/mob/living/carbon/human/M)
 	return
@@ -99,7 +132,7 @@
 	corpsesuit = /obj/item/clothing/suit/armor/vest
 	corpseshoes = /obj/item/clothing/shoes/combat
 	corpsegloves = /obj/item/clothing/gloves/swat
-	corpseradio = /obj/item/device/radio/headset
+	corpseradio = /obj/item/radio/headset
 	corpsemask = /obj/item/clothing/mask/gas
 	corpsehelmet = /obj/item/clothing/head/helmet/swat
 	corpseback = /obj/item/storage/backpack
@@ -115,7 +148,7 @@
 	corpsesuit = /obj/item/clothing/suit/space/void/merc
 	corpseshoes = /obj/item/clothing/shoes/combat
 	corpsegloves = /obj/item/clothing/gloves/swat
-	corpseradio = /obj/item/device/radio/headset
+	corpseradio = /obj/item/radio/headset
 	corpsemask = /obj/item/clothing/mask/gas/syndicate
 	corpsehelmet = /obj/item/clothing/head/helmet/space/void/merc
 	corpseback = /obj/item/tank/jetpack/oxygen
@@ -135,7 +168,7 @@
 	corpseshoes = /obj/item/clothing/shoes/sneakers/black
 	corpsehelmet = /obj/item/clothing/head/chefhat
 	corpseback = /obj/item/storage/backpack
-	corpseradio = /obj/item/device/radio/headset
+	corpseradio = /obj/item/radio/headset
 	corpseid = 1
 	corpseidjob = "Chef"
 	corpseidaccess = "Chef"
@@ -143,19 +176,18 @@
 
 /obj/effect/landmark/corpse/doctor
 	name = "Doctor"
-	corpseradio = /obj/item/device/radio/headset/headset_med
+	corpseradio = /obj/item/radio/headset/headset_med
 	corpseuniform = /obj/item/clothing/under/rank/medical
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat
 	corpseback = /obj/item/storage/backpack/medic
-	corpsepocket1 = /obj/item/device/flashlight/pen
+	corpsepocket1 = /obj/item/flashlight/pen
 	corpseshoes = /obj/item/clothing/shoes/sneakers/black
 	corpseid = 1
 	corpseidjob = "Physician"
 	corpseidaccess = "Physician"
 
 /obj/effect/landmark/corpse/engineer
-	name = "Engineer"
-	corpseradio = /obj/item/device/radio/headset/headset_eng
+	name = "Ship Engineer"
 	corpseuniform = /obj/item/clothing/under/rank/engineer
 	corpseback = /obj/item/storage/backpack/industrial
 	corpseshoes = /obj/item/clothing/shoes/sneakers/orange
@@ -178,7 +210,7 @@
 
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
-	corpseradio = /obj/item/device/radio/headset/headset_sci
+	corpseradio = /obj/item/radio/headset/headset_sci
 	corpseuniform = /obj/item/clothing/under/rank/scientist
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	corpseback = /obj/item/storage/backpack
@@ -188,7 +220,7 @@
 	corpseidaccess = "Scientist"
 
 /obj/effect/landmark/corpse/miner
-	corpseradio = /obj/item/device/radio/headset/headset_cargo
+	corpseradio = /obj/item/radio/headset/headset_cargo
 	corpseuniform = /obj/item/clothing/under/rank/miner
 	corpsegloves = /obj/item/clothing/gloves/black
 	corpseback = /obj/item/storage/backpack/industrial
@@ -207,7 +239,7 @@
 
 /obj/effect/landmark/corpse/bridgeofficer
 	name = "Bridge Officer"
-	corpseradio = /obj/item/device/radio/headset/heads/xo
+	corpseradio = /obj/item/radio/headset/heads/xo
 	corpseuniform = /obj/item/clothing/under/rank/centcom_officer
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseshoes = /obj/item/clothing/shoes/sneakers/black
@@ -220,7 +252,7 @@
 	name = "Commander"
 	corpseuniform = /obj/item/clothing/under/rank/centcom_captain
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
-	corpseradio = /obj/item/device/radio/headset/heads/captain
+	corpseradio = /obj/item/radio/headset/heads/captain
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	corpsehelmet = /obj/item/clothing/head/centhat
@@ -239,7 +271,7 @@
 	name = "unidentifiable corpse"
 	corpseuniform = /obj/item/clothing/under/offworlder
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/bomber
-	corpseradio = /obj/item/device/radio/headset
+	corpseradio = /obj/item/radio/headset
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
 	corpsemask = /obj/item/clothing/mask/breath
 	corpsehelmet = /obj/item/clothing/head/softcap/cargo

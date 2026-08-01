@@ -18,8 +18,8 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "am" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating{
@@ -32,7 +32,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "aP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -41,8 +41,8 @@
 /area/shuttle/scrapper_ship/atmos)
 "aR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/light/small{
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -55,8 +55,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -70,7 +70,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -81,10 +81,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -95,7 +95,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "bg" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -107,13 +107,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "bp" = (
-/obj/effect/shuttle_landmark/tajara_scrapper/nav3,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/structure/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
 	},
-/area/scrapper_base)
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/port_engines)
 "br" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /obj/structure/window/reinforced{
@@ -138,7 +139,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "by" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -146,11 +147,25 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
+"bD" = (
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "bF" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, power station"
@@ -158,7 +173,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/power_station)
 "bK" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /turf/simulated/floor/plating{
@@ -166,20 +181,26 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "bO" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
 	},
-/obj/machinery/alarm/cold/north{
-	req_one_access = list(202)
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "bS" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -199,8 +220,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
@@ -212,10 +233,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -236,7 +257,7 @@
 /area/scrapper_base/quarters)
 "da" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "scrapper_bridge"
 	},
@@ -245,8 +266,8 @@
 	},
 /area/shuttle/scrapper_ship/bridge)
 "db" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/cyan,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -257,11 +278,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -273,8 +293,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/port_engines)
 "dp" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -286,7 +306,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -295,12 +315,13 @@
 /area/shuttle/scrapper_ship/workshop)
 "dG" = (
 /obj/structure/table/standard,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "dI" = (
@@ -309,13 +330,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "dJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -328,7 +349,7 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "dS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -342,19 +363,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "dU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "dW" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -363,10 +384,17 @@
 "ei" = (
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
-"er" = (
-/obj/machinery/vending/tool{
-	req_access = null
+"en" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
 	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"er" = (
+/obj/structure/machinery/vending/tool,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -376,18 +404,13 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "es" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 5
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
-"et" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/airless,
-/area/shuttle/scrapper_ship/starboard_engines)
 "ev" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -395,12 +418,11 @@
 /area/scrapper_base/solars)
 "eX" = (
 /obj/structure/table/standard,
-/obj/machinery/light/small,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/button/remote/blast_door{
 	id = "scrapper_bridge";
 	name = "Bridge Shutters";
-	req_access = list(202);
-	req_one_access = null
+	req_access = list(202)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -408,17 +430,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "eZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "fb" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "fd" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/scrapper_ship/starboard_engines)
 "fm" = (
@@ -427,7 +448,7 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "fn" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 4;
 	target_pressure = 250
 	},
@@ -436,8 +457,8 @@
 	},
 /area/scrapper_base/atmos)
 "fo" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -445,14 +466,13 @@
 	},
 /area/scrapper_base/atmos)
 "fq" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/scrapper_ship/port_engines)
 "fv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -468,11 +488,10 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/west{
@@ -505,8 +524,8 @@
 /area/scrapper_base/storage)
 "gd" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/light/small{
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -514,7 +533,7 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "ge" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -522,10 +541,10 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "gr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -539,20 +558,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "gz" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "gE" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "gI" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -573,19 +592,24 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "gU" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, port storage"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -600,7 +624,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "hl" = (
@@ -610,7 +634,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/suit_cycler/engineering{
+/obj/structure/machinery/suit_cycler/engineering{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -619,7 +643,7 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "ht" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -632,35 +656,35 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/atmos)
 "hA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/firealarm/east,
+/obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "hB" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "hF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "hG" = (
-/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/machinery/power/smes/buildable/autosolars,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -672,13 +696,33 @@
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
+"hR" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = 28;
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "hZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -689,10 +733,10 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -709,17 +753,17 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "iC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -735,20 +779,47 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
+"je" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
 "jj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
+"jp" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
 "jF" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -757,10 +828,10 @@
 /obj/structure/table/rack,
 /obj/item/inflatable_dispenser,
 /obj/item/storage/bag/inflatable,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -769,7 +840,7 @@
 /area/shuttle/scrapper_ship/atmos)
 "jK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "scrapper_bridge"
 	},
@@ -781,7 +852,7 @@
 	},
 /area/shuttle/scrapper_ship/bridge)
 "jV" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
@@ -799,13 +870,13 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "kp" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -814,7 +885,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "ku" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
 /obj/structure/window/reinforced,
@@ -827,9 +898,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/scrapper_base/atmos)
 "kB" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/meter,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/meter,
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -847,7 +918,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "kN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -855,10 +926,9 @@
 "la" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -895,16 +965,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "lA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "lE" = (
-/obj/effect/map_effect/airlock/s_to_n,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/scrapper_base/solars)
+/area/scrapper_base)
 "lM" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -919,29 +992,29 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "lP" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "mc" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "md" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Bridge";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -959,8 +1032,8 @@
 /area/scrapper_base)
 "mB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -968,7 +1041,7 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "mG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -976,7 +1049,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1000,7 +1073,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "mR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1008,7 +1081,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1016,9 +1089,9 @@
 	},
 /area/shuttle/scrapper_ship/storage)
 "mT" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
-	id = "tajara_scrapper";
+	id = "tajara_scrapper"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -1028,8 +1101,8 @@
 	},
 /area/shuttle/scrapper_ship/storage)
 "mU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1038,14 +1111,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "nb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1053,14 +1126,14 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "ni" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/beige{
-	dir = 10
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "nm" = (
 /obj/structure/cable/green{
@@ -1077,10 +1150,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -1088,7 +1161,7 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "nr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1096,7 +1169,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1104,27 +1177,40 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "nv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "nx" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "nB" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
+"nL" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
 "nR" = (
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/solar_control/autostart,
+/obj/structure/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1134,7 +1220,7 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "oa" = (
@@ -1142,10 +1228,10 @@
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -1153,7 +1239,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "ob" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/bridge)
@@ -1168,9 +1254,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "ov" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1182,7 +1267,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1198,15 +1283,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(202)
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "oD" = (
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(202)
 	},
 /obj/structure/cable/green,
@@ -1216,9 +1304,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "oE" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1229,7 +1315,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "oP" = (
-/obj/machinery/pipedispenser,
+/obj/structure/machinery/pipedispenser,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1252,16 +1338,16 @@
 /area/scrapper_base)
 "ph" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "pl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -1285,13 +1371,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -1302,7 +1388,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/workshop)
 "qk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1310,21 +1396,21 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Bridge";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "qn" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -1337,14 +1423,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Workshop";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1362,7 +1448,7 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "rz" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/floor/plating{
@@ -1370,29 +1456,43 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "rD" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = 28;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
+/area/shuttle/scrapper_ship/workshop)
 "rW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
+"sc" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "se" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "sj" = (
@@ -1404,16 +1504,15 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "sr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1424,16 +1523,9 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
-"ss" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/scrapper_base)
 "st" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1443,11 +1535,22 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
+"su" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
 "sE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1459,8 +1562,8 @@
 /area/scrapper_base/atmos)
 "sG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1468,7 +1571,7 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "sJ" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Storage";
 	req_access = list(202);
 	dir = 1
@@ -1478,9 +1581,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "sR" = (
@@ -1497,14 +1600,14 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "sW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1528,7 +1631,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "tf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1536,32 +1639,57 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
+"tk" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "tw" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "tz" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/scrapper_base)
 "tA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -1575,15 +1703,16 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "tQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1592,45 +1721,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "ud" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "pump to waste"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "uf" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "us" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
 "uC" = (
-/obj/effect/floor_decal/corner/beige/full,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	pixel_x = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "uD" = (
 /obj/structure/fuel_port/hydrogen{
@@ -1641,13 +1759,13 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "uH" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "uS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -1655,10 +1773,10 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "uW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1667,7 +1785,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1678,14 +1796,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Solars";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1700,7 +1818,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vl" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1720,7 +1838,7 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "vD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1728,32 +1846,41 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "vI" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "vO" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28;
+	dir = 4;
+	pixel_y = 25
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base)
 "vQ" = (
-/obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+/obj/structure/machinery/power/terminal{
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1768,7 +1895,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vT" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper{
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_scrapper{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -1777,24 +1904,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "vV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "wc" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "wk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1805,7 +1931,7 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "wn" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1821,22 +1947,16 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
-"ww" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/scrapper_base)
 "wx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -1845,11 +1965,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "wH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "tajara_scrapper";
 	pixel_y = 24;
@@ -1869,9 +1989,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "xm" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/airless,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/port_engines)
 "xH" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -1888,7 +2007,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1901,7 +2020,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "xM" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
@@ -1909,21 +2028,19 @@
 	req_access = list(202);
 	dir = 4
 	},
-/obj/effect/shuttle_landmark/tajara_scrapper/hangar,
+/obj/effect/shuttle_landmark/tajara_scrapper/hangar{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "xN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
+/area/scrapper_base/solars)
 "xQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -1932,7 +2049,7 @@
 	},
 /area/shuttle/scrapper_ship/storage)
 "xU" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -1951,6 +2068,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1964,16 +2085,15 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "yG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "yH" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -1987,7 +2107,7 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "yS" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1996,20 +2116,25 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/bridge)
 "ze" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_3"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "zf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2028,7 +2153,7 @@
 /area/shuttle/scrapper_ship/starboard_engines)
 "zk" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -2036,20 +2161,25 @@
 	},
 /area/scrapper_base/atmos)
 "zu" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "zx" = (
-/obj/effect/shuttle_landmark/tajara_scrapper/nav1,
-/turf/template_noop,
-/area/space)
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "zE" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -2058,7 +2188,7 @@
 /area/shuttle/scrapper_ship/atmos)
 "zF" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2066,36 +2196,44 @@
 	},
 /area/scrapper_base/atmos)
 "zQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/beige,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "zT" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_3"
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "zU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -2103,7 +2241,7 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Af" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/floor/plating{
@@ -2111,9 +2249,12 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Ag" = (
-/obj/effect/map_effect/airlock/long/square/wide,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/scrapper_ship/storage)
+/obj/structure/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/starboard_engines)
 "Am" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2125,20 +2266,20 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Ap" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "AP" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 1;
 	target_pressure = 250
 	},
@@ -2151,7 +2292,7 @@
 /turf/space/transit/north,
 /area/space)
 "Bp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2159,7 +2300,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "BF" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Restroom";
 	dir = 4
 	},
@@ -2175,11 +2316,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2187,7 +2328,6 @@
 "Cb" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -2201,7 +2341,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Cn" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 4
 	},
@@ -2216,14 +2356,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2239,10 +2378,11 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "CH" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2254,7 +2394,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "CN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2266,26 +2406,26 @@
 /area/scrapper_base)
 "CP" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "CX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "CZ" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2293,7 +2433,7 @@
 "Dr" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2304,27 +2444,15 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window{
-	dir = 8;
-	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Et" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating{
@@ -2335,20 +2463,20 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "EY" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/obj/machinery/firealarm/east,
+/obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Fh" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -2356,14 +2484,15 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Fk" = (
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "tajara_scrapper"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "scrapper_cargo";
 	name = "Cargo Shutter";
-	pixel_x = -26
+	pixel_x = -20;
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2374,6 +2503,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Fo" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2387,7 +2524,7 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "Fs" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -2405,16 +2542,16 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "FM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2422,7 +2559,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/firealarm/north,
+/obj/structure/machinery/firealarm/north,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2432,10 +2569,10 @@
 /turf/template_noop,
 /area/space)
 "FP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -2448,10 +2585,10 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "FS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2474,17 +2611,17 @@
 	},
 /area/scrapper_base/atmos)
 "Gn" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Gp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -2492,7 +2629,7 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Gq" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Living Quarters";
 	req_access = list(202);
 	dir = 1
@@ -2502,8 +2639,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Gr" = (
@@ -2513,15 +2650,15 @@
 	},
 /area/scrapper_base/solars)
 "Gw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/beige/full,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "GF" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2533,16 +2670,16 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/workshop)
 "GN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "GO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2553,7 +2690,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "GQ" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /obj/structure/window/reinforced{
@@ -2572,14 +2709,14 @@
 /turf/template_noop,
 /area/space)
 "Ha" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "He" = (
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Hg" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -2588,7 +2725,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Hi" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/bridge)
@@ -2601,12 +2738,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Ho" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -2614,9 +2751,7 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Hp" = (
-/obj/machinery/vending/tool{
-	req_access = null
-	},
+/obj/structure/machinery/vending/tool,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2634,8 +2769,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null;
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -2654,42 +2788,41 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
-"HM" = (
-/obj/effect/shuttle_landmark/tajara_scrapper/nav2,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/scrapper_base)
 "HP" = (
-/obj/machinery/firealarm/west,
+/obj/structure/machinery/firealarm/west,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "Ig" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/aft,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Im" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
-	id = "tajara_scrapper";
+	id = "tajara_scrapper"
 	},
 /obj/structure/plasticflaps/mining,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "scrapper_cargo"
 	},
@@ -2704,7 +2837,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/starboard_engines)
 "IA" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2712,18 +2845,14 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "IB" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, starboard"
-	},
-/turf/simulated/floor/airless,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/starboard_engines)
 "II" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2736,31 +2865,46 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "IL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base)
 "IV" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/scrapper_base)
 "IW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Jd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2770,24 +2914,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
-"Jk" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port"
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/scrapper_ship/port_engines)
 "JF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "JG" = (
 /obj/structure/table/rack,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/item/stack/material/glass/full,
@@ -2804,7 +2940,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "JH" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/full{
@@ -2817,10 +2953,9 @@
 /area/scrapper_base/quarters)
 "JM" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2867,8 +3002,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Kl" = (
@@ -2879,17 +3014,18 @@
 /turf/template_noop,
 /area/space)
 "Ku" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "KA" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2898,22 +3034,17 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "KQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
+/obj/structure/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/starboard_engines)
 "La" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2921,16 +3052,15 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Lp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -2939,7 +3069,7 @@
 /area/shuttle/scrapper_ship/workshop)
 "Lq" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -2947,18 +3077,15 @@
 	},
 /area/shuttle/scrapper_ship/storage)
 "LA" = (
-/obj/effect/map_effect/airlock/long/square,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/scrapper_base)
+/obj/structure/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/port_engines)
 "LB" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "LC" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 1
 	},
@@ -2968,27 +3095,6 @@
 	temperature = 278
 	},
 /area/scrapper_base/atmos)
-"LM" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
-	dir = 8;
-	req_one_access = list(113)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
 "LS" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -3006,14 +3112,14 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "LV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3024,7 +3130,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Mg" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3036,8 +3142,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3045,8 +3150,19 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
+"Mj" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "Mn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3059,18 +3175,29 @@
 "My" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/power_station)
+"MA" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "MF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "MJ" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/storage)
 "MM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -3081,15 +3208,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/beige/full,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Nf" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3099,18 +3226,18 @@
 /turf/template_noop,
 /area/space)
 "Nj" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Ns" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -3123,13 +3250,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3138,7 +3265,7 @@
 /area/shuttle/scrapper_ship/power_station)
 "NH" = (
 /obj/structure/table/rack,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/item/stack/material/glass/full,
@@ -3158,7 +3285,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_y = 32;
 	req_access = null
 	},
@@ -3172,22 +3299,22 @@
 /area/scrapper_base/quarters)
 "NX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Oc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Oh" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Oi" = (
@@ -3197,7 +3324,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/starboard_engines)
 "Om" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3208,50 +3335,79 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Engine";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
+"OT" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "OW" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "OX" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "OZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
+"Pa" = (
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
 "Pg" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3260,8 +3416,24 @@
 "Pm" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/scrapper_ship/port_engines)
+"Pq" = (
+/obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_3"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
 "Pr" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -3269,8 +3441,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
+"Ps" = (
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "Pv" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3278,23 +3471,36 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_2"
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base)
 "Px" = (
-/obj/effect/floor_decal/corner/beige/full{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
-"Pz" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/firealarm/north,
-/obj/machinery/light/small{
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"Pz" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/machinery/firealarm/north,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -3302,8 +3508,8 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "PD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -3311,20 +3517,18 @@
 	},
 /area/scrapper_base/solars)
 "Qh" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Qk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/east{
@@ -3335,33 +3539,32 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Qp" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28;
+	dir = 4;
+	pixel_y = 25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_1"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Qx" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
-"QB" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/raider,
-/area/scrapper_base)
 "QD" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -3370,55 +3573,43 @@
 /area/scrapper_base)
 "QH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "QL" = (
 /obj/effect/floor_decal/corner/beige/full,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 4;
-	req_one_access = "112"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "QQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "QR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "QV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3426,10 +3617,10 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "QW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3447,10 +3638,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3468,16 +3659,16 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Rl" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
-	id = "tajara_scrapper";
+	id = "tajara_scrapper"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -3489,7 +3680,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -3497,7 +3688,7 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "RK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3505,7 +3696,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3519,8 +3710,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "RN" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/machinery/light{
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3529,7 +3720,7 @@
 	},
 /area/scrapper_base/atmos)
 "Se" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3545,7 +3736,7 @@
 /obj/item/pickaxe/drill,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3554,40 +3745,40 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Sz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "SE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Tb" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Tg" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/scrapper_base/quarters)
 "Th" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Tq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -3596,8 +3787,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "TF" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -3605,17 +3796,53 @@
 	temperature = 278
 	},
 /area/scrapper_base/atmos)
-"TG" = (
-/obj/effect/map_effect/airlock/long/square/wide,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/scrapper_ship/workshop)
-"TR" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 10
+"TI" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
+/area/scrapper_base/atmos)
+"TL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"TR" = (
+/obj/structure/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "TS" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3635,13 +3862,13 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "TU" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "TV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3674,7 +3901,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/scrapper_base/solars)
 "Ui" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /turf/simulated/floor/plating{
@@ -3687,9 +3914,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
+"Um" = (
+/obj/effect/shuttle_landmark/tajara_scrapper/nav1{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Uo" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3702,44 +3935,44 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "UF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "UL" = (
 /obj/structure/cable/green,
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "Vf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "VM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/tajara_scrapper,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3749,7 +3982,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Wb" = (
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -3762,7 +3995,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -3770,7 +4003,7 @@
 	},
 /area/scrapper_base/solars)
 "Wm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -3779,22 +4012,22 @@
 /area/scrapper_base/atmos)
 "Wq" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister,
+/obj/structure/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Wr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Engine";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3808,8 +4041,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/machinery/power/apc/north{
-	pixel_x = 0;
+/obj/structure/machinery/power/apc/north{
 	req_access = list(202)
 	},
 /obj/structure/cable/green{
@@ -3822,11 +4054,11 @@
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "WI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/firealarm/west,
+/obj/structure/machinery/firealarm/west,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -3838,9 +4070,9 @@
 /area/shuttle/scrapper_ship/atmos)
 "WM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(202)
 	},
@@ -3849,14 +4081,14 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "WR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "WW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3869,7 +4101,7 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Xc" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3877,7 +4109,7 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Xg" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Atmos";
 	dir = 1
@@ -3887,14 +4119,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Xh" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -3902,7 +4134,7 @@
 	},
 /area/scrapper_base/atmos)
 "Xi" = (
-/obj/machinery/power/tracker,
+/obj/structure/machinery/power/tracker,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -3915,22 +4147,27 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Xr" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, starboard storage"
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "XG" = (
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	dir = 1;
 	pixel_y = -32
 	},
@@ -3946,14 +4183,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "XL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Workshop";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3975,7 +4212,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "XU" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "tajaran_scrapper_shuttle_dock";
 	pixel_y = -28;
@@ -3987,8 +4224,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Yl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3996,13 +4233,13 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Yo" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/full,
@@ -4010,7 +4247,7 @@
 /area/shuttle/scrapper_ship/bridge)
 "Yq" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /turf/simulated/floor/plating{
@@ -4018,7 +4255,7 @@
 	},
 /area/scrapper_base/atmos)
 "Yw" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -4026,8 +4263,8 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "YV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4038,7 +4275,7 @@
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Ze" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -4051,8 +4288,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Zm" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -4067,26 +4304,25 @@
 /area/shuttle/scrapper_ship/storage)
 "ZF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "ZI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "ZL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -4097,7 +4333,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "ZY" = (
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(202)
 	},
@@ -4105,10 +4341,10 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -33510,13 +33746,13 @@ Kn
 Kn
 Kn
 Kn
-ww
-ww
-ww
-QB
-JU
-JU
-JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -33767,13 +34003,13 @@ Kn
 Kn
 Kn
 Kn
-Fo
-Fo
-IL
-Fo
-Px
-uC
-JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -34024,13 +34260,13 @@ Kn
 Kn
 Kn
 Kn
-bp
-Fo
-Fo
-Fo
-Uk
-mx
-JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -34281,13 +34517,13 @@ Kn
 Kn
 Kn
 Kn
-ww
-ww
-ww
-JU
-tz
-ni
-JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -34541,10 +34777,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-IV
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -34798,10 +35034,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-Qp
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -35055,10 +35291,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-OW
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -35312,10 +35548,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-bO
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -35569,10 +35805,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-OW
-wc
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -35826,10 +36062,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-OW
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -36083,10 +36319,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-OW
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -36340,10 +36576,10 @@ Kn
 Kn
 Kn
 Kn
-JU
-OW
-mx
-JU
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -36598,8 +36834,8 @@ JU
 JU
 JU
 JU
-Qh
-TR
+JU
+JU
 JU
 JU
 JU
@@ -36855,8 +37091,8 @@ bw
 bw
 bw
 tA
-rD
-oc
+bw
+bw
 tA
 bw
 bw
@@ -36866,10 +37102,10 @@ tA
 bw
 QL
 JU
-ww
-ww
-ww
-LA
+JU
+JU
+JU
+JU
 Ng
 Kn
 Kn
@@ -37112,7 +37348,7 @@ se
 se
 eZ
 eZ
-xN
+eZ
 eZ
 eZ
 yG
@@ -37123,9 +37359,9 @@ NK
 NK
 QQ
 Gw
-Fo
+Qp
 IL
-Fo
+Qh
 Fo
 Ng
 Kn
@@ -37380,10 +37616,10 @@ yc
 yc
 yc
 bm
-Fo
-Fo
-Fo
-Fo
+uC
+Pa
+su
+OW
 Ng
 Kn
 Kn
@@ -37609,7 +37845,7 @@ kz
 RN
 fn
 pl
-sE
+TI
 kz
 Uk
 OZ
@@ -37637,10 +37873,10 @@ JU
 JU
 JU
 JU
-ww
-ww
-ww
-ww
+JU
+JU
+JU
+JU
 Ng
 Kn
 Kn
@@ -38411,7 +38647,7 @@ KA
 pX
 pX
 pX
-TG
+pX
 Ng
 Kn
 Kn
@@ -38666,8 +38902,8 @@ kM
 Hx
 Sz
 pX
-lo
-lo
+TR
+Mj
 pX
 Ng
 Kn
@@ -38900,7 +39136,7 @@ Uk
 LV
 mx
 JU
-Ng
+Iu
 Iu
 Iu
 Iu
@@ -38922,9 +39158,9 @@ Bp
 oE
 lo
 Lp
-lo
-lo
-lo
+rD
+zx
+en
 Xr
 Ng
 Kn
@@ -39157,8 +39393,8 @@ Tq
 LV
 mx
 JU
-Ng
-et
+KQ
+IB
 ge
 Gn
 Xc
@@ -39180,8 +39416,8 @@ NH
 lo
 lo
 pX
-lo
-lo
+Ps
+sc
 pX
 Ng
 Kn
@@ -39414,7 +39650,7 @@ Uk
 LV
 mx
 JU
-Ng
+Ag
 IB
 TU
 FP
@@ -39671,8 +39907,8 @@ Uk
 LV
 mx
 JU
-Ng
-et
+KQ
+IB
 EY
 QW
 sG
@@ -39928,7 +40164,7 @@ Wx
 be
 wc
 JU
-Ng
+Iu
 Iu
 Iu
 md
@@ -43012,7 +43248,7 @@ Uk
 LV
 wc
 JU
-Ng
+Pm
 Pm
 Pm
 qk
@@ -43269,7 +43505,7 @@ Uk
 ZL
 rW
 JU
-Ng
+LA
 xm
 bK
 mG
@@ -43519,15 +43755,15 @@ cG
 Uh
 oC
 tD
-ev
+xN
 yl
 JU
 Uk
 LV
 mx
 JU
-Ng
-Jk
+bp
+xm
 nx
 zU
 hF
@@ -43551,7 +43787,7 @@ CH
 MJ
 MJ
 MJ
-Ag
+MJ
 Ng
 Kn
 Kn
@@ -43771,10 +44007,10 @@ Kn
 Kn
 Kn
 bT
-Gr
-Gr
-lE
-yl
+Uh
+Uh
+Uh
+nL
 ev
 OX
 dI
@@ -43783,7 +44019,7 @@ Tq
 LV
 mx
 JU
-Ng
+LA
 xm
 Ze
 kB
@@ -43806,8 +44042,8 @@ LS
 gW
 Zm
 MJ
-gW
-gW
+Px
+OT
 MJ
 Ng
 Kn
@@ -44030,8 +44266,8 @@ Kn
 Fr
 ze
 zT
-ze
-tD
+Pq
+TL
 gz
 PD
 BR
@@ -44040,7 +44276,7 @@ cq
 UB
 mx
 JU
-Ng
+Pm
 Pm
 Pm
 Pm
@@ -44062,9 +44298,9 @@ lk
 lk
 lk
 hZ
-lk
-lk
-lk
+hR
+bD
+tk
 gU
 Rf
 Kn
@@ -44285,9 +44521,9 @@ Kn
 Kn
 Kn
 Kn
-Gr
-Gr
-Gr
+Uh
+Uh
+Uh
 Uh
 Gr
 Gr
@@ -44320,8 +44556,8 @@ gW
 MJ
 Cn
 MJ
-gW
-gW
+bO
+MA
 MJ
 nm
 Kn
@@ -45347,10 +45583,10 @@ JU
 JU
 JU
 JU
-ww
-ww
-ww
-LA
+JU
+JU
+JU
+JU
 nm
 Kn
 Kn
@@ -45606,8 +45842,8 @@ FL
 MR
 vO
 Pv
-vO
-vO
+je
+IV
 JX
 Kn
 Kn
@@ -45861,10 +46097,10 @@ NK
 NK
 zQ
 bm
-Fo
-Fo
-Fo
-Fo
+lE
+tz
+jp
+ni
 Ng
 Kn
 Kn
@@ -46108,8 +46344,8 @@ yc
 Pr
 yc
 yc
-KQ
-LM
+yc
+yc
 Pr
 yc
 yc
@@ -46118,10 +46354,10 @@ Pr
 yc
 Ea
 JU
-ww
-ww
-ww
-ww
+JU
+JU
+JU
+JU
 Ng
 Kn
 Kn
@@ -46363,10 +46599,10 @@ JU
 JU
 JU
 JU
-ww
-Fo
-Fo
-ss
+JU
+JU
+JU
+JU
 JU
 JU
 JU
@@ -46620,10 +46856,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-Fo
-Fo
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -46877,10 +47113,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-Fo
-Fo
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -47134,10 +47370,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-Fo
-HM
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -49190,7 +49426,7 @@ Kn
 Kn
 Kn
 Kn
-zx
+Kn
 Kn
 Kn
 Kn
@@ -52530,7 +52766,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+Um
 Kn
 Kn
 Kn

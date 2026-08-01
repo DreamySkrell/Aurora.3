@@ -69,6 +69,10 @@
 	colourName = "rainbow"
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 20)
 
+/obj/item/crayon/rainbow/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this on yourself to change the current primary and shade colors."
+
 /obj/item/pen/crayon/rainbow/attack_self(mob/living/user as mob)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
@@ -79,6 +83,10 @@
 	colour = "#FFF200"
 	shadeColour = "#886422"
 	desc = "A crayon that is integrated into a user's finger. It can synthesize a multitude of colors."
+
+/obj/item/crayon/augment/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this on yourself to change the current primary and shade colors."
 
 /obj/item/pen/crayon/augment/Initialize()
 	. = ..()
@@ -92,10 +100,10 @@
 	update_icon()
 
 /obj/item/pen/crayon/augment/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/crayon_tip = image('icons/obj/crayons.dmi', "crayonaugment_tip")
 	crayon_tip.color = colour
-	add_overlay(crayon_tip)
+	AddOverlays(crayon_tip)
 
 /obj/item/pen/crayon/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
@@ -111,7 +119,7 @@
 		var/originaloc = user.loc
 		var/drawtype = input("Choose what you'd like to draw.", "Crayon scribbles") in list("graffiti","rune","letter","arrow")
 		if (user.loc != originaloc)
-			to_chat(user, "<span class='notice'>You moved!</span>")
+			to_chat(user, SPAN_NOTICE("You moved!"))
 			return
 
 		switch(drawtype)
@@ -133,23 +141,39 @@
 				for(var/singleton/reagent/R in reagents_to_add)
 					reagents.remove_reagent(R,0.5/LAZYLEN(reagents_to_add)) //using crayons reduces crayon dust in it.
 				if(!reagents.has_all_reagents(reagents_to_add))
-					to_chat(user, "<span class='warning'>You used up your crayon!</span>")
+					to_chat(user, SPAN_WARNING("You used up your crayon!"))
 					qdel(src)
 	return
 
-/obj/item/pen/crayon/attack(mob/user, var/target_zone)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+/obj/item/pen/crayon/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		if(H.check_has_mouth())
-			user.visible_message("<span class='notice'>[user] takes a bite of their crayon and swallows it.</span>", "<span class='notice'>You take a bite of your crayon and swallow it.</span>")
-			user.adjustNutritionLoss(-1)
-			reagents.trans_to_mob(user, 2, CHEM_INGEST)
+			// The end of an era: no more force-feeding people crayons.
+			if(user != target_mob)
+				var/crayon_eater_response = alert(target_mob, "[user] is trying to feed you a crayon. How hungry are you?", "Hunger", "Very hungry!", "Not that hungry.")
+				// The ungrateful bastard doesn't want to eat any crayon.
+				if(crayon_eater_response == "Not that hungry.")
+					target_mob.visible_message(SPAN_NOTICE("[target_mob] pushes away the crayon [user] held out for them to eat."),
+					SPAN_NOTICE("[target_mob] doesn't want seem to eat any crayon right now."))
+					return TRUE
+				// Yum yum! This message is handled separately to make it Very Clear to observers that someone is hand-feeding someone else a crayon.
+				else
+					target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of the crayon held out by [user] and swallows it."),
+								SPAN_NOTICE("You take a bite of crayon and swallow it."))
+
+			else
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of crayon and swallows it."),
+									SPAN_NOTICE("You take a bite of crayon and swallow it."))
+
+			target_mob.adjustNutritionLoss(-1)
+			reagents.trans_to_mob(target_mob, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", "<span class='warning'>You ate your crayon!</span>")
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else
-		..(user, target_zone)
+		return ..()
 
 /obj/item/pen/crayon/attack_self(var/mob/user)
 	return

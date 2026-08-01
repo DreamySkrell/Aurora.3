@@ -10,10 +10,24 @@
 	var/datum/battle_monsters/spell/spell_datum
 	var/datum/battle_monsters/trap/trap_datum
 
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = null
 
 	//Card information here
+
+/obj/item/battle_monsters/card/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(facedown && src.loc != user)
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
+		return
+
+	if(trap_datum)
+		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
+	else if(spell_datum)
+		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
+	else
+		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/Initialize(var/mapload,var/prefix,var/root,var/title,var/trap,var/spell)
 	. = ..()
@@ -113,7 +127,7 @@
 
 /obj/item/battle_monsters/card/update_icon()
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(facedown)
 		icon_state = "back"
@@ -131,25 +145,25 @@
 		rounded_rarity_score = min(max(round(rounded_rarity_score,1),1),4)
 
 		icon_state = "front_r_[rounded_rarity_score]"
-		add_overlay("front_label")
+		AddOverlays("front_label")
 
 		if(trap_datum && trap_datum.icon_state)
-			add_overlay(trap_datum.icon_state)
+			AddOverlays(trap_datum.icon_state)
 
 		if(spell_datum && spell_datum.icon_state)
-			add_overlay(spell_datum.icon_state)
+			AddOverlays(spell_datum.icon_state)
 
 		if(prefix_datum && prefix_datum.icon_state)
-			add_overlay(prefix_datum.icon_state)
+			AddOverlays(prefix_datum.icon_state)
 
 		if(root_datum && root_datum.icon_state)
-			add_overlay(root_datum.icon_state)
+			AddOverlays(root_datum.icon_state)
 
 		if(suffix_datum && suffix_datum.icon_state)
-			add_overlay(suffix_datum.icon_state)
+			AddOverlays(suffix_datum.icon_state)
 
 		if(rounded_rarity_score >= 2)
-			add_overlay("rarity_animation")
+			AddOverlays("rarity_animation")
 
 	var/matrix/M = matrix()
 	switch(dir)
@@ -163,20 +177,6 @@
 			M.Turn(90)
 
 	transform = M
-
-/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(facedown && src.loc != user)
-		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
-		return
-
-	if(trap_datum)
-		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
-	else if(spell_datum)
-		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
-	else
-		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/MouseEntered(location, control, params)
 	. = ..()

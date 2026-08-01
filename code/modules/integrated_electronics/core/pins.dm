@@ -1,6 +1,6 @@
 /*
 	Pins both hold data for circuits, as well move data between them.  Some also cause circuits to do their function.  DATA_CHANNEL pins are the data holding/moving kind,
-where as PULSE_CHANNEL causes circuits to work() when their pulse hits them.
+whereas PULSE_CHANNEL causes circuits to work() when their pulse hits them.
 
 
 A visualization of how pins work is below.  Imagine the below image involves an addition circuit.
@@ -68,14 +68,15 @@ list[](
 
 	if(islist(input))
 		var/list/my_list = input
-		var/result = "list\[[my_list.len]\]("
-		if(my_list.len)
+		var/list_length = length(my_list)
+		var/result = "list\[[list_length]\]("
+		if(list_length)
 			result += "<br>"
 			var/pos = 0
 			for(var/line in my_list)
 				result += "[display_data(line)]"
 				pos++
-				if(pos != my_list.len)
+				if(pos != list_length)
 					result += ",<br>"
 			result += "<br>"
 		result += ")"
@@ -85,7 +86,7 @@ list[](
 		var/datum/weakref/w = input
 		var/atom/A = w.resolve()
 		//return A ? "([A.name] \[Ref\])" : "(null)" // For refs, we want just the name displayed.
-		return A ? "(\ref[A] \[Ref\])" : "(null)"
+		return A ? "([REF(A)] \[Ref\])" : "(null)"
 
 	return "([input])" // Nothing special needed for numbers or other stuff.
 
@@ -153,18 +154,18 @@ list[](
 		if("string")
 			new_data = tgui_input_text(user, "Now type in a string.", "[src] string writing", istext(default) ? default : "", MAX_MESSAGE_LEN)
 			if(istext(new_data) && holder.check_interactivity(user) )
-				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
+				to_chat(user, SPAN_NOTICE("You input [new_data] into the pin."))
 				return new_data
 
 		if("number")
 			new_data = tgui_input_number(user, "Now type in a number.", "[src] number writing", isnum(default) ? default : 0)
 			if(isnum(new_data) && holder.check_interactivity(user) )
-				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
+				to_chat(user, SPAN_NOTICE("You input [new_data] into the pin."))
 				return new_data
 
 		if("null")
 			if(holder.check_interactivity(user))
-				to_chat(user, "<span class='notice'>You clear the pin's memory.</span>")
+				to_chat(user, SPAN_NOTICE("You clear the pin's memory."))
 				return new_data
 
 // Basically a null check
@@ -178,7 +179,7 @@ list[](
 
 /datum/integrated_io/activate/ask_for_pin_data(mob/user) // This just pulses the pin.
 	holder.check_then_do_work(ignore_power = TRUE)
-	to_chat(user, "<span class='notice'>You pulse \the [holder]'s [src] pin.</span>")
+	to_chat(user, SPAN_NOTICE("You pulse \the [holder]'s [src] pin."))
 
 /datum/integrated_io/activate
 	name = "activation pin"

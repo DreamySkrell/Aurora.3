@@ -43,7 +43,9 @@ var/global/Holiday = null
 				if(1)							Holiday = "C'thur Independence Day"
 				if(3)							Holiday = "Dominian Feast of Devotion"
 				if(10)
-					if(YY==24)					Holiday = "Lunarian Zhongqiu Jie Festival"
+					if(YY==24)					Holiday = "Lunarian Zhongqiu Jie Festival and New Gibson Thorrablot"
+					else						Holiday = "New Gisbon Thorrablot"
+
 				if(14)							Holiday = "Valentine's Day"
 				if(29)							Holiday = "Leap Day"
 
@@ -81,10 +83,12 @@ var/global/Holiday = null
 		if(6)	//Jun
 			switch(DD)
 				if(6)							Holiday = "Mictlani Tago de Eksterterano"
+				if(8)							Holiday = "Northern Wildlands Intervention Day"
 				if(14)
 					Holiday = "New Gibson Remembrance Day"
 					if(prob(50))				Holiday = "Skrell Qu'Qyu-Poxii"
 				if(15)							Holiday = "Colettish Republic Day"
+				if(19) Holiday = "Thyellan Neon Night Rememberance Day"
 				if(18)							Holiday = "Callistean Landfall Day"
 				if(22)							Holiday = "Colettish Civil Guard Day"
 				if(26)							Holiday = "Callistean Pigeon Day"
@@ -97,6 +101,7 @@ var/global/Holiday = null
 					if(prob(50))				Holiday = "DPRA Liberation Day"
 				if(7)							Holiday = "Dominian Founding Day"
 				if(16)							Holiday = "Lunarian Apollo Day"
+				if(17)							Holiday = "Solarian Reunification Day"
 				if(29)							Holiday = "Dominian Victory Day"
 
 
@@ -112,7 +117,6 @@ var/global/Holiday = null
 			switch(DD)
 				if(3)							Holiday = "Dominian Feast of Joy"
 				if(5)							Holiday = "Si'akh Final Judgement Day"
-				if(6)							Holiday = "New Gibson Celebration of the Solstice"
 				if(19)							Holiday = "Talk-Like-a-Pirate Day"
 				if(24)							Holiday = "Tau Ceti Heritage Day"
 
@@ -123,7 +127,9 @@ var/global/Holiday = null
 				if(9)							Holiday = "K'lax Technology Day"
 				if(16)							Holiday = "Galatean Federation Day"
 				if(27)							Holiday = "New Kingdom of Adhomai Day of Rightful Restoration"
-				if(31)							Holiday = "Halloween"
+				if(31)
+					Holiday = "Halloween"
+					if(YY == 24)  				Holiday = "Halloween and the day of Shi-rra Arr’Kahata"
 
 		if(11)	//Nov
 			switch(DD)
@@ -155,22 +161,33 @@ var/global/Holiday = null
 /client/proc/Set_Holiday(T as text|null)
 	set name = "Set Holiday"
 	set category = "Fun"
-	set desc = "Force-set the Holiday variable to make the game think it's a certain day."
-	if(!check_rights(R_SERVER))	return
+	set desc = "Force-set the Holiday variable to make the game think it's a certain day. Set to 'None' to unset the Holiday"
+	if(!check_rights(R_SERVER))
+		return FALSE
+
+	if(!T)
+		T = tgui_input_text(src, "Type in a holiday below, or type 'None' to unset any holiday", "What Holiday is today?", "")
+		if(!T)
+			return FALSE
+	else if (T == "None")
+		Holiday = null
+		message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] unset today's Holiday."))
+		log_admin("[key_name(src)] unset today's Holiday")
+		return TRUE
 
 	Holiday = T
 
 	Holiday_Game_Start()
 
-	message_admins("<span class='notice'>ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\"</span>")
-	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"",admin_key=key_name(src))
-
+	message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\""))
+	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"")
+	return TRUE
 
 //Run at the  start of a round
 /proc/Holiday_Game_Start()
 	if(Holiday)
-		to_world("<span class='notice'>and...</span>")
-		to_world("<h4>Happy [Holiday] Everybody!</h4>")
+		to_world(SPAN_NOTICE("and..."))
+		to_world(FONT_LARGE("Happy [Holiday] Everybody!"))
 		switch(Holiday)			//special holidays
 			if("Easter")
 				Easter_Game_Start()
@@ -178,12 +195,3 @@ var/global/Holiday = null
 				Christmas_Game_Start()
 
 	return
-
-//Nested in the random events loop. Will be triggered every 2 minutes.
-/proc/Holiday_Random_Event()
-	switch(Holiday)			//special holidays
-
-		if("",null)			//no Holiday today! Back to work!
-			return
-		if("Christmas","Christmas Eve")
-			if(prob(eventchance))	ChristmasEvent()

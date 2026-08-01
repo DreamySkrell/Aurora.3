@@ -1,4 +1,4 @@
-/*
+/**
 	Screen objects
 	Todo: improve/re-implement
 
@@ -6,37 +6,52 @@
 	They are used with the client/screen list and the screen_loc var.
 	For more information, see the byond documentation on the screen_loc and screen vars.
 */
-/obj/screen
+/atom/movable/screen
 	name = ""
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
+	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	unacidable = 1
-	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
-	var/datum/hud/hud = null // A reference to the owner HUD, if any.
+	/// A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null
+	/// A reference to the owner HUD, if any.
+	var/datum/hud/hud = null
 	appearance_flags = NO_CLIENT_COLOR
 
-/obj/screen/Initialize(mapload, ...)
+/atom/movable/screen/Initialize(mapload, ...)
 	. = ..()
 	//This is done with signals because the screen code sucks, blame the ancient developers
 	if(hud)
 		RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(handle_hud_destruction))
 
-/obj/screen/Destroy(force = FALSE)
+/atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	hud = null
-	. = ..()
+	if(length(hud?.mymob?.client?.screen))
+		hud.mymob.client.screen -= src
+	// All register signals MUST be mirrored with Unregister signals included in a Destroy proc, even if other procs also call Unregister Signal.
+	if (hud)
+		UnregisterSignal(hud, COMSIG_QDELETING)
+		hud = null
+	return ..()
+
+/// Screen elements are always on top of the players screen and don't move so yes they are adjacent
+/atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	return TRUE
 
 /**
  * Handles the deletion of the HUD this screen is associated to
  */
-/obj/screen/proc/handle_hud_destruction()
+/atom/movable/screen/proc/handle_hud_destruction()
 	SIGNAL_HANDLER
+
+	// If we were QDEL'ed directly (probably by our owner), then there's no need to Unregister Signal and qdel ourselves twice.
+	if (QDELING(src))
+		return
 
 	UnregisterSignal(hud, COMSIG_QDELETING)
 	qdel(src)
 
-/obj/screen/text
+/atom/movable/screen/text
 	icon = null
 	icon_state = null
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -44,21 +59,23 @@
 	maptext_height = 480
 	maptext_width = 480
 
-/obj/screen/inventory
-	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
-	var/list/object_overlays = list() // Required for inventory/screen overlays.
+/atom/movable/screen/inventory
+	/// The identifier for the slot. It has nothing to do with ID cards.
+	var/slot_id
+	/// Required for inventory/screen overlays.
+	var/list/object_overlays = list()
 	var/color_changed = FALSE
 
-/obj/screen/inventory/MouseEntered()
+/atom/movable/screen/inventory/MouseEntered()
 	..()
 	add_overlays()
 
-/obj/screen/inventory/MouseExited()
+/atom/movable/screen/inventory/MouseExited()
 	..()
-	cut_overlay(object_overlays)
+	CutOverlays(object_overlays)
 	object_overlays.Cut()
 
-/obj/screen/inventory/proc/add_overlays()
+/atom/movable/screen/inventory/proc/add_overlays()
 	var/mob/user = hud.mymob
 
 	if(hud && user && slot_id)
@@ -68,14 +85,14 @@
 
 		var/image/item_overlay = image(holding)
 		item_overlay.alpha = 92
-		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE))
+		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE, is_overlay_check = TRUE))
 			item_overlay.color = "#ff0000"
 		else
 			item_overlay.color = "#00ff00"
 		object_overlays += item_overlay
-		add_overlay(object_overlays)
+		AddOverlays(object_overlays)
 
-/obj/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
+/atom/movable/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
 	if(color_changed)
 		return
 	var/old_color = color
@@ -83,14 +100,14 @@
 	color_changed = TRUE
 	addtimer(CALLBACK(src, PROC_REF(set_color_to), old_color), set_time)
 
-/obj/screen/inventory/proc/set_color_to(var/set_color)
+/atom/movable/screen/inventory/proc/set_color_to(var/set_color)
 	color = set_color
 	color_changed = FALSE
 
-/obj/screen/close
+/atom/movable/screen/close
 	name = "close"
 
-/obj/screen/close/Click()
+/atom/movable/screen/close/Click()
 	if(master)
 		if(istype(master, /obj/item/storage))
 			var/obj/item/storage/S = master
@@ -98,14 +115,14 @@
 	return 1
 
 
-/obj/screen/item_action
+/atom/movable/screen/item_action
 	var/obj/item/owner
 
-/obj/screen/item_action/Destroy()
+/atom/movable/screen/item_action/Destroy()
 	owner = null
 	. = ..()
 
-/obj/screen/item_action/Click()
+/atom/movable/screen/item_action/Click()
 	if(!usr || !owner)
 		return 1
 	if(!usr.canClick())
@@ -120,26 +137,28 @@
 	owner.ui_action_click()
 	return 1
 
-/obj/screen/grab
+/atom/movable/screen/grab
 	name = "grab"
 
-/obj/screen/grab/Click()
+/atom/movable/screen/grab/Click()
 	var/obj/item/grab/G = master
 	G.s_click(src)
 	return 1
 
-/obj/screen/grab/attack_hand()
+/atom/movable/screen/grab/attack_hand()
 	return
 
-/obj/screen/grab/attackby()
+/atom/movable/screen/grab/attackby()
 	return
 
 
-/obj/screen/storage
+/atom/movable/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 
-/obj/screen/storage/Click()
+/atom/movable/screen/storage/Click()
 	if(!usr.canClick())
 		return TRUE
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
@@ -150,25 +169,25 @@
 			usr.ClickOn(master)
 	return TRUE
 
-/obj/screen/storage/background
+/atom/movable/screen/storage/background
 	name = "background storage"
-	layer = HUD_BASE_LAYER
+	layer = HUD_BELOW_ITEM_LAYER
 
-/obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
+/atom/movable/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()
 	master = set_master
 	if(master)
 		name = master.name
 	icon_state = set_icon_state
 
-/obj/screen/storage/background/Click()
+/atom/movable/screen/storage/background/Click()
 	if(usr.incapacitated())
 		return TRUE
 	if(master)
 		usr.ClickOn(master)
 	return TRUE
 
-/obj/screen/zone_sel
+/atom/movable/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
@@ -177,7 +196,7 @@
 	var/hovering_choice
 	var/mutable_appearance/selecting_appearance
 
-/obj/screen/zone_sel/Click(location, control,params)
+/atom/movable/screen/zone_sel/Click(location, control,params)
 	if(isobserver(usr))
 		return
 
@@ -190,10 +209,10 @@
 
 	return set_selected_zone(choice, usr)
 
-/obj/screen/zone_sel/MouseEntered(location, control, params)
+/atom/movable/screen/zone_sel/MouseEntered(location, control, params)
 	MouseMove(location, control, params)
 
-/obj/screen/zone_sel/MouseMove(location, control, params)
+/atom/movable/screen/zone_sel/MouseMove(location, control, params)
 	if(isobserver(usr))
 		return
 
@@ -216,18 +235,18 @@
 
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/mob/zone_sel.dmi'
+	icon = 'icons/hud/mob/zone_sel.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
 	plane = HUD_ITEM_LAYER
 
-/obj/screen/zone_sel/MouseExited(location, control, params)
+/atom/movable/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
 		remove_vis_contents(hover_overlays_cache[hovering_choice])
 		hovering_choice = null
 
-/obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
+/atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
@@ -271,7 +290,7 @@
 							return BP_EYES
 				return BP_HEAD
 
-/obj/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
+/atom/movable/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
 	if(isobserver(user))
 		return
 	if(choice != selecting)
@@ -279,15 +298,16 @@
 		update_icon()
 		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
-/obj/screen/zone_sel/update_icon()
-	cut_overlays()
-	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
-	add_overlay(selecting_appearance)
+/atom/movable/screen/zone_sel/update_icon()
+	ClearOverlays()
+	selecting_appearance = mutable_appearance('icons/hud/mob/zone_sel.dmi', "[selecting]")
+	AddOverlays(selecting_appearance)
 
-/obj/screen/Click(location, control, params)
+/atom/movable/screen/Click(location, control, params)
 	if(!usr)
 		return TRUE
 	var/list/modifiers = params2list(params)
+	var/client/viewer_client = usr?.client
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -328,7 +348,7 @@
 			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
-				usr:toggle_throw_mode()
+				usr.toggle_throw_mode()
 		if("drop")
 			if(usr.client)
 				usr.client.drop_item()
@@ -338,28 +358,34 @@
 				if(ishuman(usr))
 					var/mob/living/carbon/human/H = usr
 					if(H.last_special + 50 > world.time)
+						to_chat(usr, "You cannot do that again so quickly.")
 						return
 					H.last_special = world.time
 				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
-				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+				for(var/turf/T in view(viewer_client.view, usr))
 					if(T.density)
 						continue
-					var/turf/above_turf = GetAbove(T)
-					if(!isopenspace(above_turf))
+					var/turf/above_turf = GET_TURF_ABOVE(T)
+					if(!isopenturf(above_turf))
 						continue
-					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
-					up_image.plane = LIGHTING_LAYER + 1
-					up_image.layer = LIGHTING_LAYER + 1
-					usr << up_image
-					QDEL_IN(up_image, 12)
+					var/image/point_up = image(icon = 'icons/hud/mob/generic.dmi', icon_state = "arrow_up", loc = T)
+					point_up.plane = GAME_PLANE
+					point_up.layer = POINTER_LAYER
+					viewer_client?.images += point_up
+					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), point_up, viewer_client), 3 SECONDS)
 				return
-			var/turf/T = GetAbove(usr)
+
+			if(!isliving(usr))
+				return
+			var/mob/living/user = usr
+			var/turf/T1 = get_turf(user)
+			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
-				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
-			else if (T.is_hole)
-				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+				to_chat(user, SPAN_NOTICE("There is nothing above you!"))
+			else if (isopenturf(T))
+				user.look_up_open_space(T1)
 			else
-				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
+				to_chat(user, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
@@ -393,19 +419,21 @@
 					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
-			if(issilicon(usr))
-				if(isrobot(usr))
-					if(modifiers["shift"])
-						var/mob/living/silicon/robot/R = usr
-						if(!R.radio.radio_desc)
-							R.radio.setupRadioDescription()
-						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
-						to_chat(R, R.radio.radio_desc)
-						return
-				usr:radio_menu()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(modifiers["shift"])
+					if(!R.radio.radio_desc)
+						R.radio.setupRadioDescription()
+					to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+					to_chat(R, R.radio.radio_desc)
+					return
+
+				R.radio_menu()
+
 		if("panel")
-			if(issilicon(usr))
-				usr:installed_modules()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				R.installed_modules()
 
 		if("store")
 			if(isrobot(usr))
@@ -422,11 +450,27 @@
 			return 0
 	return 1
 
-/obj/screen/inventory/Click()
+/atom/movable/screen/inventory/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
 		return TRUE
+
+	var/obj/item/worn_item = usr.get_equipped_item(slot_id)
+	if(istype(worn_item))
+		var/list/modifiers = params2list(params)
+		if(LAZYACCESS(modifiers, ALT_CLICK)) // --- Alt click combinations
+			if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Alt-Shift click
+				worn_item.AltShiftClick(usr)
+				return TRUE
+
+			worn_item.AltClick(usr) // Alt click
+			return TRUE
+
+		if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Shift click
+			worn_item.ShiftClick(usr)
+			return TRUE
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
@@ -439,45 +483,46 @@
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
 		if("swap")
-			usr:swap_hand()
+			usr.swap_hand()
 		if("hand")
-			usr:swap_hand()
+			usr.swap_hand()
 		else
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
 
-	return 1
+	return TRUE
 
-/obj/screen/movement_intent
+/atom/movable/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
 
-//This updates the run/walk button on the hud
-/obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if (!user.client)
+/// This updates the run/walk button on the hud.
+/atom/movable/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
+	if(!user?.client || QDELETED(user) || QDELETED(src))
 		return
 
-	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
-		if (user.stamina_bar)
-			user.stamina_bar.endProgress()
-			user.stamina_bar = null
+	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if(user.stamina_bar)
+			if(!QDELETED(user.stamina_bar))
+				user.stamina_bar.end_progress()
+			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
-		if (!user.stamina_bar)
+		if(QDELETED(user.stamina_bar))
+			user.stamina_bar = null
+		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == M_RUN)
+	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if (user.m_intent == M_LAY)
-		icon_state = "lying"
 	else
 		icon_state = "walking"
 
 #define BLACKLIST_SPECIES_RUNNING list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
-/obj/screen/movement_intent/Click(location, control, params)
+/atom/movable/screen/movement_intent/Click(location, control, params)
 	if(!usr)
 		return 1
 	var/list/modifiers = params2list(params)
@@ -489,10 +534,11 @@
 			return
 
 		if(C.legcuffed)
-			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			to_chat(C, SPAN_NOTICE("You are legcuffed! You cannot run until you get [C.legcuffed] removed!"))
 			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
+
 		switch(usr.m_intent)
 			if(M_RUN)
 				usr.m_intent = M_WALK
@@ -500,25 +546,11 @@
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
 
-			if(M_LAY)
+		if(modifiers["button"] == "middle")
+			C.lay_down()
 
-				// No funny "haha i get the bonuses then stand up"
-				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-				if(gun_in_hand?.wielded)
-					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
-					return
-
-				if(C.lying_is_intentional)
-					usr.m_intent = M_WALK
-
-		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-
-			// You want this bonus weapon or not? Wield it when you are lying, not before!
-			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-			if(gun_in_hand?.wielded)
-				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
-				return
-			C.m_intent = M_LAY
+		C.update_canmove()
+		C.update_icon()
 
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr
@@ -532,26 +564,26 @@
 
 #undef BLACKLIST_SPECIES_RUNNING
 
-// Hand slots are special to handle the handcuffs overlay
-/obj/screen/inventory/hand
+/// Hand slots are special to handle the handcuffs overlay
+/atom/movable/screen/inventory/hand
 	var/image/handcuff_overlay
 	var/image/disabled_hand_overlay
 	var/image/removed_hand_overlay
 
-/obj/screen/inventory/hand/update_icon()
+/atom/movable/screen/inventory/hand/update_icon()
 	..()
 	if(!hud)
 		return
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
-		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
-		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		disabled_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
-		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	cut_overlays()
+		removed_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
+	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob
 		var/obj/item/organ/external/O
@@ -560,11 +592,11 @@
 		else
 			O = H.organs_by_name[BP_R_HAND]
 		if(!O || O.is_stump())
-			add_overlay(removed_hand_overlay)
+			AddOverlays(removed_hand_overlay)
 		else if(O && (!O.is_usable() || O.is_malfunctioning()))
-			add_overlay(disabled_hand_overlay)
+			AddOverlays(disabled_hand_overlay)
 		if(H.handcuffed)
-			add_overlay(handcuff_overlay)
+			AddOverlays(handcuff_overlay)
 
-/obj/screen/inventory/back
+/atom/movable/screen/inventory/back
 	name = "back"

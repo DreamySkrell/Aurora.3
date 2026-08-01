@@ -1,4 +1,8 @@
 // DRONE ABILITIES
+
+/**
+ * Sets a drone's mail tag, allowing it to traverse the mail system like a package would.
+ */
 /mob/living/silicon/robot/drone/verb/set_mail_tag()
 	set name = "Set Mail Tag"
 	set desc = "Tag yourself for delivery through the disposals system."
@@ -14,13 +18,18 @@
 	mail_destination = new_tag
 
 	//Auto flush if we use this verb inside a disposal chute.
-	var/obj/machinery/disposal/D = src.loc
+	var/obj/structure/machinery/disposal/D = src.loc
 	if(istype(D))
 		to_chat(src, SPAN_NOTICE("\The [D] acknowledges your signal."))
 		D.flush_count = D.flush_every_ticks
 
-/mob/living/silicon/robot/drone/MouseDrop(atom/over_object)
-	var/mob/living/carbon/H = over_object
+/// Override to allow us to process our eye cache
+/mob/living/silicon/robot/drone/proc/on_hide()
+	SIGNAL_HANDLER
+	setup_eye_cache()
+
+/mob/living/silicon/robot/drone/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/H = over
 	if(!istype(H) || !Adjacent(H))
 		return ..()
 	if(H.a_intent == "help")
@@ -31,7 +40,7 @@
 		H.put_in_hands(hat)
 		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
 		hat = null
-		cut_overlay(hat_overlay)
+		CutOverlays(hat_overlay)
 		QDEL_NULL(hat_overlay)
 		update_icon()
 	else

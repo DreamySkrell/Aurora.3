@@ -7,8 +7,8 @@
 	anchored = 0
 	var/open = FALSE
 
-/obj/structure/sarcophagus/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
 	else
@@ -41,7 +41,7 @@
 	if(open)
 		return
 	if(istype(attacking_item, /obj/item/sarcophagus_key))
-		to_chat(usr, "<span class='notice'>You slide \the [attacking_item] inside an opening in \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] inside an opening in \the [src]."))
 		open()
 
 /obj/structure/sarcophagus/proc/open()
@@ -63,11 +63,11 @@
 		if("highvalue")
 			new /obj/random/highvalue (get_turf(src))
 		if("supermatter")
-			new /obj/machinery/power/supermatter/shard (get_turf(src))
+			new /obj/structure/machinery/power/supermatter/shard (get_turf(src))
 		if("artifact")
-			new /obj/machinery/artifact (get_turf(src))
+			new /obj/structure/machinery/artifact (get_turf(src))
 		if("beyond")
-			new /obj/machinery/from_beyond (get_turf(src))
+			new /obj/structure/machinery/from_beyond (get_turf(src))
 	return
 
 /obj/item/sarcophagus_key
@@ -75,4 +75,4 @@
 	desc = "An archaic key, probably not used to open any airlock on station."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "unknown1"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL

@@ -1,15 +1,17 @@
 /turf/simulated/wall/r_wall
-	icon_state = "map_dark"
-	desc_info = "You can deconstruct this by with the following steps:<br>\
-	Cut the outer grill with wirecutters, then unscrew them.<br>\
-	Slice the cover with a welder, then pry it off with a crowbar.<br>\
-	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
-	Pry off the sheath with a crowbar to expose the girder. Examine it to see how to deconstruct it."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "r_wall"
 
+/turf/simulated/wall/r_wall/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can deconstruct this by with the following steps:<br>\
+	Cut the outer grill with wirecutters, then unscrew them.<br>\
+	Slice the cover with a welder, then pry it off with a crowbar.<br>\
+	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
+	Pry off the sheath with a crowbar to expose the girder."
+
 /turf/simulated/wall/r_wall/Initialize(mapload)
-	. = ..(mapload, "plasteel","plasteel") //3strong
+	. = ..(mapload, MATERIAL_PLASTEEL,MATERIAL_PLASTEEL) //3strong
 
 /turf/simulated/wall/cult
 	icon_state = "cult"
@@ -79,6 +81,13 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_SANDSTONE)
 	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/brick
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "brick"
+
+/turf/simulated/wall/brick/Initialize(mapload)
+	. = ..(mapload, MATERIAL_BRICK)
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
 	canSmoothWith = list(src.type)
@@ -168,4 +177,9 @@
 /turf/simulated/wall/concrete/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_CONCRETE)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/marble/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_MARBLE)
 	canSmoothWith = list(src.type)

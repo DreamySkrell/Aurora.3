@@ -2,7 +2,10 @@
 	name = "Merchants' Guild Freighter"
 	id = "merchants_guild"
 	description = "A freighter flying under the banner of the Izweski Hegemony Merchants' Guild."
-	suffixes = list("ships/hegemony/merchants_guild/merchant_freighter.dmm")
+
+	prefix = "ships/hegemony/merchants_guild/"
+	suffix = "merchant_freighter.dmm"
+
 	ship_cost = 1
 	spawn_weight = 0 //the merchants guild has gone bankrupt, don't spawn this until we figure out how to rework it.
 
@@ -91,7 +94,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/merchants_guild
+/obj/structure/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
 	req_access = list(ACCESS_MERCHANTS_GUILD)

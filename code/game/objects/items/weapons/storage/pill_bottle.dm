@@ -6,14 +6,15 @@
 	contained_sprite = TRUE
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
-	allow_quick_gather = 1
-	use_to_pickup = 1
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
-	max_storage_space = 16
+	rustle_sound = 'sound/items/pickup/pillbottle.ogg'
+	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_hand())
@@ -44,6 +45,11 @@
 	name = "bottle of 10u Bicaridine pills"
 	desc = "Contains pills used to treat minor injuries and bleeding."
 	starts_with = list(/obj/item/reagent_containers/pill/bicaridine = 7)
+
+/obj/item/storage/pill_bottle/dexalin
+	name = "bottle of 15u Dexalin pills"
+	desc = "Contains pills used to treat minor cases of oxygen deprivation."
+	starts_with = list(/obj/item/reagent_containers/pill/dexalin = 7)
 
 /obj/item/storage/pill_bottle/dexalin_plus
 	name = "bottle of 15u Dexalin Plus pills"
@@ -170,3 +176,81 @@
 	name = "bottle of 5u Steramycin pills"
 	desc = "Contains prophylactic antibiotic pills."
 	starts_with = list(/obj/item/reagent_containers/pill/steramycin = 3)
+
+/obj/item/storage/pill_bottle/ryetalyn
+	name = "bottle of 10u Ryetalyn pills"
+	desc = "Contains pills used to treat genetic and immune diseases."
+	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)
+
+/obj/item/storage/pill_bottle/caffeine
+	name = "bottle of 5u Caffeine pills"
+	desc = "Contains pills used to help with alertness and fatigue. The label warns against taking more than 2 in a 6-hour period. Possible side effects include jitteriness, heart palpitations, difficulty with concentrating, and even death."
+	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
+
+/obj/item/storage/pill_bottle/nicotine
+	name = "bottle of 5u Nicotine pills"
+	desc = "Contains pills used to treat nicotine addiction."
+	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
+
+/obj/item/storage/pill_bottle/vitamin
+	name = "bottle of Vitamin supplements"
+	desc = "Contains pills used to treat vitamin deficiency."
+	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
+
+/obj/item/storage/pill_bottle/colorspace
+	name = "bottle of Colorspace pills"
+	desc = "Contains Colorspace pills, a legal recreational drug."
+	starts_with = list(/obj/item/reagent_containers/pill/colorspace = 4)
+
+/obj/item/storage/pill_bottle/snowflake
+	name = "bottle of Snowflake pills"
+	desc = "Contains Snowflake pills, made from frost oil. The label warns about the danger of overdosing."
+	starts_with = list(/obj/item/reagent_containers/pill/snowflake = 4)
+
+/obj/item/storage/pill_bottle/psilocybin
+	name = "bottle of Psilocybin pills"
+	desc = "Contains psychotropic pills derived from certain species of mushroom."
+	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)
+
+/**
+ * The base psi-protect pills. Childs of this have variations of side effects.
+ * This version of the pill has no side effects, and is not intended to be spawned directly.
+ */
+/obj/item/storage/pill_bottle/psi_protect
+	name = "bottle of Psi-protect pills"
+	desc = "A high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	name = "bottle of Psi-protect Personalized pills"
+	desc = "A YomiGenetics high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
+	name = "bottle of Psi-protect Broad-Use pills"
+	desc = "A cheaper, broad-targetting drug under the PsiProtect brand, with a more brute-force mechanism and only requiring the most basic of psionic profiling tests. " \
+		+ "This one has long stopped being prescribed or marketed, but is available at clearance prices."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/cheap = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	name = "bottle of Psi-protect Personalized Gold pills"
+	desc = "A high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea. " \
+		+ "This one is thrice as expensive, for more affluent customers, and requiring more genetic and neurological profiling. " \
+		+ "Nonetheless, it remains cheaper than the more elegant ZHP-MSV3 'Mindblankers'."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive = 6)
+
+/obj/item/paper/fluff/psiprotect_memo
+	name = "psiprotect memo"
+	desc = "A memo left behind by another pharmacist."
+	info = "\
+		<br>\
+		MEMO: PSI-PROTECT PILLS \
+		<br>\
+		<br>\
+		Our bulk PsiProtect Broad Use resupply has arrived for prescription refills and any emergency ADPI prescriptions.\
+		They were going at clearance prices so we have enough stored in the warehouse for the entire operation!<br><br>\
+		Personalised variants will continue to be mailed individually to patients (no wonder the price, on top of all the tests!).<br>\
+		- S"

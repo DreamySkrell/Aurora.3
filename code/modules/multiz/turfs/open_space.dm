@@ -7,12 +7,12 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 	roof_type = null
 	footstep_sound = null
+	explosion_resistance = 3
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
 	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case
@@ -22,8 +22,10 @@
 
 	var/tmp/list/climbers
 
-// An override of turf/Enter() to make it so that magboots allow you to stop
-// falling off the damned rock.
+/**
+ * An override of turf/Enter() to make it so that magboots allow you to stop
+ * falling off the damned rock.
+ */
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
@@ -74,10 +76,11 @@
 		return catwalk
 	return src
 
-
-// Add a falling atom by default. Even if it's not an atom that can actually fall.
-// SSfalling will check this on its own and remove if necessary. This is saner, as it
-// centralizes control to SSfalling.
+/**
+ * Add a falling atom by default. Even if it's not an atom that can actually fall.
+ * SSfalling will check this on its own and remove if necessary. This is saner, as it
+ * centralizes control to SSfalling.
+ */
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
 	if (is_hole)
@@ -175,14 +178,16 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-
+	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.
  */
 /turf/simulated/open/proc/update(mapload = FALSE)
-	below = GetBelow(src)
+	var/turf/T = get_turf(src)
+	below = GET_TURF_BELOW(T)
 
 	// Edge case for when an open turf is above space on the lowest level.
 	if (below)
@@ -208,11 +213,19 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	if(isliving(user))
+		var/mob/living/looker = user
+		if(looker.Adjacent(src) && !looker.incapacitated())
+			looker.look_down_open_space(src)
+
 /turf/simulated/open/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
 		var/depth = 1
-		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+		var/turf/current_turf = get_turf(src)
+		for(var/turf/T = GET_TURF_BELOW(current_turf); isopenspace(T); T = GET_TURF_BELOW(T))
 			depth += 1
 		. += "It is about [depth] level\s deep."
 
@@ -230,7 +243,7 @@
 			return
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
-			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
+			to_chat(user, SPAN_NOTICE("You lay down the support lattice."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
@@ -247,20 +260,20 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return
 	return
 
 /turf/simulated/open/attack_hand(var/mob/user)
-
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/climbing_wall = GetBelow(H)
+		var/turf/T = get_turf(H)
+		var/turf/climbing_wall = GET_TURF_BELOW(T)
 		var/climb_bonus = 0
 		if(istype(climbing_wall, /turf/simulated/mineral))
 			climb_bonus = 20
@@ -272,15 +285,12 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor=COLOR_HUMAN_BLOOD)
 	return
 
 //Returns the roof type of the turf below
 /turf/simulated/open/get_roof_type()
-	var/turf/t = GetBelow(src)
+	var/turf/t = GET_TURF_BELOW(src)
 	if(!t)
 		return null
 	return t.roof_type
-
-/turf/simulated/open/is_open()
-	return TRUE

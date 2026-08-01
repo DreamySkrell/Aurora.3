@@ -13,7 +13,7 @@
 	if(active)
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			activate(user)
@@ -57,6 +57,8 @@
 	if(!active)
 		prime()
 
-/obj/item/grenade/dynamite/fire_act()
+/obj/item/grenade/dynamite/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(!active)
 		prime()

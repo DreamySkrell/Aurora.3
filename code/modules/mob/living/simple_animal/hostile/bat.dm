@@ -15,7 +15,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 4
-	maxHealth = 20
+	maxhealth = 20
 	health = 20
 	mob_size = 2.5
 
@@ -24,6 +24,7 @@
 	melee_damage_upper = 10
 	resist_mod = 10 // can't grab a cloud of bats easily
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
@@ -69,7 +70,7 @@
 	if(istype(L))
 		if(prob(15))
 			L.Stun(1)
-			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\the [src] scares \the [L]!"))
 
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"
@@ -79,7 +80,3 @@
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return
-
-/mob/living/simple_animal/hostile/scarybat/cult/Life()
-	..()
-	check_horde()

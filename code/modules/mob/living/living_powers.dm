@@ -8,13 +8,14 @@
 
 	if (layer != HIDING_MOB_LAYER)
 		layer = HIDING_MOB_LAYER //Just above cables with their 2.44
-		to_chat(src, text("<span class='notice'>You are now hiding.</span>"))
+		to_chat(src, SPAN_NOTICE("You are now hiding."))
 	else
 		layer = MOB_LAYER
-		to_chat(src, text("<span class='notice'>You have stopped hiding.</span>"))
+		to_chat(src, SPAN_NOTICE("You have stopped hiding."))
+	SEND_SIGNAL(src, COMSIG_MOB_ON_HIDE)
 
 /mob/living/verb/set_walk_speed()
-	set category = "IC"
+	set category = "IC.Maneuver"
 	set name = "Adjust walk speed"
 	set desc = "Allows you to adjust your walking speed to a slower value than normal, or reset it. Does not make you faster."
 

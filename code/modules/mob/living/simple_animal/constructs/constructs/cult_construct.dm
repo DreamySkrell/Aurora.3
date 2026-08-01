@@ -47,6 +47,8 @@
 
 	simple_default_language = LANGUAGE_CULT
 
+	sample_data = null
+
 
 /mob/living/simple_animal/construct/cultify()
 	return
@@ -65,7 +67,7 @@
 /mob/living/simple_animal/construct/LateLogin()
 	. = ..()
 	if(!iscultist(src))
-		cult.add_antagonist_mind(mind)
+		GLOB.cult.add_antagonist_mind(mind)
 
 /mob/living/simple_animal/construct/death()
 	new /obj/item/ectoplasm(get_turf(src))
@@ -86,7 +88,10 @@
 /mob/living/simple_animal/construct/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/construct/attack_generic(var/mob/user)
+/mob/living/simple_animal/construct/adjustHalLoss(var/amount) // Constructs are purely PVP simple mobs, they shouldn't take pain as damage.
+	return
+
+/mob/living/simple_animal/construct/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
@@ -96,7 +101,7 @@
 				adjustFireLoss(-5)
 				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
 			else
-				if (health < maxHealth)
+				if (health < maxhealth)
 					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))
 				else
 					to_chat(user, SPAN_NOTICE("\The [src] is undamaged."))
@@ -105,8 +110,8 @@
 
 /mob/living/simple_animal/construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(health < maxHealth)
-		if(health >= maxHealth / 2)
+	if(health < maxhealth)
+		if(health >= maxhealth / 2)
 			. += SPAN_WARNING("It looks slightly dented.")
 		else
 			. += SPAN_WARNING("It looks severely dented!")
@@ -120,22 +125,19 @@
 		..()
 
 /mob/living/simple_animal/construct/proc/add_glow()
-	cut_overlays()
-	var/overlay_layer = EFFECTS_ABOVE_LIGHTING_LAYER
-	if(layer != MOB_LAYER)
-		overlay_layer = TURF_LAYER + 0.2
+	ClearOverlays()
+	var/overlay_plane = ABOVE_LIGHTING_PLANE
 
-	add_overlay(image(icon, "glow-[icon_state]", overlay_layer))
+	var/image/glow = image(icon, "glow-[icon_state]")
+	glow.plane = overlay_plane
+
+	AddOverlays(glow)
 	set_light(2, -2, l_color = COLOR_WHITE)
 
-/mob/living/simple_animal/construct/Life()
+/mob/living/simple_animal/construct/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(.)
 		var/newstate
-		if(fire)
-			newstate = fire_alert ? "fire1" : "fire0"
-			if(fire.icon_state != newstate)
-				fire.icon_state = newstate
 
 		if(pullin)
 			newstate = pulling ? "pull1" : "pull0"
@@ -150,7 +152,7 @@
 		silence_spells(purge)
 
 	if(healths)
-		var/health_percent = (health / maxHealth) * 100
+		var/health_percent = (health / maxhealth) * 100
 		var/newstate = 0
 		switch(health_percent)
 			if(84 to INFINITY)

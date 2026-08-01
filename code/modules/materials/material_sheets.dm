@@ -1,28 +1,33 @@
-// Stacked resources. They use a material datum for a lot of inherited values.
+/// Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 11
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	recyclable = TRUE // Pretty much all materials should be recyclable
+	/// Pretty much all materials should be recyclable
+	recyclable = TRUE
 
-	var/default_type = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_type = MATERIAL_STEEL
+	var/singleton/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
 	var/use_material_sound = TRUE
+
+/obj/item/stack/material/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in your hand to bring up the crafting menu."
+	. += "If you have enough sheets, click on something on the list to build it."
 
 /obj/item/stack/material/Initialize(mapload, amount)
 	. = ..()
 	randpixel_xy()
 
 	if(!default_type)
-		default_type = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(default_type)
+		default_type = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -35,7 +40,7 @@
 	if(apply_colour)
 		var/image/I = new(icon, icon_state)
 		I.color = material.icon_colour
-		add_overlay(I)
+		AddOverlays(I)
 
 	if(use_material_sound)	// SEE MATERIALS.DM
 		drop_sound = material.drop_sound
@@ -64,7 +69,7 @@
 
 /obj/item/stack/material/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	if(material)
 		update_strings()
 		if(apply_colour) // This is ass, but stops maptext from getting colored.
@@ -73,11 +78,11 @@
 				I.color = material.icon_colour
 			else
 				I.color = painted_colour
-			add_overlay(I)
+			AddOverlays(I)
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
-	if(!istype(M) || material.name != M.material.name)
+	if(!istype(M) || material.type != M.material.type)
 		return 0
 	var/transfer = ..(S,tamount,1)
 	if(src)
@@ -91,7 +96,7 @@
 		..()
 
 /obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
-	if(iscoil(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		material.build_wired_product(user, attacking_item, src)
 		return
 	else if(istype(attacking_item, /obj/item/stack/rods))
@@ -104,6 +109,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_IRON
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
 	. = ..()
@@ -115,6 +121,7 @@
 	icon_state = "sheet-metal"
 	default_type = MATERIAL_ALUMINIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/aluminium/full/Initialize()
 	. = ..()
@@ -126,6 +133,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_LEAD
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/lead/full/Initialize()
 	. = ..()
@@ -147,6 +155,7 @@
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = MATERIAL_MARBLE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/marble/full/Initialize()
 	. = ..()
@@ -209,16 +218,6 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/osmium
-	name = "osmium"
-	icon_state = "sheet-silver"
-	default_type = MATERIAL_OSMIUM
-
-/obj/item/stack/material/osmium/full/Initialize()
-	. = ..()
-	amount = max_amount
-	update_icon()
-
 /obj/item/stack/material/silver
 	name = "silver"
 	icon_state = "sheet-silver"
@@ -247,6 +246,7 @@
 	name = "metallic hydrogen"
 	icon_state = "sheet-metalhydrogen"
 	default_type = MATERIAL_HYDROGEN_METALLIC
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
 	. = ..()
@@ -259,6 +259,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/tritium/ten/Initialize()
 	. = ..()
@@ -275,6 +276,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/osmium/full/Initialize()
 	. = ..()
@@ -282,9 +284,9 @@
 	update_icon()
 
 /obj/item/stack/material/steel
-	name = DEFAULT_WALL_MATERIAL
+	name = "steel"
 	icon_state = "sheet-metal"
-	default_type = DEFAULT_WALL_MATERIAL
+	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
@@ -315,8 +317,7 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/plasteel/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
+	return ..()
 
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
@@ -462,10 +463,10 @@
 
 /obj/item/stack/material/cloth/attackby(obj/item/attacking_item, mob/user)
 	if(is_sharp(attacking_item))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [attacking_item].</span>",
-							"<span class='notice'>You begin cutting up [src] with [attacking_item].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [attacking_item]."),
+							SPAN_NOTICE("You begin cutting up [src] with [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
-			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			use(1)
@@ -562,7 +563,7 @@
 /obj/item/stack/material/bronze
 	name = "bronze"
 	icon_state = "sheet-brass"
-	default_type = "bronze"
+	default_type = MATERIAL_BRONZE
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/bronze/full/Initialize()
@@ -612,6 +613,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/supermatter/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/boron
+	name = "boron"
+	icon_state = "puck"
+	default_type = MATERIAL_BORON
+
+/obj/item/stack/material/boron/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

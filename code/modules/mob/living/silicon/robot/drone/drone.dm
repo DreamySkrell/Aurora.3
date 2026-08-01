@@ -35,7 +35,7 @@
 	gender = NEUTER
 
 	// Health
-	maxHealth = 35
+	maxhealth = 35
 	health = 35
 
 	// Components
@@ -73,7 +73,7 @@
 
 	// Laws
 	var/datum/drone_matrix/master_matrix
-	var/obj/machinery/drone_fabricator/master_fabricator
+	var/obj/structure/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
 	// Self-Mailing
@@ -93,6 +93,29 @@
 	. = ..()
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
+	add_verb(src, /mob/living/proc/hide)
+	RegisterSignal(src, COMSIG_MOB_ON_HIDE, PROC_REF(on_hide))
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
+
+	//They are unable to be upgraded, so let's give them a bit of a better battery.
+	cell.maxcharge = 10000
+	cell.charge = 10000
+
+	// NO BRAIN. // me irl - geeves
+	mmi = null
+
+	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
+	for(var/V in components)
+		if(V == "power cell")
+			continue
+		var/datum/robot_component/C = components[V]
+		C.max_damage = 10
+
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	density = FALSE
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
 		master_matrix.remove_drone(WEAKREF(src))
@@ -100,11 +123,17 @@
 	return ..()
 
 /mob/living/silicon/robot/drone/death(gibbed)
+	if(hat)
+		hat.forceMove(get_turf(src))
+		hat = null
+		QDEL_NULL(hat_overlay)
+
 	if(master_matrix)
 		master_matrix.handle_death(src)
+
 	return ..()
 
-/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
 	if(!GLOB.config.allow_drone_spawn)
@@ -120,14 +149,14 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/ghost/observer/possessor)
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
 	if(src.ckey || src.client)
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return FALSE
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	transfer_personality(possessor.client)
 	qdel(possessor)
 	return TRUE
@@ -135,22 +164,13 @@
 /mob/living/silicon/robot/drone/do_late_fire()
 	request_player()
 
-/mob/living/silicon/robot/drone/Destroy()
-	if(hat)
-		hat.forceMove(get_turf(src))
-		hat = null
-		QDEL_NULL(hat_overlay)
-	master_matrix = null
-	master_fabricator = null
-	return ..()
-
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
 		return default_language
 	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
-/mob/living/silicon/robot/drone/fall_impact()
-	..(damage_mod = 0.25) //reduces fall damage by 75%
+/mob/living/silicon/robot/drone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	..(levels_fallen, stopped_early, damage_mod * 0.05) //reduces fall damage by 95%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
@@ -165,7 +185,7 @@
 	law_type = /datum/ai_laws/construction_drone
 
 	// Interaction
-	can_pull_size = ITEMSIZE_IMMENSE
+	can_pull_size = WEIGHT_CLASS_GIGANTIC
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
@@ -208,7 +228,7 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	var/matrix_tag
@@ -227,7 +247,7 @@
 	assign_drone_to_matrix(src, matrix_tag)
 	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
 
-/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/ghost/observer/possessor)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
 
@@ -245,39 +265,14 @@
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	return ..()
 
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
-/mob/living/silicon/robot/drone/Initialize()
-	. = ..()
-
-	add_verb(src, /mob/living/proc/hide)
-	remove_language(LANGUAGE_ROBOT)
-	add_language(LANGUAGE_ROBOT, FALSE)
-	add_language(LANGUAGE_DRONE, TRUE)
-
-	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
-
-	// NO BRAIN. // me irl - geeves
-	mmi = null
-
-	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components)
-		if(V == "power cell")
-			continue
-		var/datum/robot_component/C = components[V]
-		C.max_damage = 10
-
-	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
-	density = FALSE
-
 /mob/living/silicon/robot/drone/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
 	if(!laws)
 		laws = new law_type
@@ -303,29 +298,31 @@
 
 /mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "[icon_state]-eyes_help"),
-		I_HURT = image(icon, "[icon_state]-eyes_harm"),
-		"emag" = image(icon, "[icon_state]-eyes_emag")
+		I_HELP = mutable_appearance(icon, "[icon_state]-eyes_help"),
+		I_HURT = mutable_appearance(icon, "[icon_state]-eyes_harm"),
+		"emag" = mutable_appearance(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
-		cut_overlay(eye_overlay)
+		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]
-	add_overlay(eye_overlay)
+	// Disables emissives while hiding due to table-clipping issues
+	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help") : null)
+	AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/setup_panel_cache()
 	cached_panel_overlays = list(
-		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
-		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
-		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+		ROBOT_PANEL_EXPOSED = mutable_appearance(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = mutable_appearance(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = mutable_appearance(icon, "[icon_state]-openpanel-c")
 	)
 
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
-	cut_overlay(eye_overlay)
+	CutOverlays(list(eye_overlay, eye_emissive))
 	if(!stat)
 		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -339,7 +336,7 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	hat_overlay = get_hat_icon(hat, hat_x_offset, hat_y_offset)
-	add_overlay(hat_overlay)
+	AddOverlays(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(obj/item/attacking_item, mob/user)
@@ -354,7 +351,7 @@
 	else if(istype(attacking_item, /obj/item/borg/upgrade/))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
 	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))
@@ -362,7 +359,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxhealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -400,7 +397,7 @@
 	to_chat(src, SPAN_WARNING("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
 
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
-	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.")
 	var/time = time2text(world.realtime, "hh:mm:ss")
 	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
@@ -417,7 +414,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
-	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
+	set_intent(a_intent) // Send an intent update so their eyes change to "emag"
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -460,17 +457,17 @@
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
-	health = maxHealth - (getBruteLoss() + getFireLoss())
+	health = maxhealth - (getBruteLoss() + getFireLoss())
 	return
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
-	if(health <= -maxHealth && src.stat != DEAD)
+	if(health <= -maxhealth && src.stat != DEAD)
 		gib()
 		return
 	..()

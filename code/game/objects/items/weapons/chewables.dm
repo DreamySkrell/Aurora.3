@@ -23,11 +23,11 @@
 		update_icon()
 
 /obj/item/clothing/mask/chewable/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(wrapped)
 		var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_wrapper")
 		base_overlay.appearance_flags = RESET_COLOR
-		add_overlay(base_overlay)
+		AddOverlays(base_overlay)
 
 /obj/item/clothing/mask/chewable/Initialize()
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
@@ -51,8 +51,8 @@
 	..()
 
 /obj/item/clothing/mask/chewable/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/clothing/mask/chewable/proc/chew()
 	chewtime--
@@ -86,7 +86,7 @@
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitwad
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -165,7 +165,7 @@
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitwad
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -178,11 +178,24 @@
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitgum
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
 	reagents_to_add = list(/singleton/reagent/sugar = 2)
+
+/obj/item/clothing/mask/chewable/chewingkoko
+	name = "wad"
+	desc = "A sweet chewy wad of koko reeds, treated with a persevative syrup."
+	throw_speed = 0.5
+	icon_state = "chew"
+	type_butt = /obj/item/trash/spitwad
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = SLOT_EARS | SLOT_MASK
+	chem_volume = 50
+	chewtime = 300
+	brand = "koko"
+	reagents_to_add = list(/singleton/reagent/mental/kokoreed = 7)
 
 /obj/item/trash/spitgum
 	name = "old gum"
@@ -236,12 +249,12 @@
 		spitout(0)
 
 /obj/item/clothing/mask/chewable/candy/lolli/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_stick")
 	base_overlay.appearance_flags = RESET_COLOR
-	add_overlay(base_overlay)
+	AddOverlays(base_overlay)
 	if(wrapped)
-		add_overlay("[initial(icon_state)]_wrapper")
+		AddOverlays("[initial(icon_state)]_wrapper")
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()
@@ -278,3 +291,22 @@
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."
+
+/obj/item/clothing/mask/chewable/solar_salve
+	name = "solar salve"
+	desc = "A paste made of various Adhomian herbs, chewed to help ward off feelings of hunger, thirst and the cold."
+	desc_extended = "A herbal mixture originating from Southern Harr'masir, Solar Salve is used to ward off the feelings of hunger, thirst and cold. Nowadays it commonly sees use in the docks of the city of Crevus."
+	gender = PLURAL
+	color = "#5f8c37"
+	icon_state = "wad"
+	type_butt = /obj/item/trash/spitwad/solar_salve
+	chem_volume = 50
+	chewtime = 300
+	reagents_to_add = list(/singleton/reagent/drugs/solar_salve = 10)
+
+/obj/item/trash/spitwad/solar_salve
+	name = "chewed plant paste"
+	desc = "A chewed up lump of plant matter. Disgusting."
+	gender = PLURAL
+	color = "#5f8c37"
+	icon_state = "spit-gum"

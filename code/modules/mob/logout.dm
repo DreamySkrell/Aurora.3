@@ -2,13 +2,16 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGOUT)
 
-	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
+	//TGUI
+	remove_all_indicators()
+
 	GLOB.player_list -= src
 	disconnect_time = world.realtime
-	log_access("Logout: [key_name(src)]",ckey=key_name(src))
+	log_access("Logout: [key_name(src)]")
 	SSstatistics.update_status()
-	if(client)
-		clear_important_client_contents(client)
+	clear_important_client_contents()
+
+	my_client = null
 
 	if(admin_datums[src.ckey])
 		var/datum/admins/A = admin_datums[src.ckey]

@@ -1,10 +1,10 @@
-var/global/list/datum/supply_drop_loot/supply_drop
+GLOBAL_LIST_INIT_TYPED(supply_drop, /datum/supply_drop_loot, null)
 
 /proc/supply_drop_random_loot_types()
-	if(!supply_drop)
-		supply_drop = init_subtypes(/datum/supply_drop_loot)
-		sortTim(supply_drop, GLOBAL_PROC_REF(cmp_supply_drop), FALSE)
-	return supply_drop
+	if(!GLOB.supply_drop)
+		GLOB.supply_drop = init_subtypes(/datum/supply_drop_loot)
+		sortTim(GLOB.supply_drop, GLOBAL_PROC_REF(cmp_supply_drop), FALSE)
+	return GLOB.supply_drop
 
 /datum/supply_drop_loot
 	var/name = ""
@@ -23,7 +23,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	name = "Supermatter"
 /datum/supply_drop_loot/supermatter/New()
 	..()
-	contents = list(/obj/machinery/power/supermatter)
+	contents = list(/obj/structure/machinery/power/supermatter)
 
 /datum/supply_drop_loot/lasers
 	name = "Lasers"
@@ -31,22 +31,10 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/lasers/New()
 	..()
 	contents = list(
-		/obj/item/gun/energy/laser,
-		/obj/item/gun/energy/laser,
-		/obj/item/gun/energy/sniperrifle,
+		/obj/item/gun/energy/rifle/laser,
+		/obj/item/gun/energy/rifle/laser,
+		/obj/item/gun/energy/rifle/laser/sniper,
 		/obj/item/gun/energy/rifle/ionrifle)
-
-/datum/supply_drop_loot/ballistics
-	name = "Ballistics"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/ballistics/New()
-	..()
-	contents = list(
-		/obj/item/gun/projectile/sec,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/automatic/wt550,
-		/obj/item/gun/projectile/automatic/rifle/z8)
 
 /datum/supply_drop_loot/ballistics
 	name = "Ballistics"
@@ -170,25 +158,15 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/stack/material/glass/reinforced,
 		/obj/item/stack/material/plasteel)
 
+/datum/supply_drop_loot/power/contents()
+	return list(pick(contents))
+
 /datum/supply_drop_loot/hydroponics
 	name = "Hydroponics"
 	container = /obj/structure/largecrate
 /datum/supply_drop_loot/hydroponics/New()
 	..()
 	contents = list(
-		/obj/machinery/portable_atmospherics/hydroponics,
-		/obj/machinery/portable_atmospherics/hydroponics,
-		/obj/machinery/portable_atmospherics/hydroponics)
-
-/datum/supply_drop_loot/power
-	name = "Power"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/power/New()
-	..()
-	contents = list(
-		/obj/machinery/power/portgen/basic,
-		/obj/machinery/power/portgen/basic/advanced,
-		/obj/machinery/power/portgen/basic/super)
-
-/datum/supply_drop_loot/power/contents()
-	return list(pick(contents))
+		/obj/structure/machinery/portable_atmospherics/hydroponics,
+		/obj/structure/machinery/portable_atmospherics/hydroponics,
+		/obj/structure/machinery/portable_atmospherics/hydroponics)

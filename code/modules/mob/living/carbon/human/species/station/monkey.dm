@@ -58,7 +58,7 @@
 		return
 
 	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
-		step(H, pick(GLOB.cardinal))
+		step(H, pick(GLOB.cardinals))
 
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
@@ -142,6 +142,7 @@
 	name = SPECIES_MONKEY_UNATHI
 	short_name = "sto"
 	name_plural = LANGUAGE_STOK
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
@@ -180,7 +181,7 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	siemens_coefficient = 0.2
-	darksight = 8
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 	heat_discomfort_strings = list(
@@ -199,5 +200,5 @@
 	brute_mod = 0.8
 	burn_mod = 2
 	fall_mod = 0
-	slowdown = -1
+	slowdown = -0.3
 

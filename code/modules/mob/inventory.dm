@@ -40,7 +40,7 @@
 	if(item_to_equip.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
-	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check))
+	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check, is_overlay_check = FALSE))
 		if(delete_on_fail)
 			qdel(item_to_equip)
 		else
@@ -72,10 +72,10 @@
  * * item_to_equip - An `/obj/item` to try to equip
  * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
  */
-/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot)
+/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot, initial = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE)
+	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE, initial)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
@@ -99,26 +99,27 @@
 			W.forceMove(T)
 			return T
 
-//The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
-var/list/slot_equipment_priority = list( \
-		slot_back,\
-		slot_wear_id,\
-		slot_w_uniform,\
-		slot_wear_suit,\
-		slot_wear_mask,\
-		slot_head,\
-		slot_shoes,\
-		slot_gloves,\
-		slot_l_ear,\
-		slot_r_ear,\
-		slot_glasses,\
-		slot_belt,\
-		slot_s_store,\
-		slot_tie,\
-		slot_l_store,\
-		slot_r_store,\
-		slot_wrists\
-	)
+///The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
+GLOBAL_LIST_INIT(slot_equipment_priority, list(
+		slot_back,
+		slot_wear_id,
+		slot_w_uniform,
+		slot_wear_suit,
+		slot_wear_mask,
+		slot_head,
+		slot_shoes,
+		slot_gloves,
+		slot_l_ear,
+		slot_r_ear,
+		slot_glasses,
+		slot_belt,
+		slot_s_store,
+		slot_tie,
+		slot_l_store,
+		slot_r_store,
+		slot_wrists,
+		slot_pants
+	))
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
 /mob/proc/slot_is_accessible(var/slot, var/obj/item/I, mob/user=null)
@@ -129,7 +130,7 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/equip_to_appropriate_slot(obj/item/W)
 	if(!istype(W)) return 0
 
-	for(var/slot in slot_equipment_priority)
+	for(var/slot in GLOB.slot_equipment_priority)
 		if(equip_to_slot_if_possible(W, slot, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 			return 1
 
@@ -178,37 +179,67 @@ var/list/slot_equipment_priority = list( \
 			return l_hand
 		return
 
-//Puts the item into our active hand if possible. returns 1 on success.
-/mob/proc/put_in_active_hand(var/obj/item/W)
-	return 0 // Moved to human procs because only they need to use hands.
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_active_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
 
-//Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/proc/put_in_inactive_hand(var/obj/item/W)
-	return 0 // As above.
+	return FALSE
 
-//Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
-//If both fail it drops it on the floor and returns 0.
-//This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
-	if(!W || !istype(W))
-		return 0
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_inactive_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return FALSE
+
+/**
+ * Puts the item in an active hand if possible, failing that it tries an inactive hand
+ *
+ * If both fails, it drops the item on the floor and returns `FALSE`
+ *
+ * * item_to_equip - An `obj/item` to try to equip
+ * * check_adjacency - A boolean, if `TRUE` it checks if the mob is adjacent to the target
+ *
+ * Returns `TRUE` on successful equip on an hand, `FALSE` otherwise
+ */
+/mob/proc/put_in_hands(obj/item/item_to_equip, check_adjacency = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(item_to_equip))
+		return FALSE
+
+	if(!istype(item_to_equip))
+		return FALSE
+
 	var/move_to_src = TRUE
 	if(check_adjacency)
 		move_to_src = FALSE
-		var/turf/origin = get_turf(W)
+		var/turf/origin = get_turf(item_to_equip)
 		if(Adjacent(origin))
 			move_to_src = TRUE
 	if(move_to_src)
-		W.forceMove(get_turf(src))
+		item_to_equip.forceMove(get_turf(src))
 	else
-		W.forceMove(get_turf(W))
-	W.reset_plane_and_layer()
-	W.dropped(src)
-	return 0
+		item_to_equip.forceMove(get_turf(item_to_equip))
+	item_to_equip.reset_plane_and_layer()
+	item_to_equip.dropped(src)
+
+	return FALSE
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target, update_icons = TRUE, force = FALSE)
 	if(W)
 		remove_from_mob(W)
 		if(!(W && W.loc))
@@ -216,7 +247,8 @@ var/list/slot_equipment_priority = list( \
 		if(target)
 			W.forceMove(target)
 		W.do_drop_animation(src)
-		update_icon()
+		if(update_icons)
+			update_icon()
 		return TRUE
 	return FALSE
 
@@ -324,8 +356,10 @@ var/list/slot_equipment_priority = list( \
 	return 1
 
 
-//Attemps to remove an object on a mob.
+///Attemps to remove an object on a mob
 /mob/proc/remove_from_mob(var/obj/O)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	src.u_equip(O)
 	if (src.client)
 		src.client.screen -= O
@@ -347,15 +381,24 @@ var/list/slot_equipment_priority = list( \
 		if(slot_wear_mask) return wear_mask
 	return null
 
-//Outdated but still in use apparently. This should at least be a human proc.
-/mob/proc/get_equipped_items(var/include_carried = 0)
+/**
+ * Used to return a list of equipped items on a human mob; does not by default include held items, see include_flags
+ *
+ * Argument(s):
+ * * Optional - include_flags, (see `code\__DEFINES\obj_flags.dm`) describes which optional things to include or not (pockets, accessories, held items)
+ */
+/mob/proc/get_equipped_items(include_flags = NONE)
 	. = list()
-	if(back) . += back
-	if(wear_mask) . += wear_mask
+	if(back)
+		. += back
+	if(wear_mask)
+		. += wear_mask
 
-	if(include_carried)
-		if(l_hand) . += l_hand
-		if(r_hand) . += r_hand
+	if(include_flags & INCLUDE_HELD)
+		if(l_hand)
+			. += l_hand
+		if(r_hand)
+			. += r_hand
 
 
 
@@ -364,7 +407,7 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/living/carbon/throw_item(atom/target)
-	if(stat || !target || istype(target, /obj/screen))
+	if(stat || !target || istype(target, /atom/movable/screen))
 		return FALSE
 
 	var/atom/movable/item = src.get_active_hand()
@@ -379,22 +422,27 @@ var/list/slot_equipment_priority = list( \
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
+			var/grabber_strength = get_effective_mass() * mob_strength
+			if(M.mass > grabber_strength)
+				to_chat(src, SPAN_WARNING("[M] is heavier (or more unwieldy) than your limit of [grabber_strength]kg, you cannot throw them!"))
+				return
+
 			throw_range = round(throw_range * (src.mob_size/M.mob_size))
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				if(is_pacified())
-					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
 					src.remove_from_mob(item)
 					item.loc = src.loc
 					return TRUE
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>")
-				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
+				M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>"
+				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>"
+				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
 		else
@@ -407,7 +455,7 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
-	if(item.too_heavy_to_throw())
+	if(item.too_heavy_to_throw() && !(a_intent == I_HELP && Adjacent(target)))
 		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))
@@ -452,12 +500,12 @@ var/list/slot_equipment_priority = list( \
 		return TRUE
 
 	if(is_pacified())
-		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		to_chat(src, SPAN_NOTICE("You set [item] down gently on the ground."))
 		return TRUE
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
@@ -480,8 +528,8 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
-	for(var/obj/item/I as anything in get_equipped_items(include_carried))
-		drop_from_inventory(I)
+	for(var/obj/item/I as anything in get_equipped_items(include_carried ? INCLUDE_POCKETS|INCLUDE_HELD : 0))
+		drop_from_inventory(I, null, FALSE)
 		qdel(I)
 
 /mob/proc/get_covering_equipped_items(var/body_parts)

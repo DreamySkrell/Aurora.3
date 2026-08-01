@@ -7,7 +7,7 @@
 /datum/uplink_item/item/medical/sinpockets
 	name = "Box of Sin-Pockets"
 	bluecrystal_cost = 1
-	path = /obj/item/storage/box/sinpockets
+	path = /obj/item/storage/box/unique/donkpockets/sinpockets
 
 /datum/uplink_item/item/medical/lunchbox
 	name = "Tactical Lunchbox"
@@ -19,6 +19,7 @@
 	bluecrystal_cost = 3
 	item_limit = 2
 	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. In the short-term, it will save your life; in the long term, the cancerous tumours immediately onset by the drug will invariable cause death down the line."
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
@@ -38,8 +39,8 @@
 /datum/uplink_item/item/medical/medicalbelt
 	name = "Fully Loaded Combat Medical Belt"
 	bluecrystal_cost = 3
-	path = /obj/item/storage/belt/medical/first_responder/combat/full
-	desc = "A fully loaded medical belt even Zeng-Hu's top First Responders would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
+	path = /obj/item/storage/belt/medical/paramedic/combat/full
+	desc = "A fully loaded medical belt even Zeng-Hu's top paramedics would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
 
 /datum/uplink_item/item/medical/defib
 	name = "Combat Defibrillator"
@@ -60,7 +61,7 @@
 
 /datum/uplink_item/item/medical/berserk_injectors
 	name = "Box of Berserk Injectors"
-	bluecrystal_cost = 4
+	telecrystal_cost = 4
 	path = /obj/item/storage/box/syndie_kit/berserk_injectors
 	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. You cannot use advanced tools (guns/computer consoles/etc.) while berserk. Using both injectors will increase time berserk, but will lead to liver failure."
 
@@ -87,6 +88,12 @@
 	bluecrystal_cost = 1
 	path = /obj/item/storage/firstaid/adv
 	desc = "Note: doesn't come with a medical scanner."
+
+/datum/uplink_item/item/medical/nanopaste
+	name = "Nanopaste"
+	bluecrystal_cost = 4
+	path = /obj/item/stack/nanopaste
+	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 
 /datum/uplink_item/item/medical/bloodpack
 	name = "O- blood pack"

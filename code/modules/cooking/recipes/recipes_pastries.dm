@@ -3,27 +3,81 @@
 
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 /singleton/recipe/muffin
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/dough,
 	)
 	result = /obj/item/reagent_containers/food/snacks/muffin
 	result_quantity = 6
 
-/singleton/recipe/berrymuffin
-	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
-	reagent_mix = RECIPE_REAGENT_REPLACE
+/singleton/recipe/muffin/berry
+	fruit = list("berries" = 2)
+	result = /obj/item/reagent_containers/food/snacks/muffin/berry
+
+/singleton/recipe/muffin/chocolate
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
 	)
-	fruit = list("berries" = 2)
-	result = /obj/item/reagent_containers/food/snacks/berrymuffin
-	result_quantity = 6
+	result = /obj/item/reagent_containers/food/snacks/muffin/chocolate
+
+/singleton/recipe/muffin/whitechocolate
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/whitechocolate,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/whitechocolate
+
+/singleton/recipe/muffin/cheese
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/cheese
+
+/singleton/recipe/muffin/cheese/honkers
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers,
+	)
+
+/singleton/recipe/muffin/butter
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/butter
+
+/singleton/recipe/muffin/raisin
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/no_raisin,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/raisin
+
+/singleton/recipe/muffin/meat
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/meat,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/meat
+
+/singleton/recipe/muffin/meat/meatsnack
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/meatsnack,
+	)
 
 ////////////////////////////////////////////PANCAKES////////////////////////////////////////////
 
@@ -55,14 +109,14 @@
 	result = /obj/item/reagent_containers/food/snacks/waffles
 
 /singleton/recipe/soywafers
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("soybeans" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soywafers
 
 /singleton/recipe/rofflewaffles
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drugs/psilocybin = 5, /singleton/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -151,6 +205,18 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/storage/box/fancy/food/cakepopjar
 
+/singleton/recipe/cranberry_orange_rolls
+	appliance = OVEN
+	fruit = list("cranberries" = 1, "orange"  = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cranberry_orange_rolls
+
 // Cakes.
 //============
 /singleton/recipe/cake
@@ -164,10 +230,7 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/carrot
 
 /singleton/recipe/cake/cheese
-	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
-	)
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/flour = 15, /singleton/reagent/sugar = 15, /singleton/reagent/nutriment/protein/egg = 9, /singleton/reagent/nutriment/protein/cream_cheese = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
 
 /singleton/recipe/cake/orange
@@ -203,9 +266,8 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
 
 /singleton/recipe/cake/ntella_cheesecake
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10)
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10, /singleton/reagent/nutriment/protein/cream_cheese = 10)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,
@@ -270,6 +332,12 @@
 	fruit = list("cherries" = 1)
 	reagents = list(/singleton/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/cherrypie
+
+/singleton/recipe/pie/cranberry
+	fruit = list("cranberries" = 1)
+	reagents = list(/singleton/reagent/sugar = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 
 /singleton/recipe/pie/amanita
 	fruit = null

@@ -7,14 +7,17 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/pirate_moonshine.dmm")
+
+	prefix = "konyang/"
+	suffix = "pirate_moonshine.dmm"
+
+	unit_test_groups = list(2)
 
 
 /area/konyang_pirate_moonshine
 	name = "Konyang Moonshiner Den"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS

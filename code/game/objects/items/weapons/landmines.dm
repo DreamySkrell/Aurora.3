@@ -5,7 +5,17 @@
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
-	var/deactivated = FALSE // add wire to re-activate
+	/// Add wire to re-activate
+	var/deactivated = FALSE
+
+/obj/item/landmine/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/landmine/update_icon()
 	..()
@@ -23,7 +33,7 @@
 		return
 
 	layer = ABOVE_TILE_LAYER
-	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You hide \the [src]."))
 
 
 /obj/item/landmine/attack_self(mob/user)
@@ -33,14 +43,14 @@
 		return
 	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
-			"<span class='danger'>[user] starts to deploy \the [src].</span>",
-			"<span class='danger'>You begin deploying \the [src]!</span>"
+			SPAN_DANGER("[user] starts to deploy \the [src]."),
+			SPAN_DANGER("You begin deploying \the [src]!")
 			)
 
 		if (do_after(user, 6 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 			user.visible_message(
-				"<span class='danger'>[user] has deployed \the [src].</span>",
-				"<span class='danger'>You have deployed \the [src]!</span>"
+				SPAN_DANGER("[user] has deployed \the [src]."),
+				SPAN_DANGER("You have deployed \the [src]!")
 				)
 
 			deploy(user)
@@ -74,23 +84,25 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
-	if(deployed || ignore_deployment)
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+/obj/item/landmine/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(deployed)
+		if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
-				..()
 				return
-		if(isliving(AM))
-			var/mob/living/L = AM
+		if(isliving(arrived))
+			var/mob/living/L = arrived
+			if(L.pass_flags & PASSTABLE)
+				return
 			if(L.mob_size >= 5)
 				L.visible_message(
-					"<span class='danger'>[L] steps on \the [src].</span>",
-					"<span class='danger'>You step on \the [src]!</span>",
-					"<span class='danger'>You hear a mechanical click!</span>"
+					SPAN_DANGER("[L] steps on \the [src]."),
+					SPAN_DANGER("You step on \the [src]!"),
+					SPAN_DANGER("You hear a mechanical click!")
 					)
 				trigger(L)
-	..()
 
 /obj/item/landmine/attack_hand(mob/user as mob)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
@@ -165,7 +177,11 @@
 	else if(attacking_item.force > 10 && deployed)
 		trigger(user)
 
-/obj/item/landmine/bullet_act()
+/obj/item/landmine/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(deployed)
 		trigger()
 
@@ -191,9 +207,80 @@
 	var/explosion_size = 3
 	var/spread_range = 7
 
+/obj/item/landmine/frag/deployed
+	deployed = TRUE
+
 /obj/item/landmine/frag/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
+	qdel(src)
+
+/**
+ * # Door Rigging Landmine
+ *
+ * A landmine that will explode when the door it is attached to opens
+ */
+/obj/item/landmine/frag/door_rigging
+	name = "door rigging landmine"
+	fragment_damage = 10
+
+	///The airlock that we are observing for when it opens, to explode
+	var/obj/structure/machinery/door/airlock/door_rigged
+
+//Prevent this mine to be used like a normal one
+/obj/item/landmine/frag/door_rigging/attack_self(mob/user)
+	to_chat(user, SPAN_ALERT("This landmine is not usable in this way, you need to apply it to a door."))
+	return
+
+/obj/item/landmine/frag/door_rigging/resolve_attackby(atom/A, mob/user, click_parameters)
+	. = ..()
+
+	if(istype(A, /obj/structure/machinery/door/airlock))
+
+		door_rigged = A
+		var/turf/turf_under_door = get_turf(door_rigged)
+
+		//Prevent people from exploding themselves by targeting a door that will open once clicked
+		if(!door_rigged.welded || !door_rigged.density || !istype(turf_under_door) || locate(/obj/item/landmine) in turf_under_door)
+			to_chat(user, SPAN_WARNING("The door is not welded, is open, is already rigged or does not have a turf below it."))
+			door_rigged = null //Clean up the var
+			return
+
+		//Take a little to do this
+		if(!do_after(user, 10 SECONDS, door_rigged))
+			door_rigged = null
+			return
+
+		RegisterSignal(door_rigged, COMSIG_QDELETING, PROC_REF(handle_door_qdel))
+
+		deploy(user)
+		src.forceMove(turf_under_door)
+
+		activate(user)
+
+		START_PROCESSING(SSfast_process, src)
+
+/obj/item/landmine/frag/door_rigging/deactivate(mob/user)
+	STOP_PROCESSING(SSfast_process, src)
+	door_rigged = null
+	. = ..()
+
+/obj/item/landmine/frag/door_rigging/process(seconds_per_tick)
+	if(QDELETED(door_rigged))
+		STOP_PROCESSING(SSfast_process, src)
+		qdel(src)
+
+	//If the door isn't dense, it means it is open, explode
+	if(!door_rigged.density)
+		STOP_PROCESSING(SSfast_process, src)
+		trigger(null)
+
+///Clear the reference and delete the mine if the door gets deleted
+/obj/item/landmine/frag/door_rigging/proc/handle_door_qdel()
+	SIGNAL_HANDLER
+
+	door_rigged = null
+	STOP_PROCESSING(SSfast_process, src)
 	qdel(src)
 
 /**
@@ -220,6 +307,9 @@
 /obj/item/landmine/phoron
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/phoron/deployed
+	deployed = TRUE
+
 /obj/item/landmine/phoron/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -238,6 +328,9 @@
 /obj/item/landmine/n2o
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/n2o/deployed
+	deployed = TRUE
+
 /obj/item/landmine/n2o/trigger(mob/living/L)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -253,6 +346,9 @@
  */
 /obj/item/landmine/emp
 	icon_state = "emplandmine"
+
+/obj/item/landmine/emp/deployed
+	deployed = TRUE
 
 /obj/item/landmine/emp/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
@@ -271,6 +367,15 @@
 	icon_state = "standstill"
 	var/engaged_by = null
 
+/obj/item/landmine/standstill/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/landmine/standstill/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	engaged_by = null
@@ -279,7 +384,7 @@
 /obj/item/landmine/standstill/trigger(mob/living/triggerer)
 	if(!engaged_by && !deactivated)
 		to_chat(triggerer, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
-		engaged_by = ref(triggerer)
+		engaged_by = REF(triggerer)
 
 		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
 		//keep looking if the victim is still on the mine, and otherwise explode the mine
@@ -291,12 +396,12 @@
 	else
 		late_trigger(locate(engaged_by))
 
-/obj/item/landmine/standstill/Uncrossed(O)
-	. = ..()
+/obj/item/landmine/standstill/proc/on_exited(datum/source, atom/movable/gone, direction)
+	SIGNAL_HANDLER
 
 	//Oh no...
-	if(engaged_by && O == locate(engaged_by))
-		var/mob/living/victim = O
+	if(engaged_by && gone == locate(engaged_by))
+		var/mob/living/victim = gone
 		to_chat(victim, SPAN_HIGHDANGER("The mine clicks below your feet."))
 		addtimer(CALLBACK(src, PROC_REF(late_trigger), victim), 1 SECONDS)
 
@@ -321,7 +426,7 @@
 		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
-		explosion(loc, 2, 5, 7, world.view)
+		explosion(loc, 2, 3, 5, world.view)
 		qdel(src)
 
 /obj/item/landmine/standstill/deactivate(mob/user)
@@ -350,11 +455,14 @@
 	desc = "A landmine that projects sharpnels in a cone of explosion, towards one direction."
 	desc_extended = "A household name, this mine finds extensive use amongst military forces due to its ability to provide area penetration denial and aid ambushes. \
 	It is narrated that Gadpathur, its largest manufacturer in modern times, have built more of these mines than the census of the core planets of the Solarian Alliance."
-	desc_info = "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 	icon = 'icons/obj/item/landmine/claymore.dmi'
 	icon_state = "m20"
 	var/datum/wires/landmine/claymore/trigger_wire
-	var/obj/item/device/assembly/signaler/signaler
+	var/obj/item/assembly/signaler/signaler
+
+/obj/item/landmine/claymore/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 
 /obj/item/landmine/claymore/Initialize(mapload, ...)
 	. = ..()
@@ -370,7 +478,7 @@
 	icon_state = (src.deployed) ? "[initial(icon_state)]_active" : initial(icon_state)
 
 /obj/item/landmine/claymore/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/assembly/signaler))
+	if(istype(attacking_item, /obj/item/assembly/signaler))
 		if(!isnull(signaler))
 			to_chat(user, SPAN_NOTICE("There is already a signaler inserted in \the [src]."))
 			return
@@ -384,7 +492,7 @@
 	else
 		. = ..()
 
-/obj/item/landmine/claymore/Crossed(AM, ignore_deployment)
+/obj/item/landmine/claymore/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	return //Does nothing with mere crossing over
 
 /obj/item/landmine/claymore/deploy(mob/deployer)
@@ -401,8 +509,8 @@
 	for(var/i = 0; i < SHOTS_TO_LAUNCH; i++)
 		var/turf/to_hit = pick(candidate_turfs)
 
-		var/obj/item/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
-		pellet.fire(Get_Angle(get_turf(src), to_hit))
+		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
+		pellet.fire(get_angle(get_turf(src), to_hit))
 
 	qdel(src)
 

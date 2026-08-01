@@ -9,6 +9,8 @@
 	name = "tray"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "tray"
+	item_state = "tray"
+	contained_sprite = TRUE
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
 	force = 15
@@ -16,10 +18,10 @@
 	throw_range = 5
 	w_class = 3.0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	matter = list(DEFAULT_WALL_MATERIAL = 3000)
+	matter = list(MATERIAL_STEEL = 3000)
 	recyclable = TRUE
-	hitsound = /singleton/sound_category/bottle_hit_broken
-	drop_sound = /singleton/sound_category/bottle_hit_broken
+	hitsound = SFX_BOTTLE_HIT_BROKEN
+	drop_sound = SFX_BOTTLE_HIT_BROKEN
 	var/max_carry = 20
 	var/current_weight = 0
 	var/cooldown = 0	//shield bash cooldown. based on world.time
@@ -70,7 +72,7 @@
 /obj/item/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = TRUE, var/click_params)
 	if(!I || (I in contents))
 		return
-	if(I == src || I.anchored || istype(I, /obj/item/projectile))
+	if(I == src || I.anchored || istype(I, /obj/projectile))
 		return
 	if(istype(I, /obj/item/tray))
 		var/obj/item/tray/T = I
@@ -106,8 +108,8 @@
 	current_weight += I.w_class
 	add_vis_contents(I)
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, PROC_REF(pick_up))
-	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))
+	RegisterSignal(I, COMSIG_ITEM_EQUIPPED, PROC_REF(pick_up))
+	RegisterSignal(I, COMSIG_QDELETING, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -144,7 +146,8 @@
 	unload_item(contained, moved_to)
 
 /obj/item/tray/proc/unload_item(var/obj/item/contained, var/atom/dropspot = null)
-	item_equipped_event.unregister(contained, src)
+	UnregisterSignal(contained, COMSIG_ITEM_EQUIPPED)
+	UnregisterSignal(contained, COMSIG_QDELETING)
 	if(dropspot)
 		contained.forceMove(dropspot)
 	vis_contents.Remove(contained)
@@ -182,7 +185,7 @@
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
-	playsound(dropspot, /singleton/sound_category/tray_hit_sound, 50, 1)
+	playsound(dropspot, SFX_TRAY_HIT, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)

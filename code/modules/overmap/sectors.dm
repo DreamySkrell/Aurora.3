@@ -1,18 +1,22 @@
 //===================================================================================
 //Overmap object representing zlevel(s)
 //===================================================================================
-var/global/area/overmap/map_overmap // Global object used to locate the overmap area.
+/// Global object used to locate the overmap area.
+GLOBAL_DATUM(map_overmap, /area/overmap)
 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
 	sensor_range_override = TRUE
-	var/designation //Actual name of the object.
-	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	/// Actual name of the object.
+	var/designation
+	/// Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	var/class
 	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
-	var/obfuscated = FALSE //Whether we hide our name and class or not.
+	/// Whether we hide our name and class or not.
+	var/obfuscated = FALSE
 
 	/// Landmark tags of landmarks that should be added to the actual lists below on init.
 	/// Generic, meaning usable by any shuttle.
@@ -25,24 +29,30 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Can contain nested lists, as it is flattened on init.
 	var/list/tracked_dock_tags
 
-	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
-	var/list/restricted_waypoints = list() //waypoints for specific shuttles
+	/// Waypoints that any shuttle can use
+	var/list/generic_waypoints = list()
+	/// Waypoints for specific shuttles
+	var/list/restricted_waypoints = list()
 
-	var/start_x			//Coordinates for self placing
-	var/start_y			//will use random values if unset
+	/// Coordinates for self placing
+	var/start_x
+	/// Will use random values if unset
+	var/start_y
 
-	var/base = 0		//starting sector, counts as station_levels
-	var/in_space = 1	//can be accessed via lucky EVA
+	/// Starting sector, counts as station_levels
+	var/base = FALSE
+	/// Can be accessed via lucky EVA
+	var/in_space = TRUE
 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
 
 	var/targeting_flags = TARGETING_FLAG_ENTRYPOINTS|TARGETING_FLAG_GENERIC_WAYPOINTS
-	var/list/obj/machinery/ship_weapon/ship_weapons
+	var/list/obj/structure/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
-	var/obj/machinery/leviathan_safeguard/levi_safeguard
-	var/obj/machinery/gravity_generator/main/gravity_generator
+	var/obj/structure/machinery/leviathan_safeguard/levi_safeguard
+	var/obj/structure/machinery/gravity_generator/main/gravity_generator
 
 	/// Whether ghostroles attached to this overmap object spawn with comms
 	var/comms_support = FALSE
@@ -52,11 +62,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/freq_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
-	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	/// list of weakrefs to people viewing the overmap via this ship
+	var/list/navigation_viewers
 	var/list/consoles
 
-	var/list/datalink_requests = list()// A list of datalink requests that we received
-	var/list/datalinked        = list()// Other effects that we are datalinked with
+	/// A list of datalink requests that we received
+	var/list/datalink_requests = list()
+	/// Other effects that we are datalinked with
+	var/list/datalinked        = list()
 
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main
@@ -78,6 +91,40 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
+	move_to_starting_location()
+
+	update_name()
+
+	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+
+	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
+	SSshuttle.clear_init_queue()
+	START_PROCESSING(SSovermap, src)
+
+/obj/effect/overmap/visitable/process()
+	if(get_dist(src, targeting) > 7)
+		detarget(targeting)
+
+/obj/effect/overmap/visitable/Destroy()
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+		if(H.linked == src)
+			H.linked = null
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
+		if(T.linked == src)
+			T.linked = null
+	if(entry_points)
+		entry_points.Cut()
+	for(var/obj/structure/machinery/ship_weapon/SW in ship_weapons)
+		SW.linked = null
+	if(ship_weapons)
+		ship_weapons.Cut()
+	targeting = null
+	levi_safeguard = null
+	gravity_generator = null
+	STOP_PROCESSING(SSovermap, src)
+	. = ..()
+
+/obj/effect/overmap/visitable/proc/move_to_starting_location()
 	var/map_low = OVERMAP_EDGE
 	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
@@ -97,42 +144,11 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(!invisible_until_ghostrole_spawn)
 		forceMove(home)
 
-	update_name()
-
-	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
-
-	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
-	SSshuttle.clear_init_queue()
-	START_PROCESSING(SSovermap, src)
-
-/obj/effect/overmap/visitable/process()
-	if(get_dist(src, targeting) > 7)
-		detarget(targeting)
-
-/obj/effect/overmap/visitable/Destroy()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
-		if(H.linked == src)
-			H.linked = null
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
-		if(T.linked == src)
-			T.linked = null
-	if(entry_points)
-		entry_points.Cut()
-	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
-		SW.linked = null
-	if(ship_weapons)
-		ship_weapons.Cut()
-	targeting = null
-	levi_safeguard = null
-	gravity_generator = null
-	STOP_PROCESSING(SSovermap, src)
-	. = ..()
-
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		T.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
@@ -149,7 +165,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(!in_space)
 		SSatlas.current_map.sealed_levels |= map_z
 	if(base)
-		SSatlas.current_map.station_levels |= map_z
+		// SSatlas.current_map.station_levels |= map_z
 		SSatlas.current_map.contact_levels |= map_z
 		SSatlas.current_map.map_levels |= map_z
 
@@ -191,10 +207,10 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(has_called_distress_beacon)
 		var/image/distress_overlay = image('icons/obj/overmap/overmap_effects.dmi', "distress")
 		applied_distress_overlay = distress_overlay
-		add_overlay(applied_distress_overlay)
+		AddOverlays(applied_distress_overlay)
 		filters = filter(type = "outline", size = 2, color = COLOR_RED)
 	else
-		cut_overlay(applied_distress_overlay)
+		CutOverlays(applied_distress_overlay)
 		filters = null
 
 /obj/effect/overmap/visitable/proc/update_name()
@@ -204,6 +220,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(comms_support)
 		update_away_freq(name, get_real_name())
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()
@@ -236,10 +253,17 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Lore planets and static away sites that are planets should keep it to static text trivia.
 	/// For random planets, should be filled with random trivia or blurbs or the like.
 	var/ground_survey_result = null
+	/// Fluff descriptions found from soil sampling
+	var/list/soil_data = list()
+	/// Fluff desctiptions found on water sampling
+	var/list/water_data = list()
+	/// Magnetic survey result for use by survey probes. Randomly generated by most planets. Lore planets should have static text.
+	var/magnet_survey_result = null
 
 /obj/effect/overmap/visitable/sector/Initialize()
 	. = ..()
 	generate_ground_survey_result()
+	generate_magnet_survey_result()
 
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
@@ -255,25 +279,28 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/sector/proc/generate_ground_survey_result()
 	ground_survey_result = ""
 
+/obj/effect/overmap/visitable/sector/proc/generate_magnet_survey_result()
+	magnet_survey_result = ""
+
 /proc/build_overmap()
+	set waitfor = FALSE
 	if(!SSatlas.current_map.use_overmap)
 		return 1
 
 	log_module_sectors("Building overmap...")
-	world.maxz++
-	SSatlas.current_map.overmap_z = world.maxz
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/overmap_spacelevel = SSmapping.add_new_zlevel("Overmap", ZTRAITS_OVERMAP, contain_turfs = FALSE)
+	SSatlas.current_map.overmap_z = overmap_spacelevel.z_value
 
 	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new
-	global.map_overmap = A
+	GLOB.map_overmap = A
 	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		var/turf/T = square
 		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 
 	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 

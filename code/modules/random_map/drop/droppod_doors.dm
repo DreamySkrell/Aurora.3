@@ -20,18 +20,18 @@
 		return
 	attack_hand(user)
 
-/obj/structure/droppod_door/attack_generic(var/mob/user)
+/obj/structure/droppod_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	attack_hand(user)
 
 /obj/structure/droppod_door/attack_hand(var/mob/user)
 	if(deploying || deployed) return
-	to_chat(user, "<span class='danger'>You prime the explosive bolts. Better get clear!</span>")
+	to_chat(user, SPAN_DANGER("You prime the explosive bolts. Better get clear!"))
 	sleep(30)
 	deploy()
 
 /obj/structure/droppod_door/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -56,7 +56,7 @@
 		return
 
 	deployed = 1
-	visible_message("<span class='danger'>The explosive bolts on \the [src] detonate, throwing it open!</span>")
+	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"))
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 
 	// This is shit but it will do for the sake of testing.

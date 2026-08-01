@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/dir_pin.dm
+ * Direction pin conversion and validation for BYOND direction constants.
+ */
+
 // These pins can only contain directions (1,2,4,8...) or null.
 /datum/integrated_io/dir
 	name = "dir pin"
@@ -16,7 +21,7 @@
 	Up = [UP],\n\
 	Down = [DOWN]","[src] dir writing") as null|num
 	if(isnum(new_data) && holder.check_interactivity(user) )
-		to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
+		to_chat(user, SPAN_NOTICE("You input [new_data] into the pin."))
 		write_data_to_pin(new_data)
 
 /datum/integrated_io/dir/write_data_to_pin(var/new_data)

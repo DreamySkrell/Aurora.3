@@ -3,26 +3,30 @@
 	desc = "The by-product of some animal farming."
 	singular_name = "hide piece"
 	icon_state = "sheet-hide"
-	default_type = "hide"
-	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	default_type = MATERIAL_HIDE
+	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
+
+/obj/item/stack/material/animalhide/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bare)
+		. += "You could use a bladed item on this to scrape it clean, the first step in creating leather sheets."
 
 /obj/item/stack/material/animalhide/human
 	name = "human skin"
 	desc = "The by-product of human farming."
 	singular_name = "human skin piece"
-	default_type = "human hide"
+	default_type = MATERIAL_HIDE_HUMAN
 
 /obj/item/stack/material/animalhide/corgi
 	name = "corgi hide"
 	desc = "The by-product of corgi farming."
 	singular_name = "corgi hide piece"
 	icon_state = "sheet-corgi"
-	default_type = "corgi hide"
+	default_type = MATERIAL_HIDE_CORGI
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/cat
@@ -30,7 +34,7 @@
 	desc = "The by-product of cat farming."
 	icon_state = "sheet-cat"
 	singular_name = "cat hide piece"
-	default_type = "cat hide"
+	default_type = MATERIAL_HIDE_CAT
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/monkey
@@ -38,7 +42,7 @@
 	desc = "The by-product of monkey farming."
 	singular_name = "monkey hide piece"
 	icon_state = "sheet-monkey"
-	default_type = "monkey hide"
+	default_type = MATERIAL_HIDE_MONKEY
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/lizard
@@ -46,42 +50,47 @@
 	desc = "Sssssss..."
 	singular_name = "lizard skin piece"
 	icon_state = "sheet-lizard"
-	default_type = "lizard hide"
+	default_type = MATERIAL_HIDE_LIZARD
 	icon_has_variants = FALSE
 	hide_type = "scales"
 
 /obj/item/stack/material/animalhide/barehide
 	name = "bare hide"
 	desc = "A hide without fur or scales. Can be tanned into leather."
-	desc_info = "You can put this into a washing machine to make wet leather, which is the first step in making it into leather sheets."
 	singular_name = "bare hide piece"
 	icon_state = "sheet-hairlesshide"
-	default_type = "bare hide"
+	default_type = MATERIAL_HIDE_BARE
 	bare = TRUE
+
+/obj/item/stack/material/animalhide/barehide/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can put this into a washing machine to make wet leather, another key step in making it into leather sheets."
 
 /obj/item/stack/material/animalhide/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
-	desc_info = "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
-	default_type = "wet leather"
+	default_type = MATERIAL_WET_LEATHER
 	icon_has_variants = TRUE
 	bare = TRUE
 	var/wetness = 30 //Reduced when exposed to high temperautres or manually dried with a welding tool.
 	var/drying_threshold_temperature = 500 //Kelvin to start drying from exposed fire.
 	var/being_dried = FALSE //If we're manually drying this.
 
+/obj/item/stack/material/animalhide/wetleather/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
+
 //Wet leather can't be used to make things. Too soggy.
 /obj/item/stack/material/animalhide/wetleather/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
 	to_chat(user, SPAN_WARNING("\The [src] isn't suitable for crafting!"))
 	return
 
-
 //Animal Hide to leather steps
 //Step one - dehairing.
 /obj/item/stack/material/animalhide/attackby(obj/item/attacking_item, mob/user)
-	if(is_sharp(attacking_item) && !attacking_item.noslice && !attacking_item.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
+	if(is_sharp(attacking_item) && !attacking_item.noslice && attacking_item.tool_behaviour != TOOL_WIRECUTTER) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
 		if(bare)
 			to_chat(user, SPAN_WARNING("There's nothing left to remove from \the [src]!"))
 			return
@@ -114,7 +123,7 @@
 //Step two - washing..... it's actually in washing machine code.
 
 //Step three - drying
-/obj/item/stack/material/animalhide/wetleather/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/stack/material/animalhide/wetleather/fire_act(exposed_temperature, exposed_volume)
 	..()
 	if(exposed_temperature >= drying_threshold_temperature)
 		wetness--
@@ -122,7 +131,7 @@
 			make_leather()
 
 /obj/item/stack/material/animalhide/wetleather/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			if(being_dried)

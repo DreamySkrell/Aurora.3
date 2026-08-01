@@ -16,13 +16,13 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
-/obj/item/clothing/head/beret/peaked/colourable
+/obj/item/clothing/head/beret/peaked/colorable
 	name = "peaked beret"
 	desc = "A peaked beret."
 	icon_state = "beret_peaked_colourable"
 	item_state = "beret_peaked_colourable"
 
-/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
+/obj/item/clothing/head/beret/peaked/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
 
@@ -184,37 +184,37 @@
 
 // TCAF
 
-/obj/item/clothing/head/beret/legion
-	name = "\improper TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "tcfl_dress"
-	item_state = "tcfl_dress"
-
-/obj/item/clothing/head/beret/legion/field
-	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "tcfl_field"
-	item_state = "tcfl_field"
-
-/obj/item/clothing/head/beret/legion/sentinel
-	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "tcfl_sentinel"
-	item_state = "tcfl_sentinel"
-
-/obj/item/clothing/head/beret/legion/tcaf
+/obj/item/clothing/head/beret/tcaf
 	name = "\improper TCAF dress beret"
-	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Worn by service members of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_dress_beret"
 	item_state = "tcaf_dress_beret"
 
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+/obj/item/clothing/head/beret/tcaf/field
 	name = "\improper TCAF field beret"
-	desc = "A red beret bearing a golden torch in semblance of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
+	desc = "A red beret bearing a golden badge of one of the TCAF's main legions. Worn by service members of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_field_beret"
 	item_state = "tcaf_field_beret"
+
+/obj/item/clothing/head/beret/tcaf/foreign_legion
+	name = "\improper TCAF foreign legions dress beret"
+	desc = "A bright blue, red-rimmed dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
+	icon_state = "tcaf_fl_dress"
+	item_state = "tcfl_dress"
+
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field
+	name = "TCAF foreign legions field beret"
+	desc = "A bright blue, red-rimmed field beret with the bronze badge of one of the TCAF's foreign legions."
+	icon_state = "tcaf_fl_field"
+	item_state = "tcaf_fl_field"
+
+/obj/item/clothing/head/beret/tcaf/elite_espatier // ONLY FOR TORVALD'S STRONGEST WARRIORS
+	name = "TCAF elite espatier beret"
+	desc = "A tyrian purple beret with the platinum badge of one of the Republic Espatier's elite espatier centuries. You must really love the Republic!"
+	icon_state = "tcaf_elite_espatier"
+	item_state = "tcaf_elite_espatier"
 
 //centcom
 
@@ -241,3 +241,31 @@
 	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of NanoTrasen response teams."
 	icon_state = "centcomcaptain"
 	item_state = "centcomcaptain"
+
+// Factional
+
+/obj/item/clothing/head/beret/sol/army
+	name = "solarian army beret"
+	desc = "A sky-blue Army beret with a white trim, proudly displaying a golden emblem of the Alliance."
+	desc_extended = "While a common sight in the Alliance's more rebellious or devastated worlds such as Mars, the Army beret became a potent symbol of Sol's triumph in the civil war. Nowhere else in the Spur are the blue berets more omnipresent than with peacekeepers on the former capital of the Restoration Front - Lycoris."
+	icon_state = "sapk"
+	item_state = "sapk"
+
+/obj/item/clothing/head/beret/sol
+	name = "sol marine beret"
+	desc = "A green beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "sol"
+	item_state = "sol"
+
+/obj/item/clothing/head/beret/sol/grey
+	name = "sol marine beret"
+	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
+	icon_state = "solgrey"
+	item_state = "solgrey"
+
+/obj/item/clothing/head/beret/lancer
+	name = "\improper Ceres Lance beret"
+	desc = "A white beret with the attached badge of Ceres Lance - the infamous synthetic-hunting mercenary group."
+	icon_state = "lancer"
+	item_state = "lancer"
+

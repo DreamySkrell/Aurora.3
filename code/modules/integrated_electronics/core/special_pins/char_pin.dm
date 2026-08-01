@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/char_pin.dm
+ * Character/string single-character pin behavior and validation.
+ */
+
 // These pins can only contain a 1 character string or null.
 /datum/integrated_io/char
 	name = "char pin"
@@ -5,7 +10,7 @@
 /datum/integrated_io/char/ask_for_pin_data(mob/user)
 	var/new_data = sanitize(input("Please type in one character.","[src] char writing") as null|text)
 	if(holder.check_interactivity(user) )
-		to_chat(user, "<span class='notice'>You input [new_data ? "'[new_data]'" : "NULL"] into the pin.</span>")
+		to_chat(user, SPAN_NOTICE("You input [new_data ? "'[new_data]'" : "NULL"] into the pin."))
 		write_data_to_pin(new_data)
 
 /datum/integrated_io/char/write_data_to_pin(var/new_data)

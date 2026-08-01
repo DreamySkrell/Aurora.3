@@ -16,7 +16,7 @@
 	uses = rand(1, 5)
 	..()
 
-/obj/item/implant/freedom/activate(cause)
+/obj/item/implant/freedom/activate()
 	if(malfunction || !imp_in)
 		return
 	if(uses < 1)
@@ -29,9 +29,7 @@
 		if(C_imp_in.handcuffed)
 			var/obj/item/W = C_imp_in.handcuffed
 			C_imp_in.handcuffed = null
-			if(C_imp_in.buckled_to && C_imp_in.buckled_to.buckle_require_restraints)
-				C_imp_in.buckled_to.unbuckle()
-			C_imp_in.update_inv_handcuffed()
+			C_imp_in.handcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -42,7 +40,7 @@
 		if(C_imp_in.legcuffed)
 			var/obj/item/W = C_imp_in.legcuffed
 			C_imp_in.legcuffed = null
-			C_imp_in.update_inv_legcuffed()
+			C_imp_in.legcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -75,3 +73,63 @@ No Implant Specifics"}
 /obj/item/implanter/freedom
 	name = "implanter (F)"
 	imp = /obj/item/implant/freedom
+
+/**
+ * # Teleport freedom implant
+ *
+ * This implant allows you to teleport to a linked teleporter in desperate times
+ */
+/obj/item/implant/telefreedom
+	name = "telefreedom implant"
+	desc = "Use this to teleport to a linked teleporter in desperate times. Melts after being used."
+
+	//////Edit these when you can give it an unique sprite//////
+	icon_state = "implant_freedom"
+	implant_icon = "freedom"
+
+	implant_color = "#15695b"
+	hidden = TRUE
+	default_action_type = /datum/action/item_action/hands_free/activate/implant/freedom
+	action_button_name = "Activate Telefreedom Implant"
+
+	/**
+	 * The linked telepad to teleport to, a weakref to an `/obj/structure/machinery/telepad` object
+	 */
+	var/datum/weakref/linked_telepad = null
+
+/obj/item/implant/telefreedom/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click a telepad to link your telefreedom implant to it before implanting."
+
+/obj/item/implant/telefreedom/activate()
+	if(!imp_in)
+		return
+
+	if(!linked_telepad)
+		to_chat(imp_in, SPAN_NOTICE("You need to link a telepad first."))
+		return
+
+	if(malfunction)
+		to_chat(imp_in, SPAN_WARNING("The telefreedom implant is malfunctioning!"))
+		return
+
+	//Effects
+	spark(get_turf(imp_in), 5, GLOB.alldirs)
+	var/datum/effect/effect/system/smoke_spread/smoke_effect = new /datum/effect/effect/system/smoke_spread
+	smoke_effect.set_up(4, 1, get_turf(imp_in))
+	smoke_effect.smoke_duration = 5 SECONDS
+	smoke_effect.start()
+
+	var/turf/T = get_turf(linked_telepad.resolve())
+	if(!T)
+		stack_trace("telefreedom implant: telepad turf is null")
+		return
+
+	imp_in.forceMove(T)
+	meltdown()
+
+/obj/item/implant/telefreedom/resolve_attackby(atom/A, mob/user, click_parameters)
+	. = ..()
+	if(istype(A, /obj/structure/machinery/telepad))
+		linked_telepad = WEAKREF(A)
+		to_chat(user, SPAN_NOTICE("You link the telepad to your telefreedom implant."))

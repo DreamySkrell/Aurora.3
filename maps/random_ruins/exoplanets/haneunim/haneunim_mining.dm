@@ -5,12 +5,15 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("haneunim/haneunim_mining.dmm")
+
+	prefix = "haneunim/"
+	suffix = "haneunim_mining.dmm"
+
+	unit_test_groups = list(3)
 
 /area/haneunim_mining
 	name = "Haneunim Mining Outpost"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS

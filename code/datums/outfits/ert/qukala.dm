@@ -8,7 +8,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/kala
 	back = /obj/item/storage/backpack/kala
 	suit_store = /obj/item/gun/energy/gun/qukala
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	id = /obj/item/card/id
 	backpack_contents = list(
@@ -18,16 +18,19 @@
 	species_suit = list( //bugs and trees can't use the skroidsuits
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/suit/storage/vest/kala,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/suit/storage/vest/kala,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/suit/storage/vest/kala,
 		SPECIES_DIONA = /obj/item/clothing/suit/storage/vest/kala
 	)
 	species_head = list( //until we get non-skrell kala helmets
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/head/helmet/tactical,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/head/helmet/tactical,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/head/helmet/tactical,
 		SPECIES_DIONA = /obj/item/clothing/head/helmet/tactical
 	)
 	species_shoes = list(
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca,
 		SPECIES_DIONA = null
 	)
 	belt_contents = list(
@@ -45,15 +48,12 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-		A.replaced(H, affected)
 		var/obj/item/organ/B = new /obj/item/organ/internal/augment/hiveshield/warfare(H)
 		var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 		B.replaced(H, affectedB)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
@@ -69,11 +69,12 @@
 	name = "Qukala Medic"
 	suit = /obj/item/clothing/suit/space/void/kala/med
 	head = /obj/item/clothing/head/helmet/space/void/kala/med
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/gloves/latex/nitrile/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/gloves/latex/nitrile/vaurca,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/gloves/latex/nitrile/vaurca,
 		SPECIES_DIONA = null
 	)
@@ -93,7 +94,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/telebaton/nlom = 1,
@@ -110,6 +111,7 @@
 	belt = /obj/item/storage/belt/utility/very_full
 	glasses = /obj/item/clothing/glasses/welding/superior
 	species_gloves = list(
+		SPECIES_VAURCA_ATTENDANT = null,
 		SPECIES_VAURCA_WARRIOR = null,
 		SPECIES_VAURCA_WORKER = null,
 		SPECIES_DIONA = null

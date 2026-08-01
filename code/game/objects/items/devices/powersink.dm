@@ -1,58 +1,77 @@
 // Powersink - used to drain station power
 
-/obj/item/device/powersink
+/obj/item/powersink
 	name = "power sink"
 	desc = "A nulling power sink which drains energy from electrical systems."
+	icon = 'icons/obj/item/powersink.dmi'
 	icon_state = "powersink0"
 	item_state = "powersink0"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
 
-	matter = list(DEFAULT_WALL_MATERIAL = 750)
+	matter = list(MATERIAL_STEEL = 750)
 
 	origin_tech = list(TECH_POWER = 3, TECH_ILLEGAL = 5)
-	var/drain_rate = 1500000		// amount of power to drain per tick
-	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
-	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
-	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 8e8				// Detonation point. Roughly 18 minutes with default setup.
-	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
-	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
-	var/datum/powernet/PN			// Our powernet
-	var/obj/structure/cable/attached		// the attached cable
+	/// Amount of power to drain per second, in watts
+	var/drain_rate = 1.5 MEGA WATTS
 
-/obj/item/device/powersink/Destroy()
-	STOP_PROCESSING_POWER_OBJECT(src)
-	GLOB.processing_power_items -= src
+	/// Maximum amount of power to drain from a single APW, in watts
+	var/apc_drain_rate = 50 KILO WATTS
+
+	/// Passive dissipation of drained power in Watts
+	var/dissipation_rate = 20000
+
+	/// Amount of power drained, in watts
+	var/power_drained = 04
+
+	/// Power at which the sink will explode (after having absorbed that), in watts
+	var/max_power = 800 MEGA WATTS
+
+	/// 0 = off, 1=clamped (off), 2=operating
+	var/mode = 0
+	/// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
+	var/drained_this_tick = 0
+
+	/// Our powernet
+	var/datum/powernet/PN
+	/// the attached cable
+	var/obj/structure/cable/attached
+
+/obj/item/powersink/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
+
+/obj/item/powersink/Destroy()
+	PN = null
+	attached = null
 
 	return ..()
 
-/obj/item/device/powersink/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/item/powersink/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
-					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
+					to_chat(user, SPAN_WARNING("No exposed cable here to attach to."))
 				else
 					anchored = 1
 					mode = 1
-					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
+					visible_message(SPAN_NOTICE("\The [user] attaches \the [src] to the cable!"))
 			else
-				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] must be placed over an exposed cable to attach to it."))
 			return TRUE
 		else
 			if (mode == 2)
-				STOP_PROCESSING_POWER_OBJECT(src)
-				GLOB.processing_power_items.Remove(src)
+				STOP_PROCESSING(SSprocessing, src)
 			anchored = 0
 			mode = 0
-			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
+			visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the cable!"))
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
@@ -61,30 +80,39 @@
 	else
 		return ..()
 
-/obj/item/device/powersink/attack_ai()
+/obj/item/powersink/attack_ai()
 	return
 
-/obj/item/device/powersink/attack_hand(var/mob/user)
+/obj/item/powersink/attack_hand(var/mob/user)
+	if(!mode)
+		..()
+	else
+		toggle_mode(user)
+
+/// Used to be handled in attack_hand(), but moved to its own proc to handle future signaler usage.
+/obj/item/powersink/proc/toggle_mode(var/mob/user)
 	switch(mode)
-		if(0)
-			..()
 		if(1)
-			visible_message("<span class='notice'>\The [user] activates \the [src]!</span>")
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly starts to hum!"))
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
-			START_PROCESSING_POWER_OBJECT(src)
-			GLOB.processing_power_items += src
-		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
+			START_PROCESSING(SSprocessing, src)
+		if(2)
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly goes quiet!"))
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
-			STOP_PROCESSING_POWER_OBJECT(src)
-			GLOB.processing_power_items -= src
+			STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/device/powersink/pwr_drain()
+/obj/item/powersink/proc/siphon_power(seconds_per_tick)
 	if(!attached)
 		return 0
 
@@ -97,29 +125,28 @@
 	if(!PN)
 		return 1
 
-	set_light(12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
-	drained = PN.draw_power(drain_rate)
+	drained = POWERNET_POWER_DRAW(PN, drain_rate * seconds_per_tick)
+	DRAW_FROM_POWERNET(PN, drained)
 	// if tried to drain more than available on powernet
 	// now look for APCs and drain their cells
-	if(drained < drain_rate)
-		for(var/obj/machinery/power/terminal/T in PN.nodes)
+	if(drained < drain_rate * seconds_per_tick)
+		for(var/obj/structure/machinery/power/terminal/T in PN.nodes)
 			// Enough power drained this tick, no need to torture more APCs
-			if(drained >= drain_rate)
+			if(drained >= drain_rate * seconds_per_tick)
 				break
-			if(istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/A = T.master
+			if(istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/A = T.master
 				if(A.operating && A.cell)
 					var/cur_charge = A.cell.charge / CELLRATE
-					var/drain_val = min(apc_drain_rate, cur_charge)
+					var/drain_val = min(apc_drain_rate * seconds_per_tick, cur_charge)
 					A.cell.use(drain_val * CELLRATE)
 					drained += drain_val
 	power_drained += drained
 	return 1
 
-
-/obj/item/device/powersink/process()
+/obj/item/powersink/process(seconds_per_tick)
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 
@@ -136,7 +163,9 @@
 		qdel(src)
 		return
 
-/obj/item/device/powersink/proc/handle_overload()
+	siphon_power(seconds_per_tick)
+
+/obj/item/powersink/proc/handle_overload()
 	if (QDELETED(src))
 		return
 
@@ -162,14 +191,14 @@
 
 		// Check for terminals and affect their master nodes. Also add a special
 		// case for APCs whereby their lights are popped or flicked.
-		if (istype(A, /obj/machinery/power/terminal))
-			var/obj/machinery/power/terminal/T = A
-			if (istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/AP = T.master
+		if (istype(A, /obj/structure/machinery/power/terminal))
+			var/obj/structure/machinery/power/terminal/T = A
+			if (istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/AP = T.master
 				if (dist > 1)
 					AP.overload_lighting(100, TRUE)
 				else
-					AP.flicker_all()
+					AP.flicker_lights()
 			else if (T.master)
 				T.master.emp_act(EMP_LIGHT)
 

@@ -15,7 +15,7 @@
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
 	blend_mode = BLEND_ADD
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = ABOVE_LIGHTING_PLANE
 	animate_movement = FALSE
 	var/tmp/atom/BeamSource
 
@@ -47,6 +47,7 @@
 	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
+	plane = ABOVE_LIGHTING_PLANE
 	layer = SUPERMATTER_WALL_LAYER
 
 /obj/effect/overlay/temp
@@ -61,7 +62,7 @@
 /obj/effect/overlay/temp/New()
 	..()
 	if(randomdir)
-		dir = (pick(GLOB.cardinal))
+		dir = (pick(GLOB.cardinals))
 	flick("[icon_state]", src)
 
 	QDEL_IN(src, duration)
@@ -113,3 +114,8 @@
 /obj/effect/overlay/teleport_pulse/Initialize(mapload, ...)
 	. = ..()
 	QDEL_IN(src, 8)
+
+/obj/effect/overlay/vis
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
+	vis_flags = VIS_INHERIT_DIR

@@ -4,24 +4,34 @@
 	var/name
 	var/priority = 0	//steps with higher priority would be attempted first
 
-	// type path referencing tools that can be used for this step, and how well are they suited for it
+	/// type path referencing tools that can be used for this step, and how well are they suited for it
 	var/list/allowed_tools = null
-	// type paths referencing races that this step applies to.
+	/// type paths referencing races that this step applies to.
 	var/list/allowed_species = null
 	var/list/disallowed_species = list("Nymph")
 
-	// duration of the step
-	var/min_duration = 0
-	var/max_duration = 0
+	/// The amount of time (in seconds) required to perform this surgery, before any modifiers are applied.
+	var/base_surgery_time = 5 SECONDS
 
-	// evil infection stuff that will make everyone hate me
+	/// evil infection stuff that will make everyone hate me
 	var/can_infect = FALSE
-	//How much blood this step can get on surgeon. 1 - hands, 2 - full body.
+	/// How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
 
 	var/requires_surgery_compatibility = TRUE
 
-	//returns how well tool is suited for this step
+	/**
+	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
+	 * These are considered soft requirements, so if a surgery requires skill level 3 in something, and you're at level 1
+	 * Then the surgery will take a penalty of twice the skill_diff_fail_modifier (30% by default).
+	 * Exceeding the skill requirement can also offset having lower success rates from things like tools.
+	 */
+	var/alist/skill_requirements
+
+	/// The bonus (or penalty) fail rate to a surgery per point of skill diff. As a percent chance.
+	var/skill_diff_fail_modifier = SURGERY_DIFFICULTY_EASY
+
+/// Returns how well tool is suited for this step.
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
 		var/return_value = check_tool_quality(tool, T, allowed_tools[T], requires_surgery_compatibility)
@@ -31,7 +41,7 @@
 			return allowed_tools[T]
 	return FALSE
 
-	// Checks if this step applies to the user mob at all
+/// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
 		return FALSE
@@ -49,13 +59,20 @@
 	return TRUE
 
 
-// checks whether this step can be applied with the given user and target
+/// Checks whether this step can be applied with the given user and target
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/canceled = FALSE
+	SEND_SIGNAL(target, COMSIG_BEGIN_SURGERY, &canceled, affected, user, src)
+	if(canceled)
+		return FALSE
+
 	return TRUE
 
-// does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
+/// Does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
 /singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(can_infect && affected)
@@ -69,11 +86,11 @@
 	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	return TRUE
 
-// does stuff to end the step, which is normally print a message + do whatever this step changes
+/// Does stuff to end the step, which is normally print a message + do whatever this step changes
 /singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return FALSE
 
-// stuff that happens when the step fails
+/// Stuff that happens when the step fails
 /singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return null
 
@@ -92,31 +109,6 @@
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
 
-	var/static/list/safety_check_exceptions = list(
-		/obj/item/auto_cpr,
-		/obj/item/device/healthanalyzer,
-		/obj/item/modular_computer,
-		/obj/item/reagent_containers,
-		/obj/item/device/advanced_healthanalyzer,
-		/obj/item/device/robotanalyzer,
-		/obj/item/stack/medical,
-		/obj/item/stack/nanopaste,
-		/obj/item/device/breath_analyzer,
-		/obj/item/personal_inhaler,
-		/obj/item/clothing/accessory/stethoscope,
-		/obj/item/autopsy_scanner,
-		/obj/item/device/flashlight/pen,
-		/obj/item/spell/resurrect,
-		/obj/item/spell/mend_organs,
-		/obj/item/spell/modifier/mend_life,
-		/obj/item/spell/modifier/mend_synthetic,
-		/obj/item/grab,
-
-		//Defibrillator stuffs
-		/obj/item/defibrillator,
-		/obj/item/shockpaddles,
-
-		)
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
 	if(zone in M.op_stage.in_progress)
@@ -148,10 +140,10 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
-		if(is_type_in_list(tool, safety_check_exceptions))
-			return FALSE//These tools are safe to bypass hippocratic oath
-		to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
-		return TRUE
+		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
+			return TRUE
+		return FALSE //Just do the normal use for the tool instead
 
 	// Otherwise we can make a start on surgery!
 	else if(istype(M) && !QDELETED(M) && tool)
@@ -161,8 +153,26 @@
 		else if(S.is_valid_target(M))
 			M.op_stage.in_progress += list(zone = user)
 			S.begin_step(user, M, zone, tool)
-			var/duration = rand(S.min_duration, S.max_duration)
-			if(prob(S.tool_quality(tool)) && do_mob(user, M, duration) && !autofail)
+
+			// Get the base surgery time before modifiers.
+			var/duration = S.base_surgery_time
+
+			// Get the base surgery success rate based on tools.
+			// This should eventually be reworked to use ToolQualityComponents when we add that.
+			var/success_rate = S.tool_quality(tool)
+
+			// Query the surgeon if they have any components that would like to modify the success chance.
+			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
+
+			// Skill modifier checks
+			for (var/skill_comp, required_level in S.skill_requirements)
+				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
+				// Null condition handles NPCs and Antags that won't have the skill setup.
+				if (!isnull(skill_level))
+					success_rate += (skill_level - required_level) * S.skill_diff_fail_modifier
+			// End of skill modifier checks
+
+			if(prob(success_rate) && do_mob(user, M, duration) && !autofail)
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
 				S.fail_step(user, M, zone, tool)
@@ -184,5 +194,5 @@
 	var/list/in_progress = list()
 
 /datum/surgery_status/Destroy(force)
-	in_progress = null
-	. = ..()
+	in_progress?.Cut()
+	return ..()

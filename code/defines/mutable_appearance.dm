@@ -4,16 +4,21 @@
 
 // Mutable appearances are children of images, just so you know.
 
+/mutable_appearance
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS //Bay shit
+
 /mutable_appearance/New(mutable_appearance/to_copy)
 	..()
-	if(!to_copy)
-		plane = FLOAT_PLANE
+	plane = FLOAT_PLANE
 
 // Helper similar to image()
-/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE)
+/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE, alpha = 255, appearance_flags = NONE)
+	RETURN_TYPE(/mutable_appearance)
 	var/mutable_appearance/MA = new()
 	MA.icon = icon
 	MA.icon_state = icon_state
 	MA.layer = layer
 	MA.plane = plane
+	MA.alpha = alpha
+	MA.appearance_flags |= appearance_flags
 	return MA

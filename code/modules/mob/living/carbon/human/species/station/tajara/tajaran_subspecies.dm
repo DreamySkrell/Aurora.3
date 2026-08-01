@@ -3,20 +3,23 @@
 	name_plural = "Zhan-Khazan Tajara"
 	blurb = "The Zhan-Khazan are a race of Tajara known for their dark fur and large bulky figures. \
 	They were at one point a race of cave-and-mountain dwelling Tajara that traditionally were \
-	entrusted with physical work like mining, farming, ranching, and logging. Zhan-Khazan make \
-	up a significant amount of Tajara employed in resource gathering, construction, civil jobs \
-	such as law enforcement and even culinary work such as butchering. They experience a lot of racism \
-	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
-	crime rates."
+	entrusted with physical work like mining, farming, ranching, and logging. Zhan-Khazan today make \
+	up a significant amount of Tajara employed in blue-collar work like resource gathering, \
+	construction, and even culinary work such as butchering. Despite being no less intelligent \
+	than other Tajara, the pressure from the caste system to enter unskilled labor rarely afforded Zhan \
+	an easy path to education. Zhan-Khazan are in a transformative state in modern Tajaran society, \
+	but still deal with the many barriers from centuries of the caste system."
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 160 // taj default: 145
+	height_max = 195 // taj default: 180
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
-	slowdown = -0.8 //As opposed to -1 for Base tajara
-	sprint_speed_factor = 0.55 // As opposed to 0.65
+	slowdown = -0.2
+	sprint_speed_factor = 0.55
 	standing_jump_range = 2
 	stamina = 100 // As opposed to 90
-	brute_mod = 1.1 // Less Brute Damage
+	brute_mod = 1.05 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
 
@@ -47,22 +50,28 @@
 		/singleton/origin_item/culture/offworld_tajara/zhan
 	)
 
+	mass_modifier = REFERENCE_MASS_TAJARA_ZHAN / REFERENCE_MASS_HUMAN
+
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajara"
 	blurb = "The M'sai are a race of Tajara with slender lithe bodies and \
 	lightly covered fur which blends in with the snowy environments of Adhomai. \
 	They aren't as well-insulated against Adhomai's cold as their brethren. \
-	However, this gives them the benefit of being more agile. Hitorically, they often \
-	worked as hunters, later becoming warriors and soldiers as civilization developed."
+	However, this gives them the benefit of being more agile. Historically, they often \
+	worked as hunters, later becoming ranchers, warriors and soldiers as civilization developed. \
+	When these roles were shrunken down however, the M'sai commonly found themselves taking \
+	similar work to the Zhan-Khazan. As a result, the two races share much in common with their culture."
 	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 155 // taj default: 145
+	height_max = 175 // taj default: 180
 
-	slowdown = -1.2 //As opposed to -1 for Base tajara
-	sprint_speed_factor = 0.75 // As opposed to 0.65
+	slowdown = -0.6
+	sprint_speed_factor = 0.75
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
-	brute_mod = 1.3 // More Brute Damage
-	ethanol_resistance = 0.6 // Species Default 0.8
+	brute_mod = 1.15 // More Brute Damage
+	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara/msai
@@ -80,7 +89,7 @@
 
 	default_h_style = "M'sai Ears"
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
 
 	max_nutrition_factor = 1.2
 	max_hydration_factor = 1.2
@@ -93,10 +102,12 @@
 		/singleton/origin_item/culture/offworld_tajara/msai
 	)
 
+	mass_modifier = REFERENCE_MASS_TAJARA_MSAI / REFERENCE_MASS_HUMAN
+
 /datum/species/tajaran/tesla_body
 	name = SPECIES_TAJARA_TESLA_BODY
 	name_plural = "Tesla Rejuvenation Suit Tajara"
-	name_plural = "Created as part of the Tesla prosthetics program, the Tesla Rejuvenation Suit is a hulking suit that allows disabled Tajara to regain their vigor. \
+	blurb = "Created as part of the Tesla prosthetics program, the Tesla Rejuvenation Suit is a hulking suit that allows disabled Tajara to regain their vigor. \
 	Its users are surgically grafted in the machine; their limbs are replaced by large, industrial replacements; their organs are placed in a tank full of healing chemicals \
 	located inside their chest, and finally, a big tesla spine is installed. Only the head remains untouched. The suits are bulky and clumsy, restricting their wearers to jobs \
 	involving weight lifting and other menial tasks. Since this invention is still in its early stage, reports of it malfunctioning or causing pain to its user are not unheard off; \
@@ -157,7 +168,7 @@
 
 	injection_mod = 2
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = SFX_BODYFALL_MACHINE
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
@@ -185,9 +196,14 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/tesla_body)
 	)
 
+	flags = NO_EQUIP_SPEEDMODS
+
 	bump_flag = HEAVY
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any alternate limbs for Tesla suits
+	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_TAJARA_TESLA / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/tesla_body/New()
 	..()

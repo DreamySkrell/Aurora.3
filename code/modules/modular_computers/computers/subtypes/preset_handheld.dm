@@ -20,9 +20,15 @@
 /obj/item/modular_computer/handheld/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
+/obj/item/modular_computer/handheld/preset/civilian/bartender
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/bartender
+
 /obj/item/modular_computer/handheld/preset/civilian/bartender/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
+
+/obj/item/modular_computer/handheld/preset/civilian/chef
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/chef
 
 /obj/item/modular_computer/handheld/preset/civilian/librarian/Initialize()
 	. = ..()
@@ -54,6 +60,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/preset/engineering/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/preset/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -80,9 +90,18 @@
 /obj/item/modular_computer/handheld/preset/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
+/obj/item/modular_computer/handheld/preset/supply/machinist/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 // Cargo Delivery
 /obj/item/modular_computer/handheld/preset/supply/cargo_delivery
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
+	device_theme = "orion"
+
+/obj/item/modular_computer/handheld/preset/supply/cargo_delivery/install_default_hardware()
+	. = ..()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 
 // Medical
 
@@ -114,6 +133,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
 
+/obj/item/modular_computer/handheld/preset/research/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/preset/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 
@@ -134,6 +157,9 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 
 // Command / Misc
+
+/obj/item/modular_computer/handheld/preset/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
 
 /obj/item/modular_computer/handheld/preset/command
 	_app_preset_type = /datum/modular_computer_app_presets/command

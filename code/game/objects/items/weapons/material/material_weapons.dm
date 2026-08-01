@@ -6,7 +6,7 @@
 	gender = NEUTER
 	throw_speed = 3
 	throw_range = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	sharp = 0
 	edge = FALSE
 	icon = 'icons/obj/weapons.dmi'
@@ -20,9 +20,12 @@
 	var/max_force = 40	 //any damage above this is added to armor penetration value
 	var/max_pen = 100 //any penetration above this value is ignored
 	var/thrown_force_divisor = 0.5
-	var/default_material = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_material = MATERIAL_STEEL
+	var/singleton/material/material
 	var/drops_debris = TRUE
+
+	/// Multiplies the amount this item is worth with the following calculation: material.value * worth_multiplier
+	var/worth_multiplier = 1
 
 /obj/item/material/Initialize(var/newloc, var/material_key)
 	. = ..()
@@ -32,12 +35,6 @@
 	if(!material)
 		qdel(src)
 		return
-
-	matter = material.get_matter()
-	if(matter.len)
-		for(var/material_type in matter)
-			if(!isnull(matter[material_type]))
-				matter[material_type] *= force_divisor // May require a new var instead.
 
 /obj/item/material/should_equip()
 	return TRUE
@@ -62,14 +59,14 @@
 	throwforce = round(material.get_blunt_damage()*thrown_force_divisor)
 
 /obj/item/material/proc/set_material(var/new_material)
-	material = SSmaterials.get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!material)
 		qdel(src)
 	else
 		if(use_material_name)
 			name = "[material.display_name] [initial(name)]"
 		if(use_material_sound)
-			if(sharp && !material.weapon_hitsound == 'sound/weapons/metalhit.ogg' || !sharp)
+			if(!sharp || material.weapon_hitsound == 'sound/weapons/metalhit.ogg')
 				// wooden swords don't sound like metal swords.
 				// metalhit check is so swords when metal use their regular slice sfx.
 				hitsound = material.weapon_hitsound
@@ -81,6 +78,11 @@
 		if(material.products_need_process())
 			START_PROCESSING(SSprocessing, src)
 		update_force()
+
+		matter = material.get_matter()
+		for(var/material_type in matter)
+			if(!isnull(matter[material_type]))
+				matter[material_type] *= force_divisor // May require a new var instead.
 
 /obj/item/material/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

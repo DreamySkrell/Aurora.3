@@ -6,18 +6,27 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_silo.dmm")
+
+	prefix = "adhomai/"
+	suffix = "adhomai_silo.dmm"
+
+	unit_test_groups = list(2)
 
 /area/adhomai_silo
 	name = "Adhomian Missile Silo"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
 	area_blurb = "The closed doors on the ground ominously point to the sky."
+	is_outside = OUTSIDE_YES
+
+/area/adhomai_silo/cabin
+	name = "Adhomian Missile Silo Cabin"
+	icon_state = "security"
+	is_outside = OUTSIDE_NO
 
 //ghost roles
 
@@ -57,14 +66,14 @@
 	belt_contents = list(
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/ammo_magazine/mc9mm = 2,
-						/obj/item/ammo_magazine/boltaction = 3,
+						/obj/item/ammo_magazine/a68 = 2,
 						/obj/item/melee/baton/stunrod = 1,
 						/obj/item/handcuffs = 1
 						)
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/silo_guard/get_id_access()
 	return list(ACCESS_PRA)

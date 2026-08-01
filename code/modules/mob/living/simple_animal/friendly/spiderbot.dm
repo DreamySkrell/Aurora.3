@@ -7,12 +7,12 @@
 	maxbodytemp = 500
 	mob_size = MOB_TINY
 
-	var/radio_type = /obj/item/device/radio/borg
-	var/obj/item/device/radio/borg/radio = null
+	var/radio_type = /obj/item/radio/borg
+	var/obj/item/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
-	var/obj/machinery/camera/camera = null
-	var/obj/item/device/mmi/mmi = null
+	var/obj/structure/machinery/camera/camera = null
+	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
@@ -29,10 +29,10 @@
 	wander = 0
 	density = 0
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	hunger_enabled = 0
 
-	attacktext = "shocked"
+	attacktext = "shocks"
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
@@ -62,6 +62,15 @@
 	add_verb(src, /mob/living/simple_animal/spiderbot/proc/control_integrated_radio)
 	voice_name = name
 
+	radio = new radio_type(src)
+	camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
+	camera.c_tag = "spiderbot-[real_name]"
+	camera.replace_networks(list("SS13"))
+
+/mob/living/simple_animal/spiderbot/Destroy()
+	eject_brain()
+	return ..()
+
 /mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
 	return FALSE
 
@@ -70,36 +79,36 @@
 
 /mob/living/simple_animal/spiderbot/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(attacking_item, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = attacking_item
+	if(istype(attacking_item, /obj/item/mmi))
+		var/obj/item/mmi/B = attacking_item
 		if(src.mmi)
-			to_chat(user, "<span class='warning'>There's already a brain in [src]!</span>")
+			to_chat(user, SPAN_WARNING("There's already a brain in [src]!"))
 			return
 		if(!B.brainmob)
-			to_chat(user, "<span class='warning'>Sticking an empty MMI into the frame would sort of defeat the purpose.</span>")
+			to_chat(user, SPAN_WARNING("Sticking an empty MMI into the frame would sort of defeat the purpose."))
 			return
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/abstract/observer/G in GLOB.player_list)
+				for(var/mob/abstract/ghost/observer/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
-				to_chat(user, "<span class='notice'>[attacking_item] is completely unresponsive; there's no point.</span>")
+				to_chat(user, SPAN_NOTICE("[attacking_item] is completely unresponsive; there's no point."))
 				return
 
 		if(B.brainmob.stat == DEAD)
-			to_chat(user, "<span class='warning'>[attacking_item] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
+			to_chat(user, SPAN_WARNING("[attacking_item] is dead. Sticking it into the frame would sort of defeat the purpose."))
 			return
 
 		if(jobban_isbanned(B.brainmob, "Cyborg"))
-			to_chat(user, "<span class='warning'>\The [attacking_item] does not seem to fit.</span>")
+			to_chat(user, SPAN_WARNING("\The [attacking_item] does not seem to fit."))
 			return
 
-		to_chat(user, "<span class='notice'>You install \the [attacking_item] in \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] in \the [src]!"))
 
-		if(istype(attacking_item, /obj/item/device/mmi/digital))
+		if(istype(attacking_item, /obj/item/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
@@ -110,23 +119,23 @@
 		src.update_icon()
 		return 1
 
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
-			if(health < maxHealth)
+			if(health < maxhealth)
 				health += pick(1,1,1,2,2,3)
-				if(health > maxHealth)
-					health = maxHealth
+				if(health > maxhealth)
+					health = maxhealth
 				add_fingerprint(user)
-				src.visible_message("<span class='notice'>\The [user] has spot-welded some of the damage to \the [src]!</span>")
+				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
 			else
-				to_chat(user, "<span class='warning'>\The [src] is undamaged!</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is undamaged!"))
 		else
-			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
+			to_chat(user, SPAN_DANGER("You need more welding fuel for this task!"))
 			return
 	else if(attacking_item.GetID())
 		if (!mmi)
-			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
+			to_chat(user, SPAN_DANGER("There's no reason to swipe your ID - \the [src] has no brain."))
 			return 0
 
 		var/obj/item/card/id/id_card = attacking_item.GetID()
@@ -143,14 +152,14 @@
 				if(use_check_and_message(user))
 					return 0
 				if(ACCESS_ROBOTICS in id_card.access)
-					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You swipe your access card and pop the brain out of \the [src]."))
 					eject_brain()
 					if(held_item)
 						held_item.forceMove(src.loc)
 						held_item = null
 					return 1
 				else
-					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					to_chat(user, SPAN_DANGER("You swipe your card with no effect."))
 					return 0
 			if("Sync")
 				if(use_check_and_message(user))
@@ -166,15 +175,15 @@
 
 /mob/living/simple_animal/spiderbot/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		to_chat(user, "<span class='warning'>[src] is already overloaded - better run.</span>")
+		to_chat(user, SPAN_WARNING("[src] is already overloaded - better run."))
 		return 0
 	else
-		to_chat(user, "<span class='notice'>You short out the security protocols and overload [src]'s cell, priming it to explode in a short time.</span>")
-		spawn(100)	to_chat(src, "<span class='danger'>Your cell seems to be outputting a lot of power...</span>")
-		spawn(200)	to_chat(src, "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>")
+		to_chat(user, SPAN_NOTICE("You short out the security protocols and overload [src]'s cell, priming it to explode in a short time."))
+		spawn(100)	to_chat(src, SPAN_DANGER("Your cell seems to be outputting a lot of power..."))
+		spawn(200)	to_chat(src, SPAN_DANGER("Internal heat sensors are spiking! Something is badly wrong with your cell!"))
 		spawn(300)	src.explode()
 
-/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
+/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/mmi/M as obj)
 	src.mind = M.brainmob.mind
 	src.mind.key = M.brainmob.key
 	src.ckey = M.brainmob.ckey
@@ -182,7 +191,7 @@
 	src.voice_name = src.name
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
-	src.visible_message("<span class='danger'>\The [src] makes an odd warbling noise, fizzles, and explodes!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] makes an odd warbling noise, fizzles, and explodes!"))
 	explosion(get_turf(loc), -1, -1, 3, 5)
 	eject_brain()
 	death()
@@ -216,19 +225,6 @@
 /mob/living/simple_animal/spiderbot/get_radio()
 	return radio
 
-/mob/living/simple_animal/spiderbot/Destroy()
-	eject_brain()
-	return ..()
-
-/mob/living/simple_animal/spiderbot/Initialize()
-	. = ..()
-
-	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
-	camera.c_tag = "spiderbot-[real_name]"
-	camera.replace_networks(list("SS13"))
-
-
 /mob/living/simple_animal/spiderbot/death()
 
 	GLOB.living_mob_list -= src
@@ -242,7 +238,7 @@
 		held_item = null
 
 	eject_brain()
-	gibs(loc, viruses, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	gibs(loc, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 
@@ -256,12 +252,12 @@
 		return
 
 	if(!held_item)
-		to_chat(usr, "<span class='warning'>You have nothing to drop!</span>")
+		to_chat(usr, SPAN_WARNING("You have nothing to drop!"))
 		return 0
 
 	if(istype(held_item, /obj/item/grenade))
-		visible_message("<span class='danger'>\The [src] launches \the [held_item]!</span>", \
-			"<span class='danger'>You launch \the [held_item]!</span>", \
+		visible_message(SPAN_DANGER("\The [src] launches \the [held_item]!"), \
+			SPAN_DANGER("You launch \the [held_item]!"), \
 			"You hear a skittering noise and a thump!")
 		var/obj/item/grenade/G = held_item
 		G.forceMove(src.loc)
@@ -269,8 +265,8 @@
 		held_item = null
 		return 1
 
-	visible_message("<span class='notice'>\The [src] drops \the [held_item].</span>", \
-		"<span class='notice'>You drop \the [held_item].</span>", \
+	visible_message(SPAN_NOTICE("\The [src] drops \the [held_item]."), \
+		SPAN_NOTICE("You drop \the [held_item]."), \
 		"You hear a skittering noise and a soft thump.")
 
 	held_item.forceMove(src.loc)
@@ -286,7 +282,7 @@
 		return -1
 
 	if(held_item)
-		to_chat(src, "<span class='warning'>You are already holding \the [held_item]</span>")
+		to_chat(src, SPAN_WARNING("You are already holding \the [held_item]"))
 		return 1
 
 	var/list/items = list()
@@ -301,14 +297,14 @@
 			if(selection == I)
 				held_item = selection
 				selection.forceMove(src)
-				visible_message("<span class='notice'>\The [src] scoops up \the [held_item].</span>", \
-					"<span class='notice'>You grab \the [held_item].</span>", \
+				visible_message(SPAN_NOTICE("\The [src] scoops up \the [held_item]."), \
+					SPAN_NOTICE("You grab \the [held_item]."), \
 					"You hear a skittering noise and a clink.")
 				return held_item
-		to_chat(src, "<span class='warning'>\The [selection] is too far away.</span>")
+		to_chat(src, SPAN_WARNING("\The [selection] is too far away."))
 		return 0
 
-	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
+	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
 	return 0
 
 /mob/living/simple_animal/spiderbot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -323,11 +319,12 @@
 	return positronic
 
 /mob/living/simple_animal/spiderbot/Move(newloc, direct)
-	..(newloc,direct)
+	. = ..()
+
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for (var/obj/machinery/door/D in loc)
+			for (var/obj/structure/machinery/door/D in loc)
 				if (D.hashatch)
 					underdoor = 1
 					break
@@ -336,25 +333,34 @@
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
 
+/mob/living/simple_animal/spiderbot/zMove(direction)
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		mech.zMove(direction)
+		return
+	..()
+
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
+/mob/living/simple_animal/spiderbot/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
 	switch(message_mode)
 		if("whisper")
-			if(!whisper)
-				whisper(message, speaking)
+			if(!msg.whisper)
+				whisper(text, primary, say_verb = TRUE, msg = msg)
 				return TRUE
 		if("headset")
-			radio.talk_into(src, message, null, verb, speaking)
+			radio.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 			used_radios += radio
 		if("intercom")
 			var/turf/T = get_turf(src)
-			for(var/obj/item/device/radio/intercom/I in view(1, T))
-				I.talk_into(src, message, null, verb, speaking)
+			for(var/obj/item/radio/intercom/I in view(1, T))
+				I.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 				used_radios += I
 	if(message_mode)
-		radio.talk_into(src, message, message_mode, verb, speaking)
+		radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 		used_radios += radio
 
 /mob/living/simple_animal/spiderbot/proc/control_integrated_radio()
@@ -367,7 +373,7 @@
 		radio.interact(src)
 
 /mob/living/simple_animal/spiderbot/ai
-	radio_type = /obj/item/device/radio/headset/heads/ai_integrated
+	radio_type = /obj/item/radio/headset/heads/ai_integrated
 
 /mob/living/simple_animal/spiderbot/ai/Initialize()
 	. = ..()

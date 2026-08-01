@@ -24,20 +24,20 @@
 	if(H && H.gloves == src)
 		wearer = H
 		if(wearer.can_feel_pain())
-			to_chat(H, "<span class='danger'>You feel a stabbing sensation in your hands as you slide \the [src] on!</span>")
+			to_chat(H, SPAN_DANGER("You feel a stabbing sensation in your hands as you slide \the [src] on!"))
 			wearer.custom_pain("You feel a sharp pain in your hands!",1)
+		START_PROCESSING(SSprocessing, src)
 	..()
 
 /obj/item/clothing/gloves/regen/dropped(mob/user)
 	..()
 	if(wearer)
 		if(wearer.can_feel_pain())
-			to_chat(wearer, "<span class='danger'>You feel the hypodermic needles as you slide \the [src] off!</span>")
+			to_chat(wearer, SPAN_DANGER("You feel the hypodermic needles as you slide \the [src] off!"))
 			wearer.custom_pain("Your hands hurt like hell!",1)
 		wearer = null
 
 /obj/item/clothing/gloves/regen/New()
-	START_PROCESSING(SSprocessing, src)
 	..()
 
 /obj/item/clothing/gloves/regen/Destroy()
@@ -47,7 +47,7 @@
 
 /obj/item/clothing/gloves/regen/process()
 	if(!wearer || wearer.isSynthetic() || wearer.stat == DEAD || wearer.nutrition <= 10)
-		return // Robots and dead people don't have a metabolism.
+		return PROCESS_KILL // Robots and dead people don't have a metabolism.
 
 	if(wearer.getBruteLoss())
 		wearer.adjustBruteLoss(-0.1)

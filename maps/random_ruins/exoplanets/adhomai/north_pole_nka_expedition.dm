@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/north_pole_nka_expedition.dmm")
+
+	prefix = "adhomai/"
+	suffix = "north_pole_nka_expedition.dmm"
+
+	unit_test_groups = list(2)
 
 //ghost roles
 
@@ -44,7 +48,7 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_polar_explorer/get_id_access()
 	return list(ACCESS_NKA)
@@ -81,7 +85,7 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_polar_sailor/get_id_access()
 	return list(ACCESS_NKA)

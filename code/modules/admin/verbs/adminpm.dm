@@ -3,7 +3,7 @@
 	set category = null
 	set name = "Admin PM Mob"
 	if(!holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM-Context: Only administrators may use this command.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM-Context: Only administrators may use this command."))
 		return
 	if( !ismob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
@@ -14,7 +14,7 @@
 	set category = "Admin"
 	set name = "Admin PM"
 	if(!holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM-Panel: Only administrators may use this command.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM-Panel: Only administrators may use this command."))
 		return
 	var/list/client/targets[0]
 	for(var/p in GLOB.clients)
@@ -22,7 +22,7 @@
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))
 				targets["(New Player) - [T]"] = T
-			else if(istype(T.mob, /mob/abstract/observer))
+			else if(istype(T.mob, /mob/abstract/ghost/observer))
 				targets["[T.mob.name](Ghost) - [T]"] = T
 			else
 				targets["[T.mob.real_name](as [T.mob.name]) - [T]"] = T
@@ -41,35 +41,36 @@
 
 /client/proc/cmd_admin_pm(var/client/C, var/msg = null, var/datum/ticket/ticket = null)
 	if(!istype(C, /client))
-		if(holder)	to_chat(src, "<span class='warning'>Error: Private-Message: Client not found.</span>")
-		else		to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
+		if(holder)	to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found."))
+		else		to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!"))
 		return
 
 	var/receive_pm_type = "Player"
+	var/sender_is_ahelp_staff = check_rights(R_ADMIN|R_MOD, FALSE)
 	//mod PMs are maroon
 	//PMs sent from admins and mods display their rank
-	if(holder)
+	if(sender_is_ahelp_staff)
 		if(!C.holder && holder.fakekey)
 			receive_pm_type = "Admin"
 		else
 			receive_pm_type = holder.rank
 
 	else if(!C.holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM: Non-admin to non-admin PM communication is forbidden."))
 		return
 
 	//get message text, limit it's length.and clean/escape html
 	// only sanitize it if we're getting it from this proc
 	if(!msg)
-		msg = input(src,"Message:", "Private message to [key_name(C, 0, holder ? 1 : 0)]") as text|null
+		msg = input(src,"Message:", "Private message to [key_name(C, 0, sender_is_ahelp_staff ? 1 : 0)]") as text|null
 
 		if(!msg)
 			return
 		if(!C)
-			if(holder)
-				to_chat(src, "<span class='warning'>Error: Admin-PM: Client not found.</span>")
+			if(sender_is_ahelp_staff)
+				to_chat(src, SPAN_WARNING("Error: Admin-PM: Client not found."))
 			else
-				to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
+				to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!"))
 			return
 
 		if(!check_rights(R_SERVER|R_DEBUG, 0))
@@ -81,7 +82,7 @@
 	// searches for an open ticket, in case an outdated link was clicked
 	// I'm paranoid about the problems that could be caused by accidentally finding the wrong ticket, which is why this is strict
 	if(isnull(ticket))
-		if(holder)
+		if(sender_is_ahelp_staff)
 			ticket = get_open_ticket_by_ckey(C.ckey) // it's more likely an admin clicked a different PM link, so check admin -> player with ticket first
 			if(isnull(ticket) && C.holder)
 				ticket = get_open_ticket_by_ckey(src.ckey) // if still no dice, try an admin with ticket -> admin
@@ -90,24 +91,24 @@
 
 
 	if(isnull(ticket)) // finally, accept that no ticket exists
-		if(holder && src != C)
+		if(sender_is_ahelp_staff && src != C)
 			ticket = new /datum/ticket(C.ckey)
 			ticket.take(src)
 		else
-			to_chat(src, "<span class='notice'>You do not have an open ticket. Please use the adminhelp verb to open a ticket.</span>")
+			to_chat(src, SPAN_NOTICE("You do not have an open ticket. Please use the adminhelp verb to open a ticket."))
 			return
 	else if(ticket.status != TICKET_ASSIGNED && src.ckey == ticket.owner)
-		to_chat(src, "<span class='notice'>Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp.</span>")
+		to_chat(src, SPAN_NOTICE("Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp."))
 		return
 
 	// if the sender is an admin and they're not assigned to the ticket, ask them if they want to take/join it, unless the admin is responding to their own ticket
-	if(holder && !(src.ckey in ticket.assigned_admins))
+	if(sender_is_ahelp_staff && !(src.ckey in ticket.assigned_admins))
 		if(src.ckey != ticket.owner && !ticket.take(src))
 			return
 
 	var/receive_message
 
-	if(holder && !C.holder)
+	if(sender_is_ahelp_staff && !C.holder)
 		receive_message = "<span class='pm'><span class='howto'><b>-- Click the [receive_pm_type]'s name to reply --</b></span></span>\n"
 		if(C.adminhelped)
 			to_chat(C, receive_message)
@@ -126,9 +127,9 @@
 						adminhelp(reply)													//sender has left, adminhelp instead
 				return
 
-	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>[get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1)]</span>"
-	if(holder)
-		sender_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
+	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>[get_options_bar(C, sender_is_ahelp_staff ? 1 : 0, sender_is_ahelp_staff ? 1 : 0, 1)]</span>"
+	if(sender_is_ahelp_staff)
+		sender_message += " (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
 		sender_message += ": <span class='message linkify'>[generate_ahelp_key_words(mob, msg)]</span>"
 	else
 		sender_message += ": <span class='message linkify'>[msg]</span>"
@@ -137,7 +138,7 @@
 
 	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("PM ->", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
 	if(C.holder)
-		receiver_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
+		receiver_message += " (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
 		receiver_message += ": <span class='message linkify'>[generate_ahelp_key_words(C.mob, msg)]</span>"
 	else
 		receiver_message += ": <span class='message linkify'>[msg]</span>"
@@ -149,7 +150,7 @@
 	if(C.prefs && C.prefs.toggles & SOUND_ADMINHELP)
 		sound_to(C, 'sound/effects/adminhelp.ogg')
 
-	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]", admin_key = key_name(src), ckey_target = key_name(C))
+	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]")
 
 	ticket.append_message(src.ckey, C.ckey, msg)
 
@@ -160,11 +161,11 @@
 		if(X == C || X == src)
 			continue
 		if(X.key != key && X.key != C.key && (X.holder.rights & (R_ADMIN|R_MOD)))
-			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("PM <->", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): <span class='message linkify'>[msg]</span></span></span>")
+			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("PM <->", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>): <span class='message linkify'>[msg]</span></span></span>")
 
 /client/proc/cmd_admin_discord_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<span class='warning'>Error: Private-Message: You are unable to use PM-s (muted).</span>")
+		to_chat(src, SPAN_WARNING("Error: Private-Message: You are unable to use PM-s (muted)."))
 		return
 
 	var/msg = input(src,"Message:", "Reply private message to [sender] on Discord") as text|null

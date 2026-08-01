@@ -85,7 +85,7 @@
 
 	var/list/all_hive_verbs = list(
 		/mob/living/carbon/human/proc/hiveban,
-		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hiveuntether,
 		/mob/living/carbon/human/proc/hivenet_neuralshock,
 		/mob/living/carbon/human/proc/hivenet_transmit,
 		/mob/living/carbon/human/proc/hivemute,
@@ -107,11 +107,11 @@
 	if (is_broken())
 		if (GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+			to_chat(owner, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	else
 		if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+			to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	if(disrupted)
 		if(disrupttime > world.time)
 			disrupttime--
@@ -123,14 +123,14 @@
 	owner = target
 	if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
-		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+		to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	add_verb(owner, granted_verbs)
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
-		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+		to_chat(target, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	remove_verb(owner, all_hive_verbs)
 	..()
 
@@ -146,7 +146,7 @@
 	granted_verbs = list(
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivenet_neuralshock,
-		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hiveuntether,
 		/mob/living/carbon/human/proc/hivenet_transmit,
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hivenet_recieve,
@@ -191,7 +191,7 @@
 	action_button_name = "Toggle Hivenet Defense Suite"
 	action_button_icon = "augment-pda"
 	activable = TRUE
-	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
 	var/fullshield = FALSE
 
 /obj/item/organ/internal/augment/hiveshield/attack_self(var/mob/living/carbon/user)
@@ -265,7 +265,7 @@
 	action_button_name = "Deploy Toolset"
 	action_button_icon = "vaurcatool"
 	augment_type = /obj/item/combitool/robotic/vaurca
-	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	parent_organ = BP_L_HAND
@@ -283,17 +283,28 @@
 		"wirecutters"
 		)
 
-/obj/item/organ/internal/augment/tool/vaurcamag
+/obj/item/organ/internal/augment/vaurca_mag
 	name = "integrated mag-claws"
 	desc = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
 	icon_state = "suspension"
 	item_state = "suspension"
-	action_button_name = "Deploy Mag-Claws"
+	action_button_name = "Activate Mag-Claws"
 	action_button_icon = "magclaws"
-	augment_type = /obj/item/clothing/shoes/magboots/vaurca/aug
 	parent_organ = BP_GROIN
 	organ_tag = BP_AUG_MAGBOOT
-	aug_slot = slot_shoes
+	activable = TRUE
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
+
+/obj/item/organ/internal/augment/vaurca_mag/attack_self(mob/user)
+	if(use_check_and_message(owner))
+		return
+	if(HAS_TRAIT(owner, TRAIT_SHOE_GRIP))
+		to_chat(owner, SPAN_NOTICE("You deactivate \the [src]."))
+		REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+	else
+		to_chat(owner, SPAN_NOTICE("You activate \the [src]."))
+		ADD_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+		playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 20)
 
 /obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
@@ -355,27 +366,27 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		. += "<span class='notice'>\The [src] feels [descriptive].</span>"
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
 /obj/item/organ/internal/vaurca/preserve/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/icon = src
 
-	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
+	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
+		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."))
 
-		var/pressure = air_contents.return_pressure()
+		var/pressure = XGM_PRESSURE(air_contents)
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
-		to_chat(user, "<span class='notice'>Results of analysis of [icon2html(icon, user)]</span>")
+		to_chat(user, SPAN_NOTICE("Results of analysis of [icon2html(icon, user)]"))
 		if (total_moles>0)
-			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
+			to_chat(user, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
 			for(var/g in air_contents.gas)
-				to_chat(user, "<span class='notice'>[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%</span>")
-			to_chat(user, "<span class='notice'>Temperature: [round(air_contents.temperature-T0C)]&deg;C</span>")
+				to_chat(user, SPAN_NOTICE("[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%"))
+			to_chat(user, SPAN_NOTICE("Temperature: [round(air_contents.temperature-T0C)]&deg;C"))
 		else
-			to_chat(user, "<span class='notice'>Tank is empty!</span>")
+			to_chat(user, SPAN_NOTICE("Tank is empty!"))
 		src.add_fingerprint(user)
 	else if (istype(attacking_item, /obj/item/toy/balloon))
 		var/obj/item/toy/balloon/B = attacking_item
@@ -388,17 +399,34 @@
 
 	ui_interact(user)
 
-/obj/item/organ/internal/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/organ/internal/vaurca/preserve/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Tank", ui_x=400, ui_y=180)
+		ui.open()
+
+/obj/item/organ/internal/vaurca/preserve/ui_host(mob/user)
+	. = ..()
+	if(istype(loc,/obj/item/transfer_valve))
+		return loc
+
+/obj/item/organ/internal/vaurca/preserve/ui_data(mob/user)
 	var/mob/living/carbon/location = null
+
+	if(istype(loc, /obj/item/rig))
+		if(istype(loc.loc, /mob/living/carbon))
+			location = loc.loc
+	else if(istype(loc, /mob/living/carbon))
+		location = loc
 
 	var/using_internal
 	if(istype(location))
 		if(location.internal==src)
 			using_internal = 1
 
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	var/list/data = list()
+
+	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
 	data["releasePressure"] = round(distribute_pressure ? distribute_pressure : 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
@@ -426,46 +454,22 @@
 				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "tanks.tmpl", "Tank", 500, 300)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
-/obj/item/organ/internal/vaurca/preserve/Topic(href, href_list)
-	..()
-	if (usr.stat|| usr.restrained())
-		return 0
-	if (src.loc != usr)
-		return 0
-
-	if (href_list["dist_p"])
-		if (href_list["dist_p"] == "reset")
-			src.distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
-		else if (href_list["dist_p"] == "max")
-			src.distribute_pressure = TANK_MAX_RELEASE_PRESSURE
-		else
-			var/cp = text2num(href_list["dist_p"])
-			src.distribute_pressure += cp
-		src.distribute_pressure = min(max(round(src.distribute_pressure), 0), TANK_MAX_RELEASE_PRESSURE)
-	if (href_list["stat"])
+/obj/item/organ/internal/vaurca/preserve/ui_act(action,params)
+	. = ..()
+	if(.)
+		return
+	if(action=="toggleReleaseValve")
 		if(istype(loc,/mob/living/carbon))
 			var/mob/living/carbon/location = loc
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
-
 				var/can_open_valve
 				if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					can_open_valve = 1
@@ -476,15 +480,16 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
-
-	src.add_fingerprint(usr)
-	return 1
-
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
+			. = TRUE
+			update_icon()
+	if(action=="setReleasePressure")
+		distribute_pressure = min(max(round(text2num(params["release_pressure"])), 0), TANK_MAX_RELEASE_PRESSURE)
+		. = TRUE
 
 /obj/item/organ/internal/vaurca/preserve/remove_air(amount)
 	return air_contents.remove(amount)
@@ -502,9 +507,9 @@
 	if(!air_contents)
 		return null
 
-	var/tank_pressure = air_contents.return_pressure()
+	var/tank_pressure = XGM_PRESSURE(air_contents)
 	if((tank_pressure < distribute_pressure) && prob(5))
-		to_chat(owner, "<span class='warning'>There is a buzzing in your [parent_organ].</span>")
+		to_chat(owner, SPAN_WARNING("There is a buzzing in your [parent_organ]."))
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 
@@ -523,9 +528,9 @@
 	if(!air_contents)
 		return 0
 
-	var/pressure = air_contents.return_pressure()
+	var/pressure = XGM_PRESSURE(air_contents)
 	if(pressure > TANK_FRAGMENT_PRESSURE)
-		if(!istype(src.loc,/obj/item/device/transfer_valve))
+		if(!istype(src.loc,/obj/item/transfer_valve))
 			message_admins("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 			log_game("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 
@@ -534,7 +539,7 @@
 		air_contents.react()
 		air_contents.react()
 
-		pressure = air_contents.return_pressure()
+		pressure = XGM_PRESSURE(air_contents)
 		var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 
 		explosion(
@@ -622,15 +627,15 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			to_chat(owner, SPAN_DANGER("You can not use \the [src] in your current state!"))
 			return
 
 		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is too damaged to be used!"))
 			return
 
 		if(is_bruised())
@@ -638,11 +643,11 @@
 
 		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
-			to_chat(owner, "<span class='danger'>You must grab someone before trying to use your [src]!</span>")
+			to_chat(owner, SPAN_DANGER("You must grab someone before trying to use your [src]!"))
 			return
 
 		if(owner.nutrition <= 150) //slightly more energy-efficient than aut'akh bc bugs are better at augments
-			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
+			to_chat(owner, SPAN_DANGER("Your energy reserves are too low to use your [src]!"))
 			return
 
 		if(ishuman(G.affecting))
@@ -658,7 +663,7 @@
 			else
 				H.stun_effect_act(0, 50, target_zone, owner)
 
-			owner.visible_message("<span class='danger'>[H] has been prodded with [src] by [owner]!</span>")
+			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"))
 			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 /obj/item/organ/external/hand/right/vaurca/medical
@@ -667,6 +672,10 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
+
+/obj/item/organ/external/hand/right/vaurca/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
 	. = ..()
@@ -681,15 +690,15 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			to_chat(owner, SPAN_DANGER("You can not use \the [src] in your current state!"))
 			return
 
 		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is too damaged to be used!"))
 			return
 
 		if(is_bruised())
@@ -697,10 +706,13 @@
 
 		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
-			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
+			to_chat(owner, SPAN_DANGER("You must grab someone before trying to analyze their health!"))
 			return
 
 		owner.last_special = world.time + 50
 		if(ishuman(G.affecting))
 			var/mob/living/carbon/human/H = G.affecting
-			health_scan_mob(H, owner)
+			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+			if(!h_analyzer)
+				return
+			h_analyzer.health_scan_mob(H, owner, FALSE, TRUE)
