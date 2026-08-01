@@ -1,30 +1,24 @@
 /obj/item/clothing/head/helmet/pilot
 	name = "flight helmet"
 	desc = "A helmet with a toggleable pilot visor attached. The visor feeds its wearer in-flight information via an integrated heads-up display."
-	icon = 'icons/clothing/head/pilot_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/pilot_helmets.dmi'
 	icon_state = "pilot_helmet"
 	item_state = "pilot_helmet"
 	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
 	body_parts_covered = HEAD|EYES
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
-		)
-
 	var/visor_toggled = FALSE
-	var/obj/machinery/computer/shuttle_control/linked_console
-	var/obj/machinery/computer/ship/helm/linked_helm
+	var/obj/structure/machinery/computer/shuttle_control/linked_console
+	var/obj/structure/machinery/computer/ship/helm/linked_helm
 
 	var/obj/pilot_overlay_holder/hud_overlay
 	var/obj/pilot_overlay_holder/ship_hud/ship_overlay
@@ -43,7 +37,7 @@
 		linked_console = null
 	return ..()
 
-/obj/item/clothing/head/helmet/pilot/proc/set_console(var/obj/machinery/computer/C)
+/obj/item/clothing/head/helmet/pilot/proc/set_console(var/obj/structure/machinery/computer/C)
 	if(linked_console)
 		linked_console.linked_helmets -= src
 		linked_console = null
@@ -52,12 +46,12 @@
 		linked_helm = null
 
 	if(!isnull(C))
-		if(istype(C, /obj/machinery/computer/shuttle_control))
+		if(istype(C, /obj/structure/machinery/computer/shuttle_control))
 			linked_console = C
 			linked_console.linked_helmets += src
 			hud_overlay.maptext_height = initial(hud_overlay.maptext_height)
 			hud_overlay.maptext_y = initial(hud_overlay.maptext_y)
-		else if(istype(C, /obj/machinery/computer/ship/helm))
+		else if(istype(C, /obj/structure/machinery/computer/ship/helm))
 			linked_helm = C
 			linked_helm.linked_helmets += src
 			hud_overlay.maptext_height = 64
@@ -71,7 +65,7 @@
 
 /obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
 	set name = "Toggle Visor"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	var/mob/living/carbon/human/user = usr
@@ -146,15 +140,29 @@
 /obj/item/clothing/head/helmet/pilot/scc
 	name = "conglomerate flight helmet"
 	desc = "A pilot helmet with the deep colors of the Stellar Corporate Conglomerate. The highlight is a navy blue, and the mounted visor a striking, opaque cyan. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
 	icon_state = "scc_pilot"
 	item_state = "scc_pilot"
+
+/obj/item/clothing/head/helmet/pilot/tcaf
+	name = "\improper TCAF flight helmet"
+	desc = "A pilot's helmet marked all over with the imagery of the Republic of Biesel, worn by the pilots of the Tau Ceti Armed Forces. It looks a little scuffed."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
+	icon_state = "tcaf_pilot"
+	item_state = "tcaf_pilot"
 
 /obj/item/clothing/head/helmet/pilot/legion
 	name = "foreign legion flight helmet"
 	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor attached to it. The visor feeds its wearer in-flight information via an integrated heads-up display."
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
+
+/obj/item/clothing/head/helmet/pilot/himeo
+	name = "himean naval flight helmet"
+	desc = "A helmet with a pilots visor attached, painted in the drab tan colours of the Himean navy uniform. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	icon_state = "pilot_helmet_himeo"
+	item_state = "pilot_helmet_himeo"
 
 /obj/pilot_overlay_holder
 	name = null

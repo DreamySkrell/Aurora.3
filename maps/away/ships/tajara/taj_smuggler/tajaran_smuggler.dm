@@ -6,7 +6,9 @@
 	suffix = "tajaran_smuggler.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, ALL_BADLAND_SECTORS, SECTOR_WEEPING_STARS)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle, /datum/shuttle/autodock/overmap/tajaran_smuggler_cargo)
@@ -84,10 +86,10 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Freight Shuttle"
 
@@ -123,9 +125,9 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo
+/obj/structure/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo
 	name = "cargo ejection control console"
 	shuttle_tag = "Adhomian Freight Cargo"

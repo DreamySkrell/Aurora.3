@@ -77,8 +77,16 @@
 	if(!isnull(enable_chance))
 		enabled = prob(enable_chance)
 
+/datum/ghostspawner/proc/spawn_atom_deleted(atom/spawn_atom)
+	SIGNAL_HANDLER
+	spawn_atoms -= spawn_atom
+	UnregisterSignal(spawn_atom, COMSIG_QDELETING)
+
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
+
 	if(req_perms) //Only those with the correct flags can see restricted roles
 		if(check_rights(req_perms, show_msg=FALSE, user=user))
 			return FALSE //Return early and dont perform whitelist checks if staff flags are met
@@ -104,10 +112,12 @@
 /datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
 	if(!ROUND_IS_STARTED)
 		return "The round is not started yet."
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
-	if(!(istype(user, /mob/abstract/observer) || isnewplayer(user)))
+	if(!(istype(user, /mob/abstract/ghost/observer) || isnewplayer(user)))
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
@@ -116,7 +126,7 @@
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
-		return "The station is currently exploding."
+		return "The [station_name(TRUE)] is currently exploding."
 	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
@@ -224,6 +234,7 @@
 			sector.y = sector.start_y
 			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
+			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -237,6 +248,9 @@
 	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return FALSE
+
 	if(loc_type == GS_LOC_ATOM)
 		return enabled && !!length(spawn_atoms)
 	if(max_count)
@@ -252,7 +266,7 @@
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
-		for(var/mob/abstract/observer/O in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/O in GLOB.player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")

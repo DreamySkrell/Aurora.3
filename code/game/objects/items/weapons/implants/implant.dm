@@ -2,8 +2,7 @@
 #define MALFUNCTION_PERMANENT 2
 
 
-/obj/item/implant
-	abstract_type = /obj/item/implant
+ABSTRACT_TYPE(/obj/item/implant)
 	name = "implant"
 	icon = 'icons/obj/item/implants.dmi'
 	w_class = WEIGHT_CLASS_TINY
@@ -131,6 +130,7 @@
 	if(part)
 		part.implants.Remove(src)
 		part = null
+	imp_in = null
 	STOP_PROCESSING(SSprocessing, src)
 	GLOB.implants -= src
 	return ..()

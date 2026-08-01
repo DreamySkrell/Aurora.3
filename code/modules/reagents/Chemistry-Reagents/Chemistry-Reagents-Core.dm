@@ -12,6 +12,8 @@
 
 	fallback_specific_heat = 3.617
 
+	value = 2
+
 /singleton/reagent/blood/initialize_data(newdata, datum/reagents/holder)
 	. = ..()
 	if(.)
@@ -102,6 +104,7 @@
 	M.inject_blood(REAGENT_VOLUME(holder, type), holder)
 	remove_self(REAGENT_VOLUME(holder, type), holder)
 
+#define WATER_MOLS_PER_MIL 0.0556 // How many mols of water exist per mL
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
 /singleton/reagent/water
 	name = "Water"
@@ -123,6 +126,8 @@
 
 	germ_adjust = 0.05 // i mean, i guess you could try...
 
+	value = 0
+
 /singleton/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
@@ -135,19 +140,32 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	var/min_temperature = T0C + 100 // 100C, the boiling point of water
 
-	var/hotspot = (locate(/obj/fire) in T)
+	var/hotspot = (locate(/obj/hotspot) in T)
 	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
+		var/datum/gas_mixture/lowertemp = T.remove_air(T.air.total_moles)
 		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
 		lowertemp.react()
 		T.assume_air(lowertemp)
 		qdel(hotspot)
 
-	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
+	var/obj/effect/decal/cleanable/napalm/napalm = (locate(/obj/effect/decal/cleanable/napalm) in T)
+	if(napalm?.on_fire)
+		//Punish players for attempting to put out napalm fires with water by adding more napalm. Simulate spreading it more.
+		napalm.add_napalm(amount / 4)
+		environment.adjust_gas(GAS_WATERVAPOR, WATER_MOLS_PER_MIL * amount)
+		napalm.audible_message(
+			SPAN_DANGER("The water sputters violently as it lands on \the [napalm.name]!"),
+			SPAN_DANGER("The fire goes down a bit on \the [napalm.name], but immediately returns!")
+		)
+		return
+
+	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something -- NOT ANYMORE! REAL STEAM!
 		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
-			T.visible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
+			T.audible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
+
+		environment.adjust_gas(GAS_WATERVAPOR, WATER_MOLS_PER_MIL * amount)
 
 	else if(amount >= 10)
 		T.wet_floor(WET_TYPE_WATER,amount)
@@ -160,6 +178,11 @@
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (5 * amount))
+	if(istype(O, /obj/turf_fire))
+		var/obj/turf_fire/F = O
+		F.AddPower(-amount)
+		if(F.fire_power <= 0)
+			qdel(F)
 
 /singleton/reagent/water/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
@@ -190,7 +213,7 @@
 		if(!S.client && S.target)
 			S.target = null
 			++S.discipline
-
+#undef WATER_MOLS_PER_MIL
 
 /singleton/reagent/fuel
 	name = "Welding Fuel"
@@ -205,6 +228,10 @@
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
 	fallback_specific_heat = 0.605
+
+	value = 6.8
+
+	accelerant_quality = 10
 
 /singleton/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)

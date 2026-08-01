@@ -1,4 +1,3 @@
-var/global/antag_add_failed // Used in antag type voting.
 GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode
@@ -29,11 +28,12 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	var/station_was_nuked = 0                // See nuclearbomb.dm and malfunction.dm.
 	var/explosion_in_progress = 0            // Sit back and relax
-	var/waittime_l = 60 SECONDS                     // Lower bound on time before intercept arrives (in tenths of seconds)
-	var/waittime_h = 180 SECONDS                    // Upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
+
+	/// The canon type of this gamemode. THIS SHOULD ALWAYS BE SET.
+	var/canon_type = /singleton/canonicity/limited
 
 /datum/game_mode/New()
 	..()
@@ -41,6 +41,9 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	// This will probably break something.
 	name = capitalize(lowertext(name))
 	config_tag = lowertext(config_tag)
+	if(!canon_type)
+		message_admins("Gamemode [name] has no canon_type set! Defaulting to limited canon.")
+		canon_type = /singleton/canonicity/limited
 
 /datum/game_mode/Topic(href, href_list[])
 	if(..())
@@ -276,8 +279,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
-	var/welcome_delay = rand(waittime_l, waittime_h)
-	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+	SSatlas.current_map.post_gamemode_setup()
 
 	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
@@ -288,8 +290,8 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		if(!(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN))
 			antag.finalize_spawn() //actually spawn antags
 
-	if(evacuation_controller && auto_recall_shuttle)
-		evacuation_controller.auto_recall(1)
+	if(GLOB.evacuation_controller && auto_recall_shuttle)
+		GLOB.evacuation_controller.auto_recall(1)
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
@@ -339,7 +341,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	return evacuation_controller.round_over() || station_was_nuked
+	return GLOB.evacuation_controller.round_over() || station_was_nuked
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -390,10 +392,10 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	var/text = ""
 	var/escape_text
-	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
-		escape_text = "transfered"
+		escape_text = "transferred"
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
 		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
@@ -436,7 +438,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		for(var/mob/player in GLOB.player_list)
 			if(!player.client)
 				continue
-			if(istype(player, /mob/abstract/new_player))
+			if(isnewplayer(player))
 				continue
 			if(!role || (role in player.client.prefs.be_special_role))
 				log_traitor("[player.key] had [antag_id] enabled, so we are drafting them.")
@@ -488,10 +490,20 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 				antag_templates |= antag
 
 	shuffle(antag_templates) //In the case of multiple antag types
-	newscaster_announcements = pick(newscaster_standard_feeds)
+	newscaster_announcements = pick(GLOB.newscaster_standard_feeds)
 
 /datum/game_mode/proc/check_victory()
 	return
+
+/**
+ * This proc runs immediately after the gamemode datum is created, right before the jobs and antag roles are divvied out.
+ * Essentially, in the lobby right before game start.
+ * This proc should always return TRUE on a success and FALSE if something went wrong, so that if the initialization failed, the game can reset to lobby state.
+ */
+/datum/game_mode/proc/pre_game_setup()
+	if(!SSticker.round_canon_admin_forced)
+		SSticker.set_round_canon(canon_type, TRUE)
+	return TRUE
 
 //////////////////////////
 //Reports player logouts//
@@ -522,7 +534,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/abstract/observer/D in GLOB.mob_list)
+		for(var/mob/abstract/ghost/observer/D in GLOB.mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"
@@ -546,7 +558,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 			to_chat(C.mob, logout_report)
 
 /client/proc/print_logout_report()
-	set category = "Admin"
+	set category = "Admin.Player Info"
 	set name = "Print Logout Report"
 
 	if(!check_rights(R_ADMIN|R_MOD))
@@ -589,7 +601,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_round_info()
 	set name = "Check Round Info"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(!SSticker.mode)
 		to_chat(usr, "Something is terribly wrong; there is no gametype.")
@@ -607,7 +619,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_gamemode_probability()
 	set name = "Check Gamemode Probability"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(GLOB.config.show_game_type_odd)
 		to_chat(src, "<b>Secret Mode Odds:</b>")

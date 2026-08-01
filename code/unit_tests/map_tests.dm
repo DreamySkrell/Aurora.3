@@ -28,32 +28,30 @@
 	if (!SSatlas.current_map)
 		return
 
-	// This is formatted strangely because it fails the indentation test if it's formatted properly.
-	// ¯\_(ツ)_/¯
 	var/list/exempt_areas = typecacheof(SSatlas.current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(SSatlas.current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
 	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(get_sorted_areas(), exempt_areas))
 		if(is_station_level(A.z))
 			area_test_count++
-			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
+			var/bad_msg = TEST_OUTPUT_RED("--------------- [A.name] ([A.type])")
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
-				TEST_FAIL("[bad_msg] lacks an APC.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an APC."))
 				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air scrubber."))
 				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air vent.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air vent."))
 				bad_airv++
 
-			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
-				TEST_FAIL("[bad_msg] lacks a fire alarm.[ascii_reset]")
+			if(!(locate(/obj/structure/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks a fire alarm."))
 				bad_fire++
 
 	if(bad_apc)
@@ -91,7 +89,7 @@
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
-		var/bad_msg = "[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]"
+		var/bad_msg = TEST_OUTPUT_RED("--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]")
 		dirs_checked.Cut()
 		for(C in T)
 			wire_test_count++
@@ -158,11 +156,13 @@
 /datum/unit_test/map_test/bad_doors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/airlock/A in world)
+	for(var/obj/structure/machinery/door/airlock/A in world)
+		if(QDELETED(A))
+			continue
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
-		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
@@ -179,16 +179,19 @@
 /datum/unit_test/map_test/bad_firedoors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/firedoor/F in world)
+	for(var/obj/structure/machinery/door/firedoor/F in world)
+		if(QDELETED(F))
+			continue
 		var/turf/T = get_turf(F)
 		checks++
+		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the firedoor at [F.x],[F.y],[F.z]")
 		var/firelock_increment = 0
-		for(var/obj/machinery/door/firedoor/FD in T)
+		for(var/obj/structure/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			failed_checks++
 			TEST_FAIL("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
-		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 
@@ -207,7 +210,7 @@
 	var/failed_checks = 0
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
-	for (var/obj/machinery/atmospherics/plumbing in world)
+	for (var/obj/structure/machinery/atmospherics/plumbing in world)
 		if(!is_station_level(plumbing.z))
 			continue
 		checks++
@@ -216,7 +219,7 @@
 			TEST_FAIL("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
 
 	//Manifolds
-	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/manifold/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -225,7 +228,7 @@
 			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	//Pipes
-	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/simple/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -235,9 +238,9 @@
 
 	next_turf:
 		for(var/turf/T in world)
-			for(var/dir in GLOB.cardinal)
-				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
-				for(var/obj/machinery/atmospherics/pipe in T)
+			for(var/dir in GLOB.cardinals)
+				var/alist/connect_types = alist(1 = 0, 2 = 0, 3 = 0)
+				for(var/obj/structure/machinery/atmospherics/pipe in T)
 					checks++
 					if(dir & pipe.initialize_directions)
 						for(var/connect_type in pipe.connect_types)
@@ -258,13 +261,13 @@
 /datum/unit_test/map_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	var/list/obj/machinery/vending/V_to_test = list()
+	var/list/obj/structure/machinery/vending/V_to_test = list()
 
-	for(var/obj/machinery/vending/T in world)
+	for(var/obj/structure/machinery/vending/T in world)
 		checks++
 		V_to_test += T
-	for(var/obj/machinery/vending/V in V_to_test)
-		var/obj/machinery/vending/temp_V = new V.type
+	for(var/obj/structure/machinery/vending/V in V_to_test)
+		var/obj/structure/machinery/vending/temp_V = new V.type
 		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
 			failed_checks++
 
@@ -340,6 +343,155 @@
 		TEST_PASS("All the mapped stairs are valid.")
 	else
 		TEST_FAIL("Some mapped stairs are invalid!")
+
+	return test_status
+
+/datum/unit_test/map_test/no_dirty_vars
+	name = "MAP: No Dirty Vars"
+
+/datum/unit_test/map_test/no_dirty_vars/start_test()
+	var/test_status
+
+#if defined(TESTING)
+
+	if(length(GLOB.dirty_vars))
+		test_status = TEST_FAIL("There are dirty vars in the map! Read the logs above!")
+		TEST_DEBUG(json_encode(GLOB.dirty_vars))
+	else
+		test_status = TEST_PASS("No dirty vars in the map.")
+
+#else
+
+	test_status = TEST_FAIL("This test was run without the TESTING define set, which isn't supported")
+
+#endif
+
+
+	return test_status
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas
+	name = "MAP: Areas in station z-levels must be marked as station areas"
+
+	/**
+	 * A list of types of areas that we do not want to check
+	 */
+	var/list/do_not_check_areas_types = list(
+		/area/space,
+		/area/shuttle,
+		/area/template_noop,
+		/area/supply/dock, // this is exempt because runtime has this area in its z-level for the sake of not having an additional non-station z-level, since we care about short boot time
+	)
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/area/possible_station_area in GLOB.areas)
+
+		if(is_type_in_list(possible_station_area, do_not_check_areas_types))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is in the do not check list.")
+			continue
+
+		//We get a turf from the area, to see if we are in the "station"
+		var/list/turf/area_turfs = get_area_turfs(possible_station_area)
+		if(!length(area_turfs))
+			TEST_NOTICE("Skipping area [possible_station_area] ([possible_station_area.type]) as it has no turfs.")
+			continue
+
+		var/turf/turf_to_get_z = pick(area_turfs)
+
+		//See if the turf is in a station z-level, if not abort
+		if(!is_station_turf(turf_to_get_z))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is not in a station z-level (picked check turf: [turf_to_get_z] on Z [turf_to_get_z.z]).")
+			continue
+
+		/* At this point, we know the area must be checked and is present in the station z-level */
+
+		if(!possible_station_area.station_area)
+			test_status = TEST_FAIL("Area [possible_station_area] ([possible_station_area.type]) is not marked as a station area, despite being in a station z-level.")
+		else
+			TEST_DEBUG("Area [possible_station_area] ([possible_station_area.type]) is marked as a station area.")
+
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All areas in station z-levels are marked as station areas.")
+	else
+		TEST_FAIL("Some areas in station z-levels are not marked as station areas.")
+
+	return test_status
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag
+	name = "MAP: Check for Spawn Guaranteed flag"
+	/// Away sites that are allowed to always populate. Usually sector-specific locations only.
+	var/list/do_not_check_site_types = list(
+		/datum/map_template/ruin/away_site/hegemony_waypoint
+	)
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
+
+		if(is_type_in_list(site, do_not_check_site_types))
+			TEST_DEBUG("Skipping away site [site.name] as it is in the do not check list.")
+			continue
+
+		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+			test_status = TEST_FAIL("Away site [site.name] has the debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+		else
+			TEST_DEBUG("Away site [site.name] does not have the flag set.")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All away sites are free of offending debug flags.")
+	else
+		TEST_FAIL("Some away sites have the offending debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+
+	return test_status
+
+// Checks mapped wall-mounted objects with direction presets.
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits
+	name = "MAP: Check for directional subtype dir var edits"
+	// Right now, this only runs on the Horizon. ALL NEW MAPS should opt-in to this unit test.
+	// Old maps are REQUIRED to be opted-in when they're touched for the first time since this unit test was added.
+	map_path = list("sccv_horizon")
+
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits/start_test()
+	var/test_status = UNIT_TEST_PASSED
+	var/checks = 0
+	var/failed_checks = 0
+	var/list/checked_types = typecacheof(list(
+		/obj/structure/machinery/alarm,
+		/obj/structure/machinery/power/apc,
+		/obj/structure/machinery/firealarm,
+		// save this for nbt2. fuck me. i don't have the strength for this rn. no one does.
+		// /obj/structure/machinery/light_switch,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/fireaxecabinet,
+		/obj/structure/closet/walllocker,
+		/obj/item/radio/intercom,
+	))
+
+	for(var/obj/O in world)
+		if(!is_type_in_typecache(O, checked_types))
+			continue
+
+		var/turf/object_turf = O.loc
+		if(istype(object_turf))
+			if(!is_station_level(object_turf.z))
+				continue
+
+		var/obj/obj_type = O.type
+		var/expected_dir = initial(obj_type.dir)
+		checks++
+
+		if(O.dir != expected_dir)
+			failed_checks++
+			TEST_FAIL("Mapped [O] ([O.type]) at ([O.x],[O.y],[O.z]) in [get_area(O)] has dir [dir2text(O.dir)], but its type's initial dir is [dir2text(expected_dir)]. Use the matching directional subtype instead of editing dir.")
+
+	if(failed_checks)
+		TEST_FAIL("\[[failed_checks] / [checks]\] Checked objects had their dir var manually edited.")
+	else
+		TEST_PASS("All \[[checks]\] checked objects are mapped with their initial dir values.")
 
 	return test_status
 

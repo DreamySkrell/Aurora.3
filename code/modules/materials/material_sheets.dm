@@ -1,28 +1,33 @@
-// Stacked resources. They use a material datum for a lot of inherited values.
+/// Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 11
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	recyclable = TRUE // Pretty much all materials should be recyclable
+	/// Pretty much all materials should be recyclable
+	recyclable = TRUE
 
-	var/default_type = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_type = MATERIAL_STEEL
+	var/singleton/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
 	var/use_material_sound = TRUE
+
+/obj/item/stack/material/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in your hand to bring up the crafting menu."
+	. += "If you have enough sheets, click on something on the list to build it."
 
 /obj/item/stack/material/Initialize(mapload, amount)
 	. = ..()
 	randpixel_xy()
 
 	if(!default_type)
-		default_type = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(default_type)
+		default_type = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -77,7 +82,7 @@
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
-	if(!istype(M) || material.name != M.material.name)
+	if(!istype(M) || material.type != M.material.type)
 		return 0
 	var/transfer = ..(S,tamount,1)
 	if(src)
@@ -91,7 +96,7 @@
 		..()
 
 /obj/item/stack/material/attackby(obj/item/attacking_item, mob/user)
-	if(iscoil(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		material.build_wired_product(user, attacking_item, src)
 		return
 	else if(istype(attacking_item, /obj/item/stack/rods))
@@ -279,9 +284,9 @@
 	update_icon()
 
 /obj/item/stack/material/steel
-	name = DEFAULT_WALL_MATERIAL
+	name = "steel"
 	icon_state = "sheet-metal"
-	default_type = DEFAULT_WALL_MATERIAL
+	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
@@ -312,8 +317,7 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/plasteel/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
+	return ..()
 
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
@@ -559,7 +563,7 @@
 /obj/item/stack/material/bronze
 	name = "bronze"
 	icon_state = "sheet-brass"
-	default_type = "bronze"
+	default_type = MATERIAL_BRONZE
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/bronze/full/Initialize()
@@ -609,6 +613,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/supermatter/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/boron
+	name = "boron"
+	icon_state = "puck"
+	default_type = MATERIAL_BORON
+
+/obj/item/stack/material/boron/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

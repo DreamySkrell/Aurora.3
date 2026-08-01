@@ -5,7 +5,7 @@
 /mob/statue_mob/send_emote()
 	to_chat(src, "You are unable to move while trapped as a statue.")
 
-/mob/statue_mob/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/statue_mob/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	to_chat(src, "You are unable to speak while trapped as a statue.")
 
 /obj/structure/closet/statue
@@ -73,9 +73,6 @@
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
-/obj/structure/closet/statue/content_info()
-	return
-
 /obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
 	appearance = L
 	appearance_flags |= KEEP_TOGETHER
@@ -105,7 +102,7 @@
 		M.forceMove(loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
-		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob
+		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transferred to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
@@ -124,13 +121,15 @@
 		for(var/mob/M in src)
 			shatter(M)
 
-/obj/structure/closet/statue/bullet_act(var/obj/projectile/Proj)
-	health -= Proj.get_structure_damage()
+/obj/structure/closet/statue/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	check_health()
 
-	return
-
-/obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
+/obj/structure/closet/statue/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage && environment_smash)
 		for(var/mob/M in src)
@@ -149,7 +148,7 @@
 	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
-/obj/structure/closet/statue/MouseDrop_T()
+/obj/structure/closet/statue/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/structure/closet/statue/relaymove(mob/living/user, direction)

@@ -40,6 +40,10 @@
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|EYES
 
+/obj/item/clothing/head/shaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Wearing this will remove your Hive name and color from Hivenet messages."
+
 /obj/item/clothing/head/expression
 	name = "human expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
@@ -49,18 +53,30 @@
 	build_from_parts = TRUE
 	worn_overlay = "face"
 	contained_sprite = TRUE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/unathi
 	name = "unathi expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -207,7 +223,7 @@
 /obj/item/grenade/spawnergrenade/vaurca
 	name = "K'ois delivery pod"
 	desc = "A sophisticated K'ois delivery pod, for seeding a planet from the comfort of space."
-	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
+	spawner_type = /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible
 	deliveryamt = 7
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -226,7 +242,7 @@
 			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
+			var/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return
@@ -274,7 +290,6 @@
 
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
@@ -287,15 +302,15 @@
 	icon_state = "scout"
 	item_state = "scout"
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
-	slowdown = -1
+	slowdown = -0.1
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
@@ -307,11 +322,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -326,12 +341,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
@@ -343,12 +358,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	light_overlay = "helmet_light_dual_green"
@@ -364,11 +379,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		bio = ARMOR_BIO_STRONG,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		BIO = ARMOR_BIO_STRONG,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
@@ -390,6 +405,7 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = list(SLOT_BACK, SLOT_BELT)
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -400,7 +416,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 
@@ -438,7 +454,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK

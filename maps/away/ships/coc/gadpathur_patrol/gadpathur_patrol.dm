@@ -97,7 +97,7 @@
 	designation = "[rand(1000, 1500)]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/gadpathur_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Gadpathurian Corvette Shuttle"
 	density = 0
@@ -143,3 +143,15 @@
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur/shotgun
 	name = "shotgun cabinet"
+
+//docks
+/obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore
+	name = "Dock, Fore"
+	landmark_tag = "nav_gadpathur_dock"
+	master_tag = "nav_gadpathur_dock"
+
+/obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle
+	name = "Gadpathurian Corvette Shuttle"
+	shuttle_tag = "Gadpathurian Corvette Shuttle"
+	master_tag = "airlock_gadpathurian_corvette_shuttle"
+	cycle_to_external_air = TRUE

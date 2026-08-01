@@ -92,7 +92,10 @@
 	. = !istype(A,/area/space)
 
 /proc/is_shuttle_area(var/area/A)
-	. = istype(A,/area/shuttle)
+	. = istype(A,/area/horizon/shuttle)
+
+/proc/is_shieldless_exterior(var/area/A)
+	. = istype(A,/area/horizon/exterior/no_shields)
 
 /proc/is_area_with_turf(var/area/A)
 	. = isnum(A.x)
@@ -101,7 +104,22 @@
 	. = !is_area_with_turf(A)
 
 /proc/is_maint_area(var/area/A)
-	. = istype(A,/area/maintenance)
+	. = istype(A,/area/horizon/maintenance)
 
 /proc/is_not_maint_area(var/area/A)
 	. = !is_maint_area(A)
+
+/proc/allows_hostile_events(var/area/A)
+	. = A.hostile_events
+
+/*
+	Area Sorting
+*/
+/proc/require_area_resort()
+	GLOB.sortedAreas = null
+
+/// Returns a sorted version of GLOB.areas, by name
+/proc/get_sorted_areas()
+	if(!GLOB.sortedAreas || (length(GLOB.sortedAreas) < length(GLOB.areas)))
+		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
+	return GLOB.sortedAreas

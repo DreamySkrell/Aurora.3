@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "av" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	id = "processing_1";
 	pixel_x = 30
 	},
@@ -10,10 +10,10 @@
 /area/miners_guild_outpost/mining)
 "aw" = (
 /obj/structure/table/rack,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
@@ -42,16 +42,16 @@
 	},
 /area/miners_guild_outpost/mining)
 "aJ" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mess)
 "aK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -75,7 +75,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "bl" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
@@ -87,8 +87,8 @@
 /turf/template_noop,
 /area/template_noop)
 "by" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -110,7 +110,7 @@
 	},
 /area/miners_guild_outpost)
 "bU" = (
-/obj/machinery/atmospherics/binary/pump/scrubber{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber{
 	dir = 4;
 	name = "scrubbers to waste"
 	},
@@ -120,9 +120,8 @@
 	},
 /area/miners_guild_outpost/engineering)
 "bV" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+/obj/structure/machinery/conveyor{
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -136,7 +135,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "bZ" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 8
 	},
@@ -146,7 +145,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -162,7 +161,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "cl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -171,7 +170,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "cr" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -187,7 +186,7 @@
 /obj/structure/plasticflaps/mining{
 	dir = 4
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 8
 	},
@@ -202,10 +201,10 @@
 	},
 /area/miners_guild_outpost/mining)
 "cF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
@@ -219,7 +218,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "dq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green{
@@ -230,14 +229,14 @@
 	},
 /area/miners_guild_outpost/mess)
 "dw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/blue,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/engineering)
 "dy" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /obj/item/blueprints/outpost,
@@ -251,10 +250,10 @@
 	},
 /area/miners_guild_outpost/engineering)
 "dA" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
@@ -298,22 +297,22 @@
 	},
 /area/miners_guild_outpost/entry)
 "eq" = (
-/obj/machinery/suit_cycler/mining/prepared{
+/obj/structure/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/eva)
 "eP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/miners_guild_outpost/mining)
 "fI" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	id = "processing_2";
 	pixel_x = 30
 	},
@@ -322,10 +321,10 @@
 	},
 /area/miners_guild_outpost/mining)
 "fQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -338,10 +337,10 @@
 	},
 /area/miners_guild_outpost/quarters)
 "fZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -349,7 +348,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -369,7 +368,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -380,7 +379,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "go" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 10
 	},
@@ -401,14 +400,14 @@
 	},
 /area/miners_guild_outpost/mining)
 "gx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -420,10 +419,10 @@
 	},
 /area/miners_guild_outpost)
 "gK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
@@ -431,10 +430,10 @@
 	},
 /area/miners_guild_outpost/entry)
 "gU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
@@ -442,11 +441,11 @@
 	},
 /area/miners_guild_outpost/mining)
 "gW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -454,7 +453,7 @@
 	},
 /area/miners_guild_outpost/quarters)
 "hj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -469,7 +468,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "hx" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -484,7 +483,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green{
@@ -495,11 +494,11 @@
 	},
 /area/miners_guild_outpost/mess)
 "hM" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -514,10 +513,10 @@
 /turf/template_noop,
 /area/template_noop)
 "iq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -535,7 +534,7 @@
 "it" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_1"
 	},
@@ -552,7 +551,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "ji" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -561,7 +560,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "jG" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/miner,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
@@ -597,14 +596,14 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "kq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -618,7 +617,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "lc" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -627,14 +626,14 @@
 	},
 /area/miners_guild_outpost/engineering)
 "lg" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/engineering)
 "lm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -646,14 +645,14 @@
 	},
 /area/miners_guild_outpost/mess)
 "lp" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Processing";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -671,7 +670,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "mh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
@@ -679,7 +678,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "mF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
@@ -687,7 +686,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "mI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -696,7 +695,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "mS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
@@ -704,7 +703,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "nO" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -712,10 +711,10 @@
 	},
 /area/miners_guild_outpost/engineering)
 "nV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -723,7 +722,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
@@ -735,10 +734,10 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = null
 	},
 /turf/simulated/floor{
@@ -775,7 +774,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "oN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -784,7 +783,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "oR" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -797,10 +796,10 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -809,7 +808,7 @@
 /area/miners_guild_outpost/engineering)
 "qa" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -833,8 +832,8 @@
 	},
 /area/miners_guild_outpost)
 "qq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -874,10 +873,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/mining)
 "qP" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -886,7 +885,7 @@
 	},
 /area/miners_guild_outpost)
 "re" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -900,7 +899,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "rp" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -917,11 +916,11 @@
 	},
 /area/miners_guild_outpost/quarters)
 "rt" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -936,7 +935,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "rX" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -953,17 +952,17 @@
 	},
 /area/miners_guild_outpost/mess)
 "sp" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/eva)
 "tp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -979,7 +978,7 @@
 	},
 /area/miners_guild_outpost)
 "tq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -998,7 +997,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "tF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
@@ -1022,7 +1021,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "tL" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -1031,13 +1030,13 @@
 	},
 /area/miners_guild_outpost/mess)
 "tP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "tU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/table/steel,
@@ -1046,10 +1045,10 @@
 	},
 /area/miners_guild_outpost/mess)
 "tW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1063,7 +1062,7 @@
 /area/miners_guild_outpost/quarters)
 "ud" = (
 /obj/structure/dispenser/oxygen,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1075,7 +1074,7 @@
 "ux" = (
 /obj/structure/table/stone,
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1084,9 +1083,9 @@
 	},
 /area/miners_guild_outpost/mess)
 "uz" = (
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/structure/table/steel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1100,7 +1099,7 @@
 	},
 /area/miners_guild_outpost/eva)
 "uD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1112,7 +1111,7 @@
 /area/miners_guild_outpost/eva)
 "uE" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1120,7 +1119,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "vf" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1128,7 +1127,7 @@
 	},
 /area/miners_guild_outpost/eva)
 "vz" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Processing";
 	dir = 4
 	},
@@ -1137,7 +1136,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "vI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1154,7 +1153,7 @@
 	},
 /area/miners_guild_outpost)
 "wD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/bed,
@@ -1169,15 +1168,15 @@
 	},
 /area/miners_guild_outpost/quarters)
 "wG" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1190,22 +1189,22 @@
 	},
 /area/miners_guild_outpost/entry)
 "wH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/suit_cycler/mining/prepared{
+/obj/structure/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/eva)
 "wW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1218,8 +1217,8 @@
 	},
 /area/miners_guild_outpost/entry)
 "xb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1230,9 +1229,8 @@
 	},
 /area/miners_guild_outpost/eva)
 "xe" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+/obj/structure/machinery/conveyor{
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1246,13 +1244,13 @@
 	},
 /area/miners_guild_outpost/mining)
 "xv" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1263,14 +1261,14 @@
 	},
 /area/miners_guild_outpost/mess)
 "xS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor{
@@ -1296,7 +1294,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/eva)
 "yp" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -1307,7 +1305,7 @@
 	},
 /area/miners_guild_outpost)
 "yV" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -1316,7 +1314,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "zV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1325,8 +1323,8 @@
 	},
 /area/miners_guild_outpost/engineering)
 "Al" = (
-/obj/machinery/appliance/cooker/fryer,
-/obj/machinery/light{
+/obj/structure/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1335,7 +1333,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "Aw" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -1346,23 +1344,23 @@
 	},
 /area/miners_guild_outpost/engineering)
 "Ax" = (
-/obj/machinery/vending/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/engineering)
 "AM" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/engineering)
 "BM" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino{
 	temperature = 303.15
 	},
@@ -1381,7 +1379,7 @@
 /area/miners_guild_outpost/eva)
 "BW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1389,10 +1387,10 @@
 	},
 /area/miners_guild_outpost/mining)
 "Cc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -1405,7 +1403,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "Cv" = (
-/obj/machinery/mineral/equipment_vendor,
+/obj/structure/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -1447,7 +1445,7 @@
 /area/miners_guild_outpost/entry)
 "Dq" = (
 /obj/structure/table/stone,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8
 	},
 /turf/simulated/floor/lino{
@@ -1456,19 +1454,19 @@
 /area/miners_guild_outpost/mess)
 "DG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "DJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1492,7 +1490,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "Ei" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1505,11 +1503,11 @@
 	},
 /area/miners_guild_outpost/entry)
 "Ew" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32;
 	id = "stacking_1"
 	},
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1540,7 +1538,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "ET" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 10
 	},
@@ -1549,14 +1547,14 @@
 	},
 /area/miners_guild_outpost/mining)
 "Fm" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 24;
 	pixel_y = 24
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1571,7 +1569,7 @@
 /area/miners_guild_outpost/entry)
 "Fv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1579,8 +1577,8 @@
 	},
 /area/miners_guild_outpost/mining)
 "FD" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1604,11 +1602,11 @@
 	},
 /area/miners_guild_outpost)
 "FI" = (
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Mess Hall"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1622,14 +1620,14 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/entry)
 "FO" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Crew Quarters";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1642,7 +1640,7 @@
 	},
 /area/miners_guild_outpost/quarters)
 "FZ" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32;
 	id = "stacking_2"
 	},
@@ -1651,10 +1649,10 @@
 	},
 /area/miners_guild_outpost/mining)
 "Gj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1667,7 +1665,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "Go" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1693,17 +1691,17 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "GD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1718,7 +1716,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_1"
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1726,7 +1724,7 @@
 	},
 /area/miners_guild_outpost/mining)
 "GR" = (
-/obj/machinery/alarm/cold{
+/obj/structure/machinery/alarm/cold{
 	req_one_access = null;
 	dir = 4;
 	pixel_x = -32
@@ -1734,10 +1732,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/quarters)
 "GW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1801,7 +1799,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_2"
 	},
@@ -1810,8 +1808,8 @@
 	},
 /area/miners_guild_outpost/mining)
 "Ia" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1831,17 +1829,17 @@
 	},
 /area/miners_guild_outpost/quarters)
 "ID" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/engineering)
 "IG" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 8
 	},
@@ -1856,10 +1854,10 @@
 	},
 /area/miners_guild_outpost/mining)
 "Jc" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -1875,10 +1873,10 @@
 	},
 /area/miners_guild_outpost/entry)
 "Jx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1886,7 +1884,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1894,13 +1892,13 @@
 	},
 /area/miners_guild_outpost/entry)
 "JD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "JX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -1908,10 +1906,10 @@
 	},
 /area/miners_guild_outpost/engineering)
 "Kl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1927,15 +1925,14 @@
 	},
 /area/miners_guild_outpost/mess)
 "Kn" = (
-/obj/machinery/mineral/rigpress,
+/obj/structure/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "Kr" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+/obj/structure/machinery/conveyor{
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1964,11 +1961,11 @@
 	},
 /area/miners_guild_outpost/mess)
 "Lc" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	name = "EVA Storage"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1983,7 +1980,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -1997,17 +1994,17 @@
 	},
 /area/miners_guild_outpost/mess)
 "LS" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mess)
 "MD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2021,10 +2018,10 @@
 	},
 /area/miners_guild_outpost/mess)
 "MJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2033,7 +2030,7 @@
 /area/miners_guild_outpost/entry)
 "Nj" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -2044,7 +2041,7 @@
 	},
 /area/miners_guild_outpost)
 "NK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2053,7 +2050,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "NQ" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
 	dir = 4
 	},
@@ -2067,14 +2064,14 @@
 	},
 /area/miners_guild_outpost/engineering)
 "OR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -2089,7 +2086,7 @@
 /area/miners_guild_outpost)
 "OW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -2111,7 +2108,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_2"
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2119,14 +2116,14 @@
 	},
 /area/miners_guild_outpost/mining)
 "PE" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -2135,7 +2132,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "PG" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -2146,9 +2143,9 @@
 	},
 /area/miners_guild_outpost/engineering)
 "PL" = (
-/obj/machinery/door/airlock,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2159,7 +2156,7 @@
 	},
 /area/miners_guild_outpost/entry)
 "PU" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2167,8 +2164,8 @@
 	},
 /area/miners_guild_outpost/mining)
 "Qo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2182,8 +2179,8 @@
 	},
 /area/miners_guild_outpost)
 "Qv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2197,7 +2194,7 @@
 /obj/structure/plasticflaps/mining{
 	dir = 4
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 8
 	},
@@ -2209,21 +2206,21 @@
 /area/miners_guild_outpost/mining)
 "QJ" = (
 /obj/structure/table/rack,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "QM" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -2232,7 +2229,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "QT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2250,7 +2247,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "Rs" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "miners_guild_outpost";
 	dir = 8
 	},
@@ -2261,8 +2258,8 @@
 	},
 /area/miners_guild_outpost/mining)
 "Sn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2276,7 +2273,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "Sr" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2294,7 +2291,7 @@
 	},
 /area/miners_guild_outpost/quarters)
 "Sy" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -2308,8 +2305,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/engineering)
 "SH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -2328,8 +2325,8 @@
 	},
 /area/miners_guild_outpost)
 "SS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2352,7 +2349,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -2360,7 +2357,7 @@
 	},
 /area/miners_guild_outpost/engineering)
 "Tm" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2375,7 +2372,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/miners_guild_outpost/mess)
 "TZ" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -2384,7 +2381,7 @@
 	},
 /area/miners_guild_outpost)
 "Va" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -2399,7 +2396,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2407,10 +2404,10 @@
 	},
 /area/miners_guild_outpost/eva)
 "VF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2429,7 +2426,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "VX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -2438,14 +2435,14 @@
 	},
 /area/miners_guild_outpost/mining)
 "WY" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mining)
 "Xr" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/green{
@@ -2456,7 +2453,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "XM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -2479,13 +2476,13 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild_outpost/mining)
 "XZ" = (
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2496,7 +2493,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2512,8 +2509,8 @@
 	},
 /area/miners_guild_outpost)
 "ZO" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

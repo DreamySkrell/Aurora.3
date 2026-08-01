@@ -2,17 +2,18 @@
  * Knives. They stab your eyes out, and fit into boots. Copypasted the screwdriver code
  */
 /obj/item/material/knife
-	name = "kitchen knife"
+	name = "chef's knife"
 	icon = 'icons/obj/kitchen.dmi'
 	contained_sprite = TRUE
 	icon_state = "knife"
+	item_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	sharp = 1
 	edge = TRUE
 	var/active = 1 // For butterfly knives
 	force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
-	matter = list(DEFAULT_WALL_MATERIAL = 12000)
+	matter = list(MATERIAL_STEEL = 12000)
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
@@ -25,13 +26,13 @@
 	. = ..()
 	src.add_blood()
 
-/obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/material/knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(active == 1)
-		if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
+		if((target_zone != BP_EYES && target_zone != BP_HEAD) || target_mob.eyes_protected(src, FALSE))
 			return ..()
 		if((user.is_clumsy()) && prob(50))
-			M = user
-		return eyestab(M,user)
+			target_mob = user
+		return eyestab(target_mob,user)
 
 /obj/item/material/knife/verb/extract_embedded(var/mob/living/carbon/human/H as mob in view(1))
 	set name = "Extract Embedded Item"
@@ -57,7 +58,7 @@
 		var/obj/S = thing
 		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain(SPAN_DANGER("<font size=3>It burns!</font>"), 50)
+		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")
@@ -146,6 +147,7 @@
 	attack_verb = list("patted", "tapped")
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
+	worth_multiplier = 8
 
 /obj/item/material/knife/butterfly/update_force()
 	if(active)

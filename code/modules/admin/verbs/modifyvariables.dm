@@ -165,7 +165,13 @@ var/list/VVdynamic_lock = list(
 
 /client/proc/mod_list(var/list/L, atom/O, original_name, objectvar)
 	if(!check_rights(R_VAREDIT|R_DEV))	return
-	if(!istype(L,/list)) to_chat(src, "Not a List.")
+	if(!islist(L))
+		//May the omnissiah forgive me for this
+		if(tgui_alert(usr, "Not a list, make it a list?", "Make list", list("Yes", "No")) == "Yes")
+			O.vars[objectvar] = list()
+			L = O.vars[objectvar]
+		else
+			return
 
 	if(L.len > 1000)
 		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
@@ -208,7 +214,7 @@ var/list/VVdynamic_lock = list(
 	if(variable in VVlocked)
 		if(!check_rights(R_DEBUG|R_DEV))	return
 	if(variable in VVckey_edit)
-		if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 	if(variable in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 
@@ -314,7 +320,10 @@ var/list/VVdynamic_lock = list(
 				L[L.Find(variable)] = variable
 
 		if("edit referenced object")
-			modify_variables(variable)
+			if(islist(L?[variable]))
+				mod_list(L[variable], O, original_name, objectvar)
+			else
+				modify_variables(variable)
 
 		if("DELETE FROM LIST")
 			world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
@@ -424,7 +433,7 @@ var/list/VVdynamic_lock = list(
 		if(param_var_name in VVlocked)
 			if(!check_rights(R_DEBUG|R_DEV))	return
 		if(param_var_name in VVckey_edit)
-			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(param_var_name in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(VVdynamic_lock[variable])
@@ -489,7 +498,7 @@ var/list/VVdynamic_lock = list(
 		if(variable in VVlocked)
 			if(!check_rights(R_DEBUG|R_DEV)) return
 		if(variable in VVckey_edit)
-			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
+			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(variable in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
 		if(VVdynamic_lock[variable])
@@ -573,9 +582,9 @@ var/list/VVdynamic_lock = list(
 	var/original_name
 
 	if (!istype(O, /atom))
-		original_name = "\ref[O] ([O])"
+		original_name = "[REF(O)] ([O])"
 	else
-		original_name = O:name
+		original_name = O.name
 
 	if(holder.marked_datum && class == "marked datum ([holder.marked_datum.type])")
 		class = "marked datum"

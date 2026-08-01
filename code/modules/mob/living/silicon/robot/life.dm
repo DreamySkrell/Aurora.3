@@ -17,10 +17,16 @@
 	if(stat)
 		CutOverlays(eye_overlay)
 		has_cut_eye_overlay = TRUE
+		if(stat == DEAD) // Leave a bit of glow in the eyes while we're on backup power
+			CutOverlays(eye_emissive)
+			has_cut_eye_emissive = TRUE
 	else if(has_cut_eye_overlay)
 		eye_overlay = cached_eye_overlays[a_intent]
 		AddOverlays(eye_overlay)
-		has_cut_eye_overlay = null
+		has_cut_eye_overlay = FALSE
+		if(has_cut_eye_emissive)
+			AddOverlays(eye_emissive)
+			has_cut_eye_emissive = FALSE
 	if(stat != DEAD) //still using power
 		use_power()
 		process_killswitch()
@@ -154,10 +160,10 @@
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)
@@ -210,7 +216,7 @@
 			healths.icon_state = "health7"
 
 	if(syndicate && client)
-		for(var/datum/mind/tra in traitors.current_antagonists)
+		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
@@ -220,7 +226,7 @@
 			// TODO: Update to new antagonist system.
 			if(!mind.special_role)
 				mind.special_role = "traitor"
-				traitors.current_antagonists |= mind
+				GLOB.traitors.current_antagonists |= mind
 
 	if(cells)
 		if(cell)
@@ -254,11 +260,11 @@
 
 	if(stat != DEAD)
 		if(blinded)
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+			overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		else
 			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 		if (machine)
 			if (machine.check_eye(src) < 0)
@@ -273,14 +279,14 @@
 	if(client)
 		client.screen -= contents
 		for(var/obj/I in contents)
-			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/device/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/device/mmi)))
+			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/radio) || istype(I, /obj/structure/machinery/camera) || istype(I, /obj/item/mmi)))
 				client.screen += I
 	if(module_state_1)
-		module_state_1:screen_loc = ui_inv1
+		module_state_1.screen_loc = ui_inv1
 	if(module_state_2)
-		module_state_2:screen_loc = ui_inv2
+		module_state_2.screen_loc = ui_inv2
 	if(module_state_3)
-		module_state_3:screen_loc = ui_inv3
+		module_state_3.screen_loc = ui_inv3
 	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
@@ -332,6 +338,9 @@
 	if(on_fire)
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 /mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

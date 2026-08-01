@@ -1,8 +1,9 @@
 /mob/living/heavy_vehicle/premade
 	name = "impossible mech"
 	desc = "It seems to be saying 'please let me die'."
-	icon = 'icons/mecha/mecha.dmi'
+	icon = 'icons/mecha/mech_preview.dmi'
 	icon_state = "ripley"
+	pixel_x = -8
 
 	//equipment path vars, which get added to the mech in the add_parts() proc
 	//e_ means equipment - geeves
@@ -27,7 +28,7 @@
 	add_parts()
 	do_decals()
 	if(!material)
-		material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
+		material = GET_SINGLETON(MATERIAL_STEEL)
 	update_icon()
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(spawn_mech_equipment))

@@ -39,18 +39,18 @@
 	to_chat(src, SPAN_DANGER("You can use 'say' to speak with them and the rest of the hivemind."))
 	to_chat(src, SPAN_DANGER("What you say can only be heard by [ling] and the other members of their local hivemind."))
 
-/mob/abstract/hivemind/say(message)
-	message = sanitize_text(message)
+/mob/abstract/hivemind/say(text)
+	text = sanitize_text(text)
 
-	if(!message)
+	if(!text)
 		return
 
-	log_say("[changeling_mob] Hivemind/[src.key] : [message]")
+	log_say("[changeling_mob] Hivemind/[src.key] : [text]")
 
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))
 		return
-	relay_hivemind(changeling_message_process(message), changeling_mob)
+	relay_hivemind(changeling_message_process(text), changeling_mob)
 
 /mob/abstract/hivemind/emote()
 	to_chat(src, SPAN_WARNING("You cannot emote."))
@@ -63,7 +63,7 @@
 	var/mob/living/simple_animal/hostile/morph/M = new /mob/living/simple_animal/hostile/morph(get_turf(changeling_mob))
 	M.stop_thinking = TRUE // prevent the AI from taking over when the player ghosts
 	M.ckey = ckey
-	morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	GLOB.morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 
 	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
 	changeling.hivemind_members -= src

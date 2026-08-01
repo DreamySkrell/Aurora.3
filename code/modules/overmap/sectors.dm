@@ -2,7 +2,7 @@
 //Overmap object representing zlevel(s)
 //===================================================================================
 /// Global object used to locate the overmap area.
-var/global/area/overmap/map_overmap
+GLOBAL_DATUM(map_overmap, /area/overmap)
 
 /obj/effect/overmap/visitable
 	name = "map object"
@@ -48,11 +48,11 @@ var/global/area/overmap/map_overmap
 	var/image/applied_distress_overlay
 
 	var/targeting_flags = TARGETING_FLAG_ENTRYPOINTS|TARGETING_FLAG_GENERIC_WAYPOINTS
-	var/list/obj/machinery/ship_weapon/ship_weapons
+	var/list/obj/structure/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
-	var/obj/machinery/leviathan_safeguard/levi_safeguard
-	var/obj/machinery/gravity_generator/main/gravity_generator
+	var/obj/structure/machinery/leviathan_safeguard/levi_safeguard
+	var/obj/structure/machinery/gravity_generator/main/gravity_generator
 
 	/// Whether ghostroles attached to this overmap object spawn with comms
 	var/comms_support = FALSE
@@ -106,15 +106,15 @@ var/global/area/overmap/map_overmap
 		detarget(targeting)
 
 /obj/effect/overmap/visitable/Destroy()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.linked == src)
 			T.linked = null
 	if(entry_points)
 		entry_points.Cut()
-	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
+	for(var/obj/structure/machinery/ship_weapon/SW in ship_weapons)
 		SW.linked = null
 	if(ship_weapons)
 		ship_weapons.Cut()
@@ -146,9 +146,9 @@ var/global/area/overmap/map_overmap
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		T.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
@@ -293,14 +293,14 @@ var/global/area/overmap/map_overmap
 
 	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new
-	global.map_overmap = A
+	GLOB.map_overmap = A
 	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		var/turf/T = square
 		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 
 	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 

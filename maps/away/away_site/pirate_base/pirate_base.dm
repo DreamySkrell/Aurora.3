@@ -6,6 +6,7 @@
 	suffix = "pirate_base.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "pirate"
@@ -60,7 +61,7 @@
 	designation = "[pick("Black Betty", "Bastard's Home", "Super Glue Tank", "Battering Ram", "Desperado", "Scimitar", "Arrow's End", "Rustbucket", "Flintlock")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/pirate_ship
+/obj/structure/machinery/computer/shuttle_control/explore/pirate_ship
 	name = "shuttle control console"
 	shuttle_tag = "Wanted Vessel"
 
@@ -81,7 +82,7 @@
 	landmark_tag = "nav_hangar_pirate_ship"
 	docking_controller = "pirate_ship_shuttle_dock"
 	base_area = /area/mine
-	base_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/pirate_ship/transit

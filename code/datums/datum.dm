@@ -7,6 +7,10 @@
 	 */
 	var/gc_destroyed
 
+	/// Open uis owned by this datum
+	/// Lazy, since this case is semi rare
+	var/list/open_uis
+
 	var/tmp/list/active_timers
 
 	/// Active timers with this datum as the target
@@ -33,8 +37,26 @@
 	/// Datum level flags
 	var/datum_flags = NONE
 
+	/**
+	 * If set, a path at/above this one that expects not to be instantiated
+	 *
+	 * This is a `typepath`
+	 *
+	 * Do not instantiate a datum that has the path set as its abstract_type, this indicates
+	 * that the datum is abstract and is not meant to be spawned/used directly
+	*/
+	var/abstract_type
+
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
+
+	/*
+	* Lazy associative list of currently active cooldowns.
+	*
+	* cooldowns [ COOLDOWN_INDEX ] = add_timer()
+	* add_timer() returns the truthy value of -1 when not stoppable, and else a truthy numeric index
+	*/
+	var/list/cooldowns
 
 	/// Used to avoid unnecessary refstring creation in Destroy().
 	var/tmp/has_state_machine = FALSE
@@ -84,7 +106,7 @@
 		var/list/timers = _active_timers
 		_active_timers = null
 		for(var/datum/timedevent/timer as anything in timers)
-			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+			if (!timer || (timer.spent && !(timer.flags & TIMER_DELETE_ME)))
 				continue
 			qdel(timer)
 
@@ -94,13 +116,37 @@
 	#endif
 	#endif
 
-	GLOB.destroyed_event.raise_event(src)
+	// Cleanup all events on non-turfs. These used to be procs, but have been removed to save proc overhead on 2.6 million destroy() calls
 	if (!isturf(src))
-		cleanup_events(src)
-
-	var/ui_key = SOFTREF(src)
-	if(LAZYISIN(SSnanoui.open_uis, ui_key))
-		SSnanoui.close_uis(src)
+		if(GLOB.global_listen_count && GLOB.global_listen_count[src])
+			GLOB.global_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				if(event.unregister_global(src))
+					log_debug("[event] - [src] was deleted while still registered to global events.")
+					if(!(--GLOB.global_listen_count[src]))
+						break
+		if(GLOB.event_sources_count && GLOB.event_sources_count[src])
+			GLOB.event_sources_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				var/proc_owners = event.event_sources[src]
+				if(proc_owners)
+					for(var/proc_owner in proc_owners)
+						if(event.unregister(src, proc_owner))
+							log_debug("[event] - [src] was deleted while still being listened to by [proc_owner].")
+							if(!(--GLOB.event_sources_count[src]))
+								break
+		if(GLOB.event_listen_count && GLOB.event_listen_count[src])
+			GLOB.event_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				for(var/event_source in event.event_sources)
+					if(event.unregister(event_source, src))
+						log_debug("[event] - [src] was deleted while still listening to [event_source].")
+						if(!(--GLOB.event_listen_count[src]))
+							break
+	// End of event cleanup
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components
@@ -109,45 +155,67 @@
 			var/component_or_list = dc[component_key]
 			if(islist(component_or_list))
 				for(var/datum/component/component as anything in component_or_list)
+					if (!component)
+						continue
 					qdel(component, FALSE)
 			else
 				var/datum/component/C = component_or_list
 				qdel(C, FALSE)
 		dc.Cut()
 
-	_clear_signal_refs()
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
-
-///Only override this if you know what you're doing. You do not know what you're doing
-///This is a threat
-/datum/proc/_clear_signal_refs()
-	var/list/lookup = _listen_lookup
-	if(lookup)
-		for(var/sig in lookup)
-			var/list/comps = lookup[sig]
+	// Signal cleanup. This originally was a proc from /tg/ that had this warning label asking me not to override it.
+	/*
+		///Only override this if you know what you're doing. You do not know what you're doing
+		///This is a threat
+		*/
+	// Well proc overhead is a thing that exists when you're qdel'ing 2.6 million objects. And NOTHING overrides it or has any reason to override it.
+	if(length(_listen_lookup))
+		for(var/sig in _listen_lookup)
+			var/list/comps = _listen_lookup[sig]
 			if(length(comps))
 				for(var/datum/component/comp as anything in comps)
 					comp.UnregisterSignal(src, sig)
 			else
 				var/datum/component/comp = comps
 				comp.UnregisterSignal(src, sig)
-		_listen_lookup = lookup = null
+		_listen_lookup = null
 
 	for(var/target in _signal_procs)
 		UnregisterSignal(target, _signal_procs[target])
+	//END: ECS SHIT
 
-/datum/proc/can_vv_get(var_name)
-	return TRUE
+	return QDEL_HINT_QUEUE
 
-/datum/proc/vv_edit_var(var_name, var_value) //called whenever a var is edited
-	if(var_name == NAMEOF(src, vars))
-		return FALSE
-	if(!can_vv_get(var_name))
-		return FALSE
-	vars[var_name] = var_value
-	return TRUE
+/**
+ * Callback called by a timer to end an associative-list-indexed cooldown.
+ *
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
+ *
+ * This sends a signal reporting the cooldown end.
+ */
+/proc/end_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_STOP(index))
+	TIMER_COOLDOWN_END(source, index)
+
+
+/**
+ * Proc used by stoppable timers to end a cooldown before the time has ran out.
+ *
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
+ *
+ * This sends a signal reporting the cooldown end, passing the time left as an argument.
+ */
+/proc/reset_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_RESET(index), S_TIMER_COOLDOWN_TIMELEFT(source, index))
+	TIMER_COOLDOWN_END(source, index)
 
 ///Generate a tag for this /datum, if it implements one
 ///Should be called as early as possible, best would be in New, to avoid weakref mistargets

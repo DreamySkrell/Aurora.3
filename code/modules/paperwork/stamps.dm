@@ -8,7 +8,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 7
 	throw_range = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 60)
+	matter = list(MATERIAL_STEEL = 60)
 	attack_verb = list("stamped")
 
 /obj/item/stamp/captain
@@ -50,6 +50,10 @@
 /obj/item/stamp/denied
 	name = "\improper DENIED rubber stamp"
 	icon_state = "stamp-deny"
+
+/obj/item/stamp/accepted
+	name = "\improper ACCEPTED rubber stamp"
+	icon_state = "stamp-accept"
 
 /obj/item/stamp/clown
 	name = "clown's rubber stamp"

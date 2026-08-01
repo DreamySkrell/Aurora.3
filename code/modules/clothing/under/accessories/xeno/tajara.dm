@@ -51,11 +51,10 @@
 	icon_state = "furscarf_cream"
 	item_state = "furscarf_cream"
 
-/obj/item/clothing/accessory/tajaran/summershirt
-	name = "adhomian summerwear shirt"
-	desc = "A simple piece of adhomian summerwear made with linen."
-	icon_state = "summer-shirt"
-	item_state = "summer-shirt"
+/obj/item/clothing/accessory/tajaran/colorable
+	desc = "A furred scarf, a common tajaran vanity item."
+	icon_state = "furscarf_colorable"
+	item_state = "furscarf_colorable"
 
 /obj/item/clothing/accessory/poncho/tajarancloak
 	name = "common cloak"
@@ -115,6 +114,22 @@
 	desc = "A fancy black Adhomian cloak."
 	icon_state = "hb_cloak"
 	item_state = "hb_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	name = "fancy adhomian cloak"
+	desc = "A fancy Adhomian cloak."
+	icon_state = "hb_cloak_colorable"
+	item_state = "hb_cloak_colorable"
+	worn_overlay =  "adornment"
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable/royal
+	name = "adhomian royal cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "royal_cloak_colorable"
+	item_state = "royal_cloak_colorable"
+	worn_overlay =  "adornment"
 
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
@@ -349,14 +364,14 @@
 /obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
-	if(user.a_intent != I_HURT && M != user)
-		if(target_zone == BP_HEAD | M.lying)
-			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user.a_intent != I_HURT && target_mob != user)
+		if(target_zone == BP_HEAD | target_mob.lying)
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>")
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>")
 		else
-			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>")
 	else
 		return ..()
 
@@ -407,12 +422,53 @@
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
 
+/obj/item/clothing/accessory/tajaran/charm/twin_suns
+	name = "twin suns charm"
+	desc = "A talisman with the symbol of the Adhomian suns, the deities of the S'rand'marr faith."
+	desc_extended = "The Twin Suns Icon is an ancient icon representing Adhomai's suns. While the Church of S'rand'marr claims it was originally a religious symbol, \
+	archeological evidence traces its origins to the Tajaran pre-history. The Twin Suns Icon represents auspiciousness, protection, and perseverance. \
+	It is commonly found on clothing, weapons, vehicles, and carved on the entrance of homes. When used on flags, it is considered to be a symbol of incontestable rulership."
+	icon_state = "suns_talisman"
+	item_state = "suns_talisman"
+
 /obj/item/clothing/accessory/tajaran/charm/raskariim
 	name = "metal amulet"
 	desc = "An amulet made of some light metal."
 	icon_state = "raskara_amulet"
 	item_state = "raskara_amulet"
 	overlay_state = "raskara_amulet"
+	var/raskara_text = null
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(raskara_text && ishuman(user))
+		var/mob/living/carbon/human/U = user
+		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
+			. += SPAN_CULT("\The [src] [raskara_text]")
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	name = "key charm"
+	desc = "An old, rustic key turned into a charm."
+	icon_state = "doorandkey_talisman"
+	item_state = "doorandkey_talisman"
+	overlay_state = null
+	raskara_text = "is the key to the door of Raskara's embrace."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	name = "coin charm"
+	desc = "A charm made out of an adhomian knuckle coin, also known as a traditional way to carry them."
+	icon_state = "kingofmaggots_talisman"
+	item_state = "kingofmaggots_talisman"
+	overlay_state = null
+	raskara_text = "is from the bank of the King of Maggots."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	name = "glass charm"
+	desc = "A charm made from a shard of black glass. The edges appear to have been blunted to prevent cutting oneself on it."
+	icon_state = "blackmirror_talisman"
+	item_state = "blackmirror_talisman"
+	overlay_state = null
+	raskara_text = "reflects The Stranger, it gazes coldly."
 
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"
@@ -520,54 +576,14 @@
 	desc = "A fancy waistcoat worn by the New Kingdom's nobility. Likely a hand-me-down."
 	icon_state = "nka_waistcoat"
 	item_state = "nka_waistcoat"
-
-/obj/item/clothing/accessory/tajaran/nka_waistcoat/update_icon()
-	ClearOverlays()
-	var/image/buttons = image(icon, null, "nka_waistcoat_buttons")
-	buttons.appearance_flags = RESET_COLOR
-	AddOverlays(buttons)
-
-/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/buttons = image(mob_icon, null, "nka_waistcoat_un_buttons")
-		buttons.appearance_flags = RESET_COLOR
-		I.AddOverlays(buttons)
-	return I
-
-/obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
-	var/image/base = ..()
-	var/image/buttons = image(icon, null, "nka_waistcoat_un_buttons")
-	buttons.appearance_flags = RESET_COLOR
-	base.AddOverlays(buttons)
-	return base
+	has_accents = TRUE
 
 /obj/item/clothing/accessory/tajaran/nka_vest
 	name = "noble adhomian vest"
 	desc = "A fancy vest worn by the New Kingdom's nobility. Likely a hand-me-down."
 	icon_state = "nka_vest"
 	item_state = "nka_vest"
-
-/obj/item/clothing/accessory/tajaran/nka_vest/update_icon()
-	ClearOverlays()
-	var/image/buttons = image(icon, null, "nka_vest_buttons")
-	buttons.appearance_flags = RESET_COLOR
-	AddOverlays(buttons)
-
-/obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/buttons = image(mob_icon, null, "nka_vest_un_buttons")
-		buttons.appearance_flags = RESET_COLOR
-		I.AddOverlays(buttons)
-	return I
-
-/obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
-	var/image/base = ..()
-	var/image/buttons = image(icon, null, "nka_vest_un_buttons")
-	buttons.appearance_flags = RESET_COLOR
-	base.AddOverlays(buttons)
-	return base
+	has_accents = TRUE
 
 /obj/item/clothing/accessory/dogtags/adhomai
 	name = "adhomian dogtags"
@@ -580,7 +596,7 @@
 /obj/item/dogtag/adhomai_tag
 	name = "adhomian dogtag"
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
-	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "adhomai_tag"
 	w_class = WEIGHT_CLASS_SMALL
 

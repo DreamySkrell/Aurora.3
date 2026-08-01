@@ -3,9 +3,9 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
-//releases a burst of light on impact or after travelling a distance
+/// Releases a burst of light on impact or after travelling a distance.
 /obj/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
@@ -16,8 +16,10 @@
 	var/brightness = 7
 	var/light_duration = 5
 
-/obj/projectile/energy/flash/on_impact(var/atom/A, affected_limb)
-	var/turf/T = flash_range ? src.loc : get_turf(A)
+/obj/projectile/energy/flash/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/turf/T = flash_range ? src.loc : get_turf(target)
 	if(!istype(T))
 		return
 
@@ -25,8 +27,6 @@
 	for(var/mob/living/M in viewers(T, flash_range))
 		if(M.flash_act(ignore_inherent = TRUE))
 			M.confused = rand(5, 15)
-		else if(affected_limb && M == A)
-			M.confused = rand(2, 7)
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -34,9 +34,9 @@
 
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
 	single_spark(T)
-	new /obj/effect/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
+	new /obj/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
 
-//blinds people like the flash round, but can also be used for temporary illumination
+/// blinds people like the flash round, but can also be used for temporary illumination
 /obj/projectile/energy/flash/flare
 	damage = 10
 	flash_range = 1
@@ -95,13 +95,15 @@
 /obj/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	irradiate = 20
+	irradiate = 80 //Radiation goes up to 1000
+	check_armor = BIO
+	damage_type = DAMAGE_TOXIN
 
 /obj/projectile/energy/bfg
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armor = "bomb"
+	check_armor = BOMB
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
@@ -111,12 +113,12 @@
 	light_range = 4
 	light_color = "#b5ff5b"
 
-/obj/projectile/energy/bfg/on_impact(var/atom/A)
-	if(ismob(A))
-		var/mob/M = A
+/obj/projectile/energy/bfg/on_hit(atom/target, blocked, def_zone)
+	if(ismob(target))
+		var/mob/M = target
 		M.gib()
-	explosion(A, -1, 0, 5)
-	..()
+	explosion(get_turf(target), -1, 0, 5)
+	. = ..()
 
 /obj/projectile/energy/bfg/New()
 	var/matrix/M = matrix()
@@ -124,21 +126,21 @@
 	src.transform = M
 	..()
 
-/obj/projectile/energy/bfg/after_move()
-	for(var/a in range(1, src))
-		if(isliving(a) && a != firer)
-			var/mob/living/M = a
-			if(M.stat == DEAD)
-				M.gib()
-			else
-				M.apply_damage(60, DAMAGE_BRUTE, BP_HEAD)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
-		else if(isturf(a) || isobj(a))
-			var/atom/A = a
-			if(!A.density)
-				continue
-			A.ex_act(2)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// /obj/projectile/energy/bfg/after_move()
+// 	for(var/a in range(1, src))
+// 		if(isliving(a) && a != firer)
+// 			var/mob/living/M = a
+// 			if(M.stat == DEAD)
+// 				M.gib()
+// 			else
+// 				M.apply_damage(60, DAMAGE_BRUTE, BP_HEAD)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// 		else if(isturf(a) || isobj(a))
+// 			var/atom/A = a
+// 			if(!A.density)
+// 				continue
+// 			A.ex_act(2)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
 /obj/projectile/energy/gravitydisabler
 	name = "gravity disabler"
@@ -149,19 +151,19 @@
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
-	speed = 2
+	speed = 1
 	light_range = 4
 	light_color = "#b5ff5b"
 
-/obj/projectile/energy/gravitydisabler/on_impact(atom/target)
+/obj/projectile/energy/gravitydisabler/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	var/area/A = get_area(target)
 	if(A && A.has_gravity())
 		A.gravitychange(FALSE)
 		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
 
-	if(istype(target, /obj/machinery/gravity_generator/main))
-		var/obj/machinery/gravity_generator/main/T = target
+	if(istype(target, /obj/structure/machinery/gravity_generator/main))
+		var/obj/structure/machinery/gravity_generator/main/T = target
 		T.eshutoff()
 
 /obj/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
@@ -171,42 +173,17 @@
 	name = "blaster bolt"
 	icon_state = "laser"
 	damage = 30
-	check_armor = "laser"
+	check_armor = LASER
 	damage_type = DAMAGE_BURN
 	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
-	hit_effect = /obj/effect/temp_visual/blaster_effect
-
-/obj/projectile/energy/blaster/disruptor
-	damage = 20
-	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/blaster/disruptor/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
+	impact_effect_type = /obj/effect/temp_visual/blaster_effect
 
 /obj/projectile/energy/blaster/skrell // for nralakk fed consular pistol
 	damage = 30
 	armor_penetration = 5
 	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/disruptorstun
-	name = "disruptor bolt"
-	icon_state = "bluelaser"
-	damage = 1
-	agony = 40
-	speed = 0.4
-	damage_type = DAMAGE_BURN
-	eyeblur = TRUE
-	pass_flags = PASSTABLE | PASSRAILING
-	muzzle_type = /obj/effect/projectile/muzzle/bolt
-
-/obj/projectile/energy/disruptorstun/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
 
 /obj/projectile/energy/blaster/heavy
 	damage = 35
@@ -216,7 +193,21 @@
 	icon_state = "laser"
 	damage = 35
 	armor_penetration = 60
-	incinerate = 15
+	incinerate = 2
 
-/obj/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
+/obj/projectile/energy/blaster/incendiary/light
+	icon_state = "laser"
+	damage = 30
+	armor_penetration = 35
+	incinerate = 1
+
+/obj/projectile/energy/disruptorskrell // for nralakk fed consular pistol
+	name = "disruptor bolt"
+	icon_state = "bluelaser"
+	damage = 1
 	agony = 45
+	speed = 0.4
+	damage_type = DAMAGE_BURN
+	eyeblur = 1
+	pass_flags = PASSTABLE | PASSRAILING
+	muzzle_type = /obj/effect/projectile/muzzle/bolt

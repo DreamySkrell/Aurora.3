@@ -12,6 +12,13 @@
 
 	var/lich = null
 
+/obj/item/phylactery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!lich)
+		. += "The heart is inert."
+	else
+		. += "The heart is pulsing slowly."
+
 /obj/item/phylactery/Initialize()
 	. = ..()
 	GLOB.world_phylactery += src
@@ -21,13 +28,6 @@
 	GLOB.world_phylactery -= src
 	lich = null
 	return ..()
-
-/obj/item/phylactery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!lich)
-		. += "The heart is inert."
-	else
-		. += "The heart is pulsing slowly."
 
 /obj/item/phylactery/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -40,5 +40,5 @@
 /obj/item/phylactery/pickup(mob/living/user as mob)
 	..()
 	to_chat(user, SPAN_WARNING("As you pick up \the [src], you feel a wave of dread wash over you."))
-	for(var/obj/machinery/light/P in view(7, user))
+	for(var/obj/structure/machinery/light/P in view(7, user))
 		P.flicker(1)

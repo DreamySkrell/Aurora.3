@@ -47,7 +47,7 @@
 // Telecommunications program
 /datum/ntsl2_program/tcomm
 	name = "NTSL2++ comm program"
-	var/obj/machinery/telecomms/server/server
+	var/obj/structure/machinery/telecomms/server/server
 
 
 /datum/ntsl2_program/tcomm/New(var/server)
@@ -66,7 +66,7 @@
 			pass = !(signal.data["reject"]),
 			verb = signal.data["say_verb"],
 			language = signal_language.name,
-			reference = ref(signal)
+			reference = REF(signal)
 		)
 	), RUSTG_HTTP_METHOD_POST, callback = callback)
 	/* [

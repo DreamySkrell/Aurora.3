@@ -107,11 +107,11 @@
 			return
 		to_chat(src, "Connection verified. Searching for APC in power network.")
 		sleep(50)
-		var/obj/machinery/power/apc/theAPC = null
+		var/obj/structure/machinery/power/apc/theAPC = null
 
 		var/PRP
 		for (PRP=1, PRP<=4, PRP++)
-			for (var/obj/machinery/power/apc/APC in current_area)
+			for (var/obj/structure/machinery/power/apc/APC in current_area)
 				if (!(APC.stat & BROKEN))
 					theAPC = APC
 					break
@@ -119,7 +119,7 @@
 				switch(PRP)
 					if (1) to_chat(src, "Unable to locate APC!")
 					else to_chat(src, "Lost connection with the APC!")
-				src:ai_restore_power_routine = 2
+				ai_restore_power_routine = 2
 				return
 			if (current_area.power_equip)
 				if (!istype(T, /turf/space))
@@ -167,7 +167,7 @@
 /mob/living/silicon/ai/update_sight()
 	if(is_blind())
 		update_icon()
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 	else if(stat == DEAD)

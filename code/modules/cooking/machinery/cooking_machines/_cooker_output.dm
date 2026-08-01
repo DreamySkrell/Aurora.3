@@ -52,7 +52,7 @@
 	if (reagents && reagents.total_volume)
 		var/ratio = reagents.total_volume / size
 		scale = sqrt(ratio) //Scaling factor is square root of desired area
-		scale = Clamp(scale, min_scale, max_scale)
+		scale = clamp(scale, min_scale, max_scale)
 	else
 		scale = min_scale
 	w_class = round(initial(w_class) * scale)
@@ -64,6 +64,7 @@
 	var/matrix/M = matrix()
 	M.Scale(scale)
 	transform = M
+	. = ..()
 
 	if (!prefix || overwrite)
 		update_prefix()
@@ -104,13 +105,6 @@
 	trash = /obj/item/trash/plate
 	w_class = WEIGHT_CLASS_SMALL
 	size = 8
-
-/obj/item/reagent_containers/food/snacks/variable/cakeslice/update_icon()
-	. = ..()
-	//Filling overlay
-	var/image/I = image(icon, "[icon_state]_filling")
-	I.color = filling_color
-	overlays += I
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
 	name = "hot pocket"
@@ -189,3 +183,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/kitchen_tag = "animal"
 
+/obj/item/reagent_containers/food/snacks/variable/macaron
+	name = "macaron"
+	desc = "Fluffy, brittle, sweet macaron."
+	icon_state = "macaroncustom"
+	size = 15
+	w_class = WEIGHT_CLASS_TINY
+	bitesize = 6

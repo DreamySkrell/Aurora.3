@@ -14,7 +14,6 @@
 	name = "Mi'kuetz Camp"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -34,7 +33,7 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	outfit = /obj/outfit/admin/moghes_mikuetz
-	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Mi'kuetz Wanderer"

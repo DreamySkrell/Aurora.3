@@ -12,10 +12,10 @@
 
 /obj/item/grab
 	name = "grab"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "reinforce"
 	atom_flags = 0
-	var/obj/screen/grab/hud = null
+	var/atom/movable/screen/grab/hud = null
 	var/mob/living/affecting = null
 	var/mob/living/carbon/human/assailant = null
 	var/state = GRAB_PASSIVE
@@ -50,7 +50,7 @@
 
 	affecting.grabbed_by += src
 
-	hud = new /obj/screen/grab(src)
+	hud = new /atom/movable/screen/grab(src)
 	hud.icon_state = "reinforce"
 	icon_state = "grabbed"
 	hud.name = "reinforce grab"
@@ -199,6 +199,9 @@
 /obj/item/grab/proc/adjust_position()
 	if(!affecting)
 		return
+	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
+	if(buckled_to_bed)
+		return
 	if(affecting.buckled_to && affecting.buckled_to != assailant)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
@@ -249,7 +252,7 @@
 		if(EAST)
 			animate(affecting, pixel_x =-shift, pixel_y = affecting.get_standard_pixel_y(), 5, 1, LINEAR_EASING)
 
-/obj/item/grab/proc/s_click(obj/screen/S)
+/obj/item/grab/proc/s_click(atom/movable/screen/S)
 	if(!affecting)
 		return
 	if(state == GRAB_UPGRADING)
@@ -291,7 +294,7 @@
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -310,7 +313,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
@@ -345,7 +348,7 @@
 
 	return 1
 
-/obj/item/grab/attack(mob/M, mob/living/user, var/target_zone)
+/obj/item/grab/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!affecting)
 		return
 
@@ -355,7 +358,7 @@
 	last_action = world.time
 	reset_kill_state() //using special grab moves will interrupt choking them
 
-	if(M == affecting) //clicking on the victim while grabbing them
+	if(target_mob == affecting) //clicking on the victim while grabbing them
 		if(ishuman(affecting))
 			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
@@ -385,7 +388,7 @@
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
-	else if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
+	else if(target_mob == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()
@@ -405,7 +408,7 @@
 
 /obj/item/grab/Destroy()
 	if(!QDELETED(linked_grab))
-		qdel(linked_grab)
+		QDEL_NULL(linked_grab)
 
 	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
 
@@ -414,10 +417,11 @@
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		GLOB.moved_event.unregister(assailant, src, PROC_REF(move_affecting))
-
-	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
-	affecting.layer = initial(affecting.layer)
+		UnregisterSignal(assailant, COMSIG_MOVABLE_MOVED)
+	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
+	if(!buckled_to_bed)
+		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
+		affecting.layer = initial(affecting.layer)
 	if(affecting)
 		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
@@ -431,15 +435,17 @@
 	destroying = 1 // stops us calling qdel(src) on dropped()
 	return ..()
 
-/obj/item/grab/MouseDrop(mob/living/carbon/human/H)
+/obj/item/grab/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/human/H = over
 	if(wielded || affecting.buckled_to || !istype(H) || assailant != H || H.get_active_hand() != src)
 		return
 	if(!ishuman(affecting))
 		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
 		return
 	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.species.mob_size > 25)
-		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+	var/grabber_strength = H.get_effective_mass() * H.mob_strength
+	if(affected_human.mass > grabber_strength)
+		to_chat(H, SPAN_WARNING("\The [affected_human] is heavier than your Lift Limit of [grabber_strength]kg, you cannot fireman carry then!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
@@ -471,7 +477,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	GLOB.moved_event.register(assailant, src, PROC_REF(move_affecting))
+	RegisterSignal(assailant, COMSIG_MOVABLE_MOVED, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE
@@ -507,6 +513,12 @@
 	linked_grab = linked
 	linked.linked_grab = src
 	linked_grab.set_wielding()
+
+/obj/item/grab/offhand/Destroy()
+	if(linked_grab)
+		linked_grab.linked_grab = null
+		linked_grab.wielded = FALSE
+	. = ..()
 
 /obj/item/grab/offhand/process()
 	return

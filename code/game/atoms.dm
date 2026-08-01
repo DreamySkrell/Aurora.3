@@ -107,20 +107,15 @@
  */
 /atom/proc/emp_act(var/severity)
 	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
-
-	RETURN_TYPE(protection)
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
 	return protection // Pass the protection value collected here upwards
 
-/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
-
-/atom/proc/bullet_act(obj/projectile/P, def_zone)
-	P.on_hit(src, 0, def_zone)
-	. = 0
 
 /atom/proc/in_contents_of(container) // Can take class or object instance as argument.
 	if(ispath(container))
@@ -244,14 +239,9 @@
 	var/old_dir = dir
 	dir = new_dir
 
-	// Lighting.
+	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, new_dir)
 	if (.)
-		var/datum/light_source/L
-		for (var/thing in light_sources)
-			L = thing
-			if (L.light_angle)
-				L.source_atom.update_light()
-		GLOB.dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir) //todomat: probaly get ird of this shit
 
 /atom/proc/melt()
 	return
@@ -266,17 +256,17 @@
 			return 0
 		if (H.gloves)
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 0
 		if (!( src.fingerprints ))
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 1
 	else
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",M.real_name, M.key)
+			src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 			src.fingerprintslast = M.key
 	return
 
@@ -310,7 +300,7 @@
 		// Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
 			if(fingerprintslast != H.key)
-				fingerprintshidden += text("\[[]\](Wearing gloves). Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+				fingerprintshidden += "\[[time_stamp()]\](Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
@@ -323,7 +313,7 @@
 
 		// Admin related.
 		if(fingerprintslast != H.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [H.real_name], Key: [H.key]"
 			fingerprintslast = H.key
 
 		// Make the list if it does not exist.
@@ -375,7 +365,7 @@
 	else
 		// Smudge up the prints a bit.
 		if(fingerprintslast != M.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), M.real_name, M.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [M.real_name], Key: [M.key]"
 			fingerprintslast = M.key
 
 	// Cleaning up.
@@ -457,6 +447,9 @@
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!simulated)
 		return
 	fluorescent = 0
@@ -550,11 +543,17 @@
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
 
-/atom/proc/change_area(var/area/oldarea, var/area/newarea)
-	change_area_name(oldarea.name, newarea.name)
-
-/atom/proc/change_area_name(var/oldname, var/newname)
-	name = replacetext(name,oldname,newname)
+/proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
+	SHOULD_NOT_SLEEP(TRUE)
+	var/list/listeners = list()
+	if(air_sound(source))
+		if(!length(hearers))
+			hearers = get_hearers_in_view(range, source)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
+			if((H in hearers))
+				if(source.z == H.z && get_dist(source, H) <= range)
+					listeners += H
+	return listeners
 
 /atom/movable/proc/dropInto(var/atom/destination)
 	while(istype(destination))
@@ -632,7 +631,7 @@
 	if(Proj.damage_flags & DAMAGE_FLAG_LASER)
 		if(Proj.damage >= 20)
 			bullet_mark_icon_state = "scorch"
-			bullet_mark_dir = pick(GLOB.cardinal) // Pick random scorch design
+			bullet_mark_dir = pick(GLOB.cardinals) // Pick random scorch design
 		else
 			bullet_mark_icon_state = "light_scorch"
 

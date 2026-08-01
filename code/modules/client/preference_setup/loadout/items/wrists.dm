@@ -18,6 +18,12 @@
 	display_name = "slap bracelet"
 	path = /obj/item/clothing/wrists/slap
 
+/datum/gear/wrists/newgibson_uraniumglass_bracelet
+	display_name = "new gibsonite uranium glass bracelet"
+	path = /obj/item/clothing/wrists/newgibson_uraniumglass_bracelet
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
+
 /datum/gear/wrists/watch
 	display_name = "watch selection"
 	description = "A selection of watches."
@@ -33,7 +39,7 @@
 	watchtype["holo watch"] = /obj/item/clothing/wrists/watch/holo
 	watchtype["leather watch"] = /obj/item/clothing/wrists/watch/leather
 	watchtype["spy watch"] = /obj/item/clothing/wrists/watch/spy
-	watchtype["pocketwatch"] = /obj/item/pocketwatch
+	watchtype["pocketwatch"] = /obj/item/clothing/wrists/watch/pocketwatch
 	gear_tweaks += new /datum/gear_tweak/path(watchtype)
 
 /*
@@ -47,7 +53,7 @@
 GLOBAL_DATUM_INIT(gear_tweak_wrist_layer, /datum/gear_tweak/wrist_layer, new())
 
 /datum/gear_tweak/wrist_layer
-	var/list/options = list(WRISTS_UNDER = WRISTS_LAYER_UNDER, WRISTS_OVER_UNIFORM = WRISTS_LAYER_UNIFORM, WRISTS_OVER_SUIT = WRISTS_LAYER_OVER)
+	var/list/options = list(WRISTS_UNDER = UNDER_UNIFORM_LAYER_WR, WRISTS_OVER_UNIFORM = ABOVE_UNIFORM_LAYER_WR, WRISTS_OVER_SUIT = ABOVE_SUIT_LAYER_WR)
 
 /datum/gear_tweak/wrist_layer/get_contents(var/metadata)
 	return "Wrist Layer: [metadata]"

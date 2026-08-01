@@ -8,10 +8,12 @@
 	color = "#68e968"
 	planetary_area = /area/exoplanet/grass/konyang
 	initial_weather_state = /singleton/state/weather/rain/storm/jungle_planet
+	has_water_weather = TRUE
 	scanimage = "konyang.png"
 	massvolume = "0.89/0.99"
 	surfacegravity = "0.93"
 	charted = "Charted 2305, Sol Alliance Department of Colonization."
+	alignment = "Coalition of Colonies"
 	geology = "Low-energy tectonic heat signature, minimal surface disruption"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority potable, 88% surface water. Significant tidal forces from natural satellite"
@@ -51,7 +53,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/Initialize()
 	. = ..()
-	var/area/overmap/map = global.map_overmap
+	var/area/overmap/map = GLOB.map_overmap
 	for(var/obj/effect/overmap/visitable/sector/point_verdant/P in map)
 		P.x = x
 		P.y = y

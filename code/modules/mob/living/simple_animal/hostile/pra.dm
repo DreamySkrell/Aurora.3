@@ -24,7 +24,7 @@
 	attack_emote = "buzzes menacingly at"
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 
 	destroy_surroundings = FALSE
 
@@ -35,7 +35,8 @@
 	melee_damage_upper = 15
 	mob_size = 5
 
-	attacktext = "slashed"
+	attacktext = "slashes"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	speed = 2
@@ -96,7 +97,7 @@
 	return FALSE
 
 /mob/living/simple_animal/hostile/republicon/FoundTarget()
-	if(istajara(target_mob))
+	if(istajara(last_found_target))
 		say("Subversive element detected!")
 	else
 		say("Foreign invader detected!")
@@ -116,7 +117,7 @@
 	speed = 3
 
 	health = 200
-	maxHealth = 200
+	maxhealth = 200
 
 	ranged = TRUE
 	rapid = TRUE
@@ -168,12 +169,13 @@
 	mob_size = 3
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attacktext = "smashed"
 	attack_sound = 'sound/weapons/genhit1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SMASH
 
 	speed = 1
 	ranged = TRUE
@@ -195,7 +197,7 @@
 
 	tameable = FALSE
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	emote_sounds = list('sound/effects/creatures/PRA_drone.ogg')
 
@@ -232,15 +234,13 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/FoundTarget()
-	if(!ishuman(target_mob))
+	if(!ishuman(last_found_target))
 		say("Hostile xenofauna detected!")
-	else if(istajara(target_mob))
+	else if(istajara(last_found_target))
 		say("Subversive element detected!")
 	else
 		say("Foreign invader detected!")
 	playsound(src, 'sound/effects/creatures/PRA_drone_aggro.ogg', 75, 1)
-	return
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/LostTarget()
 	say("Returning to data gathering.")
-	return

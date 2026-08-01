@@ -11,6 +11,7 @@
 	Frontier collective. Due to their peerless skill in business and clerical duties, affiliates share warm relations with NanoTrasen and \
 	find themselves the target of job opportunities in exchange for citizenship."
 	consular_outfit = /obj/outfit/job/representative/consular/golden
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/golden
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -26,6 +27,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		),
@@ -42,6 +44,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)
@@ -51,6 +54,28 @@
 	name = "Golden Deep Consular Officer"
 
 	uniform = /obj/item/clothing/under/goldendeep/suit
+
+/obj/outfit/job/diplomatic_bodyguard/golden
+	name = "Golden Deep Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/goldendeep/hoplan
+	head = /obj/item/clothing/head/goldendeep/hoplan
+	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(
 		/obj/item/gun/energy/pistol/goldendeep = 1
+	)
+
+/datum/citizenship/axiom
+	name = CITIZENSHIP_AXIOM
+	description = "Citizenship with the Ecclesiastical Authority of Axiom means one of two things; \
+	either you belong directly to Ecclesiastical territory, living under the direct temporal rule of the \
+	synthetic religion of the Trinary Perfection in its capital of Providence or in the surrounding Marches, \
+	or you are a citizen of the Salamasian Republic, the majority human nation which defers to the Ecclesiastical \
+	Authority in planetary defense and interstellar travel. Founded jointly as a dual-state solution in 2464 \
+	in 2419, both the Ecclesiarchy and the Republic compose a greater whole; a remote mining world now under \
+	rapid development, the recipient of throngs of synthetic and human refugees from across the known universe, \
+	and a project of shared interest and mutual distance between both populations of the planet of Axiom."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES,
 	)

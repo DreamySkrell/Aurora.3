@@ -12,6 +12,11 @@
 	///The gun we're currently recharging. Connection handled in connect() and /obj/item/gun/energy/connect()
 	var/obj/item/gun/energy/connected
 
+/obj/item/recharger_backpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(powersupply)
+		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at <b>[round(powersupply.percent())]%</b>.")
+
 /obj/item/recharger_backpack/Initialize()
 	. = ..()
 	//To update the icon based on the power cell charge we spawn with
@@ -25,11 +30,6 @@
 
 	. = ..()
 
-/obj/item/recharger_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(powersupply)
-		. += SPAN_NOTICE("The backpack display shows that the installed power cell is at [round(powersupply.percent())]%.")
-
 /obj/item/recharger_backpack/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell) && !powersupply)
 		to_chat(usr, SPAN_NOTICE("You slot \the [attacking_item] into \the [src]'s power socket."))
@@ -38,7 +38,7 @@
 		powersupply = attacking_item
 		update_icon()
 
-	else if(istype(attacking_item, /obj/item/screwdriver) && powersupply)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && powersupply)
 		to_chat(user, SPAN_NOTICE("You remove \the [powersupply] from \the [src]'s power socket"))
 		powersupply.forceMove(get_turf(src))
 		user.put_in_hands(powersupply)
@@ -64,7 +64,7 @@
 	if(!powersupply)
 		icon_state = "recharger_backpack"
 		item_state = "recharger_backpack"
-		set_light(0)
+		set_light_on(FALSE)
 
 	else
 		var/current_charge = powersupply.percent()
@@ -72,19 +72,22 @@
 			if(70 to INFINITY)
 				icon_state = "recharger_backpack_full"
 				item_state = "recharger_backpack_full"
-				set_light(2, 0.75, LIGHT_COLOR_GREEN)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_GREEN)
+				set_light_on(TRUE)
 			if(35 to 70)
 				icon_state = "recharger_backpack_med"
 				item_state = "recharger_backpack_med"
-				set_light(2, 0.75, LIGHT_COLOR_FIRE)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_FIRE)
+				set_light_on(TRUE)
 			if(1 to 35)
 				icon_state = "recharger_backpack_low"
 				item_state = "recharger_backpack_low"
-				set_light(2, 0.75, LIGHT_COLOR_RED)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_RED)
+				set_light_on(TRUE)
 			if(-INFINITY to 1)
 				icon_state = "recharger_backpack"
 				item_state = "recharger_backpack"
-				set_light(0)
+				set_light_on(FALSE)
 
 /obj/item/recharger_backpack/get_cell()
 	if(powersupply)

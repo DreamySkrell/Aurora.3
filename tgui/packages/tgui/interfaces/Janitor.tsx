@@ -1,5 +1,5 @@
+import { Section, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type JanitorData = {
@@ -14,14 +14,15 @@ type Supply = {
   key: number;
   x: number;
   y: number;
+  z: number;
   dir: string;
   status: string;
   supply_type: string;
 };
 
-export const Janitor = (props, context) => {
-  const { act, data } = useBackend<JanitorData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'Mops');
+export const Janitor = (props) => {
+  const { act, data } = useBackend<JanitorData>();
+  const [tab, setTab] = useLocalState('tab', 'Mops');
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
@@ -31,7 +32,8 @@ export const Janitor = (props, context) => {
               <Tabs.Tab
                 key={cat}
                 selected={tab === cat}
-                onClick={() => setTab(cat)}>
+                onClick={() => setTab(cat)}
+              >
                 {cat}
               </Tabs.Tab>
             ))}
@@ -51,16 +53,13 @@ export const Janitor = (props, context) => {
                       {supply.name} (#{supply.key})
                     </Table.Cell>
                     <Table.Cell>
-                      ({supply.x}, {supply.y})
+                      ({supply.x}, {supply.y}, {supply.z})
                     </Table.Cell>
                     <Table.Cell>{supply.dir}</Table.Cell>
                     <Table.Cell>{supply.status}</Table.Cell>
                   </Table.Row>
-                )
+                ),
             )}
-            <Table.Row>
-              User Location: ({data.user_x}, {data.user_y})
-            </Table.Row>
           </Table>
         </Section>
       </NtosWindow.Content>

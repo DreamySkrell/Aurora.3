@@ -1,4 +1,4 @@
-/obj/machinery/computer/drone_control
+/obj/structure/machinery/computer/drone_control
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
 	icon_screen = "power_monitor"
@@ -11,16 +11,20 @@
 	//Used when pinging drones.
 	var/drone_call_area = "Engineering"
 	//Used to enable or disable drone fabrication.
-	var/obj/machinery/drone_fabricator/dronefab
+	var/obj/structure/machinery/drone_fabricator/dronefab
 
 	var/static/list/call_area_names
 
-/obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/drone_control/New()
+	..()
+	desc = "Used to monitor the [station_name(TRUE)]'s drone population and the assembler that services them."
+
+/obj/structure/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/computer/drone_control/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/drone_control/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 
@@ -40,18 +44,18 @@
 		dat += "<BR>[D.real_name] ([D.stat == 2 ? SPAN_WARNING("INACTIVE") : "<font color='green'>ACTIVE</FONT>"])"
 		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
 		dat += "<BR>Currently located in: [get_area(D)]."
-		dat += "<BR><A href='?src=\ref[src];resync=\ref[D]'>Resync</A> | <A href='?src=\ref[src];shutdown=\ref[D]'>Shutdown</A></font>"
+		dat += "<BR><A href='byond://?src=[REF(src)];resync=[REF(D)]'>Resync</A> | <A href='byond://?src=[REF(src)];shutdown=[REF(D)]'>Shutdown</A></font>"
 
-	dat += "<BR><BR><B>Request drone presence in area:</B> <A href='?src=\ref[src];setarea=1'>[drone_call_area]</A> (<A href='?src=\ref[src];ping=1'>Send ping</A>)"
+	dat += "<BR><BR><B>Request drone presence in area:</B> <A href='byond://?src=[REF(src)];setarea=1'>[drone_call_area]</A> (<A href='byond://?src=[REF(src)];ping=1'>Send ping</A>)"
 
 	dat += "<BR><BR><B>Drone fabricator</B>: "
-	dat += "[dronefab ? "<A href='?src=\ref[src];toggle_fab=1'>[(dronefab.produce_drones && !(dronefab.stat & NOPOWER)) ? "ACTIVE" : "INACTIVE"]</A>" : "<font color='red'><b>FABRICATOR NOT DETECTED.</b></font> (<A href='?src=\ref[src];search_fab=1'>search</a>)"]"
+	dat += "[dronefab ? "<A href='byond://?src=[REF(src)];toggle_fab=1'>[(dronefab.produce_drones && !(dronefab.stat & NOPOWER)) ? "ACTIVE" : "INACTIVE"]</A>" : "<font color='red'><b>FABRICATOR NOT DETECTED.</b></font> (<A href='byond://?src=[REF(src)];search_fab=1'>search</a>)"]"
 
 	var/datum/browser/drone_win = new(user, "computer", capitalize_first_letters(name), 400, 500)
 	drone_win.set_content(dat)
 	drone_win.open()
 
-/obj/machinery/computer/drone_control/Topic(href, href_list)
+/obj/structure/machinery/computer/drone_control/Topic(href, href_list)
 	if(..())
 		return
 
@@ -63,7 +67,7 @@
 	if(href_list["setarea"])
 		if(!call_area_names)
 			call_area_names = list()
-			for(var/area/A as anything in GLOB.all_areas)
+			for(var/area/A as anything in get_sorted_areas())
 				if(A.station_area)
 					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.
@@ -102,7 +106,7 @@
 	else if (href_list["search_fab"])
 		if(dronefab)
 			return
-		for(var/obj/machinery/drone_fabricator/fab in oview(3,src))
+		for(var/obj/structure/machinery/drone_fabricator/fab in oview(3,src))
 			if(fab.stat & NOPOWER)
 				continue
 			dronefab = fab

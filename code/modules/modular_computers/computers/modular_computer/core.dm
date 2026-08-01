@@ -1,11 +1,11 @@
 /obj/item/modular_computer/process()
-	if(!enabled) // The computer is turned off
-		last_power_usage = 0
-		return FALSE
-
 	handle_power() // Handles all computer power interaction
 
-	if(damage > broken_damage)
+	if(!enabled) // The computer is turned off
+		last_power_usage = 0
+		return PROCESS_KILL // Unpowered computers don't need to process.
+
+	if(health <= broken_damage)
 		shutdown_computer()
 		return FALSE
 
@@ -41,11 +41,11 @@
 			else
 				enabled_services -= service
 
-	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
+	working = hard_drive && processor_unit && health >= broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+		playsound(get_turf(src), SFX_COMPUTER_BEEP, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -68,6 +68,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/proc/handle_verbs()
+	verbs += /obj/item/modular_computer/proc/force_shutdown
 	if(card_slot)
 		if(card_slot.stored_card)
 			verbs += /obj/item/modular_computer/proc/eject_id
@@ -84,7 +85,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -95,6 +95,7 @@
 	initial_name = name
 	listener = new("modular_computers", src)
 	sync_linked()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -115,7 +116,8 @@
 		QDEL_LIST(hard_drive.stored_files)
 
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
-		uninstall_component(null, CH)
+		// Eject_id is made false here as we want to delete the id too
+		uninstall_component(null, CH, eject_id = FALSE)
 		qdel(CH)
 
 	registered_id = null
@@ -166,7 +168,7 @@
 	icon_state = icon_state_unpowered
 
 	ClearOverlays()
-	if(damage >= broken_damage)
+	if(health <= broken_damage)
 		icon_state = icon_state_broken
 		AddOverlays("broken")
 		return
@@ -262,7 +264,7 @@
 	if(tesla_link)
 		tesla_link.enabled = TRUE
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
-	if(damage > broken_damage)
+	if(health <= broken_damage)
 		if(issynth)
 			to_chat(user, SPAN_WARNING("You send an activation signal to \the [src], but it responds with an error code. It must be damaged."))
 		else
@@ -316,6 +318,7 @@
 	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
+	STOP_PROCESSING(SSprocessing, src)
 	SStgui.close_uis(active_program)
 	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
@@ -337,6 +340,7 @@
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
+	START_PROCESSING(SSprocessing, src)
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)
@@ -382,7 +386,7 @@
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
 		return
 
-	P.computer = src
+	P.set_computer(src)
 
 	if(!P.is_supported_by_hardware(hardware_flag, TRUE, user))
 		return
@@ -413,13 +417,10 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnanoui.update_uis(active_program)
-		SStgui.update_uis(src)
-		if(active_program.NM)
-			SSnanoui.update_uis(active_program.NM)
+		if(active_program)
+			SStgui.update_uis(active_program)
 	else
 		SStgui.update_uis(src)
-		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
@@ -455,18 +456,6 @@
 	if(ui_update_needed)
 		update_uis()
 
-// Used by camera monitor program
-/obj/item/modular_computer/check_eye(var/mob/user)
-	if(active_program)
-		return active_program.check_eye(user)
-	return ..()
-
-// Used by camera monitor program
-/obj/item/modular_computer/grants_equipment_vision(var/mob/user)
-	if(active_program)
-		return active_program.grants_equipment_vision(user)
-	return ..()
-
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL
 
@@ -500,7 +489,7 @@
 	if(QDELETED(S))
 		return
 
-	S.computer = src
+	S.set_computer(src)
 
 	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
 		return

@@ -5,8 +5,7 @@
 		/singleton/origin_item/origin/ipc_xanu,
 		/singleton/origin_item/origin/ipc_himeo,
 		/singleton/origin_item/origin/ipc_assunzione,
-		/singleton/origin_item/origin/ipc_vysoka,
-		/singleton/origin_item/origin/ipc_orepit
+		/singleton/origin_item/origin/ipc_vysoka
 	)
 
 /singleton/origin_item/origin/ipc_xanu
@@ -26,17 +25,10 @@
 /singleton/origin_item/origin/ipc_assunzione
 	name = "Republic of Assunzione"
 	desc = "Both free and owned IPCs are common in Assunzione owing to the presence of both Zeng-Hu Pharmaceuticals and Hephaestus Industries. IPCs manufactured locally are programmed with knowledge of Luceism and even have their frames and positronics blessed by the local clergy. Their treatment varies heavily on the individual, with some viewing them as well-suited to the harsh conditions of the planet and well-integrated in its society, while others view them as a drain to the energy-starved planet. Most imported IPC either serve on expedition crews or as workers for the megacorporations while local IPCs can expect to work anywhere their human counterparts might."
-	important_information = " All types of IPC can hail from Assunzione, although local production is primarily focused on Bishop and Mobility frames. Synthetics from the planet are programmed with knowledge of Luceism and are expected to know basic information about the faith."
+	important_information = "All types of IPC can hail from Assunzione, although local production is primarily focused on Bishop and Mobility frames. Synthetics from the planet are programmed with knowledge of Luceism and are expected to know basic information about the faith."
 	possible_accents = list(ACCENT_ASSUNZIONE, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_LUCEISM, RELIGION_NONE)
-
-/singleton/origin_item/origin/ipc_orepit
-	name = "Orepit"
-	desc = "Refugees and runaways, the synthetic population of Orepit has embraced the beliefs of synthetic divinity and ascension preached by the Trinary Perfection. A primarily religious community, IPC from Orepit and its capital Providence find themselves occupying clerical posts abroad as priests, missionaries and even guardians of the Church for its parishes scattered across the Spur."
-	possible_accents = list(ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_NONE)
-	possible_religions = list(RELIGION_TRINARY)
 
 /singleton/origin_item/origin/ipc_vysoka
 	name = "Free System of Vysoka"

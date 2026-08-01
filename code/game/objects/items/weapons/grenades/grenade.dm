@@ -18,6 +18,24 @@
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	pickup_sound = 'sound/items/pickup/grenade.ogg'
+	drop_sound = 'sound/items/drop/grenade.ogg'
+
+/obj/item/grenade/Destroy()
+	// Stop all animations to prevent a hard delete.
+	animate(src)
+	walk(src, 0)
+	return ..()
+
+/obj/item/grenade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		if(det_time > 1)
+			. += "The timer is set to <b>[det_time/10]</b> seconds."
+			return
+		if(det_time == null)
+			return
+		. += SPAN_ALERT("\The [src] is set for instant detonation.")
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
@@ -29,16 +47,6 @@
 			prime()
 		return 0
 	return 1
-
-/obj/item/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		if(det_time > 1)
-			. += SPAN_NOTICE("The timer is set to [det_time/10] seconds.")
-			return
-		if(det_time == null)
-			return
-		. += SPAN_NOTICE("\The [src] is set for instant detonation.")
 
 /obj/item/grenade/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/gun/launcher/grenade))
@@ -69,7 +77,7 @@
 			var/mob/M = user
 			admin_attack_log(M, attacker_message = "primed \a [fake ? (" fake") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][src]!")
 		else
-			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
@@ -87,18 +95,18 @@
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/victim = loc
-		var/obj/item/organ/external/exploded_hand
-		if(victim.hand == src)
-			exploded_hand = victim.organs_by_name[BP_R_HAND]
-		else if(victim.l_hand == src)
-			exploded_hand = victim.organs_by_name[BP_L_HAND]
-		explode_in_hand(victim, exploded_hand)
+		var/obj/item/organ/external/exploded_organ
+		if(victim.l_hand == src)
+			exploded_organ = victim.get_organ(BP_L_HAND)
+		else if(victim.r_hand == src)
+			exploded_organ = victim.get_organ(BP_R_HAND)
+		explode_in_hand(victim, exploded_organ)
 
-/// This proc is called when the grenade explodes in your hand or on you. Exploded_hand can be null in case the grenade explodes in a pocket or something.
-/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/// This proc is called when the grenade explodes in your hand or on you. Exploded_organ can be null in case the grenade explodes in a pocket or something.
+/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	SHOULD_CALL_PARENT(TRUE)
-	if(exploded_hand)
-		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+	if(exploded_organ)
+		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
 	else
 		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 
@@ -107,5 +115,5 @@
 	..()
 	return
 
-/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+/obj/item/grenade/vendor_action(var/obj/structure/machinery/vending/V)
 	activate(V)

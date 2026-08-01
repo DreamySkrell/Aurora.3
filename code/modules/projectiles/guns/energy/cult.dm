@@ -1,9 +1,7 @@
 /obj/item/gun/energy/rifle/cult
 	name = "bloodpike"
 	desc = "A ranged weapon of demonic origin, surely. It menaces with crimson spikes."
-	desc_info = null
 	desc_extended = null
-	desc_antag = "This weapon can be recharged by clicking on blood or remains with it, remains recharge more than simple blood."
 	icon = 'icons/obj/guns/bloodpike.dmi'
 	icon_state = "bloodpike"
 	item_state = "bloodpike"
@@ -31,21 +29,14 @@
 	firemodes = list()
 	modifystate = null
 
-	var/does_process = TRUE
-
 	matter = null
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3, TECH_ARCANE = 2, TECH_ILLEGAL = 3)
 
 	is_wieldable = TRUE // see if i can get a sprite for this
 
-/obj/item/gun/energy/rifle/cult/Initialize()
-	. = ..()
-	if(does_process)
-		START_PROCESSING(SSprocessing, src)
-
-/obj/item/gun/energy/rifle/cult/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
+/obj/item/gun/energy/rifle/cult/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This weapon can be recharged by clicking on blood or remains with it. Remains recharge more than simple blood."
 
 /obj/item/gun/energy/rifle/cult/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent && iscultist(user))
@@ -74,5 +65,4 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	does_process = FALSE
 	projectile_type = /obj/projectile/bullet/shard/heavy

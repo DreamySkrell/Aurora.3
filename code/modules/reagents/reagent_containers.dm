@@ -11,33 +11,34 @@
 	var/filling_states				// List of percentages full that have icons
 	var/accuracy = 1
 	var/fragile = 0        // If nonzero, above what force do we shatter?
-	var/shatter_sound = /singleton/sound_category/glass_break_sound
-	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
+	var/shatter_sound = SFX_BREAK_GLASS
+	var/singleton/material/shatter_material = MATERIAL_GLASS
 	var/can_be_placed_into = list(
-		/obj/machinery/chem_master,
-		/obj/machinery/chem_heater,
-		/obj/machinery/chemical_dispenser,
+		/obj/structure/machinery/chem_master,
+		/obj/structure/machinery/chem_heater,
+		/obj/structure/machinery/chemical_dispenser,
 		/obj/structure/reagent_dispensers,
-		/obj/machinery/reagentgrinder,
+		/obj/structure/machinery/reagentgrinder,
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/structure/sink,
 		/obj/item/storage,
-		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
+		/obj/structure/machinery/atmospherics/unary/cryo_cell,
+		/obj/structure/machinery/dna_scannernew,
 		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
 		/obj/item/storage/secure/safe,
-		/obj/machinery/iv_drip,
-		/obj/machinery/disposal,
+		/obj/structure/machinery/iv_drip,
+		/obj/structure/machinery/disposal,
 		/mob/living/simple_animal/cow,
 		/mob/living/simple_animal/hostile/retaliate/goat,
-		/obj/machinery/sleeper,
-		/obj/machinery/smartfridge,
-		/obj/machinery/biogenerator,
-		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer,
-		/obj/item/storage/part_replacer
+		/obj/structure/machinery/sleeper,
+		/obj/structure/machinery/smartfridge,
+		/obj/structure/machinery/biogenerator,
+		/obj/structure/machinery/constructable_frame,
+		/obj/structure/machinery/radiocarbon_spectrometer,
+		/obj/item/storage/part_replacer,
+		/obj/structure/cart/storage/janitorialcart
 	)
 	//The above list a misnomer. This basically means that anything in this list has their own way of handling reagent transfers and should be ignored in afterattack.
 
@@ -49,12 +50,12 @@
 	if(N)
 		amount_per_transfer_from_this = N
 
-/obj/item/reagent_containers/Initialize()
+/obj/item/reagent_containers/Initialize(mapload)
 	. = ..()
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
-	shatter_material = SSmaterials.get_material_by_name(shatter_material)
+	shatter_material = SSmaterials.get_material_by_id(shatter_material)
 
 /obj/item/reagent_containers/attack_self(mob/user)
 	return
@@ -108,8 +109,8 @@
 				return TRUE
 	return ..()
 
-/obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
-	if(can_operate(M) && do_surgery(M, user, src))
+/obj/item/reagent_containers/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(can_operate(target_mob) && do_surgery(target_mob, user, src))
 		return
 	if(!reagents.total_volume && user.a_intent == I_HURT)
 		return ..()
@@ -190,9 +191,9 @@
 	var/contained = reagentlist()
 	var/temperature = reagents.get_temperature()
 	var/temperature_text = "Temperature: ([temperature]K/[temperature]C)"
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained] [temperature_text].</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</span>")
-	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained] [temperature_text].</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</span>"
+	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
 							SPAN_WARNING("You splash the solution onto \the [target]."))
@@ -247,6 +248,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
 		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
+		SEND_SIGNAL(src, COMSIG_CONTAINER_DRANK, user)
 		feed_sound(user)
 		return TRUE
 	else
@@ -262,7 +264,7 @@
 
 		if(isanimal(target))
 			var/mob/living/simple_animal/C = target
-			if(C.has_udder)
+			if(C.can_be_milked)
 				return
 
 		other_feed_message_start(user, target)
@@ -274,15 +276,15 @@
 		other_feed_message_finish(user, target)
 
 		var/contained = reagentlist()
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] by [target.name] ([target.ckey]). Reagents: [contained]</span>")
-		msg_admin_attack("[key_name(user)] fed [key_name(target)] with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>"
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] by [target.name] ([target.ckey]). Reagents: [contained]</span>"
+		msg_admin_attack("[key_name(user)] fed [key_name(target)] with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 		reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INGEST)
 		feed_sound(user)
 		return 1
 
-/obj/item/reagent_containers/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/reagent_containers/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(ishuman(over))
 		var/mob/living/carbon/human/H = over
@@ -349,8 +351,8 @@
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
-	on_pour()
+	on_pour(target)
 	return 1
 
-/obj/item/reagent_containers/proc/on_pour()
-	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+/obj/item/reagent_containers/proc/on_pour(atom/target)
+	playsound(src, SFX_POUR, 25, 1)

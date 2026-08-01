@@ -98,9 +98,9 @@
 	return
 
 //attack_as_weapon
-/obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
-	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
-		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
+/obj/item/soap/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(target_mob && user && ishuman(target_mob) && ishuman(user) && !target_mob.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
+		user.visible_message(SPAN_DANGER("\The [user] washes \the [target_mob]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()
@@ -209,29 +209,28 @@
 	desc = "This is a random soap."
 	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
-
-/obj/random/soap/item_to_spawn()
-		return pick(/obj/item/soap, \
-					/obj/item/soap/nanotrasen, \
-					/obj/item/soap/deluxe,\
-					/obj/item/soap/space_soap,\
-					/obj/item/soap/space_soap,\
-					/obj/item/soap/water_soap,\
-					/obj/item/soap/fire_soap,\
-					/obj/item/soap/rainbow_soap,\
-					/obj/item/soap/diamond_soap,\
-					/obj/item/soap/uranium_soap,\
-					/obj/item/soap/silver_soap,\
-					/obj/item/soap/brown_soap,\
-					/obj/item/soap/white_soap,\
-					/obj/item/soap/grey_soap,\
-					/obj/item/soap/pink_soap,\
-					/obj/item/soap/purple_soap,\
-					/obj/item/soap/blue_soap,\
-					/obj/item/soap/cyan_soap,\
-					/obj/item/soap/green_soap,\
-					/obj/item/soap/yellow_soap,\
-					/obj/item/soap/orange_soap,\
-					/obj/item/soap/red_soap,\
-					/obj/item/soap/golden_soap,\
+	spawnlist = list(
+		/obj/item/soap,
+		/obj/item/soap/nanotrasen,
+		/obj/item/soap/deluxe,
+		/obj/item/soap/space_soap,
+		/obj/item/soap/space_soap,
+		/obj/item/soap/water_soap,
+		/obj/item/soap/fire_soap,
+		/obj/item/soap/rainbow_soap,
+		/obj/item/soap/diamond_soap,
+		/obj/item/soap/uranium_soap,
+		/obj/item/soap/silver_soap,
+		/obj/item/soap/brown_soap,
+		/obj/item/soap/white_soap,
+		/obj/item/soap/grey_soap,
+		/obj/item/soap/pink_soap,
+		/obj/item/soap/purple_soap,
+		/obj/item/soap/blue_soap,
+		/obj/item/soap/cyan_soap,
+		/obj/item/soap/green_soap,
+		/obj/item/soap/yellow_soap,
+		/obj/item/soap/orange_soap,
+		/obj/item/soap/red_soap,
+		/obj/item/soap/golden_soap,
 )

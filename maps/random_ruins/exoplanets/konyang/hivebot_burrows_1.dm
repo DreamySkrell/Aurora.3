@@ -17,7 +17,6 @@
 	name = "Abandoned Mineshaft"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	base_turf = /turf/simulated/floor/exoplanet/basalt/cave
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
@@ -39,7 +38,7 @@
 	M.ChangeToHusk()
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 	var/obj/item/clothing/under/U = M.w_uniform
 	var/obj/item/clothing/accessory/storage/overalls/mining/overalls = new()

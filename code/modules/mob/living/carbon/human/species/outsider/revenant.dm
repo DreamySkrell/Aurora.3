@@ -25,7 +25,6 @@
 	default_language = LANGUAGE_REVENANT
 
 	unarmed_types = list(/datum/unarmed_attack/claws/shredding)
-	darksight = 8
 	siemens_coefficient = 0
 	rarity_value = 10
 
@@ -61,6 +60,7 @@
 	spawn_flags = IS_RESTRICTED
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
 	has_organ = list(
 		BP_EYES = /obj/item/organ/internal/eyes/night/revenant
@@ -101,7 +101,7 @@
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
-	revenants.kill_count++
+	GLOB.revenants.kill_count++
 	INVOKE_ASYNC(src, PROC_REF(spawn_gore), get_turf(H))
 	H.set_death_time(ANIMAL, world.time)
 	for(var/obj/item/I in H)
@@ -152,7 +152,7 @@
 	user.forceMove(target)
 	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
 
-	user.overlay_fullscreen("teleport", /obj/screen/fullscreen/teleport)
+	user.overlay_fullscreen("teleport", /atom/movable/screen/fullscreen/teleport)
 	user.clear_fullscreen("teleport", 5 SECONDS)
 
 	playsound(get_turf(user), pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'), 50, TRUE)
@@ -165,6 +165,7 @@
 	icon_state = "revenant_eyes"
 	eye_emote = null
 	vision_color = null
+	action_button_name = list("Activate Low Light Vision")
 	default_action_type = /datum/action/item_action/organ/night_eyes/rev
 
 /obj/item/organ/internal/eyes/night/revenant/flash_act()

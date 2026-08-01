@@ -45,7 +45,7 @@
 /datum/martial_art/vkutet/proc/piercing_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!isvaurca(A))
 		return 0
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] [D]!"), \
 						SPAN_DANGER("[A] [atk_verb] you!"))
@@ -95,7 +95,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
-	species_restriction = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
+	species_restriction = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 
 #undef PIERCING_STRIKE
 #undef SWIFT_BITE

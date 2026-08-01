@@ -44,7 +44,7 @@
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()
-	var/mob/living/carbon/human/H = new(src.loc)
+	var/mob/living/carbon/human/H = new(get_turf(src))
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
 	H.name = H.real_name
@@ -302,6 +302,27 @@
 		unpopped = max(0, unpopped-1)
 	..()
 
+/obj/item/reagent_containers/food/snacks/popcorn/caramel
+	name = "caramel popcorn"
+	desc = "Salty and sweet, gets stuck in your teeth while also ruining them! Yum!"
+	icon_state = "popcorn_caramel"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("caramel" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/cheese
+	name = "cheese popcorn"
+	desc = "For the absolutely cheesiest movies."
+	icon_state = "popcorn_cheese"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("cheese" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/chocolate
+	name = "chocolate popcorn"
+	desc = "Cocoacorn, if you will."
+	icon_state = "popcorn_chocolate"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "popcorn" = 3))
+
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
@@ -383,7 +404,7 @@
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cookiesnack = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cookiesnack)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -417,7 +438,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
-	max_storage_space = 5
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -456,7 +477,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -488,118 +509,130 @@
 	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage", "chili macaroni", "veggie burger")
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/cb01
-	name = "tau ceti bar"
-	desc = "A dark chocolate caramel and nougat bar made famous in Biesel."
+// Chocolate Bars
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar
+	name = "getmore chocolate bar"
+	desc = "The basic GetMore bar. Cheap milk chocolate loaded with sugar."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb01"
+	icon_state = "getmore"
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
-	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
-	bitesize = 2
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/reagent_containers/food/snacks/cb02
-	name = "hundred thousand credit bar"
-	desc = "An ironically cheap puffed rice caramel milk chocolate bar."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb02"
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
-	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
-	bitesize = 2
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/reagent_containers/food/snacks/cb03
-	name = "spacewind bar"
-	desc = "Bubbly milk chocolate."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb03"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
-	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 4))
-	bitesize = 2
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/reagent_containers/food/snacks/cb04
-	name = "crunchy crisp"
-	desc = "An almond flake bar covered in milk chocolate."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb04"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
-	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
-	bitesize = 2
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/reagent_containers/food/snacks/cb05
-	name = "hearsay bar"
-	desc = "A cheap milk chocolate bar loaded with sugar."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb05"
-
+	trash = /obj/item/trash/getmore
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
-	bitesize = 3
+	bitesize = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb06
+/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles
+	name = "getmore bubbles bar"
+	desc = "Bubbly milk chocolate. Made by GetMore Corporation!"
+	icon_state = "getmore_3"
+
+	trash = /obj/item/trash/getmore_bubbles
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts
+	name = "getmore nuts bar"
+	desc = "An almond flake bar covered in milk chocolate. Made by GetMore Corporation!"
+	icon_state = "getmore_2"
+
+	trash = /obj/item/trash/getmore_nuts
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp
+	name = "getmore kelp bar"
+	desc = "A milk chocolate bar with sea salt and kelp. A favourite on New Gibson. Made by GetMore Corporation!"
+	icon_state = "getmore_4"
+
+	trash = /obj/item/trash/getmore_kelp
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "sea salt" = 2, "sugar kelp" = 2))
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar
+	name = "tau ceti bar"
+	desc = "A dark chocolate caramel and nougat bar, a favourite in the Republic of Biesel. Made by GetMore Corporation!"
+	icon_state = "cetibar"
+
+	trash = /obj/item/trash/cetibar
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("dark chocolate" = 2, "nougat" = 1, "caramel" = 1))
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar
+	name = "hundred thousand credit bar"
+	desc = "An ironically cheap puffed rice caramel milk chocolate bar. Made by Idris Incorporated!"
+	icon_state = "idrisbar"
+
+	trash = /obj/item/trash/idrisbar
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
+
+/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch
 	name = "latte crunch"
 	desc = "A large latte flavored wafer chocolate bar."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb06"
+	icon_state = "lattecrunch"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
-	bitesize = 3
-	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb07
+/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar
 	name = "martian bar"
-	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
+	desc = "Dark chocolate with a nougat and caramel center. A Martian product for a time, but now marketted Spur-wide by GetMore Corp."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb07"
+	icon_state = "marsbar"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
-	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
-	bitesize = 3
-	w_class = WEIGHT_CLASS_TINY
+	reagent_data = list(/singleton/reagent/nutriment = list("dark chocolate" = 2, "caramel" = 1, "nougat" = 1))
 
-/obj/item/reagent_containers/food/snacks/cb08
+/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar
 	name = "crisp bar"
 	desc = "A large puffed rice milk chocolate bar."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb08"
+	icon_state = "crispbar"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
-	bitesize = 3
-	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb09
+/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar
 	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb09"
+	icon_state = "ohdaddybar"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
-	bitesize = 3
-	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb10
+/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar
 	name = "laughter bar"
 	desc = "Nuts, nougat, peanuts, and caramel covered in chocolate."
-	filling_color = "#552200"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb10"
+	icon_state = "laughterbar"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
+
+// Chocolate Bars end
+
+/obj/item/storage/box/fancy/readies
+	name = "readies eleta balls"
+	desc = "A packet of ultra-sweet, caramelised soy milk balls in a chocolate shell. A knock off Readian Elata, in turn a knock off of Cytherean Elata. Made by GetMore Corporation!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "getmore_readies"
+	icon_type = "getmore_readies"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/readies = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/readies)
+	make_exact_fit = TRUE
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/readies
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/readies
+	name = "readies ball"
+	desc = "An ultra-sweet, caramelised soy milk balls in a chocolate shell."
+	filling_color = "#552200"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "getmore_readies_ball"
+
+	reagents_to_add = list(/singleton/reagent/sugar = 1, /singleton/reagent/nutriment/glucose = 2)
+	reagent_data = list(/singleton/reagent/nutriment/glucose = list("overwhelming sweetness" = 8, "sweet caramel" = 4))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
@@ -809,7 +842,7 @@
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/foy = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/foy)
-	max_storage_space = 6
+	make_exact_fit = TRUE
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -827,3 +860,267 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 0.5)
 	reagent_data = list(/singleton/reagent/nutriment = list("light cocoa" = 2))
 	bitesize = 1
+
+//Dominia Snacks?!
+//By the Goddess, pass the Algae chips I'm on a killstreak in Reign of Steel
+
+/obj/item/reagent_containers/food/snacks/algaechips
+	name = "\improper Soostatom Bites Algae Chips"
+	desc = "Cripsy batter fried algae chips from Sun Reach. Soostatom Bites, snapping good snacks!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "algaechips"
+	trash = /obj/item/trash/algaechips
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("salty algae" = 3))
+
+//Microwave food packages
+
+/obj/item/storage/box/fancy/quick_microwave_pizza
+	name = "quick-e-meals microwave pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. Oh wow, it says it contains 5 times your recommended daily intake of sodium! 5 times what's healthy?! This must be SUPER healthy! Who knew pizza is health food?"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "pizza_plain_box"
+	icon_type = "pizza"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/olive
+	name = "quick-e-meals microwave olive pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. Yum, olives!... (Psst, hey, what's an olive?)" //If olives get added to the game one day please change this joke.
+	icon_state = "pizza_olive_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/olive = 1)
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/district6
+	name = "quick-e-meals microwave district 6 pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. This one has Earthenroot and ground dirtberries on it. They look so plump, plentiful and tasty, surely they look just as good inside."
+	icon_state = "pizza_district6_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/district6 = 1)
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni
+	name = "quick-e-meals microwave pepperoni pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. This one has a lovely pepperoni pizza on the package, covered in lots of slices and glistening temptingly in the light."
+	icon_state = "pizza_pepperoni_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/pepperoni = 1)
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze
+	name = "microwave mac and cheeze"
+	desc = "Is it a typo? Is it just a cool way to brand your product? Is it a legal distinction from anything that can be legally referred to as cheese in Tau Ceti? You decide! Instructions: Add 5u. of water and heat up for 2 minutes in the microwave. This hasn't been prepared yet."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_pack"
+	trash = /obj/item/trash/mac_cheeze
+	filling_color = "#E8C31E"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("uncooked pasta" = 5, "dry cheeze powder" = 5))
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze/update_icon()
+	var/percent_mac_cheeze = round((reagents.total_volume / 5) * 100)
+	switch(percent_mac_cheeze)
+		if(0 to 90)
+			icon_state = "mac_pack_open"
+		else
+			icon_state = "mac_pack"
+
+/obj/item/reagent_containers/food/snacks/instant_mac
+	name = "mac and cheeze"
+	desc = "Is it a typo? Is it just a cool way to brand your product? Is it a legal distinction from anything that can be legally referred to as cheese in Tau Ceti? You decide! It seems someone already prepared this one."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_pack_open"
+	filling_color = "#E8C31E"
+	trash = /obj/item/trash/mac_cheeze
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5), /singleton/reagent/nutriment/protein/cheese = list("cheezy flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze
+	name = "microwave fiery hot mac and cheeze"
+	desc = "The fire adorning the package invites you to get ready for delicious pain. It hasn't been prepared yet, though."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_fiery"
+	trash = /obj/item/trash/mac_fiery
+	filling_color = "#e40000"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("uncooked pasta" = 5, "mouth pain powder" = 5))
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze/update_icon()
+	var/percent_mac_fiery = round((reagents.total_volume / 7) * 100)
+	switch(percent_mac_fiery)
+		if(0 to 95)
+			icon_state = "mac_fiery_open"
+		if(96 to INFINITY)
+			icon_state = "mac_fiery"
+
+/obj/item/reagent_containers/food/snacks/instant_mac_fiery
+	name = "fiery hot mac and cheeze"
+	desc = "Oh wow, that is red. That is very, very red. Is it supposed to be this neon shade red? Everything about this screams that you shouldn't eat it... You're absolutely going to eat it, aren't you?"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_fiery_open"
+	filling_color = "#e40000"
+	trash = /obj/item/trash/mac_fiery
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/capsaicin = 2, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5), /singleton/reagent/nutriment/protein/cheese = list("delicious pain" = 5))
+
+/obj/item/storage/box/fancy/packaged_burger
+	name = "\improper quick-e-meals instaburger"
+	desc = "'Mama, mama! Can we stop at quick-e-burger?!' -'No, dears! We have quick-e-burger at home!' Quick-e-burger at home: is... surprisingly accurate, actually. The instructions recommend removing the burger from the package and heating it for 2 minutes."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burger_box"
+	icon_type = "burger"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_burger = 1, /obj/item/reagent_containers/food/condiment/small/packet/ketchup =1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_burger, /obj/item/reagent_containers/food/condiment/small/packet/ketchup)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/packaged_mossburger
+	name = "\improper UP! burger microwave burger"
+	desc = "A microwave-friendly version of the famous UP! Burger for you to take home. They typically only sell these in Konyang. All the text on the package is in sol common. There is a little drawing of a clock with the number 2 next to it, though."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burger_box_moss"
+	icon_type = "burger"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_mossburger = 1, /obj/item/reagent_containers/food/condiment/small/packet/ketchup =1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_mossburger, /obj/item/reagent_containers/food/condiment/small/packet/ketchup)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/quick_curry
+	name = "\improper quick-e-meals mild curry"
+	desc = "A microwave curry dish boasting a mixture of rice and curry with a spiciness rating of 'mild'. The instructions recommend heating it up for 2 minutes without removing it from the packaging."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "curry_box"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#ad6a32"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("frozen solid rice" = 10, "regrets" = 8))
+
+/obj/item/reagent_containers/food/snacks/quick_curry_prepared
+	name = "\improper quick-e-meals mild curry"
+	desc = "A fair amount of rice with sitting in a disposable container with a small bit of brown sauce sitting next to it, separated. There's mysterious chunks floating around in the sauce, but it's okay. According to the picture on the box, they're supposed to be there."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "curry"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#ad6a32"
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 5, "mild curry sauce" = 5, "probably potatoes" = 3))
+
+/obj/item/reagent_containers/food/snacks/quick_curry_prepared/update_icon()
+	var/percent_curry = round((reagents.total_volume / 7) * 100)
+	switch(percent_curry)
+		if(0 to 50)
+			icon_state = "curry_half"
+		else
+			icon_state = "curry"
+
+/obj/item/reagent_containers/food/snacks/hv_dinner
+	name = "\improper quick-e-meals HV dinner"
+	desc = "These used to be called TV dinners for the longest time even after the invention of holovision. They finally rebranded them a few years ago. The instructions read: 'Heat package in microwave for 2 minutes before opening.' It's still cold."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "hv_dinner_box"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#805532"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("regret" = 5), /singleton/reagent/nutriment/protein = list("poor life choices" = 5))
+
+/obj/item/reagent_containers/food/snacks/hv_dinner_prepared
+	name = "\improper quick-e-meals HV dinner"
+	desc = "Some kind of meat, a thing of mashed potatoes, and some peas with small chunks of carrot mixed in, everything you need to convince yourself that this is a balanced meal and you're definitely a functional adult."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "hv_dinner"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#805532"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 5, "peas" = 5), /singleton/reagent/nutriment/protein = list("some kind of protein" = 6))
+
+/obj/item/reagent_containers/food/snacks/hv_dinner_prepared/update_icon()
+	var/percent_hvdinner = round((reagents.total_volume / 7) * 100)
+	switch(percent_hvdinner)
+		if(0 to 49)
+			icon_state = "hv_dinner_half"
+		else
+			icon_state = "hv_dinner"
+
+/obj/item/storage/box/fancy/toptarts_strawberry
+	name = "\improper toptarts supreme strawberry"
+	desc = "A box containing four Getmore brand Toptarts. These ones are strawberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_strawberry_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter
+	name = "\improper toptarts chocolate peanutbutter pow-wow"
+	desc = "A box containing four Getmore brand Toptarts. These ones are chocolate-peanut butter flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_chocolate_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/toptarts_blueberry
+	name = "\improper toptarts bursting blueberry"
+	desc = "A box containing four Getmore brand Toptarts. These ones are blueberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_blueberry_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE

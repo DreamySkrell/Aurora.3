@@ -22,6 +22,15 @@
 	var/appliancetype // Bitfield, uses the same as appliances
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/reagent_containers/cooking_container/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(length(contents))
+		var/string = "It contains:</br><ul><li>"
+		string += jointext(contents, "</li><li>") + "</li></ul>"
+		. += string
+	if(reagents.total_volume)
+		. += "It contains <b>[reagents.total_volume] units</b> of reagents total."
+
 /obj/item/reagent_containers/cooking_container/on_reagent_change()
 	. = ..()
 	update_icon()
@@ -37,39 +46,6 @@
 /obj/item/reagent_containers/cooking_container/attack_hand()
 	. = ..()
 	update_icon()
-
-/obj/item/reagent_containers/cooking_container/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(length(contents))
-		. += SPAN_NOTICE(get_content_info())
-	if(reagents.total_volume)
-		. += SPAN_NOTICE(get_reagent_info())
-
-/obj/item/reagent_containers/cooking_container/proc/get_content_info()
-	var/string = "It contains:</br><ul><li>"
-	string += jointext(contents, "</li><li>") + "</li></ul>"
-	return string
-
-/obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
-	return "It contains [reagents.total_volume] units of reagents."
-
-/obj/item/reagent_containers/cooking_container/MouseEntered(location, control, params)
-	. = ..()
-	var/list/modifiers = params2list(params)
-	if(modifiers["shift"] && get_dist(usr, src) <= 2)
-		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
-		var/description
-		if(length(contents))
-			description = get_content_info()
-		if(reagents.total_volume)
-			if(!description)
-				description = ""
-			description += get_reagent_info()
-		openToolTip(usr, src, params, name, description)
-
-/obj/item/reagent_containers/cooking_container/MouseExited(location, control, params)
-	. = ..()
-	closeToolTip(usr)
 
 /obj/item/reagent_containers/cooking_container/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, insertable))
@@ -153,7 +129,6 @@
 	if((max_space - total) >= I.w_class)
 		return TRUE
 
-
 //Takes a reagent holder as input and distributes its contents among the items in the container
 //Distribution is weighted based on the volume already present in each item
 /obj/item/reagent_containers/cooking_container/proc/soak_reagent(var/datum/reagents/holder)
@@ -209,10 +184,10 @@
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
-	if(material.name != MATERIAL_STEEL)
+	if(material.type != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 
@@ -230,10 +205,10 @@
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
-	if(material.name != MATERIAL_STEEL)
+	if(material.type != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 
@@ -252,7 +227,7 @@
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
 	. = ..(mapload)
-	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(mat_key && mat_key != MATERIAL_STEEL)
@@ -283,26 +258,37 @@
 		return FALSE
 	return TRUE
 
+/obj/item/reagent_containers/cooking_container/microwave_plate
+	name = "microwave plate"
+	shortname = "plate"
+	desc = "Put ingredients on this; designed for use with a microwave."
+	icon_state = "microwave_plate"
+	appliancetype = MICROWAVE
+	max_space = 30
+	volume = 90
+	force = 18
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
 /obj/item/reagent_containers/cooking_container/board
 	name = "chopping board"
 	shortname = "board"
 	place_verb = "onto"
 	desc = "A board for preparing food. Not chopping. I'm sorry."
 	icon_state = "board"
-	drop_sound = /singleton/sound_category/generic_drop_sound
-	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	appliancetype = MIX
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(length(contents) || reagents?.total_volume)
-		. += SPAN_NOTICE("To attempt cooking: click and hold, then drag this onto your character.")
+/obj/item/reagent_containers/cooking_container/board/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "After adding food ingredients, click-drag this onto your character to attempt to cook/prepare them."
 
-/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
-	if(over_obj != usr || use_check(usr))
+/obj/item/reagent_containers/cooking_container/board/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user || use_check(user))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
@@ -329,12 +315,12 @@
 		R.forceMove(src) //Move everything from the buffer back to the container
 
 	var/l = length(results)
-	if (l && usr)
+	if (l && user)
 		var/name = results[1].name
 		if (l > 1)
-			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
+			to_chat(user, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
 		else
-			to_chat(usr, SPAN_NOTICE("You made [name]!"))
+			to_chat(user, SPAN_NOTICE("You made [name]!"))
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
@@ -356,7 +342,7 @@
 	filling_states = "-10;10;25;50;75;80;100"
 	center_of_mass = list("x" = 17,"y" = 7)
 	max_space = 30
-	matter = list(DEFAULT_WALL_MATERIAL = 300)
+	matter = list(MATERIAL_STEEL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)

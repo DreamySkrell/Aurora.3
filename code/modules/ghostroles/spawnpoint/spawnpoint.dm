@@ -132,7 +132,7 @@
 /obj/effect/ghostspawpoint/repeat
 	name = "invisible ghost spawner - repeat"
 	desc = "A Invisible ghost spawner"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x3"
 
 	icon_unavailable = "x3" //Icon to use when unavailable
@@ -150,7 +150,7 @@
 /obj/effect/ghostspawpoint/cryo
 	name = "cryogenic storage pod"
 	desc = "A pod used to store individual in suspended animation"
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper-closed"
 
 	identifier = null //identifier of this spawnpoint

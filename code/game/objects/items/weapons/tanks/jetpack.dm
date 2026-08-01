@@ -14,6 +14,8 @@
 		// Skip sanity check for H.back, as istype can safely handle a null.
 		if (istype(H.back, /obj/item/tank/jetpack))
 			return H.back
+		else if (istype(H.s_store, /obj/item/tank/jetpack))
+			return H.s_store
 		else if (istype(H.back, /obj/item/rig))
 			var/obj/item/rig/rig = H.back
 			for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
@@ -45,45 +47,70 @@
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
 
-/obj/item/tank/jetpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(air_contents.total_moles < 5)
+/obj/item/tank/jetpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(air_contents.total_moles < 25)
 		. += SPAN_NOTICE("The meter on \the [src] indicates you are almost out of gas!")
 
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
-	set category = "Object"
+	set category = "Object.Jetpack"
 	set src in usr
 
 	toggle_rockets_stabilization(usr)
 
-/obj/item/tank/jetpack/proc/toggle_rockets_stabilization(mob/user, var/list/message_mobs)
-	stabilization_on = !stabilization_on
-	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
-	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
+/// This toggle proc is used for the verb, but we break activation and deactivation into separate procs for management from other objs (like hardsuits).
+/// Param 'send_message' will make proc send feedback messages if default TRUE, but proc will be silent if FALSE.
+/obj/item/tank/jetpack/proc/toggle_rockets_stabilization(mob/user)
+	if(stabilization_on)
+		disable_rockets_stabilization(user)
+	else
+		enable_rockets_stabilization(user)
+
+/// Exists to be called directly from other objs (like hardsuits).
+/obj/item/tank/jetpack/proc/enable_rockets_stabilization(mob/user)
+	stabilization_on = TRUE
+	balloon_alert(user, "stabilizers on!")
+
+/// Exists to be called directly from other objs (like hardsuits).
+/obj/item/tank/jetpack/proc/disable_rockets_stabilization(mob/user, var/message = TRUE)
+	stabilization_on = FALSE
+	balloon_alert(user, "stabilizers off!")
 
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
-	set category = "Object"
+	set category = "Object.Jetpack"
 	set src in usr
 
 	toggle_jetpack(usr)
 
-/obj/item/tank/jetpack/proc/toggle_jetpack(mob/user, var/list/message_mobs)
-	on = !on
-	toggle_rockets_stabilization(user, message_mobs)
+/// This toggle proc is used for the verb, but we break activation and deactivation into separate procs for management from other objs (like hardsuits).
+/obj/item/tank/jetpack/proc/toggle_jetpack(mob/user)
 	if(on)
-		icon_state = "[icon_state]-on"
+		disable_jetpack(user)
 	else
-		icon_state = initial(icon_state)
+		enable_jetpack(user)
+
+/// Exists to be called directly from other objs (like hardsuits).
+/obj/item/tank/jetpack/proc/enable_jetpack(mob/user)
+	on = TRUE
+	enable_rockets_stabilization(user, FALSE)
+	icon_state = "[icon_state]-on"
 
 	user.update_inv_back()
 	user.update_action_buttons()
 
-	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s thrusters [on ? "on" : "off"]."))
-	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s thrusters [on ? "on" : "off"]."))
+	balloon_alert(user, "jetpack on!")
+
+/// Exists to be called directly from other objs (like hardsuits).
+/obj/item/tank/jetpack/proc/disable_jetpack(mob/user, var/list/message_mobs)
+	on = FALSE
+	icon_state = initial(icon_state)
+
+	user.update_inv_back()
+	user.update_action_buttons()
+
+	balloon_alert(user, "jetpack off!")
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))

@@ -8,7 +8,7 @@
 	suffix = "xanu_frigate.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS)
-	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
+	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, SECTOR_XANU = 3, SECTOR_BURZSIA = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"
@@ -98,7 +98,7 @@
 	designation = "[pick("Halberd", "Guisarme", "Ranseur", "Goedendag", "Bardiche", "Swordstaff", "Mancatcher")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
 	name = "fightercraft control console"
 	shuttle_tag = "Xanu Fighter"
 
@@ -139,7 +139,7 @@
 	designation = "[pick("Phoebe", "Lark", "Siskin", "Grosbeak", "Cormorant", "Skua", "Gannet")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
 	name = "shuttle control console"
 	shuttle_tag = "Xanu Boarder"
 

@@ -38,7 +38,8 @@
 				for(var/A in tile)
 					if(istype(A, /obj/effect))
 						if(istype(A, /obj/effect/decal/cleanable))
-							qdel(A)
+							var/obj/effect/decal/cleanable/cleanable = A
+							cleanable.clean_with_basic_cleaner()
 						if(istype(A, /obj/effect/overlay))
 							var/obj/effect/overlay/O = A
 							if(O.no_clean)
@@ -82,4 +83,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > speed)
 			. += H.species.slowdown - speed
-		. += H.ClothesSlowdown()
+		// . += H.ClothesSlowdown()
