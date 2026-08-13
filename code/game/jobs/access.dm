@@ -283,3 +283,9 @@ GLOBAL_LIST_INIT_TYPED(ghost_all_access, /obj/item/card/id/all_access, list())
 		return
 
 	return "Unknown" //Return unknown if none of the above apply
+
+///
+GLOBAL_VAR_INIT(highest_taken_access_id, -1)
+///
+/obj/proc/get_next_free_access_id()
+	return 0
