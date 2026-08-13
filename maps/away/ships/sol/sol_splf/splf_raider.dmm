@@ -5,7 +5,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -89,7 +89,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Portside Hall";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -111,7 +111,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	name = "Officer's Quarters";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -130,7 +130,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	name = "Sensitive Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -156,7 +156,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Hall";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -209,7 +209,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/bed/stool/bar/padded/red{
 	dir = 8
@@ -249,7 +249,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Infirmary";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -295,7 +295,7 @@
 "bI" = (
 /obj/structure/machinery/alarm/freezer/north{
 	req_one_access = null;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -503,7 +503,7 @@
 "dg" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Longarms";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light/small{
@@ -620,7 +620,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
@@ -1076,7 +1076,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #1";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -1559,7 +1559,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -1840,7 +1840,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/table/wood,
 /obj/item/flame/lighter/zippo/sol{
@@ -1936,7 +1936,7 @@
 /obj/structure/machinery/photocopier/faxmachine{
 	pixel_y = 6;
 	req_one_access = null;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
@@ -1981,7 +1981,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/service{
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	name = "Utilities Closet"
 	},
 /obj/random/dirt_75,
@@ -2149,7 +2149,7 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	req_one_access = list(246);
+	req_one_access = list(/datum/access/splf_access::id);
 	name = "Crew Bunks"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2667,7 +2667,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 8;
 	name = "Combustion Engine";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -2788,7 +2788,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 8;
 	name = "Propellant Management";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -2905,7 +2905,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3019,7 +3019,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 13;
@@ -3271,7 +3271,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/table/reinforced/steel,
@@ -3329,7 +3329,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Bridge";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
@@ -3573,7 +3573,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/light/small,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3724,7 +3724,7 @@
 /area/splf_raider/central)
 "vt" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -3795,7 +3795,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -4028,7 +4028,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Module";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -4195,7 +4195,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 4;
@@ -4246,7 +4246,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
@@ -4382,7 +4382,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/super/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -4563,7 +4563,7 @@
 "AG" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ancillary Tools";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/belt/security/full/alt,
@@ -4865,7 +4865,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4914,7 +4914,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4946,7 +4946,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5076,7 +5076,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #2";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -5455,7 +5455,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -5518,7 +5518,7 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	name = "Stabilization Kit"
 	},
 /turf/simulated/floor/tiled/white,
@@ -5602,7 +5602,7 @@
 /area/splf_raider/propulsion)
 "Gg" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -5709,7 +5709,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = 28;
 	pixel_y = -28;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
@@ -6078,7 +6078,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Portside Module";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6267,7 +6267,7 @@
 "Ke" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/suit_cycler/engineering/prepared{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -6572,7 +6572,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/item/ship_ammunition/autocannon{
 	pixel_y = 6;
@@ -6925,7 +6925,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	name = "Sensitive Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6958,7 +6958,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/closet/crate/drop/grey,
 /obj/item/sleeping_bag{
@@ -7094,7 +7094,7 @@
 "Pd" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Docking Array";
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -7111,7 +7111,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/glasses/circuitry{
@@ -7140,7 +7140,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -7267,7 +7267,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
@@ -7350,7 +7350,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -7605,7 +7605,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/firedoor/noid,
@@ -7673,7 +7673,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
@@ -7988,7 +7988,7 @@
 "Uj" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Sidearms";
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/gun/projectile/colt/super,
@@ -8295,7 +8295,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/structure/table/steel,
 /obj/item/storage/box/large/condiment{
@@ -8548,7 +8548,7 @@
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
-	req_access = list(246);
+	req_access = list(/datum/access/splf_access::id);
 	name = "O- Blood"
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -8961,7 +8961,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -9047,7 +9047,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(246)
+	req_access = list(/datum/access/splf_access::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/structure/machinery/atmospherics/binary/passive_gate/supply{

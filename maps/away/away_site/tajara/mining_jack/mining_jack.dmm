@@ -11,7 +11,7 @@
 /area/mining_jack_outpost/smelter)
 "am" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -81,7 +81,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -130,7 +130,7 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -209,7 +209,7 @@
 "cG" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/drinks/waterbottle,
@@ -440,7 +440,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Power Room";
 	dir = 1
 	},
@@ -502,7 +502,7 @@
 /area/mining_jack_outpost/atmos)
 "gq" = (
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -751,7 +751,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -817,7 +817,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
@@ -1011,7 +1011,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/blueprints,
 /obj/structure/table/steel,
@@ -1087,7 +1087,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
@@ -1297,7 +1297,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1400,7 +1400,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1479,7 +1479,7 @@
 "wD" = (
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1639,7 +1639,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1715,7 +1715,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1766,7 +1766,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "mining_jack_bridge";
 	name = "Bridge Shutters";
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -1784,7 +1784,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Atmospherics";
 	dir = 1
 	},
@@ -1835,7 +1835,7 @@
 /area/shuttle/mining_jack/engines)
 "Eb" = (
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1895,7 +1895,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Smelter";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -2057,7 +2057,7 @@
 /area/mining_jack_outpost/storage)
 "JU" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Bridge";
 	dir = 1
 	},
@@ -2363,7 +2363,7 @@
 /area/mining_jack_outpost/atmos)
 "Qp" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2389,7 +2389,7 @@
 /area/mining_jack_outpost/smelter)
 "Rw" = (
 /obj/structure/machinery/suit_cycler/mining{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/rust{
@@ -2684,7 +2684,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Crew Quarters";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -2753,7 +2753,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15

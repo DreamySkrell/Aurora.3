@@ -510,7 +510,7 @@
 /area/coc_survey_ship/cryo)
 "eZ" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(221);
+	req_access = list(/datum/access/coalition::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -557,7 +557,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
@@ -709,7 +709,7 @@
 /area/coc_survey_ship/cryo)
 "gQ" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -1131,7 +1131,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -1209,7 +1209,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
@@ -1376,7 +1376,7 @@
 "lZ" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1435,7 +1435,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
@@ -1537,7 +1537,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
@@ -1815,7 +1815,7 @@
 "pJ" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
@@ -1863,7 +1863,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
@@ -1924,7 +1924,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
@@ -2042,7 +2042,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
@@ -2059,7 +2059,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2159,7 +2159,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
@@ -2183,7 +2183,7 @@
 "sH" = (
 /obj/structure/cable,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/grauwolf)
@@ -2590,7 +2590,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
@@ -2711,7 +2711,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/grauwolf)
@@ -2810,7 +2810,7 @@
 "xQ" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
@@ -2832,7 +2832,7 @@
 /obj/structure/machinery/bodyscanner,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
@@ -2870,7 +2870,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
@@ -3050,7 +3050,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
@@ -3218,7 +3218,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
@@ -3228,7 +3228,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
@@ -3584,7 +3584,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
@@ -3643,7 +3643,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/port_propulsion)
@@ -3818,7 +3818,7 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
@@ -3962,7 +3962,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
@@ -4147,7 +4147,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
@@ -4262,7 +4262,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
@@ -4314,7 +4314,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
@@ -4631,7 +4631,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
@@ -4689,7 +4689,7 @@
 "Mj" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
@@ -4777,7 +4777,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -4960,7 +4960,7 @@
 /area/coc_survey_ship/atmos)
 "OH" = (
 /obj/structure/machinery/alarm/west{
-	req_access = list(221);
+	req_access = list(/datum/access/coalition::id);
 	req_one_access = null
 	},
 /turf/simulated/floor,
@@ -5261,7 +5261,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -5353,7 +5353,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -5593,7 +5593,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
@@ -6152,7 +6152,7 @@
 /obj/item/clothing/head/softcap/himeo,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
@@ -6201,7 +6201,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -6215,7 +6215,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
@@ -6318,7 +6318,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
@@ -6420,7 +6420,7 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(221)
+	req_access = list(/datum/access/coalition::id)
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)

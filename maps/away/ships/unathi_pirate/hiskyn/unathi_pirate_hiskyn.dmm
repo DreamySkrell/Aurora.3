@@ -140,7 +140,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/spline/plain/brown,
 /obj/effect/decal/cleanable/dirt,
@@ -245,7 +245,7 @@
 "aaw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
@@ -346,7 +346,7 @@
 "abe" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -633,7 +633,7 @@
 "aca" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Trophy Room";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -668,7 +668,7 @@
 "acd" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner_wide/red/full{
@@ -676,7 +676,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
@@ -827,7 +827,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -892,7 +892,7 @@
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	dir = 1;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -948,7 +948,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
@@ -1086,7 +1086,7 @@
 /area/hiskyn_ship/thrustp)
 "akG" = (
 /obj/structure/machinery/vending/engineering{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -1122,7 +1122,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Engineering";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
@@ -1269,7 +1269,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Captain's Office";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -1282,7 +1282,7 @@
 /area/space)
 "arf" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1449,7 +1449,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1564,7 +1564,7 @@
 /obj/structure/machinery/door/airlock/medical{
 	name = "Medical Bay";
 	dir = 4;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1634,7 +1634,7 @@
 /area/hiskyn_ship/hallc)
 "aCE" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1720,7 +1720,7 @@
 /area/hiskyn_ship/thrustp)
 "aDP" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1831,7 +1831,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -1873,7 +1873,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Gunnery";
 	dir = 4;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/blaster)
@@ -1942,7 +1942,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/effect/landmark/entry_point/starboard{
@@ -2121,7 +2121,7 @@
 /area/hiskyn_ship/hallc)
 "aPk" = (
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner_wide/red{
@@ -2405,7 +2405,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Bathroom";
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -2464,7 +2464,7 @@
 /area/hiskyn_ship/engineering)
 "aWD" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -2653,7 +2653,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/structure/bed/handrail,
@@ -2857,7 +2857,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -3078,7 +3078,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -3104,7 +3104,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
@@ -3207,7 +3207,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
@@ -3236,7 +3236,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -3329,7 +3329,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Port Propulsion";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -3437,7 +3437,7 @@
 "gaM" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3526,7 +3526,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -3662,7 +3662,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -3719,7 +3719,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Starboard Propulsion";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -3772,7 +3772,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -3825,7 +3825,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -3921,7 +3921,7 @@
 /area/shuttle/hiskyn_revanchists)
 "hRS" = (
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3967,7 +3967,7 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/clothing/head/dominia/fleet/armsman,
@@ -4084,7 +4084,7 @@
 	pixel_y = 29
 	},
 /obj/structure/machinery/door/window/brigdoor/southleft{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
@@ -4120,7 +4120,7 @@
 /area/hiskyn_ship/hallc)
 "iSu" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4183,7 +4183,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Battle Bridge";
 	dir = 4;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4200,7 +4200,7 @@
 /area/hiskyn_ship/cic)
 "jaX" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/ammo_magazine/a556,
@@ -4584,7 +4584,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/ammo_magazine/c45m/dominia,
@@ -4607,7 +4607,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -4643,13 +4643,13 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/brigdoor/southleft{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "llm" = (
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4875,7 +4875,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210);
+	req_access = list(/datum/access/unathi_pirate::id);
 	name = "Shuttle Equipment"
 	},
 /obj/item/storage/toolbox/mechanical,
@@ -4982,14 +4982,14 @@
 /area/hiskyn_ship/thrustp)
 "mtk" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/clothing/suit/armor/carrier/dominia,
 /obj/item/clothing/suit/armor/carrier/dominia,
@@ -5034,7 +5034,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/random/dirt_75,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/melee/hammer/powered,
 /obj/item/melee/energy/sword/pirate,
@@ -5131,7 +5131,7 @@
 	maxhealth = 140
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
@@ -5345,7 +5345,7 @@
 /area/hiskyn_ship/cic)
 "obd" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(210);
+	req_access = list(/datum/access/unathi_pirate::id);
 	name = "Captain's Quarters";
 	dir = 4
 	},
@@ -5454,7 +5454,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /obj/structure/bed/handrail{
@@ -5491,7 +5491,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Central Hallway";
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -5537,7 +5537,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5590,7 +5590,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/cable/yellow,
@@ -5614,7 +5614,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Cargo Storage Module";
 	dir = 4;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
@@ -5924,7 +5924,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
+	req_one_access = list(/datum/access/unathi_pirate::id);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -6031,7 +6031,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/spline/plain/brown{
 	dir = 6
@@ -6158,7 +6158,7 @@
 /area/hiskyn_ship/bridge)
 "rYf" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6181,7 +6181,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Crew Quarters";
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
@@ -6274,7 +6274,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6389,12 +6389,12 @@
 /area/hiskyn_ship/trophy)
 "tbb" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/machinery/vending/medical{
 	pixel_x = -1;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/medbay)
@@ -6630,7 +6630,7 @@
 /area/hiskyn_ship/hallc)
 "tYI" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6686,7 +6686,7 @@
 /obj/structure/machinery/door/airlock/command{
 	name = "Francisca";
 	dir = 4;
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6706,7 +6706,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Armory";
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7119,7 +7119,7 @@
 /area/space)
 "wAy" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/random/dirt_75,
 /obj/item/trash/meatsnack,
@@ -7191,7 +7191,7 @@
 /area/hiskyn_ship/captain)
 "wQN" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
@@ -7302,7 +7302,7 @@
 /area/hiskyn_ship/thrusts)
 "xsr" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(210)
+	req_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/suit/armor/unathi,
@@ -7337,7 +7337,7 @@
 /area/shuttle/hiskyn_revanchists)
 "xLO" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -7391,7 +7391,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/walllocker/secure{
 	pixel_y = 31;
-	req_access = list(210);
+	req_access = list(/datum/access/unathi_pirate::id);
 	name = "Battle Bridge Equipment"
 	},
 /obj/item/clothing/head/helmet/pilot,
@@ -7433,7 +7433,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(210)
+	req_one_access = list(/datum/access/unathi_pirate::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)

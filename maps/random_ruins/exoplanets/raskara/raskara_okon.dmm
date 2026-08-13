@@ -28,7 +28,7 @@
 /area/raskara_okon/barracks)
 "aD" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -40,7 +40,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -59,7 +59,7 @@
 /area/raskara_okon/eva)
 "aO" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Mess Hall";
 	dir = 4
 	},
@@ -76,7 +76,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -266,7 +266,7 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -398,7 +398,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -452,7 +452,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/item/clothing/accessory/badge/pra_passport,
@@ -761,7 +761,7 @@
 /area/raskara_okon/observatory)
 "jJ" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Medbay";
 	dir = 1
 	},
@@ -773,7 +773,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -802,7 +802,7 @@
 /area/raskara_okon/mess_hall)
 "kd" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Engineering";
 	dir = 1
 	},
@@ -814,7 +814,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -868,7 +868,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1068,7 +1068,7 @@
 /area/raskara_okon/medbay)
 "mV" = (
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -1156,7 +1156,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1329,7 +1329,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1362,7 +1362,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1474,7 +1474,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1537,7 +1537,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1552,7 +1552,7 @@
 /area/raskara_okon/eva)
 "tL" = (
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1690,7 +1690,7 @@
 /area/raskara_okon/engineer)
 "vJ" = (
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Laboratory";
 	dir = 4
 	},
@@ -1707,7 +1707,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1810,7 +1810,7 @@
 /obj/item/clothing/accessory/flagpatch/pra,
 /obj/item/clothing/accessory/flagpatch/pra,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1872,7 +1872,7 @@
 "yo" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -1962,7 +1962,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2117,7 +2117,7 @@
 "Ac" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2133,7 +2133,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2202,7 +2202,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2210,7 +2210,7 @@
 /area/raskara_okon/laboratory)
 "AS" = (
 /obj/structure/machinery/vending/engineering{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
@@ -2264,7 +2264,7 @@
 "BR" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2275,7 +2275,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2547,13 +2547,13 @@
 /area/raskara_okon)
 "Gh" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Medbay";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -2639,7 +2639,7 @@
 "GW" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/photocopier/faxmachine{
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	department = "Okon 001 Observation Outpost"
 	},
 /obj/effect/floor_decal/corner/red{
@@ -2852,12 +2852,12 @@
 /area/raskara_okon/medbay)
 "Ky" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Restroom";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -2901,7 +2901,7 @@
 /area/raskara_okon/mess_hall)
 "Lu" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Mining";
 	dir = 1
 	},
@@ -2913,7 +2913,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3201,7 +3201,7 @@
 /area/raskara_okon)
 "Os" = (
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -3249,7 +3249,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3350,7 +3350,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3381,7 +3381,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3389,7 +3389,7 @@
 /area/raskara_okon/engineer)
 "Rh" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Barracks";
 	dir = 4
 	},
@@ -3406,7 +3406,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3418,7 +3418,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3497,7 +3497,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3532,7 +3532,7 @@
 /area/raskara_okon/medbay)
 "TD" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
@@ -3657,7 +3657,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3686,7 +3686,7 @@
 "VI" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10;
-	req_access = list(55)
+	req_access = list(/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3695,7 +3695,7 @@
 "VR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/door/window/brigdoor/eastleft{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Kitchen"
 	},
 /turf/simulated/floor/tiled/white{
@@ -3965,7 +3965,7 @@
 /area/raskara_okon)
 "Yr" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Observatory";
 	dir = 1
 	},
@@ -3977,7 +3977,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4007,7 +4007,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -4032,7 +4032,7 @@
 /area/raskara_okon/barracks)
 "YV" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Atmospherics";
 	dir = 4
 	},
@@ -4043,7 +4043,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4051,7 +4051,7 @@
 /area/raskara_okon/engineer)
 "YY" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{

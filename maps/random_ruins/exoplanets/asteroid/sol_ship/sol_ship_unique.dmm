@@ -143,7 +143,7 @@
 /area/template_noop)
 "oz" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(150);
+	req_access = list(/datum/access/syndicate::id);
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -431,7 +431,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/clothing/suit/space/void/sol,
 /obj/item/clothing/head/helmet/space/void/sol,
@@ -456,7 +456,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/shuttle/black,

@@ -23,7 +23,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -38,7 +38,7 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/secure_closet/custodial/offship{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/item/watertank/janitor,
@@ -99,7 +99,7 @@
 "aw" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Compliance Weapons";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
@@ -325,7 +325,7 @@
 "bA" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 8;
-	req_one_access = list(217,229)
+	req_one_access = list(/datum/access/golden_deep::id,/datum/access/golden_deep_owned::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
@@ -340,7 +340,7 @@
 /area/golden_deep/warehouse)
 "bE" = (
 /obj/structure/machinery/door/airlock/glass_command{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Control Room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -430,7 +430,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -438,7 +438,7 @@
 /area/golden_deep/owned_lounge)
 "bZ" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -473,7 +473,7 @@
 "ck" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -509,7 +509,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -542,7 +542,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	name = "Merchant's Quarters"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -629,7 +629,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -809,7 +809,7 @@
 "dr" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -846,7 +846,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Atmospherics Module"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -871,7 +871,7 @@
 "dA" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Panic Room";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
@@ -886,7 +886,7 @@
 "dG" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -1129,7 +1129,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -1200,7 +1200,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -1394,7 +1394,7 @@
 /area/golden_deep/warehouse)
 "fG" = (
 /obj/structure/machinery/porta_turret{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/light/small{
@@ -1420,7 +1420,7 @@
 /area/golden_deep/accounting)
 "fO" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -1547,7 +1547,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -1573,7 +1573,7 @@
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1613,7 +1613,7 @@
 	id = "gd_3";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -1638,7 +1638,7 @@
 	id = "gd_4";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -1673,7 +1673,7 @@
 "ha" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Starboard Maintenance"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1824,7 +1824,7 @@
 	name = "Secure Storage Bolt Control";
 	pixel_y = 28;
 	specialfunctions = 4;
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/merchant)
@@ -1836,7 +1836,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	name = "Hoplan Quarters"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -1877,7 +1877,7 @@
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "Golden Deep Merchantile Vessel - Accounting";
 	pixel_y = 6;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/accounting)
@@ -1964,7 +1964,7 @@
 "in" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Bridge"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -2074,7 +2074,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -2103,7 +2103,7 @@
 "iX" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/porta_turret{
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2137,7 +2137,7 @@
 "jd" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/central_hallway)
@@ -2268,7 +2268,7 @@
 "jG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/starboard_dock)
@@ -2335,7 +2335,7 @@
 	dir = 1;
 	pixel_x = -6;
 	pixel_y = 7;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Bridge Lockdown";
@@ -2343,7 +2343,7 @@
 	dir = 1;
 	pixel_x = 7;
 	pixel_y = 7;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/bridge)
@@ -2639,7 +2639,7 @@
 	id = "gd_propellant_1";
 	dir = 4;
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
@@ -2658,7 +2658,7 @@
 "lg" = (
 /obj/structure/machinery/vending/boozeomat{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/lino,
 /area/golden_deep/lounge)
@@ -2754,12 +2754,12 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /obj/structure/closet/secure_closet/cabinet{
 	name = "Hoplan Attire";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/clothing/suit/armor/carrier/hoplan,
 /obj/item/clothing/suit/armor/carrier/hoplan,
@@ -2987,7 +2987,7 @@
 /area/golden_deep/warehouse)
 "mG" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -3067,7 +3067,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -3107,7 +3107,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Repair & Maintenance";
 	door_color = "#8c792e"
 	},
@@ -3187,7 +3187,7 @@
 	id = "gd_propellant_2";
 	dir = 8;
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
@@ -3229,7 +3229,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -3431,7 +3431,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood/yew,
 /area/golden_deep/guest)
@@ -3444,7 +3444,7 @@
 	dir = 4;
 	id = "gd_bar";
 	name = "Desk Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_x = 23;
 	pixel_y = -22
 	},
@@ -3567,7 +3567,7 @@
 /area/golden_deep/private_lounge)
 "ph" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -3618,7 +3618,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
@@ -3663,7 +3663,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
@@ -3695,7 +3695,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
@@ -3722,7 +3722,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
@@ -3733,11 +3733,11 @@
 	name = "Secure Storage Bolt Control";
 	pixel_y = 28;
 	specialfunctions = 4;
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/porta_turret{
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3746,7 +3746,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Owned Crew Lounge"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -3772,7 +3772,7 @@
 "pS" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/cable,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3795,7 +3795,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -3816,7 +3816,7 @@
 /obj/structure/safe/cash,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/secure)
@@ -3843,7 +3843,7 @@
 	id = "gd_6";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -3857,11 +3857,11 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /obj/structure/machinery/vending/robotics{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4005,7 +4005,7 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	name = "Personal Wear"
 	},
 /obj/item/clothing/pants/skirt{
@@ -4166,7 +4166,7 @@
 	dir = 1;
 	pixel_y = -26;
 	req_access = null;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -4231,7 +4231,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -4336,7 +4336,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/accounting)
@@ -4360,7 +4360,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
@@ -4451,7 +4451,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -4459,7 +4459,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4545,7 +4545,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Bridge"
 	},
 /obj/structure/cable/green{
@@ -4731,7 +4731,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Reactor Module"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -4847,7 +4847,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4881,7 +4881,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/item/storage/box/lights/mixed{
 	pixel_y = 9;
@@ -4935,7 +4935,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/stack/barricade/plasteel{
@@ -5053,7 +5053,7 @@
 "uL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /obj/structure/machinery/meter,
@@ -5118,7 +5118,7 @@
 	dir = 4;
 	id = "gd_armory";
 	name = "Armory Access";
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	pixel_x = 23
 	},
 /obj/structure/undies_wardrobe,
@@ -5199,7 +5199,7 @@
 "vp" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/port_dock)
@@ -5404,7 +5404,7 @@
 /area/golden_deep/portprop)
 "wA" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/merchant)
@@ -5565,7 +5565,7 @@
 /area/golden_deep/lounge)
 "xg" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
@@ -5664,7 +5664,7 @@
 	id = "gd_1";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -5716,7 +5716,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -5934,7 +5934,7 @@
 /area/golden_deep/merchant)
 "yQ" = (
 /obj/structure/machinery/power/apc/east{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -6028,7 +6028,7 @@
 "zp" = (
 /obj/structure/machinery/vending/engineering{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light/small{
@@ -6058,7 +6058,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -6192,7 +6192,7 @@
 	dir = 4;
 	name = "Cockpit";
 	door_color = "#8c792e";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/passenger)
@@ -6211,7 +6211,7 @@
 	id = "gd_4";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -6258,7 +6258,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Hoplan Sidearms";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/gun/projectile/xanupistol,
 /obj/item/ammo_magazine/c46m/extended,
@@ -6460,7 +6460,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -6509,7 +6509,7 @@
 	id = "gd_2";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -6875,7 +6875,7 @@
 /area/golden_deep/aft_hallway)
 "CM" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -6932,7 +6932,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -6954,7 +6954,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8;
@@ -6969,7 +6969,7 @@
 	id = "gd_2";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -7064,7 +7064,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
-	req_access = list(229, 217)
+	req_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -7074,7 +7074,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/marble,
 /area/golden_deep/port_dock)
@@ -7203,7 +7203,7 @@
 "Ea" = (
 /obj/structure/closet/crate/secure/phoron{
 	name = "secure crate";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/light/small{
@@ -7257,7 +7257,7 @@
 	id = "gd_atmos";
 	dir = 8;
 	pixel_x = -22;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -7350,7 +7350,7 @@
 /area/golden_deep/hoplan)
 "EA" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -7369,7 +7369,7 @@
 	},
 /obj/item/pipe_meter,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -7397,7 +7397,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Port Maintenance"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -7418,14 +7418,14 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "EN" = (
 /obj/structure/machinery/vending/engivend{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -7488,7 +7488,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/passenger)
@@ -7513,7 +7513,7 @@
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -7647,7 +7647,7 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/bed/roller,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
@@ -7771,7 +7771,7 @@
 	level = 2
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -7943,7 +7943,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/vending/overloaders,
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -8177,7 +8177,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/port_dock)
@@ -8220,7 +8220,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -8293,7 +8293,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/vault{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Ammunition Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -8461,7 +8461,7 @@
 	dir = 4;
 	id = "gd_bar";
 	name = "Desk Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_x = 23;
 	pixel_y = 28
 	},
@@ -8539,7 +8539,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "EVA Storage";
 	dir = 1
 	},
@@ -8550,7 +8550,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	req_access = null
 	},
 /obj/structure/table/fancy/black,
@@ -8609,7 +8609,7 @@
 /area/golden_deep/lounge)
 "Jq" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Accounting";
 	door_color = "#8c792e"
 	},
@@ -8827,7 +8827,7 @@
 	id = "gd_6";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -8845,7 +8845,7 @@
 	dir = 6;
 	id = "gd_shuttle_windows";
 	name = "Window Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_y = 33;
 	pixel_x = -9
 	},
@@ -9000,7 +9000,7 @@
 /area/golden_deep/starboard_dock)
 "Le" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -9059,7 +9059,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Owned Crew Lounge"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -9123,7 +9123,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -9165,7 +9165,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/starboard_dock)
@@ -9255,7 +9255,7 @@
 /area/golden_deep/starboardmaints)
 "Mh" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -9338,7 +9338,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Engineering Storage";
 	dir = 1
 	},
@@ -9417,7 +9417,7 @@
 	id = "gd_5";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -9458,7 +9458,7 @@
 "No" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ancillary Weapons";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
@@ -9501,7 +9501,7 @@
 "Nv" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -9526,7 +9526,7 @@
 	pixel_y = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/accounting)
@@ -9606,13 +9606,13 @@
 /area/golden_deep/bridge)
 "NO" = (
 /obj/structure/machinery/porta_turret{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/turretid{
 	dir = 1;
 	pixel_y = -26;
 	req_access = null;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -9736,7 +9736,7 @@
 /area/golden_deep/portprop)
 "Of" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -9760,7 +9760,7 @@
 "On" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -9790,7 +9790,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Starboard Propulsion"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -9806,7 +9806,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Hoplan Longarms";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/gun/energy/rifle/laser,
 /obj/item/gun/projectile/shotgun/pump/combat,
@@ -9821,7 +9821,7 @@
 	dir = 8;
 	id = "gd_armory";
 	name = "Armory Access";
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	pixel_x = -23
 	},
 /obj/structure/machinery/light/small{
@@ -9854,7 +9854,7 @@
 "Ov" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /obj/structure/machinery/meter,
@@ -9946,7 +9946,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/central_hallway)
@@ -10026,7 +10026,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Starboard External Module"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -10039,7 +10039,7 @@
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "Golden Deep Merchantile Vessel - Merchant";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
@@ -10082,7 +10082,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood/yew,
@@ -10109,7 +10109,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
@@ -10200,7 +10200,7 @@
 /area/golden_deep/hoplan)
 "PW" = (
 /obj/structure/machinery/door/airlock/glass_command{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Control Room"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -10403,7 +10403,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -10441,7 +10441,7 @@
 	id = "gd_5";
 	name = "Storage Compartment Access";
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -10507,7 +10507,7 @@
 /area/golden_deep/lounge)
 "Re" = (
 /obj/structure/machinery/door/window{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/door/blast/shutters{
 	id = "gd_bar"
@@ -10522,7 +10522,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -10766,7 +10766,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
@@ -10812,7 +10812,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -11075,7 +11075,7 @@
 	dir = 6;
 	id = "gd_shuttle";
 	name = "Desk Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_y = 33;
 	pixel_x = 9
 	},
@@ -11270,7 +11270,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/vending/tool{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -11366,7 +11366,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
@@ -11413,7 +11413,7 @@
 	id = "gd_1";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -11757,7 +11757,7 @@
 	id = "gd_3";
 	name = "Storage Compartment Access";
 	pixel_x = -23;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -11775,12 +11775,12 @@
 "WJ" = (
 /obj/structure/closet/crate/secure/phoron{
 	name = "secure crate";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/power/apc/super/south{
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -11800,7 +11800,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Portside External Module"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11921,7 +11921,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Port Propulsion"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -11981,7 +11981,7 @@
 /area/golden_deep/hoplan)
 "Xl" = (
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	id_tag = "gd_vault";
 	name = "Secure Storage"
 	},
@@ -11995,7 +11995,7 @@
 	pixel_y = 32;
 	dir = 4;
 	pixel_x = -28;
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -12071,7 +12071,7 @@
 "Xx" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Combustibles Storage"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -12287,7 +12287,7 @@
 /area/golden_deep/port_dock)
 "Yo" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	name = "Accounting";
 	dir = 4;
 	door_color = "#8c792e"
@@ -12374,7 +12374,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Commercial Amenities";
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/item/hand_labeler,
@@ -12468,7 +12468,7 @@
 	door_color = "#8c792e";
 	name = "Custodial Closet";
 	dir = 4;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -12507,7 +12507,7 @@
 "Zh" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Evacuation Tools";
-	req_access = list(217)
+	req_access = list(/datum/access/golden_deep::id)
 	},
 /obj/item/ladder_mobile,
 /obj/item/crowbar/red,
@@ -12568,7 +12568,7 @@
 /area/golden_deep/owned_lounge)
 "Zr" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -12690,7 +12690,7 @@
 /area/golden_deep/aft_central_hallway)
 "ZR" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10

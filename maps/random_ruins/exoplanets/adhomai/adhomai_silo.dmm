@@ -91,7 +91,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_silo_entry";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/concrete{
@@ -198,7 +198,7 @@
 /area/adhomai_silo)
 "F" = (
 /obj/structure/machinery/door/window/brigdoor/northright{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -264,7 +264,7 @@
 "R" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,

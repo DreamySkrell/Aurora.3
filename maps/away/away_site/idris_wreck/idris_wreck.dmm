@@ -174,7 +174,7 @@
 /obj/structure/machinery/door/airlock/atmos{
 	dir = 8;
 	name = "Atmospherics";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -306,7 +306,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/porta_turret/stationary{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
@@ -463,7 +463,7 @@
 /area/idris_wreck/atmos)
 "ek" = (
 /obj/structure/machinery/porta_turret/stationary{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	req_one_access = null
 	},
 /obj/structure/window/reinforced{
@@ -484,7 +484,7 @@
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 4;
 	name = "EVA Storage";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
@@ -555,7 +555,7 @@
 "fw" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
@@ -571,7 +571,7 @@
 	pixel_x = -32
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
@@ -617,7 +617,7 @@
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -743,7 +743,7 @@
 /area/idris_wreck/central)
 "gS" = (
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
@@ -754,7 +754,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
@@ -1033,14 +1033,14 @@
 	pixel_x = 1;
 	pixel_y = 32;
 	req_access = null;
-	req_one_access = list(103)
+	req_one_access = list(/datum/access/cent_specops::id)
 	},
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "jx" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/tiled/full,
@@ -1352,7 +1352,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -1381,7 +1381,7 @@
 	pixel_x = 7;
 	pixel_y = -25;
 	specialfunctions = 4;
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
@@ -1497,7 +1497,7 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	name = "Cryogenics";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
@@ -1568,7 +1568,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Port Nacelle"
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -1755,7 +1755,7 @@
 "sk" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/item/gun/bang/sec,
 /obj/item/gun/bang/sec,
@@ -1817,7 +1817,7 @@
 /area/idris_wreck/engi)
 "ta" = (
 /obj/structure/machinery/porta_turret/stationary{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	req_one_access = null
 	},
 /obj/structure/window/reinforced{
@@ -1916,7 +1916,7 @@
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cafeteria";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/kitchen)
@@ -1953,7 +1953,7 @@
 "ue" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -2418,7 +2418,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/forehall)
@@ -2503,7 +2503,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor Array";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
@@ -2590,7 +2590,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Office";
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2620,7 +2620,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Armory"
 	},
 /turf/simulated/floor/tiled/full,
@@ -2629,7 +2629,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/tiled/full,
@@ -2864,7 +2864,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
@@ -3108,7 +3108,7 @@
 "EK" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/item/gun/energy/rifle,
 /turf/simulated/floor/tiled,
@@ -3159,7 +3159,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/porta_turret/stationary{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
@@ -3224,7 +3224,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Engineering"
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -3290,7 +3290,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Thrusters";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/afthall)
@@ -3370,7 +3370,7 @@
 	pixel_x = 7;
 	pixel_y = 25;
 	specialfunctions = 4;
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
@@ -3983,7 +3983,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/vault_weapon,
 /obj/random/vault_weapon,
@@ -4122,7 +4122,7 @@
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cryogenics";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
@@ -4185,7 +4185,7 @@
 /area/idris_wreck/atmos)
 "PF" = (
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
+	req_access = list(/datum/access/cent_specops::id);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
@@ -4206,7 +4206,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Starboard Nacelle"
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -4486,7 +4486,7 @@
 "Sf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/vault_rig,
 /obj/random/vault_rig,
@@ -4575,7 +4575,7 @@
 "SP" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/captain)
@@ -4727,7 +4727,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Central Ring";
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)

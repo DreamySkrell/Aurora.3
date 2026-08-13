@@ -12,7 +12,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_gate";
 	pixel_y = 25;
-	req_access = list(227)
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /obj/structure/table/steel,
 /obj/item/radio,
@@ -81,7 +81,7 @@
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -110,7 +110,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_water";
 	pixel_y = 25;
-	req_access = list(227)
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -204,7 +204,7 @@
 	},
 /obj/structure/machinery/turretid{
 	pixel_y = 30;
-	req_access = list(227);
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id);
 	control_area = "Clan Ozeuoi Outpost";
 	check_arrest = 0;
 	check_records = 0
@@ -346,7 +346,7 @@
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -424,7 +424,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_bikes";
 	pixel_y = 25;
-	req_access = list(227)
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -440,14 +440,14 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_gate";
 	pixel_y = 25;
-	req_access = list(227)
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /obj/structure/machinery/porta_turret/ballistic{
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -462,7 +462,7 @@
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -506,7 +506,7 @@
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -558,7 +558,7 @@
 	health = 120;
 	icon_state = "cover_1";
 	maxhealth = 120;
-	req_one_access = list(227)
+	req_one_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15

@@ -375,7 +375,7 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38/rubber,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(20)
+	req_access = list(/datum/access/captain::id)
 	},
 /obj/structure/sign/flag/scc{
 	pixel_y = 32;
@@ -5919,7 +5919,7 @@
 	},
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "SCC Scout Ship Captain's Quarters";
-	req_one_access = list(20)
+	req_one_access = list(/datum/access/captain::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)

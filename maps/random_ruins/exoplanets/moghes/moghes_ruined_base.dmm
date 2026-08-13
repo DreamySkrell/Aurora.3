@@ -15,7 +15,7 @@
 "bL" = (
 /obj/structure/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "body armor cabinet"
 	},
 /obj/item/clothing/suit/armor/unathi/hegemony,
@@ -70,7 +70,7 @@
 /area/template_noop)
 "dG" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (pistols)"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -113,7 +113,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -157,7 +157,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (energy rifles)"
 	},
 /obj/item/gun/energy/rifle/hegemony,
@@ -171,7 +171,7 @@
 "mA" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -372,7 +372,7 @@
 "yN" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
@@ -397,7 +397,7 @@
 /area/template_noop)
 "zG" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "Barracks"
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -453,7 +453,7 @@
 /area/template_noop)
 "FT" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "glaive cabinet"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -484,7 +484,7 @@
 /area/template_noop)
 "JT" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "holster cabinet"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -512,7 +512,7 @@
 "Kt" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -526,7 +526,7 @@
 /area/template_noop)
 "Po" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "shield cabinet"
 	},
 /obj/item/shield/energy/hegemony,
@@ -654,7 +654,7 @@
 /area/template_noop)
 "TZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "sword cabinet"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -708,7 +708,7 @@
 /area/template_noop)
 "Vl" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "cabinet (SMGs)"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -723,7 +723,7 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -742,7 +742,7 @@
 "Xf" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -770,7 +770,7 @@
 "Yf" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Briefing Room";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15

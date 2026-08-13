@@ -101,7 +101,7 @@
 "aC" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
+	req_access = list(/datum/access/heads::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular,
@@ -174,7 +174,7 @@
 "aV" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
+	req_access = list(/datum/access/heads::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -182,7 +182,7 @@
 "aX" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
+	req_access = list(/datum/access/heads::id);
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -190,7 +190,7 @@
 "aY" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Kitchen";
-	req_access = list(28);
+	req_access = list(/datum/access/galley::id);
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -475,7 +475,7 @@
 /obj/structure/machinery/access_button/airlock_exterior{
 	master_tag = "constructionsite_airlock";
 	pixel_x = 20;
-	req_access = list(10)
+	req_access = list(/datum/access/engine::id)
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
@@ -483,7 +483,7 @@
 /obj/structure/machinery/access_button/airlock_interior{
 	master_tag = "constructionsite_airlock";
 	pixel_x = -20;
-	req_access = list(10)
+	req_access = list(/datum/access/engine::id)
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -519,7 +519,7 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_outer";
 	locked = 1;
-	req_access = list(10);
+	req_access = list(/datum/access/engine::id);
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -553,7 +553,7 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10);
+	req_access = list(/datum/access/engine::id);
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -586,7 +586,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "constructionsite_airlock";
 	pixel_y = -25;
-	req_access = list(10);
+	req_access = list(/datum/access/engine::id);
 	tag_airpump = "constructionsite_vent";
 	tag_chamber_sensor = "constructionsite_sensor";
 	tag_exterior_door = "constructionsite_outer";
@@ -617,7 +617,7 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10);
+	req_access = list(/datum/access/engine::id);
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -886,7 +886,7 @@
 "da" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Messaging Server";
-	req_access = list(30);
+	req_access = list(/datum/access/rd::id);
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -898,7 +898,7 @@
 "dd" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Cyborg Station";
-	req_access = list(16);
+	req_access = list(/datum/access/ai_upload::id);
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid/airless,
@@ -1003,7 +1003,7 @@
 "dC" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medbay";
-	req_one_access = list(65,5);
+	req_one_access = list(/datum/access/xenoarch::id,/datum/access/medical::id);
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1072,7 +1072,7 @@
 "dS" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medbay Storage";
-	req_one_access = list(65,5);
+	req_one_access = list(/datum/access/xenoarch::id,/datum/access/medical::id);
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1080,7 +1080,7 @@
 "dT" = (
 /obj/structure/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics";
-	req_access = list(24);
+	req_access = list(/datum/access/atmospherics::id);
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1463,7 +1463,7 @@
 "fd" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	name = "Engine Access";
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -1508,7 +1508,7 @@
 "fm" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	name = "SMES";
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -1677,7 +1677,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	icon_state = "door_closed";
 	name = "AI Upload";
-	req_access = list(16);
+	req_access = list(/datum/access/ai_upload::id);
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid/airless,
@@ -1698,7 +1698,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	icon_state = "door_closed";
 	name = "AI Upload Access";
-	req_access = list(16);
+	req_access = list(/datum/access/ai_upload::id);
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid/airless,

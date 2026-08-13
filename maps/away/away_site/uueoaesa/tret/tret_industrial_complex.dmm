@@ -28,7 +28,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -1641,7 +1641,7 @@
 /area/tret_industrial/inside/smelting_east)
 "ahk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
@@ -1814,7 +1814,7 @@
 /area/tret_industrial/inside/crew)
 "ahy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
@@ -2321,7 +2321,7 @@
 /area/tret_industrial/inside/maint_center)
 "aky" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
@@ -2366,7 +2366,7 @@
 /obj/item/melee/energy/vaurca,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
@@ -2491,7 +2491,7 @@
 "alY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
@@ -2668,7 +2668,7 @@
 /obj/item/melee/energy/vaurca,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
@@ -2740,7 +2740,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	name = "Engineering"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2831,7 +2831,7 @@
 /obj/structure/machinery/door/airlock/medical{
 	dir = 4;
 	name = "Medical";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/medical)
@@ -3026,7 +3026,7 @@
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	name = "West Smeltery";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3411,7 +3411,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	name = "Communications"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3761,7 +3761,7 @@
 	id = "tret_shutters_smelting_west";
 	pixel_x = -28;
 	pixel_y = -20;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/ridged,
@@ -3905,7 +3905,7 @@
 /area/shuttle/tret_industrial/propulsion)
 "azK" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/comms)
@@ -4168,7 +4168,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/random/dirt_75,
@@ -4801,7 +4801,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "East Smeltery";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4871,7 +4871,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -4975,7 +4975,7 @@
 	pixel_x = 20;
 	pixel_y = -28;
 	dir = 8;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -5162,7 +5162,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -5394,7 +5394,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Seed/Food Storage";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/canteen)
@@ -5407,7 +5407,7 @@
 	pixel_x = 20;
 	pixel_y = 28;
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_west)
@@ -5631,7 +5631,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	name = "Hydroponics"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5682,7 +5682,7 @@
 "aON" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/green,
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -6295,7 +6295,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -6738,7 +6738,7 @@
 /obj/item/melee/energy/vaurca_zweihander,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
@@ -7037,7 +7037,7 @@
 /area/tret_industrial/inside/hallway_comms)
 "brN" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/eva)
@@ -7188,7 +7188,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
@@ -7299,7 +7299,7 @@
 /area/tret_industrial/inside/atmos)
 "ckw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -7530,7 +7530,7 @@
 	pixel_x = 28;
 	pixel_y = 32;
 	dir = 1;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -7739,7 +7739,7 @@
 /area/tret_industrial/inside/hallway_botany)
 "efU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
@@ -8049,7 +8049,7 @@
 /area/tret_industrial/inside/hallway_docks)
 "fzf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/medical)
@@ -8066,7 +8066,7 @@
 	pixel_x = -20;
 	pixel_y = 28;
 	dir = 8;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
@@ -8092,7 +8092,7 @@
 /area/tret_industrial/inside/hallway_medical)
 "fMk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
@@ -8159,7 +8159,7 @@
 	pixel_x = -20;
 	pixel_y = -28;
 	dir = 8;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -8373,7 +8373,7 @@
 	id = "tret_shutters_smelting_storage";
 	pixel_x = 28;
 	pixel_y = -20;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8460,7 +8460,7 @@
 /area/tret_industrial/inside/comms)
 "gMI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -8547,7 +8547,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Smeltery Storage";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8846,7 +8846,7 @@
 	id = "tret_shutters_smelting_east";
 	pixel_x = -28;
 	pixel_y = -20;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
@@ -9070,7 +9070,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9819,7 +9819,7 @@
 /area/tret_industrial/inside/hallway_docks)
 "lIs" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
@@ -9853,7 +9853,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Engineering Storage";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9971,7 +9971,7 @@
 /area/tret_industrial/inside/hallway_docks)
 "mxy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engi_storage)
@@ -10129,7 +10129,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10343,7 +10343,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10374,7 +10374,7 @@
 /area/shuttle/tret_industrial/main)
 "nTO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
@@ -10576,7 +10576,7 @@
 /area/tret_industrial/inside/hallway_medical)
 "oNr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
@@ -10909,7 +10909,7 @@
 	pixel_x = 20;
 	pixel_y = -28;
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -11104,7 +11104,7 @@
 /area/shuttle/tret_industrial/main)
 "qRq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
@@ -11117,7 +11117,7 @@
 	pixel_x = 28;
 	pixel_y = 32;
 	dir = 1;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -11143,7 +11143,7 @@
 /area/tret_industrial/inside/smelting_east)
 "qVO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
@@ -11212,7 +11212,7 @@
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	name = "Atmospherics";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11354,7 +11354,7 @@
 /area/tret_industrial/inside/hallway_medical)
 "rzF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/crew)
@@ -11400,7 +11400,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	name = "EVA Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11925,7 +11925,7 @@
 /area/tret_industrial/inside/hallway_botany)
 "tfr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
@@ -11976,7 +11976,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	name = "EVA Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12074,7 +12074,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12234,7 +12234,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -12588,7 +12588,7 @@
 	pixel_x = -28;
 	pixel_y = 32;
 	dir = 1;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_smelting)
@@ -12770,7 +12770,7 @@
 	pixel_x = -20;
 	pixel_y = -28;
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -12966,7 +12966,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,

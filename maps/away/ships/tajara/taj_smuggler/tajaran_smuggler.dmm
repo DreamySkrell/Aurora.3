@@ -1890,7 +1890,7 @@
 /obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "tajaran_smuggler_cargo_dock";
-	req_one_access = list(31,48,67);
+	req_one_access = list(/datum/access/cargo::id,/datum/access/mining::id,/datum/access/paramedic::id);
 	tag_door = "tajara_smuggler_ship_hatch";
 	pixel_x = -25
 	},
@@ -2278,7 +2278,7 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_smuggler_ship_hatch";
 	locked = 1;
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Cargo Hold";
 	dir = 4
 	},
@@ -4482,7 +4482,7 @@
 	frequency = 1380;
 	id_tag = "tajaran_smuggler_shuttle_dock";
 	pixel_y = 25;
-	req_one_access = list(31,48,67);
+	req_one_access = list(/datum/access/cargo::id,/datum/access/mining::id,/datum/access/paramedic::id);
 	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor{

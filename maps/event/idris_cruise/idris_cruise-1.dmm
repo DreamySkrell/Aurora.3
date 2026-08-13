@@ -2,7 +2,7 @@
 "aaa" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -18,7 +18,7 @@
 "aac" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -337,7 +337,7 @@
 "amx" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -554,7 +554,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
+	req_access = list(/datum/access/maint_tunnels::id);
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -1020,7 +1020,7 @@
 "aMt" = (
 /obj/structure/machinery/door/window/northright{
 	name = "dispensary";
-	req_one_access = list(33,104)
+	req_one_access = list(/datum/access/pharmacy::id,/datum/access/cent_medical::id)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
@@ -2366,7 +2366,7 @@
 "bME" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
@@ -2653,7 +2653,7 @@
 "ccJ" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Armory";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -3421,7 +3421,7 @@
 "cKG" = (
 /obj/structure/machinery/door/window/brigdoor/eastright{
 	name = "VR Administrator Seating";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -3611,7 +3611,7 @@
 "cQK" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Lift";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -4626,7 +4626,7 @@
 "dSm" = (
 /obj/structure/machinery/door/window/brigdoor/southleft{
 	name = "Secure Storage";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/unsimulated/floor,
 /area/cruise/e_supplies)
@@ -4687,7 +4687,7 @@
 "dWM" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Upper Deck Security";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -5126,7 +5126,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
+	req_access = list(/datum/access/maint_tunnels::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -6931,7 +6931,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastright{
 	name = "dispensary";
-	req_one_access = list(33,104)
+	req_one_access = list(/datum/access/pharmacy::id,/datum/access/cent_medical::id)
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
@@ -8723,7 +8723,7 @@
 "hnK" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -12645,7 +12645,7 @@
 "kFQ" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
+	req_access = list(/datum/access/maint_tunnels::id);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
@@ -13410,7 +13410,7 @@
 "lky" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
+	req_access = list(/datum/access/maint_tunnels::id);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
@@ -13907,7 +13907,7 @@
 "lHS" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Brig";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -14404,7 +14404,7 @@
 "mcx" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "contraband";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -14552,7 +14552,7 @@
 "mif" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Hangar Oversight";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
@@ -14738,7 +14738,7 @@
 /area/cruise/escort)
 "mqz" = (
 /obj/structure/machinery/door/window/brigdoor/eastright{
-	req_access = list(103)
+	req_access = list(/datum/access/cent_specops::id)
 	},
 /turf/simulated/floor/greengrid,
 /area/cruise/virtual_reality)
@@ -15642,7 +15642,7 @@
 "ndE" = (
 /obj/structure/table/reinforced,
 /obj/structure/machinery/door/window/brigdoor/eastright{
-	req_access = list(103)
+	req_access = list(/datum/access/cent_specops::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -15668,7 +15668,7 @@
 "nfX" = (
 /obj/structure/machinery/door/window/brigdoor/southright{
 	name = "Secure Storage";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/unsimulated/floor,
 /area/cruise/e_supplies)
@@ -15742,7 +15742,7 @@
 "nlR" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	req_access = list(/datum/access/maint_tunnels::id)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
@@ -16514,7 +16514,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_one_access = list(33,104)
+	req_one_access = list(/datum/access/pharmacy::id,/datum/access/cent_medical::id)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
@@ -17136,7 +17136,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	req_access = list(/datum/access/maint_tunnels::id)
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
@@ -19276,7 +19276,7 @@
 "qkI" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -21027,7 +21027,7 @@
 "rMA" = (
 /obj/structure/machinery/door/window/brigdoor/eastright{
 	name = "Brig Oversight";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -21332,7 +21332,7 @@
 "sej" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -22494,7 +22494,7 @@
 "tci" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Chief Office";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -23141,7 +23141,7 @@
 "tAO" = (
 /obj/structure/machinery/door/window/northright{
 	name = "dispensary";
-	req_one_access = list(33,104)
+	req_one_access = list(/datum/access/pharmacy::id,/datum/access/cent_medical::id)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
@@ -23684,7 +23684,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/machinery/door/window/brigdoor/southleft{
 	name = "checkpoint";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /obj/structure/machinery/recharger{
 	pixel_x = -17;
@@ -25179,7 +25179,7 @@
 "vbV" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25895,7 +25895,7 @@
 "vNL" = (
 /obj/structure/machinery/door/window/brigdoor/eastright{
 	name = "Cell Door";
-	req_access = list(101)
+	req_access = list(/datum/access/cent_general::id)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -26469,7 +26469,7 @@
 "wkx" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Teleporter Room";
-	req_access = list(101);
+	req_access = list(/datum/access/cent_general::id);
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -27736,7 +27736,7 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
+	req_access = list(/datum/access/maint_tunnels::id);
 	dir = 4
 	},
 /turf/unsimulated/floor{

@@ -10,7 +10,7 @@
 "ax" = (
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/orange,
@@ -43,7 +43,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
@@ -206,7 +206,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
@@ -215,7 +215,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -308,7 +308,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
@@ -359,7 +359,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Reactor";
 	dir = 1
 	},
@@ -397,7 +397,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
 	dir = 4;
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
@@ -431,7 +431,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Cargo Office";
 	dir = 4
 	},
@@ -611,7 +611,7 @@
 "hS" = (
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
@@ -678,7 +678,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
@@ -695,7 +695,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Warehouse";
 	dir = 4
 	},
@@ -722,7 +722,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
@@ -782,7 +782,7 @@
 /obj/structure/bed/stool/bar/padded,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
@@ -849,7 +849,7 @@
 /area/merchants_guild/crew)
 "kD" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
@@ -862,7 +862,7 @@
 "kM" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 4;
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
@@ -960,7 +960,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/light,
@@ -1000,7 +1000,7 @@
 /area/merchants_guild/canteen)
 "nV" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Cargo Office";
 	dir = 1
 	},
@@ -1019,7 +1019,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
@@ -1037,7 +1037,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1204,7 +1204,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
@@ -1238,7 +1238,7 @@
 /obj/item/melee/energy/sword/hegemony,
 /obj/item/melee/energy/sword/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
@@ -1360,7 +1360,7 @@
 "sa" = (
 /obj/structure/machinery/alarm/east{
 	pixel_x = 25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
@@ -1483,7 +1483,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
@@ -1719,7 +1719,7 @@
 	},
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/light,
 /turf/simulated/floor/plating,
@@ -1760,7 +1760,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1799,7 +1799,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
@@ -1870,7 +1870,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
@@ -2023,7 +2023,7 @@
 /area/merchants_guild/portengine)
 "Bu" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
@@ -2073,7 +2073,7 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/structure/machinery/alarm/north{
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
@@ -2188,7 +2188,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2381,7 +2381,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -2427,7 +2427,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled,
@@ -2468,7 +2468,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
@@ -2618,7 +2618,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2629,7 +2629,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -2650,7 +2650,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2799,7 +2799,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/purple{
@@ -3008,7 +3008,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Reactor";
 	dir = 4
 	},
@@ -3163,7 +3163,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3220,7 +3220,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3439,7 +3439,7 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(215)
+	req_access = list(/datum/access/merchants_guild::id)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
@@ -3496,7 +3496,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3646,7 +3646,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
+	req_access = list(/datum/access/merchants_guild::id);
 	name = "Warehouse";
 	dir = 4
 	},

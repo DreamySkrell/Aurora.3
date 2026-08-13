@@ -221,7 +221,7 @@
 "bci" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -545,7 +545,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	req_one_access = list(28)
+	req_one_access = list(/datum/access/galley::id)
 	},
 /obj/structure/curtain/open/shower,
 /obj/item/bikehorn/rubberducky,
@@ -1492,7 +1492,7 @@
 /obj/structure/machinery/door/window/northleft{
 	dir = 2;
 	name = "Kitchen";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,

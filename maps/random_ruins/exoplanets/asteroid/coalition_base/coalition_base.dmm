@@ -294,7 +294,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/coalition_base/bathroom)
@@ -491,7 +491,7 @@
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 1;
 	name = "Main Storage";
-	req_access = list(66)
+	req_access = list(/datum/access/medical_equip::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -607,7 +607,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/effect/decal/cleanable/dirt,
@@ -1086,7 +1086,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/structure/machinery/door/window{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/item/tank/jetpack/carbondioxide,
@@ -1104,7 +1104,7 @@
 	maxhealth = 140
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coalition_base/eva_prep)
@@ -1140,7 +1140,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/freezer,
@@ -2298,7 +2298,7 @@
 	maxhealth = 140
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2443,7 +2443,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Kitchen";
-	req_access = list(28)
+	req_access = list(/datum/access/galley::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4

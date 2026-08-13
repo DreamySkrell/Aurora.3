@@ -546,7 +546,7 @@
 /obj/structure/machinery/door/airlock/centcom{
 	dir = 1;
 	name = "Power Maintanence";
-	req_access = list(103)
+	req_access = list(/datum/access/cent_specops::id)
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
@@ -602,7 +602,7 @@
 "nY" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	req_access = null;
-	req_one_access = list(7,47)
+	req_one_access = list(/datum/access/tox::id,/datum/access/research::id)
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled,
@@ -727,7 +727,7 @@
 	dir = 1;
 	id_tag = "bridge_foyer";
 	name = "Bridge";
-	req_one_access = list(19)
+	req_one_access = list(/datum/access/heads::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -967,7 +967,7 @@
 "ub" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	req_access = null;
-	req_one_access = list(7,47)
+	req_one_access = list(/datum/access/tox::id,/datum/access/research::id)
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/machinery/light,
@@ -1120,7 +1120,7 @@
 	dir = 4;
 	id_tag = "";
 	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	req_access = list(/datum/access/heads::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -2089,7 +2089,7 @@
 	dir = 1;
 	id_tag = "";
 	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	req_access = list(/datum/access/heads::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,

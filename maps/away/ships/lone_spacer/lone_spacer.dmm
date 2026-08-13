@@ -179,7 +179,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -194,7 +194,7 @@
 	name = "Cargo Hold #4 Shutters";
 	id = "lone_spacer_cargo3";
 	pixel_y = 5;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -378,7 +378,7 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/storage/bag/inflatable,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
@@ -403,7 +403,7 @@
 "dY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/marble,
@@ -424,7 +424,7 @@
 	id = "lone_spacer_lockdown";
 	pixel_x = -30;
 	pixel_y = 10;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -548,7 +548,7 @@
 	name = "Cargo Hold #2 Shutters";
 	id = "lone_spacer_cargo2";
 	pixel_y = 5;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/portable_atmospherics/canister/empty,
@@ -568,7 +568,7 @@
 	name = "Cargo Hold #1 Shutters";
 	id = "lone_spacer_cargo1";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -652,7 +652,7 @@
 "gU" = (
 /obj/structure/machinery/computer/ship/sensors/terminal,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -691,7 +691,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -815,7 +815,7 @@
 "iu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -851,7 +851,7 @@
 	name = "Cargo Hold #4 Shutters";
 	id = "lone_spacer_cargo3";
 	pixel_y = 5;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -929,7 +929,7 @@
 /obj/structure/machinery/washing_machine,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
@@ -1050,7 +1050,7 @@
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1092,13 +1092,13 @@
 	dir = 1;
 	pixel_x = -30;
 	pixel_y = 3;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "pa" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/random/civgun/rifle,
 /obj/item/storage/box/shells/buckshot,
@@ -1112,7 +1112,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/material/hatchet/lumber,
@@ -1136,7 +1136,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -1386,7 +1386,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Bridge";
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1593,7 +1593,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -1714,7 +1714,7 @@
 	},
 /obj/structure/ore_box,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
@@ -1750,7 +1750,7 @@
 "zJ" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/lone_spacer{
 	dir = 4;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/item/radio/intercom/expedition/hailing/north{
 	pixel_y = 19
@@ -1794,7 +1794,7 @@
 "Bl" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/bed/handrail{
 	dir = 4
@@ -1878,7 +1878,7 @@
 	id = "lone_spacer_harvesting_shutters";
 	dir = 1;
 	pixel_y = 28;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/table/rack/folding_table,
 /obj/item/toy/comic/inspector{
@@ -1915,7 +1915,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -2000,7 +2000,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -2117,7 +2117,7 @@
 	dir = 1;
 	pixel_x = 8;
 	pixel_y = 25;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Cargo Hold #2 Window Shutters";
@@ -2125,7 +2125,7 @@
 	dir = 1;
 	pixel_x = -5;
 	pixel_y = 37;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Port Nacelle Window Shutters";
@@ -2133,7 +2133,7 @@
 	dir = 10;
 	pixel_y = 37;
 	pixel_x = 8;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/button/remote/blast_door{
@@ -2142,14 +2142,14 @@
 	dir = 1;
 	pixel_x = -5;
 	pixel_y = 25;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Ha" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
@@ -2184,7 +2184,7 @@
 "HF" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard{
@@ -2196,7 +2196,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/rack/folding_table,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/item/toy/comic/witchfinder{
 	pixel_x = 1;
@@ -2346,7 +2346,7 @@
 	name = "armored suit cycler"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(243)
+	req_one_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
@@ -2390,7 +2390,7 @@
 	name = "Internal Blast Door";
 	id = "spacer_driver_in";
 	pixel_x = -7;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
@@ -2398,7 +2398,7 @@
 	name = "External Blast Door";
 	id = "spacer_driver_out";
 	pixel_y = 26;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/button/mass_driver{
 	pixel_y = 35;
@@ -2497,7 +2497,7 @@
 	name = "Cargo Hold #2 Shutters";
 	id = "lone_spacer_cargo2";
 	pixel_y = 5;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -3172,7 +3172,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
@@ -3205,7 +3205,7 @@
 	level = 2
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,

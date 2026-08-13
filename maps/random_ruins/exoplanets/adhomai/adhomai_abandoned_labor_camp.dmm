@@ -2,7 +2,7 @@
 "aa" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square,
@@ -98,7 +98,7 @@
 "ko" = (
 /obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -155,7 +155,7 @@
 "mF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/handcuffs,
@@ -192,7 +192,7 @@
 "qm" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete/square,
@@ -327,7 +327,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "labor_entry";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -351,7 +351,7 @@
 /area/exoplanet/adhomai)
 "Cc" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/shotgun/pump/rifle,
@@ -369,7 +369,7 @@
 /area/exoplanet/adhomai)
 "Cw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -623,7 +623,7 @@
 /area/exoplanet/adhomai)
 "Zi" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/exoplanet/concrete/square,

@@ -48,7 +48,7 @@
 "aha" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
@@ -59,7 +59,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -101,7 +101,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/marble,
@@ -206,7 +206,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/magazine_port)
@@ -265,7 +265,7 @@
 /area/dominian_corvette/galley)
 "auZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Rifle Ammunition"
 	},
 /obj/item/ammo_magazine/a556,
@@ -345,7 +345,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Commanding Officer's Cabin"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -362,7 +362,7 @@
 /obj/structure/platform/dark,
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light{
@@ -488,7 +488,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -582,7 +582,7 @@
 "aYF" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -690,14 +690,14 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = -31;
 	pixel_y = 8;
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/dominian_corvette/aft_starboard,
 /obj/structure/machinery/door/blast/regular/open{
@@ -717,7 +717,7 @@
 /obj/structure/closet/secure_closet/evidence{
 	name = "personal belongings storage";
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/clothing/under/medical_gown,
 /obj/item/clothing/under/medical_gown,
@@ -802,7 +802,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/starboard_dock,
@@ -812,7 +812,7 @@
 /obj/structure/machinery/access_button{
 	pixel_y = -25;
 	dir = 1;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -960,7 +960,7 @@
 /area/dominian_corvette/infirmary)
 "bMf" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -1;
 	name = "Personal Equipment"
 	},
@@ -1003,7 +1003,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Fore Docking Arm"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -1068,11 +1068,11 @@
 /area/dominian_corvette/magazine_starboard)
 "bTJ" = (
 /obj/structure/closet/secure_closet/custodial/offship{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1101,7 +1101,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/dominian_corvette/infirmary)
@@ -1184,7 +1184,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Power Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -1308,7 +1308,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1431,7 +1431,7 @@
 "cDq" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal,
@@ -1525,7 +1525,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/brig)
@@ -1576,7 +1576,7 @@
 	pixel_x = 24;
 	dir = 8;
 	pixel_y = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8;
@@ -1589,7 +1589,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/gunmetal,
@@ -1626,7 +1626,7 @@
 /area/dominian_corvette/central_ring)
 "cVr" = (
 /obj/structure/machinery/vending/medical{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner/green/full,
@@ -1769,7 +1769,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Infirmary";
 	dir = 4
 	},
@@ -1783,7 +1783,7 @@
 "dmo" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 9;
@@ -1845,7 +1845,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Kitchen";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_helm"
@@ -1913,7 +1913,7 @@
 	id = "reactor_lockdown";
 	name = "Reactor Blast Doors";
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/light,
@@ -1934,7 +1934,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/telecomms)
@@ -1985,7 +1985,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -2009,7 +2009,7 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/marble,
 /area/dominian_corvette/bathroom)
@@ -2096,7 +2096,7 @@
 "dHm" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -2118,7 +2118,7 @@
 /area/space)
 "dJL" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Equipment"
 	},
 /obj/item/clothing/suit/armor/carrier/dominia,
@@ -2188,7 +2188,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Portside Gunnery"
 	},
 /obj/structure/cable/green{
@@ -2294,7 +2294,7 @@
 /area/dominian_corvette/atmospherics)
 "dWl" = (
 /obj/structure/weapons_rack{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/light{
@@ -2354,7 +2354,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Starboard Fire Control Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -2385,7 +2385,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
@@ -2414,7 +2414,7 @@
 /area/dominian_corvette/hangar)
 "eij" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Close Quarters Armaments"
 	},
 /obj/item/storage/belt/security/full/alt,
@@ -2574,7 +2574,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -2686,7 +2686,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Engineering Equipment"
 	},
 /obj/item/storage/backpack/duffel/eng,
@@ -2752,7 +2752,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/central_ring)
@@ -2768,7 +2768,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/starboard_dock,
@@ -2880,7 +2880,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "First Officer's Quarters"
 	},
 /obj/structure/cable/green{
@@ -2933,7 +2933,7 @@
 /area/dominian_corvette/helm)
 "eUH" = (
 /obj/structure/closet/crate/secure{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "flags and banners"
 	},
 /obj/item/flag/dominia,
@@ -3104,7 +3104,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Nuclear Reactor Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -3236,7 +3236,7 @@
 /area/dominian_corvette/engineering)
 "frC" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Personal Arms"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -3249,7 +3249,7 @@
 /obj/item/melee/energy/sword/pirate/generic,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/storage/belt/military,
 /obj/item/clothing/accessory/storage/pouches/black,
@@ -3292,7 +3292,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -3381,7 +3381,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
@@ -3403,7 +3403,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
@@ -3449,7 +3449,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -3463,7 +3463,7 @@
 	pixel_x = 25;
 	pixel_y = -30;
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
@@ -3547,7 +3547,7 @@
 	},
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
@@ -3679,7 +3679,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Portside Thruster Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -3704,7 +3704,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -3716,7 +3716,7 @@
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "dominia_co2_starboard";
@@ -3748,7 +3748,7 @@
 "gzE" = (
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Stabilisation Closet"
 	},
 /obj/item/tank/oxygen,
@@ -3847,7 +3847,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Brig"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -3901,7 +3901,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/eva_prep)
@@ -3945,7 +3945,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
@@ -4129,7 +4129,7 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/port_dock,
@@ -4253,7 +4253,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Portside Thruster Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -4298,7 +4298,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
@@ -4311,7 +4311,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/warning{
@@ -4355,7 +4355,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4370,7 +4370,7 @@
 /area/dominian_corvette/fore_hallway)
 "hJz" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -4416,7 +4416,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "First Officer's Cabin"
 	},
 /obj/structure/cable/green{
@@ -4448,7 +4448,7 @@
 	dir = 10;
 	pixel_x = 5;
 	pixel_y = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/button/distress{
 	pixel_y = -2;
@@ -4460,7 +4460,7 @@
 	dir = 10;
 	pixel_y = 8;
 	pixel_x = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "dominia_windows";
@@ -4468,7 +4468,7 @@
 	dir = 10;
 	pixel_x = -6;
 	pixel_y = -1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/helm)
@@ -4557,7 +4557,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -4601,7 +4601,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/reactor)
@@ -4612,7 +4612,7 @@
 	},
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
@@ -4642,7 +4642,7 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
 /turf/simulated/floor,
@@ -4739,7 +4739,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Chapel"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -4791,7 +4791,7 @@
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "dominia_co2_port";
@@ -4838,7 +4838,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -4858,7 +4858,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -4880,7 +4880,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Starboard Gunnery"
 	},
 /obj/structure/cable/green{
@@ -4952,7 +4952,7 @@
 "iKD" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -5014,7 +5014,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
@@ -5111,14 +5111,14 @@
 /area/dominian_corvette/exterior)
 "joh" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -1;
 	name = "Personal Equipment"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/clothing/under/dominia/priest,
 /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist,
@@ -5187,7 +5187,7 @@
 /area/shuttle/dominian_shuttle)
 "jBs" = (
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -5323,7 +5323,7 @@
 "jQB" = (
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Surgical Closet"
 	},
 /obj/item/tank/anesthetic,
@@ -5361,7 +5361,7 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/machinery/vending/wallmed1{
 	pixel_y = 32;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/dominian_shuttle)
@@ -5426,7 +5426,7 @@
 "kfr" = (
 /obj/structure/machinery/alarm/freezer/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5435,7 +5435,7 @@
 /area/dominian_corvette/freezer)
 "khF" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
@@ -5495,7 +5495,7 @@
 	},
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dominian_corvette/thrust_port)
@@ -5543,14 +5543,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/freezer/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/dominian_corvette/morgue)
 "kxH" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -5658,7 +5658,7 @@
 "kJk" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -5667,7 +5667,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
@@ -5693,7 +5693,7 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 6;
@@ -5708,7 +5708,7 @@
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
@@ -5770,7 +5770,7 @@
 	},
 /obj/structure/machinery/door/airlock/red{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Crew Quarters"
 	},
 /obj/structure/cable/green{
@@ -5980,7 +5980,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -6036,7 +6036,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Commanding Officer's Quarters"
 	},
 /obj/structure/cable/green{
@@ -6064,7 +6064,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/dominian_corvette/helm)
@@ -6094,7 +6094,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/red{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Bunks"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6181,7 +6181,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
@@ -6196,13 +6196,13 @@
 	pixel_x = 30;
 	pixel_y = 8;
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Airlock Lockdown";
 	pixel_x = -30;
 	pixel_y = 10;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	id = "dominia_shuttle_airlock"
 	},
 /obj/structure/machinery/door/blast/shutters/open{
@@ -6271,7 +6271,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/light{
 	dir = 8
@@ -6361,7 +6361,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable/green{
@@ -6378,14 +6378,14 @@
 	pixel_x = 30;
 	pixel_y = 8;
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
 "mmZ" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -6503,7 +6503,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_lift)
@@ -6517,7 +6517,7 @@
 	d2 = 2
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Nuclear Reactor Compartment"
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -6567,7 +6567,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -6577,7 +6577,7 @@
 	pixel_x = -26;
 	pixel_y = -28;
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
@@ -6631,7 +6631,7 @@
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/dominian_shuttle)
@@ -6658,7 +6658,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/lounge)
@@ -6750,7 +6750,7 @@
 /area/dominian_corvette/central_ring)
 "mHX" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -1
 	},
 /obj/item/clothing/under/dominia/fleet,
@@ -6780,7 +6780,7 @@
 /area/dominian_corvette/bunks)
 "mIn" = (
 /obj/structure/closet/walllocker/medical/secure{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = 32
 	},
 /obj/item/tank/oxygen,
@@ -6828,7 +6828,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
@@ -6901,7 +6901,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/computer/cryopod{
@@ -6915,7 +6915,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/eva_prep)
@@ -6949,7 +6949,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/freezer{
 	name = "Freezer";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/dominian_corvette/freezer)
@@ -6963,7 +6963,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -7003,7 +7003,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/dominian_corvette/morgue)
@@ -7114,7 +7114,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -7130,7 +7130,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -7243,7 +7243,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7262,7 +7262,7 @@
 "nFf" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal,
@@ -7287,7 +7287,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Portside Thruster Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -7387,7 +7387,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
@@ -7423,14 +7423,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/port_dock,
 /obj/structure/machinery/access_button{
 	pixel_y = -30;
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -7574,7 +7574,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -7589,10 +7589,10 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/seed_storage/garden{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/random/dirt_75,
@@ -7623,7 +7623,7 @@
 /area/dominian_corvette/cargo)
 "olk" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Personal Arms"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -7683,7 +7683,7 @@
 "onG" = (
 /obj/structure/closet/crate/secure{
 	name = "tribunal supplies";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/storage/box/dominia_honor,
 /obj/item/versebook/tribunal,
@@ -7753,7 +7753,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Bridge"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -7771,7 +7771,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Exterior Systems Access"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -8025,7 +8025,7 @@
 "pew" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -8060,7 +8060,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Custodial Closet"
 	},
 /obj/structure/cable/green{
@@ -8089,7 +8089,7 @@
 /area/dominian_corvette/fore_hallway)
 "pia" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Support Ammunition"
 	},
 /obj/item/ammo_magazine/a556/dlmg,
@@ -8187,7 +8187,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "EVA Preperation";
 	dir = 4
 	},
@@ -8300,7 +8300,7 @@
 "pzw" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal,
@@ -8326,7 +8326,7 @@
 "pAL" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -8394,7 +8394,7 @@
 "pHx" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/warning{
@@ -8550,7 +8550,7 @@
 /area/dominian_corvette/central_ring)
 "pTL" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8626,7 +8626,7 @@
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 1;
 	name = "Morgue";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -8737,7 +8737,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/multi_tile,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Mess Hall"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -8781,7 +8781,7 @@
 /area/dominian_corvette/fc_starboard)
 "qkd" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -8869,7 +8869,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Mess Hall"
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -8898,7 +8898,7 @@
 /area/dominian_corvette/central_ring)
 "qAE" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Sidearms"
 	},
 /obj/item/gun/projectile/pistol/dominia,
@@ -8983,7 +8983,7 @@
 /area/dominian_corvette/central_ring)
 "qFK" = (
 /obj/structure/weapons_rack{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia,
@@ -9065,7 +9065,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -9078,14 +9078,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/port_dock,
 /obj/structure/machinery/access_button{
 	pixel_y = -25;
 	dir = 1;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -9093,7 +9093,7 @@
 "qVz" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/seed_extractor,
 /obj/effect/floor_decal/industrial/hatch/service,
@@ -9142,7 +9142,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Brig"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -9242,7 +9242,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -9270,7 +9270,7 @@
 	},
 /obj/structure/machinery/door/firedoor/multi_tile,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Chapel"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -9410,7 +9410,7 @@
 "rRT" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pilot's Locker";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/light/small{
@@ -9445,7 +9445,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/helm)
@@ -9474,7 +9474,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -9521,7 +9521,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/gunnery_port)
@@ -9538,7 +9538,7 @@
 /area/dominian_corvette/fc_starboard)
 "sbO" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Sidearm Ammunition"
 	},
 /obj/item/ammo_magazine/c45m/dominia,
@@ -9607,7 +9607,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Commanding Officer's Cabin"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -9674,11 +9674,11 @@
 /obj/structure/closet/secure_closet/evidence{
 	name = "personal belongings storage";
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/brig)
@@ -9716,7 +9716,7 @@
 "suq" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark/full,
@@ -9780,7 +9780,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -9861,7 +9861,7 @@
 "sFI" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -9874,7 +9874,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -9942,7 +9942,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Portside Fire Control Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -10074,7 +10074,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/freezer/south{
-	req_one_access = list(212)
+	req_one_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4
@@ -10102,7 +10102,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/red{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Bunks"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -10120,7 +10120,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Nuclear Reactor Compartment"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -10161,7 +10161,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -10256,14 +10256,14 @@
 	name = "Window Shields";
 	dir = 10;
 	pixel_x = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "dominia_shuttle_airlock";
 	name = "Airlock Shields";
 	dir = 10;
 	pixel_x = 6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/button/distress{
 	pixel_y = 9
@@ -10277,7 +10277,7 @@
 /area/dominian_corvette/thrust_port)
 "toj" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/table/rack,
@@ -10341,7 +10341,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable/green{
@@ -10356,7 +10356,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 30;
 	pixel_y = -7;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/dominian_shuttle,
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
@@ -10378,7 +10378,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
@@ -10409,7 +10409,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10426,7 +10426,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -10501,7 +10501,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/dominian_corvette/magazine_port)
@@ -10520,7 +10520,7 @@
 /area/dominian_corvette/mess_hall)
 "tBh" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -10545,7 +10545,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -10580,7 +10580,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10659,7 +10659,7 @@
 "tIZ" = (
 /obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light,
@@ -10700,7 +10700,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/port_dock,
@@ -10714,14 +10714,14 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = 31;
 	pixel_y = 8;
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/dominian_corvette/aft_port,
 /obj/structure/machinery/door/blast/regular/open{
@@ -10763,7 +10763,7 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 6;
@@ -10797,7 +10797,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/media/jukebox{
 	anchored = 1;
@@ -10945,7 +10945,7 @@
 "uxB" = (
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
@@ -10992,7 +10992,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Hydroponics Bay";
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -11015,7 +11015,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/vending/engineering{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -11040,7 +11040,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -11096,7 +11096,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
@@ -11106,7 +11106,7 @@
 	pixel_x = 26;
 	pixel_y = -28;
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
@@ -11172,7 +11172,7 @@
 /area/dominian_corvette/fore_hallway)
 "uTP" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -11273,7 +11273,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -11319,7 +11319,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -11333,7 +11333,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/gunmetal,
@@ -11353,7 +11353,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/starboard_dock,
@@ -11535,7 +11535,7 @@
 	d2 = 4
 	},
 /obj/structure/closet/walllocker/secure{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Fuel Storage";
 	pixel_x = -32
 	},
@@ -11565,7 +11565,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -11605,7 +11605,7 @@
 "vCs" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal,
@@ -11659,7 +11659,7 @@
 "vKK" = (
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/structure/machinery/vending/hydronutrients{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -11678,7 +11678,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
@@ -11690,7 +11690,7 @@
 	pixel_x = 25;
 	pixel_y = 30;
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
@@ -11707,7 +11707,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
@@ -11726,7 +11726,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 30;
 	pixel_y = -8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/dominian_corvette/hangar)
@@ -11735,14 +11735,14 @@
 /obj/structure/machinery/photocopier/faxmachine{
 	pixel_y = 6;
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/carpet/red,
 /area/dominian_corvette/co_office)
 "vQG" = (
 /obj/structure/closet/crate/secure{
 	name = "damage control equipment";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/steel/full,
@@ -11799,7 +11799,7 @@
 "vUE" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -11854,7 +11854,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Chapel"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -11913,7 +11913,7 @@
 /obj/structure/closet/walllocker/secure{
 	pixel_y = -32;
 	name = "Chapel Closet";
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/item/versebook/tribunal,
 /obj/item/versebook/tribunal,
@@ -12059,7 +12059,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/central_ring)
@@ -12116,7 +12116,7 @@
 "wwK" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -12169,7 +12169,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/dominian_corvette/cargo)
@@ -12213,7 +12213,7 @@
 "wHc" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/dominia{
@@ -12257,7 +12257,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -12326,7 +12326,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Cell";
 	dir = 4
 	},
@@ -12342,7 +12342,7 @@
 /obj/item/tent,
 /obj/item/tent,
 /obj/structure/closet/crate/secure{
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "tables, chairs, and camping equipment"
 	},
 /obj/item/material/folding_table,
@@ -12478,7 +12478,7 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /turf/simulated/floor,
 /area/dominian_corvette/gunnery_port)
@@ -12516,7 +12516,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/dominian_corvette/starboard_dock,
@@ -12552,7 +12552,7 @@
 "xBX" = (
 /obj/effect/floor_decal/corner/full,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(212)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -12862,7 +12862,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "Cryogenics"
 	},
 /obj/structure/cable/green{
@@ -12887,7 +12887,7 @@
 "yiP" = (
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = 32;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	name = "O- Blood"
 	},
 /obj/item/reagent_containers/blood/OMinus,

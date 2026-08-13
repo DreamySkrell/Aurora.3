@@ -24,7 +24,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/super/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -121,7 +121,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "aW" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -139,7 +139,7 @@
 "bd" = (
 /obj/structure/table/rack/no_cargo,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/head/helmet/space/void/mining,
@@ -310,7 +310,7 @@
 /area/ship/fishing_trawler/galley)
 "cG" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/freezer,
@@ -338,7 +338,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -361,7 +361,7 @@
 	},
 /obj/structure/curtain/black,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(241);
+	req_access = list(/datum/access/unathi_trawler_access::id);
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -422,7 +422,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "dQ" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -616,7 +616,7 @@
 "ft" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/vending/boozeomat/unathi_pirate{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
@@ -663,7 +663,7 @@
 /obj/structure/closet/secure_closet/freezer,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
@@ -681,7 +681,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/super/critical/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -705,7 +705,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "gu" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/freezer,
@@ -820,7 +820,7 @@
 /obj/structure/table/rack/no_cargo,
 /obj/item/melee/energy/glaive/hegemony,
 /obj/item/rig/industrial/equipped{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/item/shield/energy/hegemony,
 /turf/simulated/floor/wood,
@@ -1122,7 +1122,7 @@
 /area/ship/fishing_trawler/corridor/port)
 "kf" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -1226,7 +1226,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/EVA_port)
@@ -1309,7 +1309,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/medical/secure{
-	req_access = list(241);
+	req_access = list(/datum/access/unathi_trawler_access::id);
 	pixel_x = -33;
 	name = "Medical Kits"
 	},
@@ -1379,7 +1379,7 @@
 "lv" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1542,7 +1542,7 @@
 /area/ship/fishing_trawler/corridor/port)
 "mu" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1623,7 +1623,7 @@
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark,
@@ -1644,7 +1644,7 @@
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
@@ -1709,7 +1709,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(241);
+	req_access = list(/datum/access/unathi_trawler_access::id);
 	name = "Reactor"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1814,7 +1814,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -1855,7 +1855,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "oF" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2008,7 +2008,7 @@
 /area/ship/fishing_trawler/EVA_port)
 "pC" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2239,7 +2239,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -2271,7 +2271,7 @@
 "rC" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
@@ -2446,7 +2446,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -2573,7 +2573,7 @@
 	},
 /obj/structure/machinery/vending/wallmed1{
 	pixel_y = 27;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -2644,7 +2644,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -2674,7 +2674,7 @@
 /area/ship/fishing_trawler/EVA_starboard)
 "uw" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
@@ -2726,7 +2726,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(241);
+	req_access = list(/datum/access/unathi_trawler_access::id);
 	name = "Atmospherics"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2838,7 +2838,7 @@
 /area/shuttle/fishing_trawler)
 "vJ" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -2853,7 +2853,7 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Crew Bunk";
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/crew_quarters)
@@ -3152,7 +3152,7 @@
 /area/ship/fishing_trawler/engineering/port)
 "yq" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -3246,7 +3246,7 @@
 /area/ship/fishing_trawler/crew_quarters)
 "zf" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -3419,7 +3419,7 @@
 /area/shuttle/fishing_trawler)
 "Av" = (
 /obj/structure/machinery/power/apc/super/critical/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3776,7 +3776,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "Cz" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -3798,7 +3798,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
@@ -3958,7 +3958,7 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/shoes/magboots,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/item/clothing/suit/space/void/mining,
 /obj/effect/floor_decal/corner/red{
@@ -3988,7 +3988,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/mining{
 	name = "EVA";
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/EVA_starboard)
@@ -4207,7 +4207,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -4294,7 +4294,7 @@
 /obj/structure/machinery/door/window{
 	dir = 1;
 	name = "Brig Office";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/soap,
 /obj/structure/machinery/shower{
@@ -4308,7 +4308,7 @@
 /area/ship/fishing_trawler/crew_quarters)
 "Gf" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/table/steel,
@@ -4329,7 +4329,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/medical)
@@ -4407,7 +4407,7 @@
 /area/ship/fishing_trawler/Captain)
 "GP" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -4602,7 +4602,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/corridor/starboard)
@@ -4972,7 +4972,7 @@
 /area/ship/fishing_trawler/engineering/port)
 "Mc" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5032,7 +5032,7 @@
 "Mt" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -5078,7 +5078,7 @@
 "MB" = (
 /obj/structure/machinery/vending/wallmed2{
 	pixel_x = -28;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5628,7 +5628,7 @@
 /area/shuttle/fishing_trawler)
 "Rw" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5945,7 +5945,7 @@
 /area/ship/fishing_trawler/EVA_port)
 "TM" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241);
+	req_access = list(/datum/access/unathi_trawler_access::id);
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -6000,7 +6000,7 @@
 /area/ship/fishing_trawler/kitchen)
 "Un" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
@@ -6042,7 +6042,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/bridge)
@@ -6113,7 +6113,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_x = 32;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -6168,7 +6168,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "VF" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6250,7 +6250,7 @@
 /area/ship/fishing_trawler/Captain)
 "Wv" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
@@ -6266,7 +6266,7 @@
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
@@ -6401,7 +6401,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/medical)
@@ -6475,7 +6475,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -6485,7 +6485,7 @@
 /area/ship/fishing_trawler/medical)
 "YA" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/yellow{
@@ -6523,7 +6523,7 @@
 /area/ship/fishing_trawler/freezer)
 "YP" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(241)
+	req_one_access = list(/datum/access/unathi_trawler_access::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -6573,7 +6573,7 @@
 /obj/structure/machinery/door/window{
 	dir = 8;
 	name = "Reception Desk";
-	req_access = list(66)
+	req_access = list(/datum/access/medical_equip::id)
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/freezer,

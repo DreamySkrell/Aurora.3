@@ -158,7 +158,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -190,7 +190,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor{
@@ -199,7 +199,7 @@
 /area/heph_mining_station)
 "du" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/reinforced{
 	temperature = 303.15
@@ -373,7 +373,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/medical{
 	name = "Infirmary";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
@@ -392,7 +392,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/light/colored/dying{
 	dir = 8
@@ -431,7 +431,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -504,7 +504,7 @@
 /obj/structure/machinery/iv_drip,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -675,7 +675,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor{
 	temperature = 303.15
@@ -733,7 +733,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
 	dir = 4;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -801,7 +801,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -903,7 +903,7 @@
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Warehouse";
 	dir = 4;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -1020,7 +1020,7 @@
 /obj/structure/machinery/cell_charger,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/cell/high,
 /turf/simulated/floor/tiled/dark{
@@ -1081,7 +1081,7 @@
 /obj/structure/machinery/door/airlock/security{
 	name = "Equipment Storage";
 	dir = 8;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -1257,7 +1257,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1410,7 +1410,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1424,7 +1424,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/door/airlock/external,
@@ -1467,7 +1467,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor{
 	temperature = 303.15
@@ -1517,7 +1517,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1529,7 +1529,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1625,7 +1625,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -1762,7 +1762,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/door/airlock/external,
@@ -1820,7 +1820,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1876,7 +1876,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor{
 	temperature = 303.15
@@ -2063,7 +2063,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2111,7 +2111,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2259,7 +2259,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -2346,7 +2346,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2609,7 +2609,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -2625,7 +2625,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2642,7 +2642,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2716,7 +2716,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2793,7 +2793,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2847,7 +2847,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -3025,7 +3025,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/mining{
 	name = "Processing";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
@@ -3118,7 +3118,7 @@
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "EVA Storage";
 	dir = 4;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -3197,7 +3197,7 @@
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{

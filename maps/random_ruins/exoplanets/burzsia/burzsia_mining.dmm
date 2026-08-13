@@ -21,7 +21,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
@@ -58,7 +58,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -231,7 +231,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -301,12 +301,12 @@
 /area/burzsia_mining/mining)
 "jg" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Foreman Office";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -388,7 +388,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
@@ -419,7 +419,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -438,7 +438,7 @@
 /area/burzsia_mining/dormitories)
 "lr" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -448,7 +448,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -469,7 +469,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/curtain/open/shower,
 /obj/item/soap/brown_soap,
@@ -587,7 +587,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
@@ -618,7 +618,7 @@
 /obj/item/ore_detector,
 /obj/item/flashlight/lantern,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/radio,
 /obj/item/stack/flag/yellow,
@@ -665,7 +665,7 @@
 /area/burzsia_mining)
 "pT" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Atmospherics";
 	dir = 4
 	},
@@ -675,7 +675,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -809,7 +809,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
@@ -850,12 +850,12 @@
 /area/burzsia_mining/mining)
 "uU" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Mess Room";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -888,7 +888,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
@@ -995,7 +995,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1209,7 +1209,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1402,12 +1402,12 @@
 /area/burzsia_mining/mess_hall)
 "GW" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Mining Bay";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1425,12 +1425,12 @@
 /area/burzsia_mining/mess_hall)
 "Ht" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Dormitories";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1473,7 +1473,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -1718,7 +1718,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/steel,
@@ -1776,7 +1776,7 @@
 "Os" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
 	spawn_grille = 1;
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating,
 /area/burzsia_mining/foreman)
@@ -1967,7 +1967,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
@@ -2015,7 +2015,7 @@
 "TX" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/hyper/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/table/steel,
 /obj/structure/machinery/recharger{
@@ -2033,7 +2033,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -2056,7 +2056,7 @@
 	},
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
@@ -2139,7 +2139,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "Hephaestus Mining Outpost";
-	req_one_access = list(202);
+	req_one_access = list(/datum/access/generic_away_site::id);
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2269,7 +2269,7 @@
 /area/burzsia_mining/foreman)
 "Zd" = (
 /obj/structure/machinery/suit_cycler/mining{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32

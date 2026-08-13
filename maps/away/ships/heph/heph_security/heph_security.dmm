@@ -32,7 +32,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
@@ -83,18 +83,18 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/junk,
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "aH" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
@@ -196,7 +196,7 @@
 "by" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "heph_lockdown"
@@ -341,7 +341,7 @@
 "cp" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Starboard Gunnery Deck";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -402,7 +402,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/grauwolf)
@@ -490,7 +490,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -503,7 +503,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -520,7 +520,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/francisca)
@@ -528,7 +528,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	name = "Medbay";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "heph_lockdown"
@@ -560,7 +560,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -607,7 +607,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
@@ -832,7 +832,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/computer/ship/targeting{
 	dir = 8;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
@@ -1062,7 +1062,7 @@
 /area/heph_security_ship/engineering)
 "hw" = (
 /obj/structure/machinery/computer/ship/targeting{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
@@ -1133,7 +1133,7 @@
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
 	dir = 4;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1556,7 +1556,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/grauwolf)
@@ -1597,7 +1597,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/gun/projectile/automatic/wt550/lethal,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	name = "firearms"
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal,
@@ -1712,7 +1712,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Port Engine Compartment";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1780,7 +1780,7 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
@@ -1852,7 +1852,7 @@
 /obj/item/material/ashtray/bronze,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
@@ -1882,7 +1882,7 @@
 "mz" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1938,7 +1938,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
@@ -2003,7 +2003,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Reactor Bay";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2161,7 +2161,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -2193,7 +2193,7 @@
 /obj/structure/machinery/door/window{
 	dir = 1;
 	name = "Brig Office";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
@@ -2284,7 +2284,7 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/vending/tool{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -2312,7 +2312,7 @@
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -2341,7 +2341,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
@@ -2368,7 +2368,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
 	name = "Crew Armory";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2425,7 +2425,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Brig";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2453,7 +2453,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -2527,7 +2527,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
@@ -2852,7 +2852,7 @@
 "sc" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Starboard Engine Compartment";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2879,7 +2879,7 @@
 /obj/structure/closet/cabinet,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/clothing/head/caphat/cap/hephaestus,
 /turf/simulated/floor/carpet,
@@ -2965,7 +2965,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
@@ -2991,7 +2991,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -3122,7 +3122,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -3177,7 +3177,7 @@
 /area/heph_security_ship/francisca)
 "uJ" = (
 /obj/structure/machinery/computer/shuttle_control/explore/hephsec_shuttle{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
@@ -3199,7 +3199,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
@@ -3437,7 +3437,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/armory)
@@ -3462,7 +3462,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -3582,7 +3582,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
@@ -3621,7 +3621,7 @@
 /area/heph_security_ship)
 "yy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	name = "armor"
 	},
 /obj/item/clothing/suit/armor/carrier/ablative,
@@ -3682,7 +3682,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
@@ -3736,7 +3736,7 @@
 "zK" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Atmospherics Bay";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3776,7 +3776,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
@@ -3790,7 +3790,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -3958,7 +3958,7 @@
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/structure/machinery/alarm/freezer/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer{
@@ -3991,7 +3991,7 @@
 /obj/structure/machinery/door/window{
 	dir = 1;
 	name = "Brig Office Desk";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -4031,7 +4031,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet,
@@ -4056,7 +4056,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -4204,7 +4204,7 @@
 "DF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	name = "security equipment"
 	},
 /obj/structure/machinery/light,
@@ -4441,7 +4441,7 @@
 /area/heph_security_ship/thrusterstarb)
 "FF" = (
 /obj/structure/machinery/computer/ship/targeting{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
@@ -4471,7 +4471,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	name = "Medbay";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
@@ -4628,7 +4628,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -4638,7 +4638,7 @@
 /obj/structure/closet/radiation,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -4674,7 +4674,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -4796,7 +4796,7 @@
 /obj/structure/curtain/open/shower,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/shower{
 	pixel_y = 16
@@ -4807,7 +4807,7 @@
 "Ib" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/vending/engineering{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -5009,7 +5009,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
@@ -5136,7 +5136,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -5150,7 +5150,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
@@ -5206,7 +5206,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5317,7 +5317,7 @@
 "KU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/vending/engivend{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -5463,7 +5463,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5481,7 +5481,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
@@ -5513,7 +5513,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
@@ -5532,7 +5532,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -5571,7 +5571,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/heph_security)
@@ -5636,7 +5636,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
@@ -5681,7 +5681,7 @@
 "NL" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Port Gunnery Deck";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5715,7 +5715,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -5780,7 +5780,7 @@
 "Ou" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/wood,
@@ -6230,7 +6230,7 @@
 /obj/structure/machinery/light,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -6239,7 +6239,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/recharger,
@@ -6561,7 +6561,7 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/machinery/computer/ship/targeting{
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
@@ -7084,7 +7084,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
@@ -7201,7 +7201,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/stack/material/steel/full{
@@ -7263,7 +7263,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
-	req_one_access = list(216);
+	req_one_access = list(/datum/access/hephaestus::id);
 	shuttle_tag = "Hephaestus Security Shuttle";
 	cycle_to_external_air = 1
 	},

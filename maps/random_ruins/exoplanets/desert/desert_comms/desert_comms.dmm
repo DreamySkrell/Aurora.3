@@ -90,7 +90,7 @@
 	name = "Window Shutters";
 	dir = 6;
 	pixel_y = 3;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/desert_comms)
@@ -596,7 +596,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled,
 /area/desert_comms)

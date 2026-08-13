@@ -49,7 +49,7 @@
 /obj/effect/landmark/entry_point/fore,
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
@@ -65,13 +65,13 @@
 "am" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -216,7 +216,7 @@
 /obj/item/deck/cards,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4;
@@ -339,7 +339,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -347,7 +347,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Laboratory";
 	dir = 1
 	},
@@ -388,7 +388,7 @@
 "bE" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -466,7 +466,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -652,7 +652,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "database_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red,
@@ -725,7 +725,7 @@
 /area/database_freighter)
 "cK" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Head Surveyor's Quarters";
 	dir = 4
 	},
@@ -737,7 +737,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -785,7 +785,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4;
@@ -825,10 +825,10 @@
 "dk" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -842,7 +842,7 @@
 /obj/structure/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1039,7 +1039,7 @@
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -1059,7 +1059,7 @@
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1126,7 +1126,7 @@
 /area/database_freighter)
 "eA" = (
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Equipment Storage";
 	dir = 4
 	},
@@ -1138,7 +1138,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1262,14 +1262,14 @@
 /area/database_freighter/hangar)
 "fi" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Engines";
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1370,7 +1370,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1413,12 +1413,12 @@
 "fU" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1430,12 +1430,12 @@
 /area/shuttle/database_freighter_shuttle)
 "fZ" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Bridge";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1467,7 +1467,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1520,7 +1520,7 @@
 /area/database_freighter/engine)
 "gu" = (
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1616,7 +1616,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -1820,14 +1820,14 @@
 /area/shuttle/database_freighter_shuttle)
 "hS" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Bridge";
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1888,7 +1888,7 @@
 /area/database_freighter/barracks)
 "ii" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/gun/energy/rifle/icelance,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1920,7 +1920,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1986,7 +1986,7 @@
 "iK" = (
 /obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	pixel_x = -25;
 	id_tag = "database_freighter_shuttle_dock"
 	},
@@ -2007,7 +2007,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2131,7 +2131,7 @@
 "jJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -2204,7 +2204,7 @@
 /area/database_freighter/engineering)
 "kc" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2256,7 +2256,7 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -2342,7 +2342,7 @@
 /area/database_freighter/bridge)
 "kE" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
@@ -2471,7 +2471,7 @@
 "lv" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2549,7 +2549,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2557,13 +2557,13 @@
 /area/database_freighter/laboratory)
 "lU" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Checkpoint";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2586,7 +2586,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -2626,7 +2626,7 @@
 "mk" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -2639,7 +2639,7 @@
 /area/database_freighter/bridge)
 "mm" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Barracks";
 	dir = 4
 	},
@@ -2651,7 +2651,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2665,7 +2665,7 @@
 "mr" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /obj/effect/landmark/entry_point/fore{
@@ -2709,10 +2709,10 @@
 "mA" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Spectrometry";
 	dir = 4
 	},
@@ -2747,7 +2747,7 @@
 "mF" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -2757,7 +2757,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
@@ -2803,7 +2803,7 @@
 "nq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
@@ -2865,7 +2865,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "database_checkpoint";
 	name = "Checkpoint Blastdoor";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 8;
 	pixel_x = 32
 	},
@@ -3026,7 +3026,7 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/door/window/brigdoor/southright{
 	dir = 1;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Checkpoint"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3128,14 +3128,14 @@
 /area/database_freighter/engine)
 "rq" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Checkpoint";
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3157,12 +3157,12 @@
 "rM" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3289,7 +3289,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3553,7 +3553,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
@@ -3675,7 +3675,7 @@
 	},
 /obj/structure/table/standard,
 /obj/structure/machinery/photocopier/faxmachine{
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	department = "Database Freighter"
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3728,7 +3728,7 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -3763,7 +3763,7 @@
 "AY" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
@@ -3860,7 +3860,7 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -3879,7 +3879,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3954,7 +3954,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4058,7 +4058,7 @@
 /obj/structure/machinery/door/window/brigdoor/westleft{
 	dir = 1;
 	name = "Checkpoint";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/multi,
@@ -4091,7 +4091,7 @@
 /obj/structure/machinery/button/remote/airlock{
 	id = "database_energy";
 	name = "Door Bolt Control";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	specialfunctions = 4;
 	dir = 4;
 	pixel_x = -25
@@ -4166,7 +4166,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4228,12 +4228,12 @@
 /area/database_freighter/barracks)
 "IA" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Restroom";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -4447,13 +4447,13 @@
 "LS" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4591,12 +4591,12 @@
 /area/database_freighter/engineering)
 "Oe" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Atmospherics";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4686,7 +4686,7 @@
 "PH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor{
@@ -4696,7 +4696,7 @@
 "PO" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -4795,7 +4795,7 @@
 "Rg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /obj/effect/landmark/entry_point/starboard{
@@ -4822,12 +4822,12 @@
 /obj/structure/machinery/door/airlock/external{
 	id_tag = "database_energy";
 	name = "Exotic Energies Harvesting";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
@@ -4835,7 +4835,7 @@
 /area/database_freighter/laboratory)
 "RC" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/firealarm/south,
@@ -5007,7 +5007,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -5023,13 +5023,13 @@
 "Vm" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5170,7 +5170,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5264,7 +5264,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5291,7 +5291,7 @@
 "Zq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	spawn_grille = 1
 	},
 /turf/simulated/floor{

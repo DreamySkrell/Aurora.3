@@ -644,7 +644,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -840,7 +840,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1161,7 +1161,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/east{
 	pixel_x = 28;
-	req_one_access = list(24,11,48)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/mining::id)
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/resting_area)
@@ -1202,7 +1202,7 @@
 /obj/structure/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/mystery_ship/medical)
@@ -1408,7 +1408,7 @@
 "QF" = (
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_x = -32;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/stack/medical/splint,
 /obj/item/stack/medical/ointment,
@@ -1500,7 +1500,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	alarm_id = 1601;
-	req_one_access = list(11,24,52)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/atmospherics::id,/datum/access/xenobotany::id)
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/equipment)
@@ -1576,7 +1576,7 @@
 /obj/structure/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/power)

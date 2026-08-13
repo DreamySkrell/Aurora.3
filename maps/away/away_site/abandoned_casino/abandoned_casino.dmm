@@ -3742,7 +3742,7 @@
 /obj/structure/machinery/door/urban{
 	dir = 1;
 	name = "Office";
-	req_one_access = list(257);
+	req_one_access = list(/datum/access/abandoned_casino::id);
 	support_ids = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7560,7 +7560,7 @@
 	name = "Secure Storage Bolt Control";
 	pixel_y = 28;
 	specialfunctions = 4;
-	req_one_access = list(257)
+	req_one_access = list(/datum/access/abandoned_casino::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -9848,7 +9848,7 @@
 /obj/structure/machinery/door/urban{
 	dir = 1;
 	name = "The Bank";
-	req_one_access = list(257);
+	req_one_access = list(/datum/access/abandoned_casino::id);
 	support_ids = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10578,7 +10578,7 @@
 "MS" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/porta_turret{
-	req_access = list(217);
+	req_access = list(/datum/access/golden_deep::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12807,7 +12807,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/turretid/lethal{
 	pixel_x = -32;
-	req_one_access = list(257);
+	req_one_access = list(/datum/access/abandoned_casino::id);
 	req_access = null;
 	lethal = 0
 	},
@@ -12817,7 +12817,7 @@
 /obj/structure/machinery/door/airlock/vault/bolted{
 	id_tag = "abandoned_casino_vault";
 	name = "Secure Storage";
-	req_one_access = list(257)
+	req_one_access = list(/datum/access/abandoned_casino::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1

@@ -97,7 +97,7 @@
 /area/adhomai_fallout_bunker)
 "eB" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -130,7 +130,7 @@
 /area/adhomai_fallout_bunker)
 "fk" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Living Quarters";
 	dir = 1
 	},
@@ -288,7 +288,7 @@
 "lO" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Food Storage";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -401,7 +401,7 @@
 "nT" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Observation";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -589,7 +589,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = -32;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Bunker Entry";
 	id = "bunker_door"
 	},
@@ -598,7 +598,7 @@
 "uq" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -760,7 +760,7 @@
 /area/adhomai_fallout_bunker)
 "yG" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "ammo cabinet"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -829,7 +829,7 @@
 "Bv" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Bunker Entrance Lockdown";
 	pixel_x = -32;
 	uid = "bunker_entry"
@@ -873,7 +873,7 @@
 /area/adhomai_fallout_bunker)
 "Cu" = (
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Medbay";
 	dir = 1
 	},
@@ -910,7 +910,7 @@
 "EL" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -980,7 +980,7 @@
 "Gk" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Bunker Entrance Lockdown";
 	pixel_x = 32;
 	uid = "bunker_entry"
@@ -1177,7 +1177,7 @@
 "OJ" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -1268,7 +1268,7 @@
 /area/adhomai_fallout_bunker)
 "Sj" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/gun/projectile/shotgun/pump/rifle,
@@ -1314,7 +1314,7 @@
 /area/adhomai_fallout_bunker)
 "Te" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Barracks";
 	dir = 4
 	},
@@ -1396,7 +1396,7 @@
 /area/adhomai_fallout_bunker)
 "VL" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1444,7 +1444,7 @@
 /area/adhomai_fallout_bunker)
 "XB" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Maintenance Equipment Storage";
 	dir = 4
 	},
@@ -1454,7 +1454,7 @@
 /area/adhomai_fallout_bunker)
 "XX" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Radiation Suit Storage";
 	dir = 4
 	},

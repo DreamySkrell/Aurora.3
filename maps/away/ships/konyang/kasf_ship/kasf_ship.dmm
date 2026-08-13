@@ -70,7 +70,7 @@
 "aw" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Primary Armament";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -110,7 +110,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -211,7 +211,7 @@
 	name = "Crewman Equipment"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -421,7 +421,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -445,7 +445,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -643,7 +643,7 @@
 	pixel_y = 8;
 	id = "mechbay_shutters";
 	name = "Mechbay Garage Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/computer/rdconsole/robotics/terminal{
 	dir = 1
@@ -790,7 +790,7 @@
 "eR" = (
 /obj/structure/machinery/door/airlock/command/gold{
 	name = "Command Center";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -882,7 +882,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -938,7 +938,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
@@ -1014,7 +1014,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
@@ -1044,14 +1044,14 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
 "gh" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -1159,7 +1159,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/kasf_corvette/engie)
@@ -1313,7 +1313,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Atmospherics";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1345,7 +1345,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1474,7 +1474,7 @@
 /area/ship/kasf_corvette/porthangarfoyer)
 "iP" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Rifle Cabinet"
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -1517,7 +1517,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 6
@@ -1535,7 +1535,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/iv_drip,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1572,7 +1572,7 @@
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = -26;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -1610,7 +1610,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Hangar Foyer";
 	door_color = "#475057";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable{
@@ -1702,7 +1702,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/portwep)
@@ -1750,7 +1750,7 @@
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -1820,7 +1820,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
@@ -1859,7 +1859,7 @@
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = -26;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -1884,7 +1884,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2059,7 +2059,7 @@
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
 	name = "Captain's Quarters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/captain)
@@ -2092,7 +2092,7 @@
 	pixel_y = 8;
 	id = "mechbay_shutters";
 	name = "Mechbay Garage Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/circuitboard/exosystem/engineering,
 /obj/item/circuitboard/exosystem/medical,
@@ -2151,7 +2151,7 @@
 	pixel_x = 24;
 	id = "kasf_co2_blast_port";
 	name = "CO2 Tank Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2174,7 +2174,7 @@
 /area/ship/kasf_corvette/armory)
 "nf" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2230,7 +2230,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2256,7 +2256,7 @@
 	name = "Brig Lockdown";
 	id = "kasf_brig_lockdown";
 	pixel_x = 4;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/button/switch/windowtint{
 	dir = 1;
@@ -2317,7 +2317,7 @@
 	pixel_x = -24;
 	id = "kasf_co2_blast_starboard";
 	name = "CO2 Tank Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2340,7 +2340,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /obj/effect/landmark/entry_point/north{
@@ -2351,7 +2351,7 @@
 "nQ" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Secondary Armament Munitions Bay";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -2388,7 +2388,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Port Thruster Pod Access";
 	open_duration = 20;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -2397,7 +2397,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2475,13 +2475,13 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Port Thruster Pod Access";
 	open_duration = 20;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/portthrust)
 "oC" = (
 /obj/structure/machinery/power/apc/west{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2532,7 +2532,7 @@
 /area/ship/kasf_corvette/starboardwep)
 "ph" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2562,7 +2562,7 @@
 /area/ship/kasf_corvette/engie)
 "pp" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2609,7 +2609,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
@@ -2640,7 +2640,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
@@ -2758,7 +2758,7 @@
 	pixel_y = 8;
 	id = "starboard_warehouse_shutters";
 	name = "Starboard Warehouse Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -2783,7 +2783,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)
@@ -2792,7 +2792,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -2806,7 +2806,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Port Hangar Foyer";
 	door_color = "#475057";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -2873,7 +2873,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2910,7 +2910,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2922,7 +2922,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2937,7 +2937,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3090,7 +3090,7 @@
 /obj/structure/machinery/door/airlock/external{
 	open_duration = 20;
 	name = "Starboard Thruster Pod Access";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -3139,7 +3139,7 @@
 /obj/structure/machinery/door/airlock/external{
 	open_duration = 20;
 	name = "Starboard Thruster Pod Access";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -3265,7 +3265,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3357,7 +3357,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -3381,7 +3381,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/structure/machinery/door/window/eastleft{
 	dir = 8;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/sign/securearea{
@@ -3403,7 +3403,7 @@
 "tU" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Port Thruster";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	door_color = "#475057"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -3430,7 +3430,7 @@
 	dir = 8;
 	id = "port_warehouse_shutters";
 	name = "Port Warehouse Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -3450,7 +3450,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = 8
@@ -3530,7 +3530,7 @@
 /obj/structure/machinery/door/airlock/security/gold{
 	dir = 4;
 	name = "Armory";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/armory)
@@ -3616,7 +3616,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -3720,7 +3720,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Port Thruster Pod Access";
 	open_duration = 20;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/portthrust)
@@ -3755,7 +3755,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -3776,7 +3776,7 @@
 /area/ship/kasf_corvette/cic)
 "vY" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -3842,7 +3842,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/structure/machinery/door/window/eastright{
 	dir = 8;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -3905,7 +3905,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3982,7 +3982,7 @@
 "xO" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Secondary Armament";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -4015,7 +4015,7 @@
 /obj/structure/machinery/door/airlock/external{
 	name = "Port Thruster Pod Access";
 	open_duration = 20;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -4097,20 +4097,20 @@
 	pixel_x = 5;
 	name = "Captain's Quarters Window Shutters";
 	id = "kasf_captains_shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 7;
 	pixel_x = -5;
 	name = "Command Center Lockdown";
 	id = "kasf_cic_lockdown";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -5;
 	name = "Recreation Area Window Shutters";
 	id = "kasf_rec_shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/button/distress{
 	pixel_y = 6;
@@ -4221,7 +4221,7 @@
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = -28;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/sign/securearea{
@@ -4299,7 +4299,7 @@
 "yQ" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4619,7 +4619,7 @@
 "AK" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -4770,7 +4770,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -4813,7 +4813,7 @@
 /obj/structure/machinery/door/airlock/external{
 	open_duration = 20;
 	name = "Starboard Thruster Pod Access";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -4825,7 +4825,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/curtain/open/medical,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
@@ -4847,7 +4847,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/security/gold{
 	name = "EVA";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/armory)
@@ -4856,7 +4856,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -4903,7 +4903,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -30;
 	name = "Stabilization Kit";
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
@@ -4957,7 +4957,7 @@
 "Ch" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Starboard Thruster";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	door_color = "#475057"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -4975,7 +4975,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/mainhall)
@@ -5153,7 +5153,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -5182,7 +5182,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5192,7 +5192,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
@@ -5524,7 +5524,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/dark/full,
@@ -5604,7 +5604,7 @@
 	name = "Crewman Equipment"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/clothing/accessory/badge/passcard/konyang,
 /obj/item/clothing/accessory/holster/thigh,
@@ -5652,7 +5652,7 @@
 /obj/structure/machinery/door/airlock/external{
 	open_duration = 20;
 	name = "Starboard Thruster Pod Access";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardthrust)
@@ -5756,7 +5756,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -6148,7 +6148,7 @@
 /area/space)
 "Iz" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -6182,7 +6182,7 @@
 	pixel_y = 8;
 	id = "port_warehouse_shutters";
 	name = "Port Warehouse Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin";
@@ -6231,7 +6231,7 @@
 /area/ship/kasf_corvette/atmos)
 "IW" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Security Cabinet"
 	},
 /obj/effect/floor_decal/spline/plain/red,
@@ -6255,7 +6255,7 @@
 	id = "kasf_brig_bolts";
 	name = "Brig Bolts";
 	pixel_y = -19;
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	specialfunctions = 4;
 	pixel_x = -6
 	},
@@ -6302,7 +6302,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
@@ -6326,7 +6326,7 @@
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
 	name = "Command Center";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/blast/regular/open{
@@ -6398,7 +6398,7 @@
 "JY" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Holding Area";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	id_tag = "kasf_brig_bolts"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6505,7 +6505,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
@@ -6585,7 +6585,7 @@
 	pixel_y = 8;
 	id = "starboard_warehouse_shutters";
 	name = "Starboard Warehouse Shutters";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin";
@@ -6636,7 +6636,7 @@
 	pixel_x = -8;
 	id = "reactor_lockdown";
 	name = "Reactor Blast Doors";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -6658,7 +6658,7 @@
 /area/ship/kasf_corvette/mainhall)
 "LF" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -6751,7 +6751,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -6805,7 +6805,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/dorm)
@@ -6835,7 +6835,7 @@
 "Ms" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Reactor Compartment";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -6875,7 +6875,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_x = 32;
 	name = "O- Blood Locker";
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -6910,7 +6910,7 @@
 	dir = 2;
 	name = "Hangar";
 	door_color = "#475057";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7052,7 +7052,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -7093,13 +7093,13 @@
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
 "NV" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -7164,7 +7164,7 @@
 /area/ship/kasf_corvette/starboardwep)
 "OR" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Sidearms Cabinet"
 	},
 /obj/structure/machinery/light{
@@ -7224,7 +7224,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/button/switch/windowtint{
@@ -7259,7 +7259,7 @@
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = -28;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/sign/securearea{
@@ -7309,7 +7309,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -7361,7 +7361,7 @@
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "Py" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -7527,7 +7527,7 @@
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/sign/securearea{
@@ -7543,7 +7543,7 @@
 	dir = 2;
 	name = "Hangar";
 	door_color = "#475057";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7607,7 +7607,7 @@
 "QV" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -7663,7 +7663,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7810,7 +7810,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/light{
 	dir = 8
@@ -7823,7 +7823,7 @@
 /area/ship/kasf_corvette/washroom)
 "Sh" = (
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable,
 /obj/structure/bed/stool/chair/shuttle{
@@ -7876,7 +7876,7 @@
 "Sp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7962,7 +7962,7 @@
 /obj/structure/machinery/door/airlock/security/gold{
 	dir = 4;
 	name = "Armory";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/armory)
@@ -8039,7 +8039,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Secondary Armament Access";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -8295,7 +8295,7 @@
 /area/ship/kasf_corvette/portwep)
 "VD" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Special Weapons Cabinet"
 	},
 /obj/structure/machinery/light{
@@ -8361,7 +8361,7 @@
 	},
 /obj/structure/machinery/door/window/eastright{
 	dir = 1;
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8414,7 +8414,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
@@ -8431,7 +8431,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Engineering";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -8536,11 +8536,11 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle{
 	dir = 8;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -8570,7 +8570,7 @@
 	pixel_y = 10
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -8591,7 +8591,7 @@
 	name = "Synthetic Recharging Station"
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -8635,7 +8635,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -8711,7 +8711,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
@@ -8820,7 +8820,7 @@
 "Ys" = (
 /obj/structure/machinery/door/airlock/command/gold{
 	name = "Command Center";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8912,7 +8912,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kasf_shuttle";
 	name = "airlock_kasf_shuttle";
-	req_one_access = list(218);
+	req_one_access = list(/datum/access/portofcall_police::id);
 	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -8933,7 +8933,7 @@
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
 	name = "Security";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -8953,7 +8953,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/structure/machinery/door/window/eastright{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/sign/securearea{
@@ -8984,7 +8984,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/structure/machinery/door/window/eastleft{
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -9037,7 +9037,7 @@
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/sign/securearea{
@@ -9094,7 +9094,7 @@
 "ZE" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Primary Armament Munitions Bay";
-	req_one_access = list(218)
+	req_one_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -9158,7 +9158,7 @@
 "ZT" = (
 /obj/structure/table/rack,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/structure/cable{
 	d2 = 4;

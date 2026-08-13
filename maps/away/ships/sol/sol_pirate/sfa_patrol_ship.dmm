@@ -28,7 +28,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -138,7 +138,7 @@
 /area/ship/sfa_patrol_ship/Officer)
 "apT" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -232,7 +232,7 @@
 "ayl" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Engines";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -300,7 +300,7 @@
 "aDq" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -353,7 +353,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
@@ -698,7 +698,7 @@
 "bFk" = (
 /obj/structure/machinery/computer/ship/targeting{
 	dir = 1;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -714,7 +714,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -822,7 +822,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
@@ -1030,7 +1030,7 @@
 "cUD" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Engineering";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
@@ -1045,7 +1045,7 @@
 "cYP" = (
 /obj/structure/bed/stool,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1121,7 +1121,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "dnA" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -1154,7 +1154,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/random/voidsuit/freebooter,
 /obj/random/voidsuit/freebooter,
@@ -1278,7 +1278,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/atmos)
@@ -1360,7 +1360,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1440,7 +1440,7 @@
 "ejH" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/kitchenmedbay)
@@ -1632,7 +1632,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/machinery/suit_cycler{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
@@ -1703,7 +1703,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -1778,7 +1778,7 @@
 /area/ship/sfa_patrol_ship/Officer)
 "fcC" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
@@ -1969,7 +1969,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark/cooled,
 /area/ship/sfa_patrol_ship/Telecomms)
@@ -2063,7 +2063,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
@@ -2146,7 +2146,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2210,7 +2210,7 @@
 	},
 /obj/structure/machinery/door/airlock/freezer{
 	name = "Freezer";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight{
@@ -2272,7 +2272,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -2327,7 +2327,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -2387,7 +2387,7 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2451,7 +2451,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2479,7 +2479,7 @@
 "hcA" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "EVA";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2555,7 +2555,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2581,7 +2581,7 @@
 /obj/random/civgun,
 /obj/random/civgun,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	anchored = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2670,7 +2670,7 @@
 	pixel_y = 2
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sfa_patrol_ship/destroyedammo)
@@ -2679,7 +2679,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2752,7 +2752,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -2795,7 +2795,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
@@ -2843,7 +2843,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2978,7 +2978,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	anchored = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3117,7 +3117,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/reinforced,
@@ -3164,7 +3164,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -3222,7 +3222,7 @@
 "jqd" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -3413,7 +3413,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -3449,7 +3449,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
@@ -3533,7 +3533,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
@@ -3574,7 +3574,7 @@
 	pixel_y = 32
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -3589,7 +3589,7 @@
 "kmF" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -3697,7 +3697,7 @@
 "kJT" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "EVA";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3707,7 +3707,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
@@ -3766,7 +3766,7 @@
 "kZP" = (
 /obj/structure/machinery/door/airlock/command/gold{
 	name = "Lieutenant's Office";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3801,7 +3801,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/kitchenmedbay)
@@ -3821,7 +3821,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Mess Hall";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -3833,7 +3833,7 @@
 /area/ship/sfa_patrol_ship/kitchenmedbay)
 "liS" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -3860,14 +3860,14 @@
 	dir = 5
 	},
 /obj/structure/machinery/door/window/southright{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
 "lmO" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 8;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark/cooled,
 /area/ship/sfa_patrol_ship/Telecomms)
@@ -3947,7 +3947,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "lEx" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -3986,7 +3986,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4069,7 +4069,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4095,7 +4095,7 @@
 "lXy" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4124,7 +4124,7 @@
 /area/ship/sfa_patrol_ship/head)
 "mfK" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -4309,7 +4309,7 @@
 	pixel_x = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -4344,7 +4344,7 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Cargo";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4568,7 +4568,7 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	name = "Custodial";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -4787,7 +4787,7 @@
 /area/ship/sfa_patrol_ship/head)
 "obG" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -4808,7 +4808,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -4822,7 +4822,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -4887,7 +4887,7 @@
 "ozP" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Cell";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5026,7 +5026,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5128,7 +5128,7 @@
 /area/ship/sfa_patrol_ship/hangar)
 "pvg" = (
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5167,7 +5167,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -5192,7 +5192,7 @@
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	name = "Atmospherics";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -5224,7 +5224,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/reinforced,
@@ -5263,7 +5263,7 @@
 "pJx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/structure/cable/green{
@@ -5303,7 +5303,7 @@
 /area/space)
 "pPW" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -5349,7 +5349,7 @@
 /obj/structure/machinery/door/airlock/service{
 	dir = 8;
 	name = "Crew Quarters";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5578,7 +5578,7 @@
 "qDd" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ammunition";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5607,7 +5607,7 @@
 "qGI" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
@@ -5769,7 +5769,7 @@
 /area/ship/sfa_patrol_ship/kitchenmedbay)
 "rip" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -5811,7 +5811,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -5863,7 +5863,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5933,7 +5933,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -5972,7 +5972,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6037,7 +6037,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Engines";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6143,7 +6143,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -6157,7 +6157,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -6279,7 +6279,7 @@
 /area/ship/sfa_patrol_ship/Brig)
 "sYQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	anchored = 0
 	},
 /obj/item/gun/projectile/automatic/rifle/sol,
@@ -6379,7 +6379,7 @@
 "tDi" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Grauwolf";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6402,7 +6402,7 @@
 "tIq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/suit_cycler{
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
@@ -6448,7 +6448,7 @@
 /area/ship/sfa_patrol_ship/Brig)
 "tNe" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white/airless,
@@ -6463,7 +6463,7 @@
 "tPO" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6694,7 +6694,7 @@
 /obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Showers";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -6980,7 +6980,7 @@
 "wbw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,203);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/sol_ships::id);
 	landmark_tag = "nav_sfa_port_airlock";
 	master_tag = "airlock_sfa_port_airlock";
 	name = "airlock_sfa_port_airlock"
@@ -7002,7 +7002,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 1;
 	name = "Mess Hall";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
@@ -7010,7 +7010,7 @@
 "wfI" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7100,7 +7100,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_sfa_shuttle";
 	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
+	req_one_access = list(/datum/access/sol_ships::id);
 	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -7173,7 +7173,7 @@
 /area/ship/sfa_patrol_ship/hangar)
 "wDY" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203);
+	req_access = list(/datum/access/sol_ships::id);
 	anchored = 0
 	},
 /obj/item/ammo_magazine/c762/sol,
@@ -7203,7 +7203,7 @@
 "wJw" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7293,11 +7293,11 @@
 /obj/structure/machinery/door/airlock/multi_tile{
 	dir = 1;
 	name = "Medbay";
-	req_access = list(203)
+	req_access = list(/datum/access/sol_ships::id)
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2;
-	req_one_access = list(24,11,203)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/sol_ships::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;

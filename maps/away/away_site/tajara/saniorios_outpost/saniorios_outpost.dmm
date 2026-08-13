@@ -114,7 +114,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
 	pixel_x = 28;
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -156,7 +156,7 @@
 /area/shuttle/saniorios_outpost)
 "cI" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "Crew Section";
 	dir = 1
 	},
@@ -212,7 +212,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_shuttle_torpedo";
 	name = "Missile Hangar Blastdoor";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 1;
 	pixel_y = 32
 	},
@@ -305,7 +305,7 @@
 /obj/item/storage/field_ration/dpra,
 /obj/item/storage/field_ration/dpra,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
@@ -399,7 +399,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark{
@@ -431,7 +431,7 @@
 "gg" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Gun Deck";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -495,7 +495,7 @@
 /area/saniorios_outpost/atmos)
 "hz" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Operating Room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -517,7 +517,7 @@
 /area/saniorios_outpost/barracks)
 "hR" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "Barracks";
 	dir = 1
 	},
@@ -578,12 +578,12 @@
 /area/saniorios_outpost/gun)
 "ip" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
@@ -666,7 +666,7 @@
 /area/saniorios_outpost)
 "jf" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "EVA Storage";
 	dir = 4
 	},
@@ -766,7 +766,7 @@
 /area/saniorios_outpost/medbay)
 "jU" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "Restroom";
 	dir = 4
 	},
@@ -865,7 +865,7 @@
 "lL" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Hangar";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -955,7 +955,7 @@
 /area/saniorios_outpost)
 "nj" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -1005,7 +1005,7 @@
 /area/saniorios_outpost/medbay)
 "nZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (assault rifle)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -1030,7 +1030,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (pistol)"
 	},
 /obj/item/gun/projectile/silenced,
@@ -1052,7 +1052,7 @@
 /area/space)
 "oJ" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -1121,13 +1121,13 @@
 "pI" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (rifle ammo)"
 	},
 /obj/item/ammo_magazine/a68,
@@ -1208,13 +1208,13 @@
 /area/shuttle/saniorios_outpost)
 "qk" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "Restroom";
 	dir = 1;
 	id_tag = "saniorios_stall"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,214)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/dpra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -1222,7 +1222,7 @@
 /area/saniorios_outpost/crew_section)
 "qu" = (
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
@@ -1352,7 +1352,7 @@
 	},
 /obj/structure/machinery/iv_drip,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white{
@@ -1362,7 +1362,7 @@
 "rT" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (marksman ammo)"
 	},
 /obj/item/ammo_magazine/d762,
@@ -1420,7 +1420,7 @@
 "sw" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (assault rifle ammo)"
 	},
 /obj/item/ammo_magazine/a68,
@@ -1430,7 +1430,7 @@
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1582,7 +1582,7 @@
 	},
 /obj/effect/floor_decal/corner/white/full,
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1599,7 +1599,7 @@
 "vW" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1613,7 +1613,7 @@
 /area/saniorios_outpost/armory)
 "wd" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
@@ -1631,7 +1631,7 @@
 /area/space)
 "wp" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Medbay";
 	dir = 1
 	},
@@ -1702,7 +1702,7 @@
 /obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -1782,7 +1782,7 @@
 /obj/structure/machinery/turretid/lethal{
 	dir = 1;
 	pixel_y = -32;
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1881,7 +1881,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_gun";
 	name = "Guns Blastdoor";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 1;
 	pixel_y = 32
 	},
@@ -1900,7 +1900,7 @@
 "AN" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (marksman)"
 	},
 /obj/item/gun/projectile/dragunov,
@@ -1953,7 +1953,7 @@
 /area/saniorios_outpost)
 "AW" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (bolt action rifle)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -1999,7 +1999,7 @@
 	target_pressure = 250
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
@@ -2039,7 +2039,7 @@
 /area/saniorios_outpost/gun)
 "CP" = (
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -2089,7 +2089,7 @@
 /area/saniorios_outpost/gun)
 "DC" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/firealarm/east,
@@ -2127,7 +2127,7 @@
 "En" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (pistol ammo)"
 	},
 /obj/item/ammo_magazine/c45m,
@@ -2156,7 +2156,7 @@
 "Ex" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
@@ -2316,7 +2316,7 @@
 "FX" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Power Room";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2463,7 +2463,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
@@ -2482,7 +2482,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -28;
 	dir = 1;
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
@@ -2794,7 +2794,7 @@
 "Nt" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	name = "gun cabinet (bayonets)"
 	},
 /obj/item/clothing/accessory/storage/bayonet,
@@ -2893,7 +2893,7 @@
 "PO" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2978,7 +2978,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(214)
+	req_one_access = list(/datum/access/dpra::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3148,11 +3148,11 @@
 /area/saniorios_outpost/barracks)
 "VV" = (
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(214)
+	req_access = list(/datum/access/dpra::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating/cooled,
@@ -3266,7 +3266,7 @@
 "WT" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Atmos";
-	req_access = list(214);
+	req_access = list(/datum/access/dpra::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3404,7 +3404,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"

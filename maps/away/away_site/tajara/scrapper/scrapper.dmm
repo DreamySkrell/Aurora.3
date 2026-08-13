@@ -71,7 +71,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -96,7 +96,7 @@
 /area/scrapper_base)
 "bg" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
@@ -307,7 +307,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -422,7 +422,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "scrapper_bridge";
 	name = "Bridge Shutters";
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -820,7 +820,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -832,7 +832,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -857,7 +857,7 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -901,7 +901,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/machinery/meter,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1010,7 +1010,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Bridge";
 	dir = 4
 	},
@@ -1034,7 +1034,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1082,7 +1082,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1119,7 +1119,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1284,7 +1284,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -1295,7 +1295,7 @@
 /area/scrapper_base/solars)
 "oD" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/beige/full{
@@ -1400,7 +1400,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Bridge";
 	dir = 4
 	},
@@ -1426,7 +1426,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Workshop";
 	dir = 1
 	},
@@ -1573,7 +1573,7 @@
 "sJ" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Storage";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1608,7 +1608,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
@@ -1786,7 +1786,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -1797,7 +1797,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Solars";
 	dir = 1
 	},
@@ -1819,7 +1819,7 @@
 /area/scrapper_base)
 "vl" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
@@ -1948,7 +1948,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -2025,7 +2025,7 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/tajara_scrapper/hangar{
@@ -2317,7 +2317,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2631,7 +2631,7 @@
 "Gq" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Living Quarters";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2659,7 +2659,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
@@ -2744,7 +2744,7 @@
 /area/scrapper_base)
 "Ho" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3070,7 +3070,7 @@
 "Lq" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3238,7 +3238,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3338,7 +3338,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -3681,7 +3681,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3983,7 +3983,7 @@
 /area/shuttle/scrapper_ship/bridge)
 "Wb" = (
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3996,7 +3996,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4023,7 +4023,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -4042,7 +4042,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -4074,7 +4074,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4110,7 +4110,7 @@
 /area/shuttle/scrapper_ship/starboard_engines)
 "Xg" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Atmos";
 	dir = 1
 	},
@@ -4173,7 +4173,7 @@
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -4186,7 +4186,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Workshop";
 	dir = 1
 	},
@@ -4234,7 +4234,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(202)
+	req_one_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
@@ -4335,7 +4335,7 @@
 "ZY" = (
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;

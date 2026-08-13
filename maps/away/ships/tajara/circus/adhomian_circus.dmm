@@ -128,7 +128,7 @@
 "aGz" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -213,7 +213,7 @@
 "bdp" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Cockpit";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -395,7 +395,7 @@
 "bTK" = (
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -483,7 +483,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -558,7 +558,7 @@
 /area/adhomian_circus/crew)
 "cFD" = (
 /obj/structure/machinery/alarm/cold/east{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled{
@@ -866,7 +866,7 @@
 "eit" = (
 /obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -914,7 +914,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -954,7 +954,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Staff";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1212,7 +1212,7 @@
 /area/adhomian_circus/starboard)
 "fPY" = (
 /obj/structure/machinery/door/window{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	name = "Food Stand";
 	dir = 8
 	},
@@ -1332,7 +1332,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -1500,7 +1500,7 @@
 "hIR" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1527,7 +1527,7 @@
 	},
 /obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1883,7 +1883,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2063,7 +2063,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2113,7 +2113,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2300,7 +2300,7 @@
 /obj/structure/closet/cabinet,
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2597,7 +2597,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2900,7 +2900,7 @@
 "ooV" = (
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -3100,7 +3100,7 @@
 	icon_state = "door_locked";
 	id_tag = "circus_hangar_door";
 	locked = 1;
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar{
@@ -3148,7 +3148,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3192,7 +3192,7 @@
 "qhw" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Animal Tamer";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3277,7 +3277,7 @@
 "qDO" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry";
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -3291,7 +3291,7 @@
 	},
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3344,7 +3344,7 @@
 "qWL" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3734,7 +3734,7 @@
 "tqA" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Clown";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3870,7 +3870,7 @@
 "uub" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
@@ -4016,7 +4016,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4031,7 +4031,7 @@
 "vyl" = (
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4053,7 +4053,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4312,7 +4312,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled{

@@ -24,7 +24,7 @@
 "ac" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -111,7 +111,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
@@ -204,7 +204,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Specialist's Quarters";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -243,7 +243,7 @@
 "aN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portentry)
@@ -281,7 +281,7 @@
 "aV" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -330,7 +330,7 @@
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	dir = 2;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/hangar)
@@ -345,7 +345,7 @@
 "be" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -384,7 +384,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -488,7 +488,7 @@
 "bS" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -525,7 +525,7 @@
 /area/kataphract_chapter/cic)
 "cb" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -544,7 +544,7 @@
 "cg" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Brig";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -592,7 +592,7 @@
 /obj/structure/rod_railing,
 /obj/structure/machinery/power/apc/high/west{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/platform/dark{
 	dir = 1
@@ -615,7 +615,7 @@
 "ct" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Francisca Weapons System";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -661,7 +661,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -694,7 +694,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -715,7 +715,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	dir = 8;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -763,7 +763,7 @@
 /area/kataphract_chapter/specoffice)
 "da" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
@@ -954,7 +954,7 @@
 "dG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starentry)
@@ -1032,7 +1032,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "HMV Supreme";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
@@ -1076,7 +1076,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
@@ -1142,7 +1142,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Starboard Propulsion";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -1179,7 +1179,7 @@
 "el" = (
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/sparring_chamber)
@@ -1208,7 +1208,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armoury and EVA";
 	dir = 4;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1228,7 +1228,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -1282,7 +1282,7 @@
 /obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -1321,7 +1321,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboard{
@@ -1335,7 +1335,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "eV" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -1348,7 +1348,7 @@
 "eZ" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1400,7 +1400,7 @@
 "fk" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Reactor";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1417,7 +1417,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -1441,7 +1441,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Knight-Captain's Quarters";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1521,7 +1521,7 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/structure/machinery/power/apc/high/north{
-	req_one_access = list(113,11);
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id);
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/yellow/full{
@@ -1542,7 +1542,7 @@
 "fG" = (
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	dir = 2;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
@@ -1673,7 +1673,7 @@
 "gj" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -1847,7 +1847,7 @@
 "gS" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armoury and EVA";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -1895,7 +1895,7 @@
 "gW" = (
 /obj/structure/machinery/power/apc/high/south{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/cable/green{
@@ -2103,7 +2103,7 @@
 "hU" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "CIC";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -2185,7 +2185,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
@@ -2198,7 +2198,7 @@
 "ij" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Healer's Bay";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2232,7 +2232,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2281,7 +2281,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starentry)
@@ -2320,7 +2320,7 @@
 /area/kataphract_chapter/office)
 "iG" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2356,7 +2356,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(11,113)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -2383,7 +2383,7 @@
 "iV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
@@ -2519,7 +2519,7 @@
 "jx" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -2630,7 +2630,7 @@
 /area/kataphract_chapter/office)
 "ke" = (
 /obj/structure/machinery/vending/medical{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
@@ -2660,7 +2660,7 @@
 /obj/structure/table/standard,
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -2689,7 +2689,7 @@
 "kk" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2791,7 +2791,7 @@
 "kB" = (
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/sparring_chamber)
@@ -2943,7 +2943,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "kY" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -2996,7 +2996,7 @@
 	},
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	dir = 2;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/portentry)
@@ -3016,7 +3016,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
@@ -3158,7 +3158,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -3191,7 +3191,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "HMV Supreme";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	req_one_access = null;
 	pixel_y = 5
 	},
@@ -3202,7 +3202,7 @@
 /area/kataphract_chapter/bridge)
 "lO" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -3259,7 +3259,7 @@
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Zo'saa Quarters";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3325,7 +3325,7 @@
 "mg" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bruiser Cannon Weapons System";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3338,7 +3338,7 @@
 "mh" = (
 /obj/structure/rod_railing,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/platform/dark{
 	dir = 1
@@ -3526,7 +3526,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	dir = 2;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/sign/fire{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
@@ -3578,7 +3578,7 @@
 "mM" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "detainment gear";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/storage/box/zipties,
 /obj/item/melee/baton/stunrod,
@@ -3889,7 +3889,7 @@
 "nC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
@@ -3901,7 +3901,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
@@ -3960,7 +3960,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Port Propulsion";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -3971,7 +3971,7 @@
 "oC" = (
 /obj/structure/machinery/power/apc/high/west{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/rod_railing,
 /obj/structure/platform/dark{
@@ -4026,7 +4026,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
@@ -4055,7 +4055,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(11,113)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -4258,7 +4258,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
@@ -4280,7 +4280,7 @@
 /area/kataphract_chapter/main_ring)
 "sk" = (
 /obj/structure/closet/secure_closet/freezer/meat{
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4345,7 +4345,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/table/rack,
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/sign/securearea{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
@@ -4411,7 +4411,7 @@
 	},
 /obj/structure/machinery/power/apc/high/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -4436,7 +4436,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/power/apc/high/west{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -4514,7 +4514,7 @@
 /area/kataphract_chapter/main_ring)
 "uA" = (
 /obj/structure/machinery/suit_cycler/offship/kataphract/lead{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	mask = /obj/item/clothing/mask/gas/half
 	},
 /obj/effect/floor_decal/corner/red{
@@ -4620,7 +4620,7 @@
 "wg" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -4828,7 +4828,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Atmospherics";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4872,7 +4872,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portentry)
@@ -4924,7 +4924,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "katabridgeshutter";
 	name = "Bridge Shutters";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 8;
 	pixel_x = 5
 	},
@@ -4952,7 +4952,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "katabridgeshutter";
 	name = "Bridge Shutters";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 8;
 	pixel_x = 5
 	},
@@ -5005,7 +5005,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -5016,7 +5016,7 @@
 "Av" = (
 /obj/structure/machinery/power/apc/high/west{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -5128,7 +5128,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
@@ -5173,7 +5173,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
@@ -5203,7 +5203,7 @@
 /obj/random/soap,
 /obj/structure/closet/crate,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/decal/cleanable/dirt,
@@ -5322,7 +5322,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -5489,7 +5489,7 @@
 /area/kataphract_chapter/mess)
 "FC" = (
 /obj/structure/machinery/suit_cycler/offship/kataphract/specialist{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	mask = /obj/item/clothing/mask/gas/half
 	},
 /obj/structure/machinery/light{
@@ -5519,7 +5519,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5674,7 +5674,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -5702,7 +5702,7 @@
 "HS" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5794,7 +5794,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -5879,7 +5879,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/power/apc/high/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6005,7 +6005,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
@@ -6021,7 +6021,7 @@
 "LD" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -6042,7 +6042,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
@@ -6121,7 +6121,7 @@
 	},
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6152,7 +6152,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(11,113)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -6312,7 +6312,7 @@
 "Os" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6335,7 +6335,7 @@
 "OF" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -6351,7 +6351,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -6548,7 +6548,7 @@
 /area/kataphract_chapter/main_ring)
 "QT" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -6570,7 +6570,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
@@ -6668,7 +6668,7 @@
 "RL" = (
 /obj/structure/rod_railing,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/platform/dark{
 	dir = 1
@@ -6893,7 +6893,7 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/external_airlocks::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
@@ -7024,7 +7024,7 @@
 /area/kataphract_chapter/engineering)
 "Ve" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -7039,7 +7039,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(113,11)
+	req_one_access = list(/datum/access/kataphract::id,/datum/access/engine_equip::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7230,7 +7230,7 @@
 "XQ" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -7304,7 +7304,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -32;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/auto_cpr,
 /obj/item/tank/oxygen,

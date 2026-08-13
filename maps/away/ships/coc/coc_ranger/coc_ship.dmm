@@ -40,7 +40,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -78,7 +78,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/carpet/red,
 /area/ship/ranger_corvette/crew)
@@ -129,7 +129,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/computer/ship/targeting{
 	dir = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -158,7 +158,7 @@
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
 /obj/structure/machinery/computer/ship/sensors{
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -355,11 +355,11 @@
 /obj/structure/machinery/door/airlock/service{
 	name = "Custodial Closet";
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -416,13 +416,13 @@
 /obj/structure/machinery/door/airlock{
 	name = "EVA Storage";
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -517,7 +517,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -611,12 +611,12 @@
 "cij" = (
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	name = "Rotary Cannon Chamber/Starboard Propulsion";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -704,7 +704,7 @@
 	name = "fore blast door-control";
 	pixel_x = -24;
 	dir = 8;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -739,7 +739,7 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -9;
@@ -829,7 +829,7 @@
 /obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -895,7 +895,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
@@ -982,7 +982,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1009,11 +1009,11 @@
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Starboard Propulsion";
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
@@ -1200,7 +1200,7 @@
 /area/ship/ranger_corvette/engineering)
 "eQS" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -1272,10 +1272,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Port Propulsion";
 	dir = 1;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
@@ -1586,7 +1586,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -1649,7 +1649,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
@@ -1803,7 +1803,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Cryogenics";
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1812,7 +1812,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1838,7 +1838,7 @@
 /area/ship/ranger_corvette/foyer)
 "gUj" = (
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
@@ -1847,7 +1847,7 @@
 /obj/structure/machinery/door/airlock/service{
 	name = "Dormitory";
 	dir = 1;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
@@ -1911,12 +1911,12 @@
 /area/ship/ranger_corvette/brig)
 "hdZ" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	name = "Engineering";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -1931,7 +1931,7 @@
 	pixel_y = 5
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
@@ -1963,7 +1963,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -1972,12 +1972,12 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/airlock/atmos{
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2037,7 +2037,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/voidsuits)
@@ -2081,7 +2081,7 @@
 /obj/structure/machinery/door/airlock/service{
 	name = "Dormitory";
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2091,7 +2091,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2126,7 +2126,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	pixel_x = 6;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
@@ -2151,9 +2151,9 @@
 "imn" = (
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	name = "Brig";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2163,7 +2163,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2195,7 +2195,7 @@
 /area/ship/ranger_corvette/foyer)
 "itk" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -2228,7 +2228,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
@@ -2282,7 +2282,7 @@
 	pixel_x = -4;
 	id_tag = "ranger_shuttle_dock";
 	name = "Ranger Shuttle docking port controller";
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -2325,7 +2325,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/gun/projectile/revolver/lemat,
@@ -2349,7 +2349,7 @@
 "jgn" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -2368,11 +2368,11 @@
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2465,7 +2465,7 @@
 	},
 /obj/structure/machinery/computer/ship/sensors{
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2487,7 +2487,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled/dark,
@@ -2496,11 +2496,11 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/munitions)
@@ -2575,7 +2575,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2727,7 +2727,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
@@ -2751,11 +2751,11 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ship Munitions Storage";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2765,7 +2765,7 @@
 "kYl" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -2799,7 +2799,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -2887,8 +2887,8 @@
 /area/ship/ranger_corvette/munitions)
 "lvN" = (
 /obj/structure/machinery/computer/shuttle_control/explore/ranger_shuttle{
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -2980,7 +2980,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
@@ -2990,7 +2990,7 @@
 	},
 /obj/structure/machinery/computer/ship/helm{
 	dir = 4;
-	req_access = list(221,222)
+	req_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3001,7 +3001,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /obj/structure/cable/green{
@@ -3051,7 +3051,7 @@
 /obj/structure/machinery/smartfridge/foodheater,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -3070,8 +3070,8 @@
 /obj/structure/machinery/door/airlock/silver{
 	name = "Kitchen";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3081,7 +3081,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3166,13 +3166,13 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Flak Battery Chamber";
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -3213,7 +3213,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
@@ -3223,7 +3223,7 @@
 	id = "coc_midship";
 	name = "midship blast door-control";
 	pixel_x = -24;
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3236,7 +3236,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -3282,7 +3282,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
@@ -3335,7 +3335,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3412,10 +3412,10 @@
 /obj/structure/machinery/door/airlock/medical{
 	name = "Surgical Suite";
 	dir = 1;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
@@ -3670,7 +3670,7 @@
 	pixel_y = 12;
 	dir = 1;
 	frequency = 2137;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft,
@@ -3839,7 +3839,7 @@
 "oXh" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4017,12 +4017,12 @@
 /obj/structure/machinery/door/airlock/medical{
 	name = "Medbay";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4123,7 +4123,7 @@
 "qhi" = (
 /obj/structure/machinery/computer/ship/targeting{
 	dir = 8;
-	req_access = list(221,222)
+	req_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4141,7 +4141,7 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
@@ -4184,11 +4184,11 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Auxiliary CIC";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4224,7 +4224,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
@@ -4242,7 +4242,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4250,8 +4250,8 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
@@ -4324,7 +4324,7 @@
 /area/ship/ranger_corvette/atmospherics)
 "qGl" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/item/pipewrench,
@@ -4369,7 +4369,7 @@
 /obj/structure/machinery/door/airlock/silver{
 	name = "Washroom";
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4378,7 +4378,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4431,7 +4431,7 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
@@ -4468,7 +4468,7 @@
 "riA" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4482,7 +4482,7 @@
 "riF" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4590,7 +4590,7 @@
 	},
 /obj/structure/machinery/computer/ship/engines{
 	dir = 4;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4604,7 +4604,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4716,7 +4716,7 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/structure/machinery/telecomms/allinone/ship/coalition_navy,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
@@ -4729,7 +4729,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4868,7 +4868,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
@@ -4909,7 +4909,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
@@ -4990,7 +4990,7 @@
 	id = "coc_aft";
 	name = "aft blast door-control";
 	pixel_x = -24;
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	dir = 8;
 	pixel_y = 6
 	},
@@ -5042,7 +5042,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/west{
 	pixel_x = -5;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5262,8 +5262,8 @@
 /area/ship/ranger_corvette/crew)
 "twl" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5274,7 +5274,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/sensors{
 	dir = 1;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5286,7 +5286,7 @@
 /obj/structure/undies_wardrobe,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
@@ -5294,7 +5294,7 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/item/toy/desk/fan,
 /turf/simulated/floor/tiled/white,
@@ -5396,7 +5396,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/leader)
@@ -5480,7 +5480,7 @@
 /area/ship/ranger_corvette/canteen)
 "uhA" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4;
@@ -5505,8 +5505,8 @@
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5540,7 +5540,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
@@ -5708,7 +5708,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/bridge)
@@ -5719,7 +5719,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5763,7 +5763,7 @@
 "uVR" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5783,31 +5783,31 @@
 	name = "fore blast door-control";
 	pixel_x = -6;
 	pixel_y = 6;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "coc_midship";
 	name = "midship blast door-control";
 	pixel_x = -6;
 	pixel_y = -3;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "coc_aft";
 	name = "aft blast door-control";
 	pixel_x = 4;
 	pixel_y = -3;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "coc_bridge";
 	name = "bridge blast door-control";
 	pixel_x = 4;
 	pixel_y = 6;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/bridge)
@@ -5843,7 +5843,7 @@
 "vtO" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/leader)
@@ -5917,8 +5917,8 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Ranger Leader Quarters";
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5928,7 +5928,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6012,7 +6012,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "coc_aft";
 	name = "aft blast door-control";
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	dir = 4;
 	pixel_x = 24
 	},
@@ -6233,7 +6233,7 @@
 	id = "coc_midship";
 	name = "midship blast door-control";
 	pixel_x = -24;
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6379,9 +6379,9 @@
 /area/ship/ranger_corvette/foyer)
 "wPn" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_one_access = list(221,222);
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
 	name = "Engineering";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6389,7 +6389,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -6463,7 +6463,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/canteen)
@@ -6493,12 +6493,12 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6606,11 +6606,11 @@
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
 	dir = 1;
-	req_one_access = list(221,222);
-	req_access = list(222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id);
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)

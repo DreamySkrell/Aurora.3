@@ -21,7 +21,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/penguin,
 /obj/random/dirt_75,
@@ -102,7 +102,7 @@
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -130,7 +130,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = -5;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/random/dirt_75,
@@ -225,7 +225,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
@@ -422,7 +422,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/tomato,
@@ -546,7 +546,7 @@
 /area/trove/vault)
 "dl" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
@@ -596,7 +596,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/lizard,
 /obj/random/dirt_75,
@@ -668,7 +668,7 @@
 /area/trove/vault)
 "dF" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -813,7 +813,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler/male,
@@ -979,7 +979,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/penguin/baby,
 /obj/random/dirt_75,
@@ -1075,7 +1075,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/hostile/commanded/dog/bullterrier,
 /obj/random/dirt_75,
@@ -1104,7 +1104,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/corgi/puppy,
@@ -1180,7 +1180,7 @@
 /area/trove/vault)
 "go" = (
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -1222,7 +1222,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/cat/kitten,
@@ -1480,7 +1480,7 @@
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -1538,7 +1538,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/irish,
@@ -1555,7 +1555,7 @@
 	dir = 6;
 	id = "gd_shuttle";
 	name = "Desk Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_y = 33;
 	pixel_x = 9
 	},
@@ -1691,7 +1691,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/snake,
 /obj/random/dirt_75,
@@ -1886,10 +1886,10 @@
 	dir = 4
 	},
 /obj/item/rig/zero/xanu{
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/item/rig/zero/xanu{
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/item/clothing/under/xanu/pilot,
 /obj/item/clothing/under/xanu/pilot,
@@ -2330,7 +2330,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2341,7 +2341,7 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Cockpit"
 	},
 /obj/random/dirt_75,
@@ -2642,14 +2642,14 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Engine Compartment"
 	},
 /obj/random/dirt_75,
@@ -2838,7 +2838,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/threshbeast/saddle,
 /obj/random/dirt_75,
@@ -2890,7 +2890,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/cat,
@@ -2901,7 +2901,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -2999,7 +2999,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/hostile/commanded/dog,
 /obj/random/dirt_75,
@@ -3026,7 +3026,7 @@
 /area/trove/tunnels)
 "qZ" = (
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/vault_rig,
 /obj/random/vault_rig,
@@ -3056,7 +3056,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = -28;
 	name = "\improper Coalition NanoMed";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3107,7 +3107,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/pig,
 /obj/random/dirt_75,
@@ -3168,7 +3168,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3200,7 +3200,7 @@
 /obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3272,7 +3272,7 @@
 /area/trove/tunnels)
 "sr" = (
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/vault_weapon,
 /obj/random/vault_weapon,
@@ -3291,7 +3291,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3339,7 +3339,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/hostile/commanded/dog/amaskan,
 /obj/random/dirt_75,
@@ -3364,7 +3364,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -3409,7 +3409,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Commercial Amenities";
 	req_access = null;
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/item/hand_labeler,
@@ -3617,7 +3617,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -3960,7 +3960,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/cosmozoan,
 /obj/random/dirt_75,
@@ -4423,7 +4423,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/parrot,
 /obj/random/dirt_75,
@@ -4476,7 +4476,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/item/clothing/suit/space/void/golden_deep/menial,
 /obj/item/clothing/head/helmet/space/void/golden_deep/menial,
@@ -4729,7 +4729,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/item/clothing/suit/space/void/golden_deep/hoplan,
 /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan,
@@ -4782,7 +4782,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4877,7 +4877,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/otzek,
@@ -5126,7 +5126,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/climber,
@@ -5398,7 +5398,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/cow,
@@ -5877,7 +5877,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/miervesh,
@@ -5965,7 +5965,7 @@
 	},
 /obj/structure/machinery/door/window/brigdoor/northleft{
 	name = "Cockpit";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -5985,7 +5985,7 @@
 	dir = 6;
 	id = "gd_shuttle_windows";
 	name = "Window Shutters";
-	req_one_access = list(229, 217);
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id);
 	pixel_y = 33;
 	pixel_x = -9
 	},
@@ -6104,7 +6104,7 @@
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -6222,7 +6222,7 @@
 	dir = 4;
 	name = "Cockpit";
 	door_color = "#8c792e";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -6395,7 +6395,7 @@
 	},
 /obj/structure/closet/crate/secure{
 	name = "damage control crate";
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
@@ -6437,7 +6437,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -6483,7 +6483,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/crab,
 /obj/random/dirt_75,
@@ -6616,7 +6616,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/hostile/commanded/dog/pug,
 /obj/random/dirt_75,
@@ -6682,7 +6682,7 @@
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7100,7 +7100,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/item/clothing/suit/storage/goldendeep,
 /obj/item/clothing/under/dressshirt/deepv,
@@ -7128,7 +7128,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/corgi,
@@ -7232,7 +7232,7 @@
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7282,7 +7282,7 @@
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7333,7 +7333,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/mushroom,
@@ -7346,7 +7346,7 @@
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(221,222)
+	req_one_access = list(/datum/access/coalition::id,/datum/access/coalition_navy::id)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7360,7 +7360,7 @@
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = 12;
-	req_access = list(222)
+	req_access = list(/datum/access/coalition_navy::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -7432,7 +7432,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -7501,7 +7501,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler/baby,
@@ -7538,7 +7538,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/fatshouter,
@@ -7878,7 +7878,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler,
@@ -7904,7 +7904,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/item/clothing/suit/space/void/golden_deep,
 /obj/item/clothing/head/helmet/space/void/golden_deep,
@@ -8213,7 +8213,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/carp/baby,
@@ -8268,7 +8268,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -8281,7 +8281,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
-	req_access = list(220);
+	req_access = list(/datum/access/idris::id);
 	name = "Engine Compartment"
 	},
 /obj/random/dirt_75,
@@ -8332,7 +8332,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/white,
@@ -8370,7 +8370,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/chicken,
 /obj/random/dirt_75,
@@ -8704,7 +8704,7 @@
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -8771,7 +8771,7 @@
 	},
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110)
+	req_access = list(/datum/access/merchant::id)
 	},
 /mob/living/simple_animal/chick,
 /obj/random/dirt_75,
@@ -8797,7 +8797,7 @@
 /area/trove/vault)
 "XP" = (
 /obj/structure/closet/crate/secure{
-	req_access = list(220)
+	req_access = list(/datum/access/idris::id)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -8961,7 +8961,7 @@
 /area/trove/vault)
 "YO" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(220)
+	req_one_access = list(/datum/access/idris::id)
 	},
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -9012,7 +9012,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
+	req_access = list(/datum/access/merchant::id);
 	dir = 1
 	},
 /mob/living/simple_animal/capybara,

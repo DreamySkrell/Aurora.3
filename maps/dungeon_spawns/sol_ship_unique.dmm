@@ -204,7 +204,7 @@
 /area/dungeon/crashed_ship)
 "oz" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(150);
+	req_access = list(/datum/access/syndicate::id);
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -519,11 +519,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/random/weapon_and_ammo,
 /obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/shuttle/black,
@@ -691,7 +691,7 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/clothing/suit/space/void/sol,
 /obj/item/clothing/head/helmet/space/void/sol,

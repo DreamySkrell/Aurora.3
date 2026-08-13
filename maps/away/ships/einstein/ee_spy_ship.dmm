@@ -168,7 +168,7 @@
 "bci" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -340,7 +340,7 @@
 /area/ship/ee_spy_ship)
 "eIb" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -416,7 +416,7 @@
 "fQq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Head";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -451,14 +451,14 @@
 "fZq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "gcq" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /obj/structure/extinguisher_cabinet/north,
 /obj/item/gun/energy/pistol,
@@ -554,7 +554,7 @@
 "hZq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Dock";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -647,7 +647,7 @@
 "krH" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -689,7 +689,7 @@
 "lhC" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Operations";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1035,7 +1035,7 @@
 "sGi" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1054,7 +1054,7 @@
 /area/ship/ee_spy_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /obj/item/gun/projectile/pistol,
 /obj/item/suppressor,
@@ -1217,7 +1217,7 @@
 "wji" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Crew Quarters";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1275,7 +1275,7 @@
 /area/shuttle/ee_shuttle)
 "xPN" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)

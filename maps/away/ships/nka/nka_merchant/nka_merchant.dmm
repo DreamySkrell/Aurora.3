@@ -32,7 +32,7 @@
 /area/nka_merchant/hangar)
 "ac" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Warehouse";
 	dir = 1
 	},
@@ -84,7 +84,7 @@
 "al" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -284,7 +284,7 @@
 /area/nka_merchant)
 "aN" = (
 /obj/structure/machinery/vending/engineering{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -379,7 +379,7 @@
 /obj/item/reagent_containers/food/snacks/cone_cake,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -607,7 +607,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -659,7 +659,7 @@
 /area/nka_merchant/mess)
 "bY" = (
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -770,7 +770,7 @@
 /area/nka_merchant/warehouse)
 "ck" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Hangar";
 	dir = 1
 	},
@@ -828,7 +828,7 @@
 /area/nka_merchant/mess)
 "cq" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -896,7 +896,7 @@
 /area/nka_merchant/merchant)
 "cG" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Engine";
 	dir = 1
 	},
@@ -1069,7 +1069,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1289,7 +1289,7 @@
 /area/shuttle/nka_merchant_shuttle)
 "dN" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Captain's Quarters";
 	dir = 4
 	},
@@ -1655,7 +1655,7 @@
 /obj/item/gun/projectile/revolver/adhomian,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "gun cabinet (revolver)"
 	},
 /turf/simulated/floor/tiled{
@@ -1777,7 +1777,7 @@
 /area/nka_merchant/eva)
 "fQ" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Airlock Access";
 	dir = 4
 	},
@@ -1939,7 +1939,7 @@
 /area/nka_merchant/engineering)
 "gz" = (
 /obj/structure/machinery/alarm/cold/south{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2264,7 +2264,7 @@
 /area/nka_merchant/mess)
 "iz" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor{
@@ -2453,7 +2453,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "merchant_navy_office";
 	name = "Office Blastdoor";
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	dir = 4;
 	pixel_x = 21
 	},
@@ -2600,7 +2600,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -2698,7 +2698,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -2763,10 +2763,10 @@
 "kD" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2800,7 +2800,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -2809,7 +2809,7 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "gun cabinet (rifles)"
 	},
 /turf/simulated/floor/tiled{
@@ -3031,7 +3031,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Bridge";
 	dir = 1
 	},
@@ -3206,7 +3206,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Armory";
 	dir = 4
 	},
@@ -3350,7 +3350,7 @@
 "nq" = (
 /obj/structure/machinery/door/window/eastright{
 	dir = 2;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/lino/diamond{
@@ -3419,7 +3419,7 @@
 /area/nka_merchant/mess)
 "nE" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Mess Hall";
 	dir = 4
 	},
@@ -3607,7 +3607,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "gun cabinet (ammo)"
 	},
 /obj/item/ammo_magazine/boltaction,
@@ -3636,7 +3636,7 @@
 /area/nka_merchant/mess)
 "qt" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -3757,7 +3757,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 10
@@ -3779,7 +3779,7 @@
 "sQ" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -3840,7 +3840,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -3943,7 +3943,7 @@
 /area/nka_merchant/hangar)
 "uU" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -4040,7 +4040,7 @@
 /area/nka_merchant)
 "vV" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "EVA Storage";
 	dir = 4
 	},
@@ -4094,7 +4094,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4280,7 +4280,7 @@
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
-	req_one_access = list(212)
+	req_one_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4387,7 +4387,7 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -4424,7 +4424,7 @@
 	},
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4467,7 +4467,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Lounge";
 	dir = 1
 	},
@@ -4604,7 +4604,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Merchant Office";
 	dir = 4
 	},
@@ -4697,7 +4697,7 @@
 "DL" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -4758,7 +4758,7 @@
 /area/nka_merchant/mess)
 "Ed" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Crew Quarters";
 	dir = 1
 	},
@@ -4977,7 +4977,7 @@
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/structure/sign/painting_frame/shumaila{
 	pixel_x = 32
@@ -5112,7 +5112,7 @@
 /area/nka_merchant/barracks)
 "HR" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -5126,7 +5126,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -5251,7 +5251,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/south{
 	is_critical = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -5306,7 +5306,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Warehouse";
 	dir = 4
 	},
@@ -5321,7 +5321,7 @@
 /area/nka_merchant/captain_quarters)
 "JX" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Restroom";
 	dir = 1
 	},
@@ -5367,7 +5367,7 @@
 "Ki" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
@@ -5376,7 +5376,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(213)
+	req_one_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -5510,7 +5510,7 @@
 /area/nka_merchant/engineering)
 "No" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	name = "Engineering";
 	dir = 4
 	},
@@ -5665,14 +5665,14 @@
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle{
 	dir = 4;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "OT" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -5779,7 +5779,7 @@
 /area/nka_merchant/captain_quarters)
 "Qp" = (
 /obj/structure/machinery/power/apc/west{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/item/flashlight/lamp,
@@ -6240,7 +6240,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(213)
+	req_access = list(/datum/access/nka::id)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -6282,7 +6282,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "merchant_navy_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(213);
+	req_access = list(/datum/access/nka::id);
 	dir = 1;
 	pixel_y = 3;
 	pixel_x = 5

@@ -33,7 +33,7 @@
 	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -76,7 +76,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -128,14 +128,14 @@
 	pixel_y = 6
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "bd" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/vending/engineering{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
@@ -202,7 +202,7 @@
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -281,7 +281,7 @@
 "cr" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -300,7 +300,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -332,7 +332,7 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -345,7 +345,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -465,7 +465,7 @@
 "dF" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pistols .45";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
@@ -513,7 +513,7 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -532,7 +532,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass{
 	name = "Recreation";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -547,7 +547,7 @@
 "ec" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -586,7 +586,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
@@ -633,7 +633,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -717,7 +717,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -784,7 +784,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -827,7 +827,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -1013,7 +1013,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/crate/secure/phoron{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
@@ -1044,7 +1044,7 @@
 "iM" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "EVA Access";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/operations{
@@ -1064,7 +1064,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1168,7 +1168,7 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -1273,7 +1273,7 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Office";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1301,7 +1301,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -1383,7 +1383,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -1471,7 +1471,7 @@
 	dir = 9
 	},
 /obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1505,7 +1505,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -1589,7 +1589,7 @@
 "oh" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Bridge";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1652,7 +1652,7 @@
 "oZ" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1753,7 +1753,7 @@
 	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1790,7 +1790,7 @@
 /obj/structure/machinery/meter,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1816,7 +1816,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 1
@@ -1881,7 +1881,7 @@
 /obj/effect/floor_decal/corner/orange/full,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1921,7 +1921,7 @@
 "qT" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Recreation";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/operations{
@@ -1993,7 +1993,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/suit_cycler/mining/prepared{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -2074,7 +2074,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
@@ -2193,7 +2193,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -2216,7 +2216,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -2227,7 +2227,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
@@ -2239,7 +2239,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cyclops_bridge_lockdown";
 	name = "Bridge Blastdoor";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2303,7 +2303,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
@@ -2702,7 +2702,7 @@
 	},
 /obj/structure/machinery/cell_charger,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/recharger{
 	pixel_x = 6;
@@ -2737,7 +2737,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -2809,7 +2809,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
@@ -2839,7 +2839,7 @@
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle{
 	dir = 4;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -2989,7 +2989,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -3016,7 +3016,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Energy Carbine";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
@@ -3223,7 +3223,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3319,7 +3319,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3400,7 +3400,7 @@
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3429,7 +3429,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3486,7 +3486,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3534,7 +3534,7 @@
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3548,7 +3548,7 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3647,7 +3647,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
@@ -3656,7 +3656,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -3721,7 +3721,7 @@
 "Gg" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -3812,7 +3812,7 @@
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "GU" = (
 /obj/structure/machinery/alarm/east{
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/visible/fuel{
@@ -3862,14 +3862,14 @@
 	pixel_x = 32
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "HB" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3999,7 +3999,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/closet/crate/bin,
 /obj/random/dirt_75,
@@ -4112,7 +4112,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
@@ -4136,7 +4136,7 @@
 "JH" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/ammo_magazine/c45m/auto,
 /obj/item/ammo_magazine/c45m/auto,
@@ -4160,7 +4160,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/vending/engivend{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4184,7 +4184,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -4285,7 +4285,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4304,7 +4304,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -4332,7 +4332,7 @@
 "Ld" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Automatic .45s";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/gun/projectile/automatic/x9,
 /obj/item/gun/projectile/automatic/x9,
@@ -4342,7 +4342,7 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4384,7 +4384,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/cyclops_shuttle/shuttle{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4507,7 +4507,7 @@
 	pixel_y = 15
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
@@ -4540,7 +4540,7 @@
 "Nz" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Secure Storage";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4635,7 +4635,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -4891,7 +4891,7 @@
 "SF" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(216);
+	req_access = list(/datum/access/hephaestus::id);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -5000,13 +5000,13 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Anti-Piracy Locker";
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -5094,7 +5094,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -5268,7 +5268,7 @@
 "VC" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Atmospherics";
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -5292,7 +5292,7 @@
 "VH" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/vending/tool{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
@@ -5447,7 +5447,7 @@
 /obj/structure/machinery/firealarm/south,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -5530,7 +5530,7 @@
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -5540,7 +5540,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -5620,7 +5620,7 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/heph_cyclops/port{
-	req_one_access = list(216)
+	req_one_access = list(/datum/access/hephaestus::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -5649,7 +5649,7 @@
 "ZH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(216)
+	req_access = list(/datum/access/hephaestus::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)

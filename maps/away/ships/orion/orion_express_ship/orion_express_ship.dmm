@@ -3,10 +3,10 @@
 /obj/structure/machinery/door/airlock/mining{
 	dir = 1;
 	name = "Captain's Quarters";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -263,7 +263,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/atmos)
@@ -336,7 +336,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -383,7 +383,7 @@
 "bgK" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -397,7 +397,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -437,13 +437,13 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "bnX" = (
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -523,7 +523,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -541,7 +541,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
@@ -586,14 +586,14 @@
 "bGx" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/comms)
@@ -834,11 +834,11 @@
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Shuttle Dock";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -870,7 +870,7 @@
 /obj/structure/machinery/atmospherics/portables_connector,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -898,7 +898,7 @@
 	frequency = 2137
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -928,7 +928,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
@@ -948,7 +948,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/photocopier/faxmachine{
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	department = "Orion Express Traveler-class Mobile Station"
 	},
 /obj/structure/table/steel,
@@ -1036,7 +1036,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -1080,7 +1080,7 @@
 /area/ship/orion/forehall)
 "dhz" = (
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -1117,7 +1117,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1146,7 +1146,7 @@
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
@@ -1208,7 +1208,7 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -1374,7 +1374,7 @@
 /area/ship/orion/shop)
 "eaP" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking1)
@@ -1384,7 +1384,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1490,7 +1490,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
@@ -1561,7 +1561,7 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/north{
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1690,7 +1690,7 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -1704,7 +1704,7 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1818,14 +1818,14 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "gjQ" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -1869,7 +1869,7 @@
 /area/ship/orion/cargo)
 "gqU" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -2021,7 +2021,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/comms)
@@ -2043,7 +2043,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
@@ -2081,7 +2081,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -2102,7 +2102,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
@@ -2221,7 +2221,7 @@
 	pixel_y = 8
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
@@ -2375,7 +2375,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/light/small,
 /turf/simulated/floor,
@@ -2383,7 +2383,7 @@
 "hIB" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -2401,10 +2401,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
@@ -2439,10 +2439,10 @@
 /obj/structure/machinery/door/airlock/glass{
 	dir = 1;
 	name = "Cryogenic Storage";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/crew)
@@ -2487,10 +2487,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -2517,7 +2517,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2571,7 +2571,7 @@
 /area/shuttle/orion_shuttle/storage)
 "isS" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking1)
@@ -2652,7 +2652,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -2707,7 +2707,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/north{
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/binary/passive_gate/on{
@@ -2737,7 +2737,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -2749,7 +2749,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking2)
@@ -2789,7 +2789,7 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -3089,7 +3089,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -3110,7 +3110,7 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -3148,14 +3148,14 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "kLL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -3185,7 +3185,7 @@
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window/westleft{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
@@ -3193,12 +3193,12 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Telecomms";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -3313,7 +3313,7 @@
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
 	pixel_x = -25;
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3324,7 +3324,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
@@ -3517,7 +3517,7 @@
 /area/ship/orion/mainhall)
 "maA" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4
@@ -3550,7 +3550,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/starboardthrust)
@@ -3597,7 +3597,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -3650,11 +3650,11 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/forehall)
@@ -3702,7 +3702,7 @@
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
 	pixel_x = 25;
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3730,10 +3730,10 @@
 	dir = 1;
 	name = "Cargo Bay";
 	pixel_x = -15;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -3769,12 +3769,12 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Cockpit";
 	dir = 1;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3910,7 +3910,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -3953,7 +3953,7 @@
 "nAQ" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -3965,7 +3965,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
@@ -3990,7 +3990,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/sign/staff_only{
 	pixel_y = 32
@@ -4099,7 +4099,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
@@ -4200,7 +4200,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -4213,7 +4213,7 @@
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window/westright{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
@@ -4279,7 +4279,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -4299,7 +4299,7 @@
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -4338,7 +4338,7 @@
 "oxU" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -4352,7 +4352,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
@@ -4615,7 +4615,7 @@
 "pBw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -4636,7 +4636,7 @@
 	name = "Docking Bay"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -4720,7 +4720,7 @@
 /area/space)
 "pRV" = (
 /obj/structure/machinery/door/firedoor/multi_tile{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Primary Hall"
@@ -4740,7 +4740,7 @@
 "pWh" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Atmospherics";
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4751,7 +4751,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/plating,
 /area/ship/orion/atmos)
@@ -4782,7 +4782,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -4923,7 +4923,7 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -5092,7 +5092,7 @@
 "qZE" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5345,7 +5345,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -5490,7 +5490,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -5542,7 +5542,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
@@ -5591,7 +5591,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -5614,7 +5614,7 @@
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -5701,11 +5701,11 @@
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Captain's Quarters";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -5921,7 +5921,7 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -5937,7 +5937,7 @@
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Crew Quarters";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5950,7 +5950,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/crew)
@@ -5973,14 +5973,14 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Starboard Thruster";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
@@ -6011,7 +6011,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -6212,7 +6212,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -6368,14 +6368,14 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Port Thruster";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
@@ -6391,7 +6391,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -6414,7 +6414,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -6445,14 +6445,14 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "uRC" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/cockpit)
@@ -6652,7 +6652,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking2)
@@ -6672,7 +6672,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
@@ -6688,7 +6688,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Platform Command Center";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6701,13 +6701,13 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "vzU" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -6858,7 +6858,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/bed/handrail{
 	dir = 8
@@ -7001,7 +7001,7 @@
 /area/ship/orion/mainhall)
 "wri" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion{
@@ -7078,7 +7078,7 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/machinery/door/window{
 	name = "Cashier's Counter";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7110,13 +7110,13 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "wFW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -7191,7 +7191,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -7247,7 +7247,7 @@
 "wZf" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -7267,11 +7267,11 @@
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Shuttle Dock";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -7279,7 +7279,7 @@
 "xeO" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor,
@@ -7300,7 +7300,7 @@
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/light/small,
 /turf/simulated/floor,
@@ -7533,11 +7533,11 @@
 /obj/structure/machinery/door/airlock/silver{
 	dir = 4;
 	name = "Kitchen";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/forehall)
@@ -7589,12 +7589,12 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(201)
+	req_one_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	name = "Platform Command Center";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7616,7 +7616,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/portthrust)
@@ -7672,7 +7672,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201);
+	req_one_access = list(/datum/access/exress_ship::id);
 	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,

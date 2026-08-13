@@ -276,7 +276,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "Port Engineering";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
@@ -328,7 +328,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Reactor Access";
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1424,7 +1424,7 @@
 "mo" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecommunications Mainframe";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -1455,7 +1455,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Hydroponics";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1504,7 +1504,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "Starboard Engineering";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
@@ -2035,7 +2035,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_y = -32;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
@@ -2728,7 +2728,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
 	name = "Ammunition Storage";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3028,7 +3028,7 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/medical/empty{
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
@@ -3554,7 +3554,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Mining Preparation";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
@@ -3594,7 +3594,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "Starboard Engineering";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
@@ -3652,7 +3652,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/closet/walllocker/secure{
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	name = "Fuel Supply";
 	pixel_y = 32
 	},
@@ -3976,12 +3976,12 @@
 /obj/structure/machinery/vending/medical{
 	density = 0;
 	pixel_x = -32;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Blood Locker";
 	pixel_y = 32;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -4194,7 +4194,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "EVA Storage";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4424,7 +4424,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "Technical Storage";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4787,7 +4787,7 @@
 "Qz" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
@@ -4905,7 +4905,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Grauwolf Access";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
@@ -4962,7 +4962,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	dir = 4;
-	req_access = list(201);
+	req_access = list(/datum/access/exress_ship::id);
 	name = "Dormitory"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5558,7 +5558,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5999,7 +5999,7 @@
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
 	name = "Port Engineering";
-	req_access = list(201)
+	req_access = list(/datum/access/exress_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)

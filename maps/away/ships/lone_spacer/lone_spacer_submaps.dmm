@@ -10,7 +10,7 @@
 	name = "Cargo Hold #1 Shutters";
 	id = "lone_spacer_cargo1";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
@@ -24,7 +24,7 @@
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
@@ -87,7 +87,7 @@
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/r_n_d/material_silo,
@@ -311,7 +311,7 @@
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
 	pixel_y = -1;
-	req_access = list(243)
+	req_access = list(/datum/access/lone_spacer_access::id)
 	},
 /obj/structure/machinery/chem_master,
 /obj/effect/decal/cleanable/dirt,

@@ -20,7 +20,7 @@
 /area/psis_outpost)
 "ch" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Outpost";
 	dir = 1
 	},
@@ -34,7 +34,7 @@
 	},
 /obj/structure/machinery/turretid/lethal{
 	pixel_y = 32;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	check_arrest = 0;
 	check_records = 0
 	},
@@ -45,7 +45,7 @@
 /area/psis_outpost)
 "dd" = (
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/light,
@@ -206,7 +206,7 @@
 /area/psis_outpost)
 "jt" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
@@ -243,7 +243,7 @@
 "lf" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -341,7 +341,7 @@
 /area/psis_outpost)
 "rM" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Cells";
 	dir = 4
 	},
@@ -381,7 +381,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "psis_outpost_shutter";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
@@ -402,7 +402,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/light,
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -463,7 +463,7 @@
 "An" = (
 /obj/structure/machinery/turretid/lethal{
 	pixel_y = 32;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/wall/r_wall,
 /area/psis_outpost)
@@ -513,7 +513,7 @@
 /area/psis_outpost)
 "Cz" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Outpost";
 	dir = 1
 	},
@@ -574,7 +574,7 @@
 "Iy" = (
 /obj/structure/machinery/door/window/brigdoor{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "psis_cell"
@@ -616,7 +616,7 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	department = "Unknown Signal"
 	},
 /obj/effect/floor_decal/corner/red{
@@ -853,7 +853,7 @@
 /area/psis_outpost)
 "TJ" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Office";
 	dir = 4
 	},
@@ -863,7 +863,7 @@
 /area/psis_outpost)
 "TS" = (
 /obj/structure/closet/secure_closet/freezer{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
@@ -881,7 +881,7 @@
 /area/psis_outpost)
 "UM" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Interrogation";
 	dir = 1
 	},
@@ -974,7 +974,7 @@
 "XH" = (
 /obj/structure/machinery/vending/wallmed1{
 	pixel_y = 32;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
@@ -1021,7 +1021,7 @@
 /area/psis_outpost)
 "YO" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
@@ -1039,7 +1039,7 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,

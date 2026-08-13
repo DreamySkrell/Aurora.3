@@ -79,7 +79,7 @@
 "dy" = (
 /obj/structure/table/wood,
 /obj/structure/machinery/photocopier/faxmachine{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	department = "PRA Outpost";
 	req_one_access = null
 	},
@@ -286,7 +286,7 @@
 "mb" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "ammunition cabinet (rifle)"
 	},
 /obj/item/ammo_magazine/a68,
@@ -303,7 +303,7 @@
 "mj" = (
 /obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -392,7 +392,7 @@
 /area/pra_base)
 "pN" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Commissar's Office";
 	dir = 4
 	},
@@ -411,7 +411,7 @@
 /area/pra_base)
 "qa" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Barracks";
 	dir = 1
 	},
@@ -492,7 +492,7 @@
 "tT" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Meeting Room";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
@@ -563,7 +563,7 @@
 /area/pra_base)
 "wE" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Restroom";
 	dir = 4
 	},
@@ -590,7 +590,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "armor cabinet"
 	},
 /obj/structure/machinery/light{
@@ -604,7 +604,7 @@
 "xN" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /turf/simulated/floor/concrete{
@@ -618,7 +618,7 @@
 /area/pra_base)
 "yB" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (pistols)"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -750,7 +750,7 @@
 /area/pra_base)
 "Ec" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Barracks";
 	dir = 4
 	},
@@ -771,7 +771,7 @@
 "Et" = (
 /obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -986,7 +986,7 @@
 "Nc" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
@@ -1007,7 +1007,7 @@
 "NP" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "armor cabinet"
 	},
 /obj/item/clothing/suit/armor/carrier/heavy,
@@ -1134,7 +1134,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/concrete{
@@ -1175,7 +1175,7 @@
 "Up" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (icelance)"
 	},
 /obj/item/gun/energy/rifle/icelance,
@@ -1188,7 +1188,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/concrete{
@@ -1236,7 +1236,7 @@
 /area/pra_base)
 "Vy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "explosive cabinets"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -1260,7 +1260,7 @@
 /area/pra_base)
 "VN" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (automatic rifle)"
 	},
 /obj/item/gun/projectile/automatic/rifle/adhomian,
@@ -1294,7 +1294,7 @@
 /area/pra_base)
 "WS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (rifle)"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,

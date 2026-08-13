@@ -16,7 +16,7 @@
 /area/exoplanet/adhomai)
 "d" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Storage";
 	dir = 1
 	},
@@ -45,7 +45,7 @@
 	status = 2
 	},
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -91,7 +91,7 @@
 /area/adhomai_nuclear_waste)
 "q" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Compound";
 	dir = 1
 	},
@@ -112,7 +112,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -142,7 +142,7 @@
 "B" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/porta_turret/ballistic{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -150,7 +150,7 @@
 /area/adhomai_nuclear_waste)
 "E" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Entry";
 	locked = 1;
 	dir = 1
@@ -209,7 +209,7 @@
 "T" = (
 /obj/structure/machinery/turretid/lethal{
 	pixel_y = -32;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1;
 	check_arrest = 0;
 	check_records = 0
@@ -217,7 +217,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "radiation_waste";
 	name = "Entry";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4;
 	pixel_x = -32
 	},
@@ -240,7 +240,7 @@
 /area/adhomai_nuclear_waste)
 "V" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Storage";
 	dir = 4
 	},

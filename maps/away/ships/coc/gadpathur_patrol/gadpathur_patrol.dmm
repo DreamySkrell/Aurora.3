@@ -24,7 +24,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -100,14 +100,14 @@
 /area/ship/gadpathur_patrol/fuel)
 "bd" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_one_access = list(224,223,222)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "bf" = (
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
@@ -362,7 +362,7 @@
 "cM" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -432,7 +432,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -473,7 +473,7 @@
 /obj/structure/machinery/door/airlock/external/gadpathur,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -666,7 +666,7 @@
 /obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
@@ -1044,7 +1044,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -1082,7 +1082,7 @@
 /obj/item/storage/firstaid/surgery,
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light,
 /obj/item/reagent_containers/spray/cleaner{
@@ -1098,7 +1098,7 @@
 "jt" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/atmos)
@@ -1187,7 +1187,7 @@
 	pixel_x = -22
 	},
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -1203,7 +1203,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/starboard)
@@ -1239,7 +1239,7 @@
 	},
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light/floor{
 	dir = 1
@@ -1344,7 +1344,7 @@
 "kQ" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light/floor{
 	dir = 1
@@ -1545,7 +1545,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button/airlock_interior{
@@ -1587,7 +1587,7 @@
 "mI" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1756,7 +1756,7 @@
 "oy" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -1769,7 +1769,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -1864,14 +1864,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
 "ps" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/light/floor{
@@ -1902,7 +1902,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -2026,7 +2026,7 @@
 "qb" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(224,223,222)
+	req_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -2177,7 +2177,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/power/apc/west{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	req_access = null
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -2258,7 +2258,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/reinforced{
@@ -2274,7 +2274,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
@@ -2379,7 +2379,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -2555,7 +2555,7 @@
 	pixel_y = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/reinforced{
@@ -2571,7 +2571,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2629,7 +2629,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/ward)
@@ -2669,7 +2669,7 @@
 "uY" = (
 /obj/structure/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
@@ -2731,7 +2731,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -2770,7 +2770,7 @@
 	pixel_y = 23
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
@@ -2818,7 +2818,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/brig)
@@ -2985,7 +2985,7 @@
 /area/ship/gadpathur_patrol/officer_bath)
 "xJ" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3044,7 +3044,7 @@
 /area/ship/gadpathur_patrol/thrusters/port)
 "yb" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3058,7 +3058,7 @@
 "ys" = (
 /obj/structure/machinery/light/floor,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	dir = 2
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3109,7 +3109,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -3144,7 +3144,7 @@
 /area/shuttle/gadpathur_shuttle)
 "zg" = (
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3160,14 +3160,14 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	dir = 1;
 	pixel_x = 0;
 	pixel_y = 20
@@ -3282,7 +3282,7 @@
 "zW" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light/floor{
 	dir = 4
@@ -3374,7 +3374,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -3496,7 +3496,7 @@
 /area/shuttle/gadpathur_shuttle)
 "BN" = (
 /obj/structure/machinery/door/window/southright{
-	req_one_access = list(224,223,222)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -3554,7 +3554,7 @@
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/item/bedsheet/brown,
 /obj/structure/machinery/light/small{
@@ -3627,7 +3627,7 @@
 /area/ship/gadpathur_patrol/cryo)
 "Cw" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -3710,7 +3710,7 @@
 /area/ship/gadpathur_patrol/officer)
 "CN" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	dir = 4;
 	pixel_x = 10
 	},
@@ -3729,7 +3729,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -3749,7 +3749,7 @@
 "Dk" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
@@ -3789,7 +3789,7 @@
 "Du" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -3831,7 +3831,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -3945,7 +3945,7 @@
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4015,7 +4015,7 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/freezer,
@@ -4059,7 +4059,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
@@ -4104,7 +4104,7 @@
 /area/ship/gadpathur_patrol/hangar)
 "FG" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	req_one_access = list(224,223,222)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4128,7 +4128,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -4158,7 +4158,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -4308,7 +4308,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/quarters_bath)
@@ -4389,7 +4389,7 @@
 "Io" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	dir = 1;
 	pixel_y = 20
 	},
@@ -4445,7 +4445,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/officer_bath)
@@ -4516,7 +4516,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/cryo)
@@ -4529,7 +4529,7 @@
 "Jh" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable{
@@ -4593,7 +4593,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
@@ -4785,7 +4785,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -4801,7 +4801,7 @@
 "Ll" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable,
 /obj/structure/lattice/catwalk/indoor,
@@ -4858,7 +4858,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
@@ -4927,7 +4927,7 @@
 "Mz" = (
 /obj/structure/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/fabricator/autolathe,
 /obj/structure/cable{
@@ -5073,7 +5073,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/port)
@@ -5202,14 +5202,14 @@
 	},
 /obj/structure/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5290,7 +5290,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -5321,7 +5321,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -5417,7 +5417,7 @@
 "QC" = (
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
@@ -5430,7 +5430,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/port)
@@ -5498,7 +5498,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/galley)
@@ -5565,7 +5565,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224);
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id);
 	dir = 4;
 	pixel_x = 10
 	},
@@ -5625,7 +5625,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -5664,7 +5664,7 @@
 /obj/structure/bed/stool/chair/cockpit,
 /obj/structure/machinery/computer/shuttle_control/explore/gadpathur_shuttle{
 	pixel_x = 31;
-	req_one_access = list(224,223,222)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5708,7 +5708,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
@@ -5744,7 +5744,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -5914,7 +5914,7 @@
 "TY" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_one_access = list(224,223,222)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id,/datum/access/gadpathur_navy::id,/datum/access/coalition_navy::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5930,7 +5930,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5948,7 +5948,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -5962,7 +5962,7 @@
 /area/ship/gadpathur_patrol/hangar)
 "UB" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6019,7 +6019,7 @@
 /area/shuttle/gadpathur_shuttle)
 "UV" = (
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
@@ -6230,7 +6230,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
@@ -6311,13 +6311,13 @@
 	pixel_y = -1
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cell)
 "Xs" = (
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light/floor{
 	dir = 8
@@ -6338,7 +6338,7 @@
 	},
 /obj/structure/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4
@@ -6517,7 +6517,7 @@
 	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(223,224)
+	req_one_access = list(/datum/access/gadpathur_navy::id,/datum/access/gadpathur_navy_officer::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)

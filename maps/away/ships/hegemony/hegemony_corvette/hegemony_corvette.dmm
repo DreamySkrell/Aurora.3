@@ -108,7 +108,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Engineering";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -316,7 +316,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "cc" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/melee/energy/glaive/hegemony,
@@ -373,7 +373,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony3"
 	},
 /obj/structure/machinery/firealarm/east,
@@ -418,7 +418,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
@@ -488,7 +488,7 @@
 	pixel_y = 12
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -649,13 +649,13 @@
 	pixel_x = -32;
 	pixel_y = -7;
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony_cic"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
 	pixel_y = 3;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
@@ -864,7 +864,7 @@
 	pixel_x = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -899,7 +899,7 @@
 "fu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -926,7 +926,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
@@ -997,7 +997,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1023,7 +1023,7 @@
 /obj/structure/machinery/firealarm/west,
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony_cic"
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1074,7 +1074,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1083,7 +1083,7 @@
 "gm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -1095,7 +1095,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1198,7 +1198,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "EVA Equipment";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -1267,7 +1267,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "hI" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1367,7 +1367,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -1683,7 +1683,7 @@
 	name = "Ship Lockdown";
 	pixel_y = 8;
 	pixel_x = -5;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	desc = "It controls blast doors, remotely. This button looks to be non-functional."
 	},
 /obj/structure/machinery/button/remote/blast_door{
@@ -1691,13 +1691,13 @@
 	pixel_x = 5;
 	pixel_y = 8;
 	id = "hegemony_bridge";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -5;
 	pixel_y = -1;
 	name = "Ship Window Shields";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony_window"
 	},
 /obj/structure/machinery/button/remote/blast_door{
@@ -1705,7 +1705,7 @@
 	pixel_x = 5;
 	pixel_y = -1;
 	id = "hegemony_cic";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/clothing/head/helmet/pilot{
 	pixel_y = 4
@@ -1787,7 +1787,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/trophy_room)
@@ -1836,7 +1836,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1868,7 +1868,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1883,7 +1883,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1954,7 +1954,7 @@
 /obj/structure/machinery/light,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
@@ -1965,7 +1965,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
@@ -1995,7 +1995,7 @@
 /area/hegemony_ship/gun_deck_flak)
 "ml" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -2058,7 +2058,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2080,7 +2080,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/light,
@@ -2131,7 +2131,7 @@
 	},
 /obj/item/gun/energy/rifle/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
@@ -2300,7 +2300,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_flak)
@@ -2335,7 +2335,7 @@
 	pixel_y = 4
 	},
 /obj/structure/machinery/door/window/brigdoor/northleft{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
@@ -2368,7 +2368,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2608,7 +2608,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/temple)
@@ -2639,7 +2639,7 @@
 /area/hegemony_ship/eva_storage)
 "pI" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
@@ -2772,7 +2772,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Shuttle Dock";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2899,7 +2899,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
@@ -3115,7 +3115,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -3143,7 +3143,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "Boarding Pods";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -3379,7 +3379,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -3709,7 +3709,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3720,7 +3720,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -3786,7 +3786,7 @@
 /obj/item/gun/projectile/heavysniper/unathi,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/armory)
@@ -3916,7 +3916,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window/brigdoor/northleft{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
@@ -4033,7 +4033,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -4233,7 +4233,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -4311,7 +4311,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -4334,7 +4334,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4366,7 +4366,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/rubber,
@@ -4389,7 +4389,7 @@
 "zC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4403,7 +4403,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/recharger{
 	pixel_x = -5;
@@ -4570,7 +4570,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/vending/medical{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
@@ -4651,7 +4651,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
@@ -4922,7 +4922,7 @@
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5288,7 +5288,7 @@
 /area/shuttle/hegemony)
 "EY" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -5318,7 +5318,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
@@ -5412,7 +5412,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -5478,7 +5478,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -5577,7 +5577,7 @@
 "GF" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
@@ -5595,7 +5595,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -5624,7 +5624,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -5650,7 +5650,7 @@
 /area/hegemony_ship)
 "GS" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -5766,7 +5766,7 @@
 /area/hegemony_ship)
 "Hn" = (
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5815,7 +5815,7 @@
 /obj/structure/machinery/light/small/emergency,
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -5835,7 +5835,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -5873,7 +5873,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
@@ -5887,7 +5887,7 @@
 "In" = (
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/starboard_propulsion)
@@ -5906,7 +5906,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5948,7 +5948,7 @@
 "IG" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/sign/flag/hegemony/large/south{
@@ -6068,7 +6068,7 @@
 "Jo" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6140,7 +6140,7 @@
 "JG" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
@@ -6159,7 +6159,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/light/colored/red{
 	dir = 4
@@ -6178,7 +6178,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
@@ -6219,7 +6219,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -6276,7 +6276,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/port_propulsion)
@@ -6291,7 +6291,7 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/recharger{
 	pixel_x = 7;
@@ -6362,7 +6362,7 @@
 "KZ" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ammo Store";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6609,7 +6609,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "Healer's Bay";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6636,7 +6636,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
@@ -6652,7 +6652,7 @@
 "MB" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6670,7 +6670,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
@@ -6687,7 +6687,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
@@ -6739,7 +6739,7 @@
 "MZ" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(114);
+	req_one_access = list(/datum/access/kataphract/knight::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6829,7 +6829,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6843,7 +6843,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -6872,7 +6872,7 @@
 	pixel_x = -7;
 	pixel_y = -2;
 	id = "hegemony_shuttle";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
@@ -6906,7 +6906,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/medbay)
@@ -6942,7 +6942,7 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
@@ -7017,7 +7017,7 @@
 /obj/structure/machinery/light,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
@@ -7212,7 +7212,7 @@
 "PG" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gunnery Foyer";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -7363,7 +7363,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -7431,7 +7431,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/vending/engineering{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
@@ -7532,7 +7532,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7578,7 +7578,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	shuttle_tag = "Hegemony Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -7722,7 +7722,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
 	pixel_y = -4
@@ -7752,7 +7752,7 @@
 "SN" = (
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospheric Waste";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7985,7 +7985,7 @@
 "TW" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7996,7 +7996,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecommunications";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8020,7 +8020,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -8049,7 +8049,7 @@
 "Uo" = (
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/port_propulsion)
@@ -8174,7 +8174,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -8475,7 +8475,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -8487,7 +8487,7 @@
 /area/hegemony_ship/crew_quarters)
 "Xf" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -8603,7 +8603,7 @@
 /area/space)
 "XN" = (
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -8781,7 +8781,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/structure/machinery/door/window/brigdoor/southright{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 1
 	},
 /obj/item/clothing/mask/gas/vaurca/tactical,
@@ -8818,7 +8818,7 @@
 "YM" = (
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospherics Air Supply";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8863,7 +8863,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
+	req_one_access = list(/datum/access/external_airlocks::id,/datum/access/kataphract::id);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
@@ -8890,7 +8890,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -8994,7 +8994,7 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{

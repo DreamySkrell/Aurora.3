@@ -46,7 +46,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -116,7 +116,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -167,7 +167,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	dir = 4;
 	name = "Messhall"
 	},
@@ -363,7 +363,7 @@
 /obj/item/folder/sec,
 /obj/item/clothing/head/beret/security/officer,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -402,7 +402,7 @@
 /area/ship/elyran_corvette/messhall)
 "bR" = (
 /obj/structure/machinery/alarm/east{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -625,7 +625,7 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
@@ -646,7 +646,7 @@
 "cT" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
@@ -883,7 +883,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/portwep)
@@ -922,7 +922,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Engineering Foyer"
 	},
 /turf/simulated/floor/tiled/full,
@@ -970,7 +970,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -990,7 +990,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
@@ -1010,7 +1010,7 @@
 /obj/item/flash,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1042,7 +1042,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "gun cabinet (sidearms)"
 	},
 /obj/item/gun/energy/retro,
@@ -1129,7 +1129,7 @@
 	pixel_y = 4
 	},
 /obj/structure/machinery/alarm/north{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
@@ -1143,7 +1143,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Starboard Thrusters"
 	},
 /turf/simulated/floor/tiled/full,
@@ -1192,7 +1192,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -1203,7 +1203,7 @@
 "fX" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
@@ -1223,7 +1223,7 @@
 /obj/item/vitals_monitor,
 /obj/structure/table/standard,
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -1263,7 +1263,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
@@ -1314,7 +1314,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/button/remote/blast_door{
@@ -1322,21 +1322,21 @@
 	pixel_x = -6;
 	name = "Crew Quarters Window Shutters";
 	id = "elyran_corvette_crew_viewing";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 5;
 	pixel_x = -6;
 	name = "Kitchen Window Shutters";
 	id = "elyran_corvette_kitchen_viewing";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -1;
 	pixel_x = -6;
 	name = "Captain's Quarters Window Shutters";
 	id = "elyran_corvette_captain_viewing";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/item/flag/elyra{
 	pixel_y = -10
@@ -1355,7 +1355,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1414,7 +1414,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/captain)
@@ -1525,7 +1525,7 @@
 /area/ship/elyran_corvette/briefing)
 "hv" = (
 /obj/structure/machinery/door/window/southleft{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -1712,7 +1712,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
@@ -1799,7 +1799,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1855,7 +1855,7 @@
 /area/ship/elyran_corvette/starboardthrust)
 "js" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1898,7 +1898,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/briefing)
@@ -2017,7 +2017,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	dir = 4;
 	name = "Crew Quarters"
 	},
@@ -2031,13 +2031,13 @@
 /area/ship/elyran_corvette/dorm)
 "kJ" = (
 /obj/structure/machinery/door/window/westleft{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
 "kL" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "gun cabinet (plasma shotguns)"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2063,7 +2063,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/starboardhallway)
@@ -2084,7 +2084,7 @@
 /area/ship/elyran_corvette/starboardwep)
 "kW" = (
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -2133,7 +2133,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/north{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -2228,7 +2228,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2372,7 +2372,7 @@
 "mY" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
@@ -2518,7 +2518,7 @@
 	pixel_x = -5;
 	name = "Control Center Lockdown";
 	id = "elyran_corvette_cic_lockdown";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/button/distress{
 	pixel_x = 7;
@@ -2570,7 +2570,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Control Center";
 	dir = 4
 	},
@@ -2707,7 +2707,7 @@
 	id = "elyra_brig_bolts";
 	specialfunctions = 4;
 	name = "Holding Cell Bolts";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
@@ -2756,7 +2756,7 @@
 /obj/item/bedsheet/black,
 /obj/structure/curtain/open/bed,
 /obj/structure/machinery/alarm/west{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/ghostspawpoint{
@@ -2771,7 +2771,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
@@ -2839,7 +2839,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2927,7 +2927,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	dir = 4;
 	name = "Captain's Office"
 	},
@@ -2948,7 +2948,7 @@
 "pW" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Messhall"
 	},
 /turf/simulated/floor/tiled/full,
@@ -2995,7 +2995,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Starboard Armament"
 	},
 /obj/structure/sign/securearea{
@@ -3013,7 +3013,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
@@ -3042,7 +3042,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -3069,7 +3069,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled,
@@ -3078,7 +3078,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_y = 32;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
@@ -3124,7 +3124,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Port Armament"
 	},
 /obj/structure/sign/securearea{
@@ -3269,7 +3269,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable,
 /obj/item/clothing/head/helmet/pilot,
@@ -3360,7 +3360,7 @@
 /obj/effect/floor_decal/corner/brown,
 /obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/light/colored/decayed{
 	dir = 1
@@ -3373,7 +3373,7 @@
 "sJ" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Starboard Armament"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3399,7 +3399,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/engineering)
@@ -3753,7 +3753,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	dir = 4;
 	name = "Ready Room"
 	},
@@ -3794,7 +3794,7 @@
 "vz" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Dorm";
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	door_color = "#bdb6ae"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
@@ -3959,7 +3959,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/east{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -4030,7 +4030,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardthrust)
@@ -4172,7 +4172,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/east{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4256,7 +4256,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light/colored/decayed{
@@ -4290,7 +4290,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/light/colored/decayed{
 	dir = 8
@@ -4342,7 +4342,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/marble/dark,
@@ -4373,7 +4373,7 @@
 /area/ship/elyran_corvette/hangar)
 "yB" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -4570,7 +4570,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4593,7 +4593,7 @@
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -4701,7 +4701,7 @@
 "Aw" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Holding Cell";
 	dir = 4;
 	id_tag = "elyra_brig_bolts"
@@ -4765,7 +4765,7 @@
 /area/ship/elyran_corvette/messhall)
 "AN" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "gun cabinet (plasma bolters)"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4833,7 +4833,7 @@
 	},
 /obj/structure/machinery/cryopod,
 /obj/structure/machinery/alarm/north{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -4917,7 +4917,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -5012,7 +5012,7 @@
 "Ce" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -5030,7 +5030,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Port Thrusters"
 	},
 /turf/simulated/floor/tiled/full,
@@ -5040,7 +5040,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -5070,7 +5070,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5104,7 +5104,7 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/structure/cable,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/stone/marble,
@@ -5176,7 +5176,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Engineering"
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -5209,7 +5209,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/east{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5306,7 +5306,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/mainhallway)
@@ -5356,7 +5356,7 @@
 /area/ship/elyran_corvette/mainhallway)
 "Ey" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -5441,7 +5441,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/reinforced,
@@ -5614,7 +5614,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Telecommunications";
 	dir = 4
 	},
@@ -5931,7 +5931,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -6127,7 +6127,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -6428,7 +6428,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Control Center"
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -6459,7 +6459,7 @@
 /area/ship/elyran_corvette/medbay)
 "KW" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Engineering";
 	dir = 4
 	},
@@ -6496,7 +6496,7 @@
 /area/ship/elyran_corvette/portwep)
 "Lc" = (
 /obj/structure/machinery/door/window/westleft{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -6623,7 +6623,7 @@
 	},
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -6711,7 +6711,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/door/window/southright{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
@@ -6790,7 +6790,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -6940,7 +6940,7 @@
 /area/space)
 "Nv" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -7190,7 +7190,7 @@
 /area/ship/elyran_corvette/mainhallway)
 "OJ" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	d2 = 4;
@@ -7207,7 +7207,7 @@
 /area/ship/elyran_corvette/starboardwep)
 "OM" = (
 /obj/structure/machinery/power/apc/west{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -7242,7 +7242,7 @@
 /area/ship/elyran_corvette/cic)
 "OQ" = (
 /obj/structure/machinery/door/window/eastright{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
@@ -7403,7 +7403,7 @@
 /area/ship/elyran_corvette/captain)
 "PI" = (
 /obj/structure/machinery/alarm/west{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -7442,7 +7442,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/brig)
@@ -7475,7 +7475,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Control Center";
 	dir = 4
 	},
@@ -7579,7 +7579,7 @@
 "Qi" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
@@ -7808,7 +7808,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/closet/crate/bin,
@@ -7969,7 +7969,7 @@
 /area/ship/elyran_corvette/portthrust)
 "RZ" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -8118,7 +8118,7 @@
 /area/ship/elyran_corvette/starboardhallway)
 "SQ" = (
 /obj/structure/machinery/alarm/north{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8159,7 +8159,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -8261,7 +8261,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
@@ -8306,7 +8306,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8431,7 +8431,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Power Compartment"
 	},
 /turf/simulated/floor/tiled/full,
@@ -8503,7 +8503,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/plating,
@@ -8583,7 +8583,7 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/vending/engineering{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8740,7 +8740,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Engineering Foyer"
 	},
 /turf/simulated/floor/tiled/full,
@@ -8838,7 +8838,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
@@ -8862,7 +8862,7 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/vending/tool{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -8930,7 +8930,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -8948,7 +8948,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -9041,7 +9041,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/mainhallway)
@@ -9064,7 +9064,7 @@
 "Yk" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	name = "Port Armament"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9193,7 +9193,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_elyran_shuttle";
 	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
+	req_one_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/reinforced,
@@ -9274,13 +9274,13 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(207)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)
 "Zz" = (
 /obj/structure/machinery/alarm/west{
-	req_access = list(207);
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id);
 	req_one_access = null
 	},
 /obj/structure/machinery/computer/ship/engines/terminal{

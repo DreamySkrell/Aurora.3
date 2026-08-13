@@ -19,7 +19,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark{
@@ -81,7 +81,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor{
@@ -164,7 +164,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/cable/green{
@@ -298,7 +298,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -328,7 +328,7 @@
 /area/headmaster_ship/lift_area)
 "bd" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -343,7 +343,7 @@
 "bh" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -378,7 +378,7 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	name = "Crew Bunks"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -404,7 +404,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark{
@@ -431,7 +431,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Cell";
 	dir = 1
 	},
@@ -549,7 +549,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Operating Theatre";
 	dir = 4
 	},
@@ -652,7 +652,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -674,11 +674,11 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -878,7 +878,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/machinery/light/small{
@@ -932,7 +932,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -1004,7 +1004,7 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = 6;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
@@ -1019,7 +1019,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor{
@@ -1098,7 +1098,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/commissar_cabin)
@@ -1155,7 +1155,7 @@
 /area/turbolift/headmaster_ship/headmaster_lift)
 "dK" = (
 /obj/structure/machinery/vending/tool{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/random/dirt_75,
@@ -1176,7 +1176,7 @@
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "Lavatory";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -1229,7 +1229,7 @@
 /area/headmaster_ship/propulsion)
 "dR" = (
 /obj/structure/closet/secure_closet/engineering_welding{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -1254,7 +1254,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/blast/regular/open{
@@ -1262,7 +1262,7 @@
 	id = "headmaster_dock"
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -1279,7 +1279,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -1451,7 +1451,7 @@
 /area/headmaster_ship/mess_hall)
 "ex" = (
 /obj/structure/machinery/vending/engivend{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/structure/machinery/light{
@@ -1616,7 +1616,7 @@
 "ff" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1641,7 +1641,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1649,7 +1649,7 @@
 /area/headmaster_ship/dock/fore)
 "fv" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light{
@@ -1742,7 +1742,7 @@
 /obj/item/stack/material/glass/full,
 /obj/structure/closet/crate/secure{
 	name = "damage control equipment";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -1801,7 +1801,7 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full{
@@ -1951,7 +1951,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -1972,17 +1972,17 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_y = -25;
 	dir = 1;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = -32
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -1997,7 +1997,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -2049,7 +2049,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -2102,7 +2102,7 @@
 /area/headmaster_ship/atmospherics)
 "gV" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Engineering Equipment"
 	},
 /obj/item/storage/backpack/duffel/eng,
@@ -2176,7 +2176,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -2214,7 +2214,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2227,7 +2227,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2297,7 +2297,7 @@
 /obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/sign/flag/pra/large/east{
 	dir = 4;
@@ -2376,11 +2376,11 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = 30;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1;
 	pixel_y = 11
 	},
@@ -2389,13 +2389,13 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_shuttle_airlock";
 	name = "Airlock Lockdown";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1;
 	pixel_x = -28
 	},
@@ -2518,7 +2518,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -2538,7 +2538,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -2721,7 +2721,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2765,7 +2765,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2784,14 +2784,14 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -2818,7 +2818,7 @@
 "jx" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light,
@@ -2882,7 +2882,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Propulsion";
 	dir = 1
 	},
@@ -2965,7 +2965,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -3004,16 +3004,16 @@
 	},
 /obj/structure/machinery/light,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (equipment)"
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (equipment)"
 	},
 /obj/item/storage/belt/security/full/alt,
@@ -3108,7 +3108,7 @@
 /area/headmaster_ship/hangar)
 "kH" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_x = -1;
 	name = "Equipment Closet"
 	},
@@ -3179,7 +3179,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -3279,7 +3279,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3353,7 +3353,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -3368,7 +3368,7 @@
 "lp" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full{
@@ -3642,7 +3642,7 @@
 /area/headmaster_ship/brig)
 "mc" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
@@ -3707,7 +3707,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -3748,7 +3748,7 @@
 /area/headmaster_ship/hallway_lower)
 "mw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (explosives)"
 	},
 /obj/item/gun/projectile/recoilless_rifle,
@@ -3792,7 +3792,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/machinery/light/small{
@@ -3837,17 +3837,17 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_y = -25;
 	dir = 1;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = 32
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -3922,7 +3922,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
@@ -4017,11 +4017,11 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/shuttle_landmark/headmaster_ship/dock/aft,
 /obj/effect/landmark/entry_point/aft{
@@ -4046,7 +4046,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Atmospherics";
 	dir = 4
 	},
@@ -4072,7 +4072,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4117,7 +4117,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -4186,7 +4186,7 @@
 /area/headmaster_ship/engineering)
 "ot" = (
 /obj/structure/machinery/vending/medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -4242,7 +4242,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Infirmary";
 	dir = 4
 	},
@@ -4274,7 +4274,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -4340,7 +4340,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light{
 	dir = 4
@@ -4501,7 +4501,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/captains_cabin)
@@ -4634,7 +4634,7 @@
 	pixel_x = -21;
 	id = "headmaster_reactor";
 	name = "Reactor Blast Doors";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -4645,13 +4645,13 @@
 "rc" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_shuttle_window";
 	name = "Window Shields";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = 3
@@ -4687,7 +4687,7 @@
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4722,7 +4722,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Helm"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -4786,7 +4786,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -4807,7 +4807,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Brig";
 	dir = 4
 	},
@@ -4844,7 +4844,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -4859,7 +4859,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Nuclear Reactor Compartment";
 	dir = 4
 	},
@@ -4872,7 +4872,7 @@
 /area/headmaster_ship/engineering)
 "rV" = (
 /obj/structure/machinery/vending/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -4930,7 +4930,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -4964,7 +4964,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5003,7 +5003,7 @@
 /obj/structure/machinery/button/distress{
 	dir = 4;
 	pixel_x = -21;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5054,7 +5054,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Helm"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -5094,7 +5094,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /obj/structure/closet/walllocker/medical/secure{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Stabilization Kit";
 	pixel_x = 32
 	},
@@ -5139,7 +5139,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/fore_dock,
@@ -5175,7 +5175,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -5187,7 +5187,7 @@
 /area/headmaster_ship/mess_hall)
 "tp" = (
 /obj/structure/machinery/seed_storage/garden{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/structure/machinery/light{
@@ -5247,7 +5247,7 @@
 "tM" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/structure/machinery/smartfridge/foodheater,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -5292,7 +5292,7 @@
 "tZ" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/pra{
@@ -5307,7 +5307,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/photocopier/faxmachine{
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	department = "Headmaster Ship"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -5356,7 +5356,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5392,7 +5392,7 @@
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (rifles)"
 	},
 /obj/structure/machinery/light{
@@ -5453,7 +5453,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -5467,7 +5467,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -5501,7 +5501,7 @@
 /area/headmaster_ship/brig)
 "uK" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (icelance)"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -5552,7 +5552,7 @@
 "vd" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5599,7 +5599,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Fore Docking Arm"
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -5636,7 +5636,7 @@
 "vq" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5656,7 +5656,7 @@
 "vw" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full{
@@ -5684,11 +5684,11 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -5716,7 +5716,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Captain's Quarters"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -5768,7 +5768,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -5896,7 +5896,7 @@
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Morgue";
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	door_color = "#353a42"
 	},
 /obj/structure/cable/green{
@@ -6153,7 +6153,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -6199,7 +6199,7 @@
 "xM" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pilot's Amenities";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/head/helmet/pilot,
@@ -6303,7 +6303,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (personal arms)"
 	},
 /obj/item/storage/belt/military,
@@ -6317,7 +6317,7 @@
 /obj/item/ammo_magazine/a50,
 /obj/item/gun/projectile/deagle/adhomai,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6434,7 +6434,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -6484,10 +6484,10 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/dirt_75,
@@ -6501,7 +6501,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -6574,7 +6574,7 @@
 /area/headmaster_ship/helm)
 "zz" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (pistols)"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -6586,7 +6586,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6613,7 +6613,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -6636,7 +6636,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -6652,7 +6652,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -6678,7 +6678,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -6763,7 +6763,7 @@
 /area/headmaster_ship/gun_deck)
 "Ax" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (pistol ammo)"
 	},
 /obj/item/ammo_magazine/mc9mm,
@@ -6795,7 +6795,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -6868,7 +6868,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -6878,7 +6878,7 @@
 /obj/structure/machinery/light,
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/roller_rack{
 	pixel_y = 3
@@ -6894,7 +6894,7 @@
 /area/headmaster_ship/morgue)
 "Bk" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -6980,7 +6980,7 @@
 "Bs" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
@@ -7089,7 +7089,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Stall 1";
 	dir = 1;
 	id_tag = "headmaster_stall_1"
@@ -7114,7 +7114,7 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -7127,7 +7127,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -7141,7 +7141,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/closet/walllocker/secure{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Fuel Storage";
 	pixel_y = -32
 	},
@@ -7206,7 +7206,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -7247,7 +7247,7 @@
 /area/headmaster_ship/hangar)
 "CA" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (rifle ammo)"
 	},
 /obj/item/ammo_magazine/a68,
@@ -7286,7 +7286,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (personal arms)"
 	},
 /obj/item/storage/belt/military,
@@ -7300,7 +7300,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -7401,7 +7401,7 @@
 /area/headmaster_ship/lavatory)
 "Do" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7445,7 +7445,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -7564,7 +7564,7 @@
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "Lavatory";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -7653,7 +7653,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Helm"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -7752,7 +7752,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7768,7 +7768,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -7799,7 +7799,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/cable/green{
@@ -7826,7 +7826,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -7856,17 +7856,17 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_y = -30;
 	dir = 4;
-	req_access = list(212);
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id);
 	pixel_x = 5
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -7918,7 +7918,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -7950,10 +7950,10 @@
 /area/headmaster_ship/helm)
 "Gc" = (
 /obj/structure/closet/secure_closet/custodial/offship{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/machinery/light{
@@ -7978,7 +7978,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -8101,7 +8101,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Helm"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -8115,7 +8115,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -8124,7 +8124,7 @@
 /area/headmaster_ship/hallway_upper)
 "GV" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/pra{
@@ -8315,7 +8315,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Captain's Cabin"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -8341,7 +8341,7 @@
 	dir = 10;
 	pixel_y = 8;
 	pixel_x = -6;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_helm";
@@ -8349,7 +8349,7 @@
 	dir = 10;
 	pixel_x = 5;
 	pixel_y = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_windows";
@@ -8357,7 +8357,7 @@
 	dir = 10;
 	pixel_x = -6;
 	pixel_y = -1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_robots";
@@ -8365,7 +8365,7 @@
 	dir = 10;
 	pixel_x = 5;
 	pixel_y = -1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -8378,12 +8378,12 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = 27;
 	pixel_y = -6;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_x = 27
@@ -8395,7 +8395,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
 	name = "headmaster_shuttle";
-	req_one_access = list(209);
+	req_one_access = list(/datum/access/pra::id);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /obj/structure/cable/green{
@@ -8437,7 +8437,7 @@
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "O- Blood"
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -8454,7 +8454,7 @@
 /obj/structure/machinery/suit_cycler/offship/pra,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -8508,7 +8508,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -8526,7 +8526,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/freezer{
 	name = "Freezer";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -8555,10 +8555,10 @@
 	dir = 1
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -8636,7 +8636,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -8685,7 +8685,7 @@
 /area/headmaster_ship/dock/fore)
 "JD" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "gun cabinet (equipment)"
 	},
 /obj/item/clothing/suit/armor/carrier/heavy,
@@ -8803,7 +8803,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -8847,7 +8847,7 @@
 	pixel_y = 1
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Port Docking Arm";
 	dir = 1
 	},
@@ -8918,7 +8918,7 @@
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/chemical_dispenser/coffee/full{
@@ -8956,7 +8956,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -8977,7 +8977,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -9122,7 +9122,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -9177,7 +9177,7 @@
 	pixel_y = -3
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/soap,
@@ -9392,7 +9392,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -9405,14 +9405,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/headmaster_ship/dock/port{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, docking arm"
@@ -9489,7 +9489,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -9531,7 +9531,7 @@
 /area/headmaster_ship/freezer)
 "MU" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/pra{
@@ -9559,7 +9559,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -9605,7 +9605,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Commissar's Cabin"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -9685,7 +9685,7 @@
 	},
 /obj/structure/machinery/door/airlock/command/gold{
 	dir = 4;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Commissar's Quarters"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -9722,7 +9722,7 @@
 /obj/item/sleeping_bag,
 /obj/structure/closet/crate/secure{
 	name = "tables, chairs, and camping equipment";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 10
@@ -9752,7 +9752,7 @@
 "NG" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -9798,7 +9798,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9808,7 +9808,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/item/ship_ammunition/francisca/frag{
 	pixel_x = -4;
@@ -9913,7 +9913,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -9939,7 +9939,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Utility Closet";
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -10014,7 +10014,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_y = -30;
@@ -10026,7 +10026,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -10058,7 +10058,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/gunmetal{
 	temperature = 278.15
@@ -10156,7 +10156,7 @@
 /obj/structure/closet/secure_closet/evidence{
 	name = "personal belongings storage";
 	req_one_access = null;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark{
@@ -10232,7 +10232,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Stall 2";
 	dir = 1;
 	id_tag = "headmaster_stall_2"
@@ -10310,7 +10310,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10321,7 +10321,7 @@
 "QL" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -10336,7 +10336,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/gunmetal{
 	temperature = 278.15
@@ -10361,7 +10361,7 @@
 "QS" = (
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/structure/machinery/light{
@@ -10374,7 +10374,7 @@
 /area/headmaster_ship/hangar)
 "QT" = (
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -10454,11 +10454,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, docking arm"
@@ -10473,7 +10473,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -10575,7 +10575,7 @@
 "RE" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
@@ -10593,7 +10593,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -10613,7 +10613,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -10622,7 +10622,7 @@
 /area/headmaster_ship/mess_hall)
 "RL" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10706,7 +10706,7 @@
 "Sa" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green,
 /obj/item/storage/box/bodybags{
@@ -10735,7 +10735,7 @@
 "Sd" = (
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
@@ -10777,7 +10777,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/aft_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -10826,7 +10826,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -10848,7 +10848,7 @@
 /area/headmaster_ship/cic)
 "SD" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	pixel_x = -1;
 	name = "Uniform Closet"
 	},
@@ -10888,11 +10888,11 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -10914,7 +10914,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -11004,7 +11004,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -11054,7 +11054,7 @@
 "Tu" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
@@ -11091,7 +11091,7 @@
 	pixel_y = 1
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Starboard Docking Arm";
 	dir = 1
 	},
@@ -11118,7 +11118,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -11135,7 +11135,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Armory"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -11148,7 +11148,7 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/fore_dock,
@@ -11281,7 +11281,7 @@
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Lavatory";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -11315,7 +11315,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -11351,7 +11351,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -11364,7 +11364,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -11388,7 +11388,7 @@
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
-	req_one_access = list(24,11,67,209)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/paramedic::id,/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/blast/shutters{
@@ -11475,7 +11475,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/starboard_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -11591,7 +11591,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/cold/north{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor{
@@ -11607,10 +11607,10 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/shuttle_port{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -11637,7 +11637,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Power Compartment";
 	dir = 4
 	},
@@ -11681,7 +11681,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/docking/headmaster_ship/port_dock{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -11713,7 +11713,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "headmaster_windows"
@@ -11739,7 +11739,7 @@
 "Xj" = (
 /obj/structure/closet/crate/secure{
 	name = "flags and banners";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/item/flag/pra/l,
 /obj/item/flag/pra/l,
@@ -11868,7 +11868,7 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = 30;
@@ -11892,7 +11892,7 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = 25;
@@ -11907,7 +11907,7 @@
 /area/headmaster_ship/dock/fore)
 "XD" = (
 /obj/structure/machinery/alarm/cold/west{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -11935,11 +11935,11 @@
 "XH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/alarm/cold/east{
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark/full{
@@ -12020,7 +12020,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = 9;
 	pixel_y = 32;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -12034,7 +12034,7 @@
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Kitchen";
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -12075,7 +12075,7 @@
 	spawn_grille = 1;
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(209)
+	req_one_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor,
 /area/headmaster_ship/brig)
@@ -12125,7 +12125,7 @@
 	dir = 10;
 	pixel_y = 8;
 	pixel_x = -6;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_helm";
@@ -12133,7 +12133,7 @@
 	dir = 10;
 	pixel_x = 5;
 	pixel_y = 8;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_windows";
@@ -12141,7 +12141,7 @@
 	dir = 10;
 	pixel_x = -6;
 	pixel_y = -1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "headmaster_robots";
@@ -12149,7 +12149,7 @@
 	dir = 10;
 	pixel_x = 5;
 	pixel_y = -1;
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278.15
@@ -12161,7 +12161,7 @@
 	},
 /obj/structure/closet/walllocker/secure{
 	pixel_x = 32;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Emergency Locker"
 	},
 /obj/item/gun/projectile/revolver/derringer,
@@ -12289,7 +12289,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Gunnery Compartment"
 	},
 /turf/simulated/floor/tiled/dark/full{
@@ -12375,7 +12375,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
+	req_access = list(/datum/access/pra::id);
 	name = "Combat Information Centre";
 	dir = 4
 	},
@@ -12420,7 +12420,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -12438,7 +12438,7 @@
 /area/headmaster_ship/hallway_lower)
 "ZW" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light{
@@ -12451,7 +12451,7 @@
 "ZZ" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(209)
+	req_access = list(/datum/access/pra::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/ghostspawpoint{

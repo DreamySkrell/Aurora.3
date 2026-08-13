@@ -123,7 +123,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -133,7 +133,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
+	req_access = list(/datum/access/engine_equip::id);
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -147,7 +147,7 @@
 "av" = (
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_x = -32;
-	req_access = list(150)
+	req_access = list(/datum/access/syndicate::id)
 	},
 /obj/item/stack/medical/splint,
 /obj/item/stack/medical/ointment,

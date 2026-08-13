@@ -2,7 +2,7 @@
 "ae" = (
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Telecommunications"
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -69,7 +69,7 @@
 /area/konyang_telecomms_outpost)
 "de" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Armory"
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -113,7 +113,7 @@
 /area/konyang_telecomms_outpost)
 "fk" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Rifle Cabinet"
 	},
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
@@ -157,7 +157,7 @@
 /area/konyang_telecomms_outpost)
 "hq" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Monitoring Station"
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -283,7 +283,7 @@
 	id = "konyang_telecomm_front";
 	name = "Outer Shutters";
 	pixel_y = 28;
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	pixel_x = -6
 	},
 /obj/structure/bed/stool/chair/office/dark{
@@ -294,7 +294,7 @@
 	id = "konyang_telecomm_back";
 	name = "Inner Shutters";
 	pixel_y = 28;
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	pixel_x = 6
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -349,7 +349,7 @@
 	id = "konyang_garage";
 	name = "Garage";
 	pixel_y = 28;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
@@ -563,7 +563,7 @@
 /area/konyang_telecomms_outpost)
 "Dw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Equipment Cabinet"
 	},
 /obj/structure/machinery/light{
@@ -728,7 +728,7 @@
 /area/konyang_telecomms_outpost)
 "Nr" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Gate Checkpoint"
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -881,7 +881,7 @@
 /area/konyang_telecomms_outpost)
 "Uw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Sidearms Cabinet"
 	},
 /obj/item/ammo_magazine/mc9mm,
@@ -896,7 +896,7 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(218)
+	req_access = list(/datum/access/portofcall_police::id)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
@@ -972,7 +972,7 @@
 	dir = 8;
 	id = "konyang_telecomm_front";
 	name = "Outer Shutters";
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	pixel_x = -23;
 	pixel_y = 16
 	},
@@ -983,7 +983,7 @@
 	dir = 8;
 	id = "konyang_telecomm_back";
 	name = "Inner Shutters";
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	pixel_x = -23
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1011,7 +1011,7 @@
 /area/konyang_telecomms_outpost)
 "YY" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218);
+	req_access = list(/datum/access/portofcall_police::id);
 	name = "Equipment Cabinet"
 	},
 /obj/structure/machinery/light{

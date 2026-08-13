@@ -290,7 +290,7 @@
 /area/bluespaceriver/ship)
 "pI" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
@@ -397,7 +397,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,55)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -425,7 +425,7 @@
 /area/bluespaceriver/ship)
 "vy" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -899,7 +899,7 @@
 /area/bluespaceriver/ship)
 "Re" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,55)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -1068,7 +1068,7 @@
 "WR" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
+	req_one_access = list(/datum/access/atmospherics::id,/datum/access/engine_equip::id,/datum/access/xenobiology::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)

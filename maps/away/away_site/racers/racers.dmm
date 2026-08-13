@@ -1767,7 +1767,7 @@
 "iHR" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Kitchen";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 4
 	},
 /obj/effect/spider/stickyweb,
@@ -1777,7 +1777,7 @@
 /area/racers)
 "iJa" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(111)
+	req_access = list(/datum/access/tcaf::id)
 	},
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,
@@ -1955,7 +1955,7 @@
 "jnP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -2255,7 +2255,7 @@
 "kLy" = (
 /obj/structure/machinery/door/window{
 	name = "Bar";
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/diamond,
@@ -3846,7 +3846,7 @@
 "sxr" = (
 /obj/structure/sign/double/barsign{
 	pixel_y = 32;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/wood,
 /area/racers)
@@ -3993,7 +3993,7 @@
 "tnT" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Staff Room";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/curtain/black,
@@ -4213,7 +4213,7 @@
 /area/shuttle/racers_red)
 "urT" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(111)
+	req_access = list(/datum/access/tcaf::id)
 	},
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,
@@ -4359,7 +4359,7 @@
 "vdz" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(202);
+	req_access = list(/datum/access/generic_away_site::id);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
@@ -4501,7 +4501,7 @@
 "vCD" = (
 /obj/structure/machinery/vending/boozeomat{
 	opacity = 1;
-	req_access = list(202)
+	req_access = list(/datum/access/generic_away_site::id)
 	},
 /turf/simulated/floor/lino/diamond,
 /area/racers)

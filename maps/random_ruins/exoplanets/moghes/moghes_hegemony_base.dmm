@@ -60,7 +60,7 @@
 /area/moghes/hegemony_base)
 "ct" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "Barracks";
 	dir = 4
 	},
@@ -89,7 +89,7 @@
 /area/moghes/hegemony_base)
 "cD" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "glaive cabinet"
 	},
 /obj/item/melee/energy/glaive/hegemony,
@@ -173,7 +173,7 @@
 "gb" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -209,7 +209,7 @@
 "gR" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113);
+	req_one_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -246,7 +246,7 @@
 /area/moghes/hegemony_base)
 "is" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (energy pistols)"
 	},
 /obj/item/gun/energy/pistol/hegemony,
@@ -299,7 +299,7 @@
 /area/moghes/hegemony_base)
 "iS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "hammer cabinet"
 	},
 /obj/item/melee/hammer/powered/hegemony,
@@ -402,7 +402,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (energy rifles)"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -475,7 +475,7 @@
 /area/moghes/hegemony_base)
 "ml" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "sword cabinet"
 	},
 /obj/item/melee/energy/sword/hegemony,
@@ -492,7 +492,7 @@
 /area/moghes/hegemony_base)
 "mO" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "shield cabinet"
 	},
 /obj/item/shield/energy/hegemony,
@@ -602,7 +602,7 @@
 "rb" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(113)
+	req_one_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -695,7 +695,7 @@
 "uL" = (
 /obj/structure/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "body armor cabinet"
 	},
 /obj/item/clothing/suit/armor/unathi/hegemony,
@@ -756,7 +756,7 @@
 /area/moghes/hegemony_base)
 "xt" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "holster cabinet"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -804,7 +804,7 @@
 /area/moghes/hegemony_base)
 "yd" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (slugger)"
 	},
 /obj/structure/sign/flag/hegemony/large/north{
@@ -853,14 +853,14 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1098,7 +1098,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -32;
 	name = "Healer's Equipment";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/reagent_containers/hypospray{
 	pixel_y = 4;
@@ -1124,7 +1124,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = -24
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1280,7 +1280,7 @@
 "Ky" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1304,14 +1304,14 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
 	dir = 8;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1357,7 +1357,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -1398,7 +1398,7 @@
 /area/moghes/hegemony_base/outdoors)
 "OA" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1483,7 +1483,7 @@
 /area/moghes/hegemony_base/outdoors)
 "QG" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "ammunition cabinet (slugger)"
 	},
 /obj/item/ammo_casing/slugger,
@@ -1700,7 +1700,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/door/airlock/security{
 	name = "Briefing Room";
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1708,7 +1708,7 @@
 /area/moghes/hegemony_base)
 "Xc" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	name = "gun cabinet (energy rifles)"
 	},
 /obj/item/storage/belt/security,
@@ -1740,7 +1740,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1759,7 +1759,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
+	req_access = list(/datum/access/kataphract::id);
 	pixel_y = -24
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -1801,7 +1801,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet{
-	req_access = list(113)
+	req_access = list(/datum/access/kataphract::id)
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15

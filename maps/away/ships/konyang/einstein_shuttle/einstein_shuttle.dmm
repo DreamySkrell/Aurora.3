@@ -118,7 +118,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
@@ -145,7 +145,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/multi_tile{
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	name = "Bathrooms";
 	dir = 1
 	},
@@ -360,7 +360,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	name = "Private Room";
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
@@ -435,7 +435,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	name = "Private Room";
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
@@ -477,7 +477,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
@@ -503,7 +503,7 @@
 "nx" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
@@ -542,7 +542,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/vending/engivend{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -584,7 +584,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
@@ -613,7 +613,7 @@
 	req_one_access = null
 	},
 /obj/structure/machinery/suit_cycler/engineering{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
@@ -645,7 +645,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "Docking Port";
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
@@ -679,7 +679,7 @@
 "rL" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/high/south{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
@@ -718,7 +718,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -742,7 +742,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/einstein_shuttle/conference)
@@ -795,7 +795,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -874,7 +874,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -985,7 +985,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	name = "Private Room";
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
@@ -1039,7 +1039,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1107,7 +1107,7 @@
 	},
 /obj/structure/machinery/door/airlock{
 	name = "Private Room";
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
@@ -1134,7 +1134,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1298,7 +1298,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
@@ -1374,7 +1374,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	name = "Starboard Propulsion"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1460,7 +1460,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1483,7 +1483,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/vending/engineering{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
@@ -1527,7 +1527,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Conference Room";
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1612,7 +1612,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1626,7 +1626,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/north{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
@@ -1649,7 +1649,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1681,7 +1681,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1731,7 +1731,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/high/west{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
@@ -1767,7 +1767,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(205)
+	req_access = list(/datum/access/ee_spy_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
@@ -1783,7 +1783,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(205);
+	req_access = list(/datum/access/ee_spy_ship::id);
 	name = "Port Propulsion"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1944,7 +1944,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -1974,7 +1974,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
@@ -2027,7 +2027,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
-	req_one_access = list(205);
+	req_one_access = list(/datum/access/ee_spy_ship::id);
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},

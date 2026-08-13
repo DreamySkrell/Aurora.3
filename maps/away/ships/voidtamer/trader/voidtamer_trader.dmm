@@ -24,7 +24,7 @@
 "aq" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 1;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/tiled/gunmetal,
@@ -76,7 +76,7 @@
 /area/voidtamer/trader/dock)
 "aO" = (
 /obj/structure/machinery/power/apc/critical/west{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -132,7 +132,7 @@
 "bh" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -339,7 +339,7 @@
 /area/voidtamer/trader/mining_blaster)
 "cH" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/random/prebuilt_ka,
 /obj/random/prebuilt_ka,
@@ -356,7 +356,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/mining)
@@ -449,7 +449,7 @@
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/north,
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -480,7 +480,7 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Airlock";
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -517,7 +517,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/item/eftpos,
 /turf/simulated/floor/tiled/gunmetal,
@@ -1197,7 +1197,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -1211,7 +1211,7 @@
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/east,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
-	req_access = list(256);
+	req_access = list(/datum/access/voidtamer_ship::id);
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1237,7 +1237,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/east_hangar,
@@ -1290,7 +1290,7 @@
 "jS" = (
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/east,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
@@ -1434,7 +1434,7 @@
 /area/voidtamer/trader/engineering/starboard)
 "ln" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1466,7 +1466,7 @@
 /area/voidtamer/trader/kitchen)
 "lF" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1597,7 +1597,7 @@
 	},
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -1852,7 +1852,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -2005,7 +2005,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/voidtamer_trader/dock/east_hangar{
@@ -2017,7 +2017,7 @@
 "qc" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/diona/bulb,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2114,7 +2114,7 @@
 /area/voidtamer/trader/autocannon_gun)
 "qW" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2189,7 +2189,7 @@
 "rC" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/diona/bulb,
 /obj/effect/floor_decal/spline/plain/grey,
@@ -2247,7 +2247,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -2424,7 +2424,7 @@
 /area/voidtamer/trader/autocannon_gun)
 "ty" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2433,7 +2433,7 @@
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/white,
 /area/voidtamer/trader/kitchen)
@@ -2592,7 +2592,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering/starboard)
@@ -2650,7 +2650,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/west_hangar,
@@ -2665,7 +2665,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -2698,7 +2698,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
@@ -2845,7 +2845,7 @@
 "ws" = (
 /obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 4;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/diona/bulb,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2882,7 +2882,7 @@
 /area/voidtamer/trader/engineering/starboard)
 "wP" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2890,7 +2890,7 @@
 /obj/structure/flora/pottedplant/woodyshrubdying,
 /obj/structure/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/autocannon_gun)
@@ -2947,7 +2947,7 @@
 "xm" = (
 /obj/random/dirt_75,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -3377,7 +3377,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/diona{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -3433,7 +3433,7 @@
 /obj/structure/closet/crate/loot,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/warehouse)
@@ -3443,7 +3443,7 @@
 	},
 /obj/structure/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -3542,7 +3542,7 @@
 /obj/item/storage/box/shells,
 /obj/item/storage/box/shells/stunshells,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -3571,7 +3571,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -3693,7 +3693,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/north,
 /obj/structure/machinery/access_button{
-	req_access = list(256);
+	req_access = list(/datum/access/voidtamer_ship::id);
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3761,7 +3761,7 @@
 "EE" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
@@ -3869,7 +3869,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/diona{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
@@ -3928,7 +3928,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/east_hangar,
 /turf/simulated/floor/tiled/dark,
@@ -3956,7 +3956,7 @@
 "Gf" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -4088,7 +4088,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/east,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -4215,14 +4215,14 @@
 "Ie" = (
 /obj/structure/diona/bulb,
 /obj/structure/machinery/vending/hydronutrients/hydroponics{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
 "If" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4366,7 +4366,7 @@
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
@@ -4485,7 +4485,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 25;
 	pixel_y = -10;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark,
@@ -4505,7 +4505,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/power/apc/high/east{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 31
@@ -4702,7 +4702,7 @@
 "Mq" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -4740,7 +4740,7 @@
 /area/voidtamer/trader/crew)
 "MJ" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -4828,7 +4828,7 @@
 	pixel_y = 7;
 	pixel_x = 22;
 	frequency = 1380;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -4949,7 +4949,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 5;
 	pixel_y = 28;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/west_hangar,
@@ -5267,7 +5267,7 @@
 "QS" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/voidtamer_trade_ship_shuttle{
 	dir = 4;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/light/voidtamer{
 	dir = 8
@@ -5420,7 +5420,7 @@
 /area/voidtamer/trader/temple)
 "Sg" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -5439,7 +5439,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/west_hangar,
 /turf/simulated/floor/diona,
@@ -5488,7 +5488,7 @@
 /area/voidtamer/trader/kitchen)
 "SY" = (
 /obj/structure/machinery/vending/engineering{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
@@ -5689,7 +5689,7 @@
 /obj/random/dirt_75,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/mining_blaster)
@@ -5814,7 +5814,7 @@
 /obj/structure/diona/bulb,
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/tiled/gunmetal,
@@ -5925,7 +5925,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/seed_storage/garden/xenobotany{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
@@ -6047,7 +6047,7 @@
 /area/voidtamer/trader/crew)
 "XU" = (
 /obj/structure/machinery/door/airlock/glass_command{
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6070,7 +6070,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 30;
 	pixel_y = 12;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
@@ -6234,7 +6234,7 @@
 /obj/random/dirt_75,
 /obj/structure/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(256)
+	req_access = list(/datum/access/voidtamer_ship::id)
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
