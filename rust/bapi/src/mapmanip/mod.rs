@@ -1,16 +1,16 @@
 use std::collections::HashMap;
 
+use core::to_grid_map;
 use core::GridMap;
 use core::TileGrid;
-use core::to_grid_map;
 
 use dmmtools::dmi::Dir;
 use dmmtools::dmm::Coord3;
 use dmmtools::dmm::Prefab;
 use dreammaker::constants::Constant;
+use eyre::eyre;
 use eyre::Context;
 use eyre::ContextCompat;
-use eyre::eyre;
 use itertools::Itertools;
 use procgen::{mapmanip_mazegen_hauberk, MazegenHauberkSettings};
 use rand::prelude::IteratorRandom;
