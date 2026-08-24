@@ -11,16 +11,16 @@
     //     "submaps_can_repeat": false
     // },
     // // entrance
-    // {
-    //     "type": "SubmapExtractInsert",
-    //     "submap_size_x": 42,
-    //     "submap_size_y": 22,
-    //     "submap_size_z": 1,
-    //     "submaps_dmm": "modular_random_outpost_submaps.dmm",
-    //     "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_random_outpost/main/entrance",
-    //     "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_random_outpost/main/entrance",
-    //     "submaps_can_repeat": false
-    // },
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 189,
+        "submap_size_y": 31,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_random_outpost_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_random_outpost/main/entrance",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_random_outpost/main/entrance",
+        "submaps_can_repeat": false
+    },
     // module x7
     {
         "type": "RepeatManipulations",
@@ -34,7 +34,7 @@
                 "submaps_dmm": "modular_random_outpost_submaps.dmm",
                 "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_random_outpost/main/module",
                 "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_random_outpost/main/module",
-                "submaps_can_repeat": true
+                "submaps_can_repeat": false
             }
         ]
     }
