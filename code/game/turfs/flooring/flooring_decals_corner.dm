@@ -483,7 +483,6 @@
 /datum/define/color_sets
 	var/set_index_main = 1
 	var/set_index_alt = 1
-	var/set_index_contrasting = 1
 
 	var/list/sets_security = list()
 
@@ -499,14 +498,31 @@ ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	color_set = pick_maptemplate_consistent(color_set, get_map_template(src), color_set)
 	color = color_set[color_set_index]
 
+ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random/security)
+	color_set = /datum/define/color_sets::sets_security
+
+// ----
+
 /obj/effect/floor_decal/corner/random/security/main
 	name = "randomly colored corner"
-	color_set = /datum/define/color_sets::sets_security
+	color_set_index = /datum/define/color_sets::set_index_main
 
 /obj/effect/floor_decal/corner/random/security/main/diagonal
 	icon_state = "preview_diagonal_rainbow"
 	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/random/security/main/full
+	icon_state = "preview_threethirds_rainbow"
+	blend_state = "threethirds"
+
+/obj/effect/floor_decal/corner/random/security/alt
+	name = "randomly colored corner"
+	color_set_index = /datum/define/color_sets::set_index_alt
+
+/obj/effect/floor_decal/corner/random/security/alt/diagonal
+	icon_state = "preview_diagonal_rainbow"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner/random/security/alt/full
 	icon_state = "preview_threethirds_rainbow"
 	blend_state = "threethirds"
