@@ -484,7 +484,7 @@
 	var/list/sets_security = list()
 
 ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
-	icon_state = "preview_corner"
+	icon_state = "preview_corner_rainbow"
 	var/color_set = null
 
 /obj/effect/floor_decal/corner/random/Initialize()
@@ -497,9 +497,9 @@ ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	color_set = /datum/define/color_sets::sets_security
 
 /obj/effect/floor_decal/corner/random/security/diagonal
-	icon_state = "preview_diagonal"
+	icon_state = "preview_diagonal_rainbow"
 	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/random/security/full
-	icon_state = "preview_threethirds"
+	icon_state = "preview_threethirds_rainbow"
 	blend_state = "threethirds"
