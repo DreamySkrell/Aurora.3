@@ -23,3 +23,15 @@
 // ^- The dynamic access operator is needed because we accept paths and we can't fake cast them to a hygenic typed var since we have to give a return value
 // it sucks, but it's DM, so things are bound to suck sometimes. Thanks byond. It shouldn't however give any issue, because the abstract_type var is defined
 // at the datum level, so essentially for everything, and this being a macro saves proc call overhead -- essentially, i think the tradeoff is worth it
+
+/// Abstract define type.
+/// Intended to be used for collections or groups of defines.
+/// Not meant to be instantiated.
+/// Basically a better alternative to a raw `#define`.
+ABSTRACT_TYPE(/datum/define)
+
+/datum/define/Initialize()
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	dbg_stack_trace("Should not be instantiated: [type]")
+	. = ..()

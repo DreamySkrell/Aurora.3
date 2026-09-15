@@ -480,16 +480,21 @@
 
 // ----------------- Randomly colored corner decals
 
+/datum/define/color_sets
+	var/list/sets_security = list()
+
 ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	icon_state = "preview_corner"
+	var/color_set = null
 
 /obj/effect/floor_decal/corner/random/Initialize()
 	. = ..()
-	color = pick_maptemplate_consistent(spawnlist, template, src.type)
+	color = pick_maptemplate_consistent(color_set, get_map_template(src), color_set)
 
 /obj/effect/floor_decal/corner/random/security
 	name = "black corner"
 	color = COLOR_GRAY20
+	color_set = /datum/define/color_sets::sets_security
 
 /obj/effect/floor_decal/corner/random/security/diagonal
 	icon_state = "preview_diagonal"

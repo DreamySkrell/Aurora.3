@@ -90,3 +90,41 @@ GLOBAL_LIST_EMPTY(moving_levels)
 						AM.throw_at(get_step(T,REVERSE_DIR(direction)), 5, 1)
 						CHECK_TICK
 			CHECK_TICK
+
+/// Returns the map_template.
+/// Arg can be the z-level number or atom instance.
+/// Returns the corresponding `/datum/map_template` instance.
+/proc/get_map_template(z_or_atom)
+	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
+	dbg_assert(isnum(z_or_atom) || isatom(z_or_atom), "Expected atom or number, got [ispath(z_or_atom) ? "[z_or_atom] (path)" : "[z_or_atom]"]")
+
+	var/resolved_z = z_or_atom
+
+	if(isatom(z_or_atom))
+		var/atom/A = z_or_atom
+		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
+		resolved_z = A.z
+
+	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
+	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
+
+	return GLOB.map_templates["[resolved_z]"]
+
+/// Returns the map sector.
+/// Arg can be the z-level number or atom instance.
+/// Returns the corresponding `/obj/effect/overmap/visitable` instance.
+/proc/get_map_sector(z_or_atom)
+	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
+	dbg_assert(isnum(z_or_atom) || isatom(z_or_atom), "Expected atom or number, got [ispath(z_or_atom) ? "[z_or_atom] (path)" : "[z_or_atom]"]")
+
+	var/resolved_z = z_or_atom
+
+	if(isatom(z_or_atom))
+		var/atom/A = z_or_atom
+		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
+		resolved_z = A.z
+
+	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
+	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
+
+	return GLOB.map_sectors["[resolved_z]"]
