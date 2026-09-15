@@ -481,25 +481,32 @@
 // ----------------- Randomly colored corner decals
 
 /datum/define/color_sets
+	var/set_index_main = 1
+	var/set_index_alt = 1
+	var/set_index_contrasting = 1
+
 	var/list/sets_security = list()
 
 ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	icon_state = "preview_corner_rainbow"
 	var/color_set = null
+	var/color_set_index = null
 
 /obj/effect/floor_decal/corner/random/Initialize()
 	. = ..()
-	color = pick_maptemplate_consistent(color_set, get_map_template(src), color_set)
+	dbg_assert(color_set, "Color set should be set")
+	dbg_assert(color_set_index, "Color set index should be set")
+	color_set = pick_maptemplate_consistent(color_set, get_map_template(src), color_set)
+	color = color_set[color_set_index]
 
-/obj/effect/floor_decal/corner/random/security
-	name = "black corner"
-	color = COLOR_GRAY20
+/obj/effect/floor_decal/corner/random/security/main
+	name = "randomly colored corner"
 	color_set = /datum/define/color_sets::sets_security
 
-/obj/effect/floor_decal/corner/random/security/diagonal
+/obj/effect/floor_decal/corner/random/security/main/diagonal
 	icon_state = "preview_diagonal_rainbow"
 	blend_state = "diagonal"
 
-/obj/effect/floor_decal/corner/random/security/full
+/obj/effect/floor_decal/corner/random/security/main/full
 	icon_state = "preview_threethirds_rainbow"
 	blend_state = "threethirds"
