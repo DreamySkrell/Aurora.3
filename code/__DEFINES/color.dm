@@ -192,3 +192,47 @@
 #define COLOR_THEME_SLIMECORE "#4FB259"
 #define COLOR_THEME_OPERATIVE "#B8221F"
 #define COLOR_THEME_CLOCKWORK "#CFBA47"
+
+/// Color sets
+/datum/define/color_sets
+	var/set_index_main = 1
+	var/set_index_alt = 1
+
+	var/list/sets_security = list(
+		list(COLOR_RED_GRAY, COLOR_MAROON),
+		list(COLOR_MAROON, COLOR_RED_GRAY),
+		list(COLOR_PALE_BLUE_GRAY, COLOR_BLUE_GRAY),
+		list(COLOR_CYAN_BLUE, COLOR_BLUE_GRAY),
+	)
+	var/list/sets_science = list(
+		list(COLOR_PALE_RED_GRAY, COLOR_PALE_PURPLE_GRAY),
+		list(COLOR_PALE_PURPLE_GRAY, COLOR_PALE_RED_GRAY),
+	)
+	var/list/sets_medical = list(
+		list(COLOR_SEAFOAM, COLOR_PALE_GREEN_GRAY),
+		list(COLOR_GREEN_GRAY, COLOR_SEAFOAM),
+		list(COLOR_DARK_GREEN_GRAY, COLOR_PALE_GREEN_GRAY),
+		list(COLOR_PALE_GREEN_GRAY, COLOR_CYAN_BLUE),
+	)
+	var/list/sets_industrial = list(
+		list(COLOR_BROWN, COLOR_DARK_BROWN),
+		list(COLOR_DARK_BROWN, COLOR_MUTED_BROWN),
+		list(COLOR_MUTED_BROWN, COLOR_SEDONA),
+		list(COLOR_SEDONA, COLOR_DARK_BROWN),
+	)
+	var/list/sets_gray = list(
+		list(COLOR_OFF_WHITE, COLOR_GRAY40),
+		list(COLOR_GRAY70, COLOR_GRAY20),
+		list(COLOR_GRAY40, COLOR_OFF_WHITE),
+		list(COLOR_GRAY20, COLOR_GRAY70),
+	)
+	var/list/sets_dark_color = list(
+		list(COLOR_GRAY, COLOR_DARK_BLUE_GRAY),
+		list(COLOR_MUTED_BROWN, COLOR_CLOSET_GOLD),
+		list(COLOR_DARK_BLUE_GRAY, COLOR_PALE_BLUE_GRAY),
+		list(COLOR_PALE_BLUE_GRAY, COLOR_RAIDER),
+		list(COLOR_CLOSET_GOLD, COLOR_ASTEROID_ROCK),
+		list(COLOR_ASTEROID_ROCK, COLOR_GRAY),
+		list(COLOR_RAIDER, COLOR_CLOSET_GOLD),
+	)
+

@@ -29,8 +29,10 @@ GLOB.consistent_pick_cache = list(
  */
 /proc/pick_consistent(list/choices, scope_key, identifier)
 	if(!length(choices))
+		dbg_stack_trace("No choices available for consistent pick")
 		return null
 	if(!scope_key || !identifier)
+		dbg_stack_trace("No scope key or identifier provided for consistent pick")
 		return pickweight(choices)
 
 	// get the scope cache (eg. for the area)

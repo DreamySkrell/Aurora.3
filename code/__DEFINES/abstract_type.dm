@@ -30,7 +30,7 @@
 /// Basically a better alternative to a raw `#define`.
 ABSTRACT_TYPE(/datum/define)
 
-/datum/define/Initialize()
+/datum/define/New()
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	dbg_stack_trace("Should not be instantiated: [type]")
