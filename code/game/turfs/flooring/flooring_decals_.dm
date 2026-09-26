@@ -83,7 +83,7 @@
 		T.update_icon()
 	qdel(src)
 
-// ------
+// Splines.
 
 /obj/effect/floor_decal/carpet
 	name = "carpet"
