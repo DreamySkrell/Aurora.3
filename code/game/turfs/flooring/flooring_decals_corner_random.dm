@@ -1,7 +1,7 @@
 
 // ----------------- Randomly colored corner decals
 // These decals will have their colors randomized from a defined set of colors.
-// Randomisation is maptemplate consistent.
+// Randomisation is sector consistent.
 
 ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	name = "randomly colored corner"
@@ -9,12 +9,13 @@ ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 	var/color_set = null
 	var/color_set_index = null
 
-/obj/effect/floor_decal/corner/random/Initialize()
-	. = ..()
+/obj/effect/floor_decal/corner/random/LateInitialize()
 	dbg_assert(color_set, "Color set should be set")
 	dbg_assert(color_set_index, "Color set index should be set")
-	color_set = pick_maptemplate_consistent(color_set, get_map_template(src), color_set)
+	color_set = pick_zlevel_consistent(color_set, GET_Z(src), src.type)
+	// color_set = get_map_sector(color_set, GET_Z(src), src.type)
 	color = color_set[color_set_index]
+	. = ..()
 
 // ----
 

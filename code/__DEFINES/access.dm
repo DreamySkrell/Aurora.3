@@ -51,8 +51,7 @@
 			var/datum/access/acc_type = entry
 
 			// abstract types should not be used
-			if(is_abstract(acc_type))
-				dbg_stack_trace("resolve_access_list(): access path '[entry]' is abstract")
+			dbg_assert(!is_abstract(acc_type), "resolve_access_list(): access path '[entry]' is abstract")
 
 			var/resolved_id = acc_type::id
 			resolved[i] = resolved_id

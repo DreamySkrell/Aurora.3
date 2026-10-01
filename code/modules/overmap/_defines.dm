@@ -108,7 +108,10 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
 
-	return GLOB.map_templates["[resolved_z]"]
+	var/datum/map_template/template = GLOB.map_templates["[resolved_z]"]
+	dbg_assert(istype(template), "Z-level is not sector type or invalid, got [template], [template.type]")
+
+	return template
 
 /// Returns the map sector.
 /// Arg can be the z-level number or atom instance.
@@ -127,4 +130,7 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
 
-	return GLOB.map_sectors["[resolved_z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[resolved_z]"]
+	dbg_assert(istype(sector), "Z-level is not sector type or invalid, got [sector], [sector.type]")
+
+	return sector

@@ -14,8 +14,8 @@
 	/// Whether it is area consistent.
 	/// If true, the result is the same for every random spawner in a single area.
 	var/is_area_consistent = FALSE
-	/// Whether it is map template consistent.
-	var/is_map_template_consistent = FALSE
+	/// Whether it is zlevel consistent.
+	var/is_zlevel_consistent = FALSE
 
 /// Creates a new object and deletes itself
 /obj/random/Initialize()
@@ -29,7 +29,7 @@
 				post_spawn(spawned_item)
 
 #ifdef UNIT_TESTS
-	if(is_area_consistent && is_map_template_consistent)
+	if(is_area_consistent && is_zlevel_consistent)
 		crash_with("[DEBUG_REF(src)]: only one is_consistent toggle can be on")
 #endif
 
@@ -48,9 +48,8 @@
 
 		if(is_area_consistent)
 			itemtype = pick_area_consistent(spawnlist, get_area(src), src.type)
-		else if(is_map_template_consistent)
-			var/datum/map_template/template = GLOB.map_templates["[z]"]
-			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
+		else if(is_zlevel_consistent)
+			itemtype = pick_zlevel_consistent(spawnlist, GET_Z(src), src.type)
 		else
 			itemtype = pickweight(spawnlist)
 

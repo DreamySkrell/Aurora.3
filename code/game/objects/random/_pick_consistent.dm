@@ -49,10 +49,22 @@ GLOB.consistent_pick_cache = list(
 	GLOB.consistent_pick_cache[scope_key][identifier] = picked
 	return picked
 
-/// Consistent within the same /area
+/// Consistent within the same area
 /proc/pick_area_consistent(list/choices, area/a, identifier)
+	dbg_assert(istype(a), "invalid area: [a]")
 	return pick_consistent(choices, a, identifier)
 
-/// Consistent within a specific map template load
-/proc/pick_maptemplate_consistent(list/choices, datum/map_template/t, identifier)
-	return pick_consistent(choices, t, identifier)
+/// Consistent within the same zlevel
+/proc/pick_zlevel_consistent(list/choices, z, identifier)
+	dbg_assert(isnum(z), "invalid zlevel value: [z]")
+	return pick_consistent(choices, "zlevel_[z]", identifier)
+
+/// Consistent within the same map template
+/proc/pick_map_template_consistent(list/choices, datum/map_template/m, identifier)
+	dbg_assert(istype(m), "invalid map template: [m]")
+	return pick_consistent(choices, m, identifier)
+
+/// Consistent within the same sector
+/proc/pick_sector_consistent(list/choices, obj/effect/overmap/visitable/s, identifier)
+	dbg_assert(istype(s), "invalid sector: [s]")
+	return pick_consistent(choices, s, identifier)

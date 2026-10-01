@@ -196,7 +196,7 @@
 /// Color sets
 /datum/define/color_sets
 	var/set_index_main = 1
-	var/set_index_alt = 1
+	var/set_index_alt = 2
 
 	var/list/sets_security = list(
 		list(COLOR_RED_GRAY, COLOR_MAROON),
