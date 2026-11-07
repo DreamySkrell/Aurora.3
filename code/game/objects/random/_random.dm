@@ -24,6 +24,27 @@
 /// Creates a new object and deletes itself
 /obj/random/Initialize()
 	. = ..()
+
+#ifdef UNIT_TESTS
+	if(is_area_consistent + is_zlevel_consistent + is_map_template_consistent + is_sector_consistent > 1)
+		crash_with("[DEBUG_REF(src)]: only one is_consistent toggle can be on")
+#endif
+
+	// Sectors register themselves for their zlevels in their own Initialize,
+	// which may run after ours at mapload. So wait until all atoms are initialized.
+	if(is_sector_consistent)
+		return INITIALIZE_HINT_LATELOAD
+
+	do_random_spawn()
+	return INITIALIZE_HINT_QDEL
+
+/obj/random/LateInitialize()
+	. = ..()
+	do_random_spawn()
+	qdel(src)
+
+/// Rolls the spawn chance, spawns the item, and applies pixel offsets and post spawn.
+/obj/random/proc/do_random_spawn()
 	if (!prob(spawn_nothing_percentage))
 		var/obj/spawned_item = spawn_item()
 		if(spawned_item)
@@ -31,13 +52,6 @@
 			spawned_item.pixel_y = pixel_y
 			if(has_postspawn)
 				post_spawn(spawned_item)
-
-#ifdef UNIT_TESTS
-	if(is_area_consistent && is_zlevel_consistent)
-		crash_with("[DEBUG_REF(src)]: only one is_consistent toggle can be on")
-#endif
-
-	return INITIALIZE_HINT_QDEL
 
 /// Any post-spawn actions for the item
 /obj/random/proc/post_spawn(obj/thing)
@@ -51,15 +65,13 @@
 		var/itemtype
 
 		if(is_area_consistent)
-			itemtype = pick_area_consistent(spawnlist, get_area(src), src.type)
+			itemtype = pick_area_consistent(spawnlist, src, src.type)
 		else if(is_zlevel_consistent)
-			itemtype = pick_zlevel_consistent(spawnlist, GET_Z(src), src.type)
+			itemtype = pick_zlevel_consistent(spawnlist, src, src.type)
 		else if(is_map_template_consistent)
-			var/datum/map_template/template = get_map_template(z)
-			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
+			itemtype = pick_map_template_consistent(spawnlist, src, src.type)
 		else if(is_sector_consistent)
-			var/datum/map_template/template = get_map_template(z)
-			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
+			itemtype = pick_sector_consistent(spawnlist, src, src.type)
 		else
 			itemtype = pickweight(spawnlist)
 

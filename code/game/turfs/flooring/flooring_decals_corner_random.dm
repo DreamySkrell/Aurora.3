@@ -12,8 +12,7 @@ ABSTRACT_TYPE(/obj/effect/floor_decal/corner/random)
 /obj/effect/floor_decal/corner/random/LateInitialize()
 	dbg_assert(color_set, "Color set should be set")
 	dbg_assert(color_set_index, "Color set index should be set")
-	color_set = pick_zlevel_consistent(color_set, GET_Z(src), src.type)
-	// color_set = get_map_sector(color_set, GET_Z(src), src.type)
+	color_set = pick_sector_consistent(color_set, src, src.type)
 	color = color_set[color_set_index]
 	. = ..()
 
