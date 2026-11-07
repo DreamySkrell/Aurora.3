@@ -34,6 +34,6 @@
 /// If running in unit tests, assert that an expression is true.
 /// If assertion fails, print the stack trace and fail tests.
 /// If not tests, does nothing.
-#define dbg_assert(assertion, reason...)
+#define dbg_assert(assertion, reason)
 
 #endif

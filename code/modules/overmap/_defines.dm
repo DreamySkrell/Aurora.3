@@ -5,11 +5,13 @@
 /// All sector overmap objects.
 /// Assoc list of stringified zlevel integer value (like `"1"` or `"42"` etc)
 /// to an instance of `/obj/effect/overmap/visitable`.
+/// Prefer to use the `get_map_template` proc instead of accessing this list directly.
 GLOBAL_LIST_EMPTY(map_sectors)
 
 /// All sector map templates. Analogous to the list above.
 /// Assoc list of stringified zlevel integer value
 /// to an instance of `/datum/map_template`.
+/// Prefer to use the `get_map_sector` proc instead of accessing this list directly.
 GLOBAL_LIST_EMPTY(map_templates)
 
 /area/overmap
@@ -92,7 +94,8 @@ GLOBAL_LIST_EMPTY(moving_levels)
 			CHECK_TICK
 
 /// Returns the map_template.
-/// Arg can be the z-level number or atom instance.
+/// Arg must be the z-level number or atom instance.
+/// Arg must be a valid z-level: no null or out-of-bounds z-levels.
 /// Returns the corresponding `/datum/map_template` instance.
 /proc/get_map_template(z_or_atom)
 	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
@@ -101,20 +104,18 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	var/resolved_z = z_or_atom
 
 	if(isatom(z_or_atom))
-		var/atom/A = z_or_atom
-		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
-		resolved_z = A.z
+		var/turf/T = get_turf(z_or_atom)
+		dbg_assert(isturf(T) && T.z > 0, "Atom [z_or_atom] is in nullspace or unplaced")
+		resolved_z = T ? T.z : null
 
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
 
-	var/datum/map_template/template = GLOB.map_templates["[resolved_z]"]
-	dbg_assert(istype(template), "Z-level is not sector type or invalid, got [template], [template.type]")
-
-	return template
+	return GLOB.map_templates["[resolved_z]"]
 
 /// Returns the map sector.
-/// Arg can be the z-level number or atom instance.
+/// Arg must be the z-level number or atom instance.
+/// Arg must be a valid z-level: no null or out-of-bounds z-levels.
 /// Returns the corresponding `/obj/effect/overmap/visitable` instance.
 /proc/get_map_sector(z_or_atom)
 	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
@@ -123,14 +124,11 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	var/resolved_z = z_or_atom
 
 	if(isatom(z_or_atom))
-		var/atom/A = z_or_atom
-		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
-		resolved_z = A.z
+		var/turf/T = get_turf(z_or_atom)
+		dbg_assert(isturf(T) && T.z > 0, "Atom [z_or_atom] is in nullspace or unplaced")
+		resolved_z = T ? T.z : null
 
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
 
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[resolved_z]"]
-	dbg_assert(istype(sector), "Z-level is not sector type or invalid, got [sector], [sector.type]")
-
-	return sector
+	return GLOB.map_sectors["[resolved_z]"]

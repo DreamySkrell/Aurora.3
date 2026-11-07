@@ -16,6 +16,10 @@
 	var/is_area_consistent = FALSE
 	/// Whether it is zlevel consistent.
 	var/is_zlevel_consistent = FALSE
+	/// Whether it is maptemplate consistent.
+	var/is_map_template_consistent = FALSE
+	/// Whether it is sector consistent.
+	var/is_sector_consistent = FALSE
 
 /// Creates a new object and deletes itself
 /obj/random/Initialize()
@@ -50,6 +54,12 @@
 			itemtype = pick_area_consistent(spawnlist, get_area(src), src.type)
 		else if(is_zlevel_consistent)
 			itemtype = pick_zlevel_consistent(spawnlist, GET_Z(src), src.type)
+		else if(is_map_template_consistent)
+			var/datum/map_template/template = get_map_template(z)
+			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
+		else if(is_sector_consistent)
+			var/datum/map_template/template = get_map_template(z)
+			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
 		else
 			itemtype = pickweight(spawnlist)
 

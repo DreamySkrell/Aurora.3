@@ -412,6 +412,7 @@
 	if(istype(src, /mob/living))
 		var/mob/living/living_mob = src
 		living_mob.update_camera_view_action()
+	update_tent_roof_visibility()
 	return
 
 /mob/proc/is_viewing_camera()
@@ -595,7 +596,7 @@
 		if(check_rights(R_ADMIN, show_msg = FALSE))
 			if(failure == "")
 				failure = "You are not allowed to respawn."
-			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
+			if(tgui_alert(usr, failure + " Override?", "Respawn not allowed", list("Yes", "Cancel")) != "Yes")
 				return
 			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").")
 		else
@@ -1415,7 +1416,7 @@
 	if (!check_rights((R_MOD|R_ADMIN), 1, admin))
 		return
 
-	if (alert(admin, "Wind [src]?",,"Yes","No")!="Yes")
+	if (tgui_alert(admin, "Wind [src]?", , list("Yes", "No"))!="Yes")
 		return
 
 	SetWeakened(200)
