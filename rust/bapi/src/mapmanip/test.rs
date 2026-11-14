@@ -157,5 +157,5 @@ fn mapmanip_configs_parse() {
 fn mapmanip_configs_execute() {
     // this is only "unsafe" cause that function is `extern "C"`
     // it does not do anything actually unsafe
-    unsafe { crate::all_mapmanip_configs_execute_ffi() }
+    unsafe { crate::all_mapmanip_configs_execute_ffi(std::ptr::null()) }
 }
