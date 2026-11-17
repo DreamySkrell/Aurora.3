@@ -24,14 +24,24 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
 	if(!master_tag)
 		return
 
+	var/button_done = FALSE
 	for(var/thing in loc)
 		var/obj/structure/machinery/button/switch/windowtint/button = thing
 		if(istype(button))
+			if(button_done || button.id)
+				continue
 			button.id = master_tag
+			if(name != initial(name))
+				button.name = name
+			button_done = TRUE
 			continue
 		var/obj/structure/window/full/reinforced/polarized/window = thing
 		if(istype(window))
 			window.id = master_tag
+			continue
+		var/obj/structure/window/reinforced/polarized/window_pane = thing
+		if(istype(window_pane))
+			window_pane.id = master_tag
 			continue
 
 // ----------------------------
@@ -55,14 +65,22 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
 	if(!master_tag)
 		return
 
+	var/button_done = FALSE
 	for(var/thing in loc)
 		var/obj/structure/machinery/button/remote/blast_door/button = thing
 		if(istype(button))
+			if(button_done || button.id)
+				continue
 			button.id = master_tag
+			if(name != initial(name))
+				button.name = name
+			button_done = TRUE
 			continue
 		var/obj/structure/machinery/door/blast/shutters/shutter = thing
 		if(istype(shutter))
 			shutter.id = master_tag
+			if(name != initial(name))
+				shutter.name = name
 			continue
 
 // ----------------------------
@@ -86,14 +104,22 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
 	if(!master_tag)
 		return
 
+	var/button_done = FALSE
 	for(var/thing in loc)
 		var/obj/structure/machinery/button/remote/blast_door/button = thing
 		if(istype(button))
+			if(button_done || button.id)
+				continue
 			button.id = master_tag
+			if(name != initial(name))
+				button.name = name
+			button_done = TRUE
 			continue
 		var/obj/structure/machinery/door/blast/regular/blast = thing
 		if(istype(blast))
 			blast.id = master_tag
+			if(name != initial(name))
+				blast.name = name
 			continue
 
 // ----------------------------
@@ -117,11 +143,17 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
 	if(!master_tag)
 		return
 
+	var/button_done = FALSE
 	for(var/thing in loc)
 		var/obj/structure/machinery/button/remote/airlock/button = thing
 		if(istype(button))
+			if(button_done || button.id)
+				continue
 			button.id = master_tag
 			button.specialfunctions = AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_OPEN
+			if(name != initial(name))
+				button.name = name
+			button_done = TRUE
 			continue
 		var/obj/structure/machinery/door/airlock/airlock = thing
 		if(istype(airlock))
@@ -149,11 +181,17 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
 	if(!master_tag)
 		return
 
+	var/button_done = FALSE
 	for(var/thing in loc)
 		var/obj/structure/machinery/button/remote/airlock/button = thing
 		if(istype(button))
+			if(button_done || button.id)
+				continue
 			button.id = master_tag
 			button.specialfunctions = AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_BOLTS
+			if(name != initial(name))
+				button.name = name
+			button_done = TRUE
 			continue
 		var/obj/structure/machinery/door/airlock/airlock = thing
 		if(istype(airlock))
