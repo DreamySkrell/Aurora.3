@@ -25,6 +25,7 @@ Every script has `--help` with examples.
 | [`dmm_utils.py`](dmm_utils.py) | Library used by the others and meant for one-off scripts: lossless atom parser (`Atom.parse` / `render`, keeps var order and string escapes), `isa()` for type paths, tile helpers (`iter_tiles`, `tile_area`, `key_coords`, `insert_before_turf`), and safe editing (`replace_tile` / `edit_tiles` merge tile definitions that become identical). |
 | [`dmm_find.py`](dmm_find.py) | Search a map for atoms by type (with subtypes), edited var / var value, any var equal to a value, or area. Prints the tile key, area, coordinates and atom, or counts with `--group-by VAR` / `type` / `area`. |
 | [`dmm_edit_vars.py`](dmm_edit_vars.py) | Bulk-edit matching atoms: remove vars, set vars (raw or as strings), or change the type path. Dry run unless `--write`. |
+| [`dmm_move_vars.py`](dmm_move_vars.py) | Move var edits off matching atoms onto a new atom added to the same tile (e.g. var-edited `req_access` on doors -> an access marker), optionally renaming the vars or dropping them for a code subtype. `--other TYPE` warns about / skips tiles where the new atom could also affect other atoms. Dry run unless `--write`. |
 | [`area_names.py`](area_names.py) | Resolve area types to their in-game `name` from the code (with inheritance), and find area types sharing a name. Useful when something keys off `get_area()` names, like the default tags of the button control map markers. |
 
 ## Examples
@@ -38,6 +39,9 @@ python tools/dmm_py_scripts/dmm_find.py maps/sccv_horizon/sccv_horizon.dmm --typ
 
 # remove `dir = 8` from scrubber pipes (dry run first, then --write)
 python tools/dmm_py_scripts/dmm_edit_vars.py maps/sccv_horizon/sccv_horizon.dmm --type /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers --where dir=8 --remove dir
+
+# move var-edited access off airlocks onto access markers, skipping tiles that also have a firedoor
+python tools/dmm_py_scripts/dmm_move_vars.py maps/sccv_horizon/sccv_horizon.dmm --type /obj/structure/machinery/door/airlock --move req_access --move req_one_access --new /obj/effect/map_effect/marker/access/some_subtype --other /obj/structure/machinery/door/firedoor --other-action skip
 ```
 
 Writing your own one-off script:
